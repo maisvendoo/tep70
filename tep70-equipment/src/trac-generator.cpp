@@ -69,7 +69,7 @@ void TracGenerator::ode_system(const state_vector_t &Y,
 //------------------------------------------------------------------------------
 void TracGenerator::load_config(CfgReader &cfg)
 {
-
+    Q_UNUSED(cfg)
 }
 
 //------------------------------------------------------------------------------
