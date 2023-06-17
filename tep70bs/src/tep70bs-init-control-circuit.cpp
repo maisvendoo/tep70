@@ -1,11 +1,11 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 #include    <QDir>
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::initControlCircuit()
+void TEP70BS::initControlCircuit()
 {
     battery = new Battery();
     battery->read_custom_config(config_dir + QDir::separator() + "battery");

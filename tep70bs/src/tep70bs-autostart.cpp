@@ -1,7 +1,7 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 
-void TEP70::initAutostart()
+void TEP70BS::initAutostart()
 {
     start_count = 0;
 
@@ -11,18 +11,18 @@ void TEP70::initAutostart()
     triggers.push_back(&azv_upr_tepl);
     triggers.push_back(&azv_ept_on);
 
-    connect(&autoStartTimer, &Timer::process, this, &TEP70::slotAutostart);
+    connect(&autoStartTimer, &Timer::process, this, &TEP70BS::slotAutostart);
     autoStartTimer.firstProcess(true);
     autoStartTimer.setTimeout(0.5);
 }
 
-void TEP70::stepAutostart(double t, double dt)
+void TEP70BS::stepAutostart(double t, double dt)
 {
     autoStartTimer.step(t, dt);
 }
 
 
-void TEP70::slotAutostart()
+void TEP70BS::slotAutostart()
 {
     if (start_count < triggers.size())
     {

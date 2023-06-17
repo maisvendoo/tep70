@@ -1,9 +1,9 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepControlCircuit(double t, double dt)
+void TEP70BS::stepControlCircuit(double t, double dt)
 {
     Ucc = max(battery->getVoltage(), starter_generator->getVoltage() * static_cast<double>(krn->getContactState(1)));
 
@@ -98,7 +98,7 @@ void TEP70::stepControlCircuit(double t, double dt)
     kontaktor_starter->step(t, dt);
 
     starter_time_relay->setControlVoltage(Ucc * static_cast<double>(is_KD_on));
-    starter_time_relay->step(t, dt);    
+    starter_time_relay->step(t, dt);
 
     // Проверяем обороты дизеля
     bool is_RU10_on = static_cast<bool>(hs_p(disel->getOmega() - 31.4)) &&

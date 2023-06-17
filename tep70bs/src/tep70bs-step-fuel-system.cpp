@@ -1,9 +1,9 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepFuelSystem(double t, double dt)
+void TEP70BS::stepFuelSystem(double t, double dt)
 {
     fuel_tank->setFuelConsumption(disel->getFuelFlow());
     fuel_tank->step(t, dt);

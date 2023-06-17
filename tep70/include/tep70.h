@@ -401,9 +401,6 @@ private:
     /// Инициализация маслянной системы
     void initOilSystem();
 
-    /// Инициализация тормозной системы
-    void initPneumoBrakeSystem();
-
     /// Инициализация питательной магистрали
     void initPneumoSupply(QString modules_dir);
 
@@ -415,9 +412,6 @@ private:
 
     /// Инициализация ЭПТ
     void initEPB(QString modules_dir);
-
-    /// Инициализация ЭПТ
-    void initEPT();
 
     /// Инициализация электрической передачи
     void initElectroTransmission();
@@ -443,11 +437,8 @@ private:
     /// Шаг моделирования дизеля
     void stepDisel(double t, double dt);
 
-    /// Шаг моделирвания масляной системы
+    /// Шаг моделирования масляной системы
     void stepOilSystem(double t, double dt);
-
-    /// Шаг моделирования пневматической тормозной системы
-    void stepPneumoBrakeSystem(double t, double dt);
 
     /// Шаг моделирования питательной магистрали
     void stepPneumoSupply(double t, double dt);
@@ -460,9 +451,6 @@ private:
 
     /// Шаг моделирования ЭПТ
     void stepEPB(double t, double dt);
-
-    /// Шаг моделирования ЭПТ
-    void stepEPT(double t, double dt);
 
     /// Шаг моделирования электрической передачи
     void stepElectroTransmission(double t, double dt);

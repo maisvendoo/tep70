@@ -1,11 +1,11 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 #include    <QDir>
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::initElectroTransmission()
+void TEP70BS::initElectroTransmission()
 {
     // Возбудитель главного генератора
     field_gen = new FieldGenerator();
@@ -43,7 +43,7 @@ void TEP70::initElectroTransmission()
         kp[i]->setInitContactState(2, false);
 
         kp[i]->setSoundName("Relay");
-        connect(kp[i], &Relay::soundPlay, this, &TEP70::soundPlay);
+        connect(kp[i], &Relay::soundPlay, this, &TEP70BS::soundPlay);
     }
 
     kp[6] = new Relay(3);

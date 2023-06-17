@@ -1,9 +1,10 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::initMSUT()
+void TEP70BS::initFuelSystem()
 {
-    msut = new MSUT();
+    electro_fuel_pump = new ElectricFuelPump();
+
 }

@@ -10,11 +10,11 @@
 //      Дата: 12/05/2019
 //
 //------------------------------------------------------------------------------
-#ifndef     TEP70_H
-#define     TEP70_H
+#ifndef     TEP70BS_H
+#define     TEP70BS_H
 
 #include    "vehicle-api.h"
-#include    "tep70-signals.h"
+#include    "tep70bs-signals.h"
 
 #include    "battery.h"
 #include    "relay.h"
@@ -48,15 +48,15 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-class TEP70 : public Vehicle
+class TEP70BS : public Vehicle
 {
 public:
 
     /// Конструктор
-    TEP70();
+    TEP70BS();
 
     /// Деструктор
-    ~TEP70();
+    ~TEP70BS();
 
     /// Инициализация тормозных приборов
     void initBrakeDevices(double p0, double pTM, double pFL);
@@ -138,14 +138,26 @@ private:
     /// Регулятор напряжения заряда АКБ
     VoltageRegulator    *voltage_regulator;
 
-    /// Главный воздушный резервуар (ГР)
-    Reservoir           *main_reservoir;
-
     /// Мотор-компрессор
-    DCMotorCompressor   *motor_compressor;
+    TEP70MotorCompressor *motor_compressor;
 
     /// Регулятор давления в ГР
     PressureRegulator   *press_reg;
+
+    /// Главный резервуар
+    Reservoir           *main_reservoir;
+
+    /// Концевой кран питательной магистрали спереди
+    PneumoAngleCock     *anglecock_fl_fwd;
+
+    /// Концевой кран питательной магистрали сзади
+    PneumoAngleCock     *anglecock_fl_bwd;
+
+    /// Рукав питательной  магистрали спереди
+    PneumoHose          *hose_fl_fwd;
+
+    /// Рукав питательной  магистрали сзади
+    PneumoHose          *hose_fl_bwd;
 
     /// Реле РУ18
     Relay               *ru18;
@@ -159,48 +171,80 @@ private:
     /// Реле времени РВ6
     TimeRelay           *rv6;
 
-    /// Устройство блокировки тормозов усл. №367М
-    BrakeLock           *ubt367m;
+    /// Блокировочное устройство УБТ усл.№367м
+    BrakeLock           *brake_lock;
 
-    /// Кран машиниста усл. №395
-    BrakeCrane          *krm;
+    /// Поездной кран машиниста усл.№395
+    BrakeCrane          *brake_crane;
 
-    /// Кран вспомогательного тормоза усл. №254
-    LocoCrane           *kvt;
+    /// Кран впомогательного тормоза усл.№254
+    LocoCrane           *loco_crane;
 
-    /// Воздухораспределитель усл. №242
-    AirDistributor      *vr;
+    /// ЭПК автостопа
+    AutoTrainStop       *epk;
 
-    /// Электровоздухораспределитель усл. №305
-    ElectroAirDistributor   *evr;
+    /// Тормозная магистраль
+    Reservoir           *brakepipe;
 
-    /// Переключательный клапан
-    SwitchingValve          *zpk;
+    /// Воздухораспределитель
+    AirDistributor      *air_dist;
 
-    /// Реле давления усл. №304
-    PneumoReley             *rd304;
+    /// Электровоздухораспределитель
+    ElectroAirDistributor  *electro_air_dist;
+
+    /// Запасный резервуар
+    Reservoir           *supply_reservoir;
+
+    /// Концевой кран тормозной магистрали спереди
+    PneumoAngleCock     *anglecock_bp_fwd;
+
+    /// Концевой кран тормозной магистрали сзади
+    PneumoAngleCock     *anglecock_bp_bwd;
+
+    /// Рукав тормозной магистрали спереди
+    PneumoHoseEPB       *hose_bp_fwd;
+
+    /// Рукав тормозной магистрали сзади
+    PneumoHoseEPB       *hose_bp_bwd;
+
+    /// Переключательный клапан магистрали тормозных цилиндров ЗПК
+    SwitchingValve      *bc_switch_valve;
 
     /// Тройник для распределения воздуха от переключательного клапана
     /// к тележкам
-    PneumoSplitter          *pneumo_splitter;
+    PneumoSplitter      *bc_splitter;
 
-    /// Передняя тележка
-    BrakeMech               *fwd_trolley;
+    enum
+    {
+        NUM_TROLLEYS = 2,
+        NUM_AXIS_PER_TROLLEY = 3,
+        TROLLEY_FWD = 0,
+        TROLLEY_BWD = 1
+    };
 
-    /// Задняя тележка
-    BrakeMech               *bwd_trolley;
+    /// Повторительное реле давления усл.№304
+    std::array<PneumoRelay *, NUM_TROLLEYS> bc_pressure_relay;
 
-    /// Запасный резервуар
-    Reservoir               *zr;
+    /// Тормозные механизмы тележек
+    std::array<BrakeMech *, NUM_TROLLEYS> brake_mech;
 
-    /// ЭПК автостопа
-    AutoTrainStop           *epk;
+    /// Концевой кран магистрали тормозных цилиндров спереди
+    PneumoAngleCock     *anglecock_bc_fwd;
 
-    /// Преобразователь питания ЭПТ
-    EPTConverter            *ept_converter;
+    /// Концевой кран магистрали тормозных цилиндров сзади
+    PneumoAngleCock     *anglecock_bc_bwd;
 
-    /// Блок управления ЭПТ
-    EPTPassControl          *ept_pass_control;
+    /// Рукав магистрали тормозных цилиндров спереди
+    PneumoHose          *hose_bc_fwd;
+
+    /// Рукав магистрали тормозных цилиндров сзади
+    PneumoHose          *hose_bc_bwd;
+
+    /// Источник питания ЭПТ
+    EPBConverter        *epb_converter;
+
+    /// Блок управления двухпроводного ЭПТ
+    EPBControl          *epb_control;
 
     /// Возбудитель главного генератора
     FieldGenerator          *field_gen;
@@ -222,9 +266,6 @@ private:
 
     /// Регистратор, для постоения графиков
     Registrator             *reg;
-
-    /// Скоростемер
-    //SL2M                    *speed_meter;
 
     /// Кнопка "Отпуск тормозов"
     bool    button_brake_release;
@@ -260,7 +301,7 @@ private:
     Relay   *ru1;
 
     /// Свисток и тифон
-    TEP70Horn   *horn;
+    TrainHorn   *horn;
 
     double tracForce;
 
@@ -351,9 +392,6 @@ private:
 
     TEP70Switcher tumbler_revers;
 
-    /// Ключ ЭПК
-    Trigger  epk_key;
-
     msut_input_t msut_input;
 
     msut_output_t msut_output;
@@ -382,11 +420,17 @@ private:
     /// Инициализация маслянной системы
     void initOilSystem();
 
-    /// Инициализация тормозной системы
-    void initPneumoBrakeSystem();
+    /// Инициализация питательной магистрали
+    void initPneumoSupply(QString modules_dir);
+
+    /// Инициализация приборов управления тормозами
+    void initBrakesControl(QString modules_dir);
+
+    /// Инициализация тормозного оборудования
+    void initBrakesEquipment(QString modules_dir);
 
     /// Инициализация ЭПТ
-    void initEPT();
+    void initEPB(QString modules_dir);
 
     /// Инициализация электрической передачи
     void initElectroTransmission();
@@ -418,14 +462,20 @@ private:
     /// Шаг моделирования дизеля
     void stepDisel(double t, double dt);
 
-    /// Шаг моделирвания масляной системы
+    /// Шаг моделирования масляной системы
     void stepOilSystem(double t, double dt);
 
-    /// Шаг моделирования пневматической тормозной системы
-    void stepPneumoBrakeSystem(double t, double dt);
+    /// Шаг моделирования питательной магистрали
+    void stepPneumoSupply(double t, double dt);
+
+    /// Шаг моделирования приборов управления тормозами
+    void stepBrakesControl(double t, double dt);
+
+    /// Шаг моделирования тормозного оборудования
+    void stepBrakesEquipment(double t, double dt);
 
     /// Шаг моделирования ЭПТ
-    void stepEPT(double t, double dt);
+    void stepEPB(double t, double dt);
 
     /// Шаг моделирования электрической передачи
     void stepElectroTransmission(double t, double dt);

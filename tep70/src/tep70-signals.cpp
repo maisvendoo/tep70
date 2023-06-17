@@ -38,17 +38,11 @@ void TEP70::stepSignalsOutput(double t, double dt)
 
     analogSignal[STRELKA_BAT_CURRENT] = static_cast<float>(battery->getCargeCurrent() / 150.0);
 
-    double U_bat = 0;
-
+    double U_bat = Ucc;
     if (tumbler_voltage.getState())
     {
         U_bat = epb_converter->getOutputVoltage();
     }
-    else
-    {
-        U_bat = Ucc;
-    }
-
     analogSignal[STRELKA_BAT_VOLTAGE] = static_cast<float>(U_bat / 150.0);
 
     analogSignal[STRELKA_FUEL_PRESS] = static_cast<float>(electro_fuel_pump->getFuelPressure() * Physics::g / 15.0);

@@ -164,9 +164,9 @@ void TEP70::step(double t, double dt)
 
     stepBrakesControl(t, dt);
 
-    stepEPB(t, dt);
-
     stepBrakesEquipment(t, dt);
+
+    stepEPB(t, dt);
 
     stepElectroTransmission(t, dt);
 

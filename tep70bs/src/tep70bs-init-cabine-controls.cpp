@@ -1,11 +1,11 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 #include    <QDir>
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::initCabineControls()
+void TEP70BS::initCabineControls()
 {
     km = new ControllerKM2202();
     km->read_custom_config(config_dir + QDir::separator() + "km-2202");

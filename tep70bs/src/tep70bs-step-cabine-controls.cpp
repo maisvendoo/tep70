@@ -1,9 +1,9 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepCabineControls(double t, double dt)
+void TEP70BS::stepCabineControls(double t, double dt)
 {
     km->setControl(keys);
     km->step(t, dt);

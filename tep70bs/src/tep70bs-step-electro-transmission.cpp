@@ -1,9 +1,9 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepElectroTransmission(double t, double dt)
+void TEP70BS::stepElectroTransmission(double t, double dt)
 {
     // Ток, потребляемый от главного генератора
     I_gen = 0.0;
@@ -88,10 +88,6 @@ void TEP70::stepElectroTransmission(double t, double dt)
     field_reg->setKMPosition(km->getPositionNumber());
     field_reg->step(t, dt);
 
-    //speed_meter->setWheelDiameter(wheel_diameter[0]);
-    //speed_meter->setOmega(wheel_omega[0]);
-    //speed_meter->step(t, dt);
-
     // Цепь реле РУ1
     bool is_RU1_on = azv_upr_tepl.getState() && km->is12orMore();
 
@@ -136,7 +132,7 @@ void TEP70::stepElectroTransmission(double t, double dt)
     ksh2->step(t, dt);
 
 
-    // Цепь вентиля реврсора вперед
+    // Цепь вентиля реверсора вперед
     bool is_Revers_Forward = azv_upr_tepl.getState() && (tumbler_revers.getState() == 2);
 
     // Цепь вентиля реверсора назад

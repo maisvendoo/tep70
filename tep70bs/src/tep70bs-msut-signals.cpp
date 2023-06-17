@@ -1,10 +1,13 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
-void TEP70::stepMSUTsignals(double t, double dt)
+void TEP70BS::stepMSUTsignals(double t, double dt)
 {
+    Q_UNUSED(t)
+    Q_UNUSED(dt)
+
     msut_input.velocity = velocity;
     msut_input.is_KP1_KP6_on = is_KP1_KP6_on;
-    msut_input.bc_pressure = fwd_trolley->getBrakeCylinderPressure();
+    msut_input.bc_pressure = brake_mech[TROLLEY_FWD]->getBCpressure();
     msut_input.button_start_state = button_start_disel.getState();
     msut_input.button_stop_state = false;
 

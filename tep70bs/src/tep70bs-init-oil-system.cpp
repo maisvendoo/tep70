@@ -1,10 +1,9 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepOther(double t, double dt)
+void TEP70BS::initOilSystem()
 {
-    horn->setControl(keys);
-    horn->step(t, dt);    
+    electro_oil_pump = new ElectricOilPump();
 }
