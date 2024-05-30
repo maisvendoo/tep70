@@ -8,25 +8,16 @@ QT += xml
 
 TARGET = msut-display
 
-DESTDIR = ../../../../modules/tep70bs
+DESTDIR = ../../modules/tep70bs
 
-CONFIG(debug, debug|release) {
-
-    LIBS += -L../../../../lib -ldisplay_d
-    LIBS += -L../../../../lib -lCfgReader_d
-
-} else {
-
-    LIBS += -L../../../../lib -ldisplay
-    LIBS += -L../../../../lib -lCfgReader
-}
+LIBS += -L$$(RRS_DEV_ROOT)/bin -ldisplay
+LIBS += -L$$(RRS_DEV_ROOT)/bin -lCfgReader
 
 INCLUDEPATH += ./include
+INCLUDEPATH += $$(RRS_DEV_ROOT)/sdk/include
 INCLUDEPATH += ../tep70bs/include
-INCLUDEPATH += ../../../simulator/vehicle/include
-INCLUDEPATH += ../../../CfgReader/include
-INCLUDEPATH += ../../../viewer/display/include
 
 HEADERS += $$files(./include/*.h)
+HEADERS += $$files(../tep70bs/include/*.h)
 SOURCES += $$files(./src/*.cpp)
 RESOURCES += $$files(./resources/*.qrc)
