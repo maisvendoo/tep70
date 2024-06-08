@@ -41,8 +41,13 @@ void TEP70::stepBrakesControl(double t, double dt)
     // Выход клапана подключен через тройник к повторителям давления тележек
     double bc_flow1 = 0.0;
     bc_flow1 += brake_lock->getBCflow();
+
+    anglecock_bc_fwd->setHoseFlow(hose_bc_fwd->getFlow());
     bc_flow1 += anglecock_bc_fwd->getFlowToPipe();
+
+    anglecock_bc_bwd->setHoseFlow(hose_bc_bwd->getFlow());
     bc_flow1 += anglecock_bc_bwd->getFlowToPipe();
+
     bc_switch_valve->setInputFlow1(bc_flow1);
     bc_switch_valve->setInputFlow2(electro_air_dist->getBCflow());
     bc_switch_valve->setOutputPressure(bc_splitter->getInputPressure());

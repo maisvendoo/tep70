@@ -8,8 +8,8 @@
 //
 //------------------------------------------------------------------------------
 TEP70BS::TEP70BS() : Vehicle()
-    , coupling_module_name("sa3")
-    , coupling_config_name("sa3")
+  , coupling_module_name("sa3")
+  , coupling_config_name("sa3")
   , brake_crane_module_name("krm395")
   , brake_crane_config_name("krm395")
   , loco_crane_module_name("kvt254")
@@ -160,8 +160,19 @@ void TEP70BS::initialization()
     initAutostart();
 
     initSounds();
+/*
+    reg = new Registrator(0.1);
+    reg->setFileName("tep70-char");
+    reg->init();
+*/
+}
 
-    //reg = new Registrator("../charts/tep70-char", 1.0);
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70BS::preStep(double t)
+{
+    preStepCouplings(t);
 }
 
 //------------------------------------------------------------------------------
