@@ -127,7 +127,7 @@ TEP70::~TEP70()
 void TEP70::initialization()
 {
     FileSystem &fs = FileSystem::getInstance();
-    QString modules_dir = QString(fs.getModulesDir().c_str());
+    QString modules_dir = QString(fs.getModulesDir().c_str());   
 
     initCouplings(modules_dir);
 

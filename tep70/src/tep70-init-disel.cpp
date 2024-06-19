@@ -1,5 +1,6 @@
 #include    "tep70.h"
 
+#include    "filesystem.h"
 #include    <QDir>
 
 //------------------------------------------------------------------------------
@@ -12,7 +13,11 @@ void TEP70::initDisel()
 
     starter_generator = new StarterGenerator();
     starter_generator->read_custom_config(config_dir + QDir::separator() + "starter-generator");
-    starter_generator->init(config_dir + QDir::separator() + "5sg-magnetic-char.txt");
+
+    FileSystem &fs = FileSystem::getInstance();
+    QString cfg_dir = QString(fs.getVehiclesDir().c_str()) + QDir::separator() + config_dir;
+
+    starter_generator->init(cfg_dir + QDir::separator() + "5sg-magnetic-char.txt");
 
     voltage_regulator = new VoltageRegulator();
     voltage_regulator->read_custom_config(config_dir + QDir::separator() + "voltage-regulator");
