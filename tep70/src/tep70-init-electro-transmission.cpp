@@ -1,5 +1,6 @@
 #include    "tep70.h"
 
+#include    "filesystem.h"
 #include    <QDir>
 
 //------------------------------------------------------------------------------
@@ -7,6 +8,9 @@
 //------------------------------------------------------------------------------
 void TEP70::initElectroTransmission()
 {
+    FileSystem &fs = FileSystem::getInstance();
+    QString cfg_dir = QString(fs.getVehiclesDir().c_str()) + QDir::separator() + config_dir;
+
     // Возбудитель главного генератора
     field_gen = new FieldGenerator();
 
@@ -22,19 +26,19 @@ void TEP70::initElectroTransmission()
 
     trac_gen = new TracGenerator();
     trac_gen->read_custom_config(config_dir + QDir::separator() + "trac-generator");
-    trac_gen->load_marnetic_char(config_dir + QDir::separator() + "gs-504a.txt");
-    trac_gen->load_eff_coeff(config_dir + QDir::separator() + "gs-504a-eff_coeff.txt");
+    trac_gen->load_marnetic_char(cfg_dir + QDir::separator() + "gs-504a.txt");
+    trac_gen->load_eff_coeff(cfg_dir + QDir::separator() + "gs-504a-eff_coeff.txt");
 
     field_reg = new FieldRegulator();
     field_reg->read_custom_config(config_dir + QDir::separator() + "field-regulator");
-    field_reg->load_settings(config_dir + QDir::separator() + "field-reg-settings.txt");
+    field_reg->load_settings(cfg_dir + QDir::separator() + "field-reg-settings.txt");
 
     for (size_t i = 0; i < motor.size(); ++i)
     {
         motor[i] = new TractionMotor();
         motor[i]->read_custom_config(config_dir + QDir::separator() + "ed-119");
-        motor[i]->load_magnetic_char(config_dir + QDir::separator() + "ed-119.txt");
-        motor[i]->load_eff_coeff(config_dir + QDir::separator() + "ed-119-eff_coeff.txt");
+        motor[i]->load_magnetic_char(cfg_dir + QDir::separator() + "ed-119.txt");
+        motor[i]->load_eff_coeff(cfg_dir + QDir::separator() + "ed-119-eff_coeff.txt");
 
         kp[i] = new Relay(3);
         kp[i]->read_custom_config(config_dir + QDir::separator() + "mk-6");

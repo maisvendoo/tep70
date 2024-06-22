@@ -6,5 +6,4 @@
 void TEP70::initFuelSystem()
 {
     electro_fuel_pump = new ElectricFuelPump();
-
 }
