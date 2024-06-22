@@ -3,7 +3,10 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70BS::initOther()
+void TEP70BS::initOther(const QString &modules_dir, const QString &custom_cfg_dir)
 {
+    (void) modules_dir;
+    (void) custom_cfg_dir;
+
     horn = new TrainHorn();
 }

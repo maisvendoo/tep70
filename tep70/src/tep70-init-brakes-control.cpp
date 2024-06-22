@@ -1,11 +1,11 @@
-#include    "filesystem.h"
-
 #include    "tep70.h"
+
+#include    <QDir>
 
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
-void TEP70::initBrakesControl(QString modules_dir)
+void TEP70::initBrakesControl(const QString &modules_dir, const QString &custom_cfg_dir)
 {
     // Блокировочное устройство
     brake_lock = new BrakeLock();
@@ -27,7 +27,7 @@ void TEP70::initBrakesControl(QString modules_dir)
 
     // Переключательный клапан магистрали тормозных цилиндров
     bc_switch_valve = new SwitchingValve();
-    bc_switch_valve->read_custom_config(config_dir + QDir::separator() + "zpk");
+    bc_switch_valve->read_config("zpk", custom_cfg_dir);
 
     // Тройник
     bc_splitter = new PneumoSplitter();
@@ -41,17 +41,21 @@ void TEP70::initBrakesControl(QString modules_dir)
 
     // Концевые краны магистрали тормозных цилиндров
     anglecock_bc_fwd = new PneumoAngleCock();
+    //anglecock_bc_fwd->setKeyCode(0);
     anglecock_bc_fwd->read_config("pneumo-anglecock-BC");
 
     anglecock_bc_bwd = new PneumoAngleCock();
+    //anglecock_bc_bwd->setKeyCode(0);
     anglecock_bc_bwd->read_config("pneumo-anglecock-BC");
 
     // Рукава магистрали тормозных цилиндров
     hose_bc_fwd = new PneumoHose();
+    //hose_bc_fwd->setKeyCode(0);
     hose_bc_fwd->read_config("pneumo-hose-BC");
     forward_connectors.push_back(hose_bc_fwd);
 
     hose_bc_bwd = new PneumoHose();
+    //hose_bc_bwd->setKeyCode(0);
     hose_bc_bwd->read_config("pneumo-hose-BC");
     backward_connectors.push_back(hose_bc_bwd);
 }

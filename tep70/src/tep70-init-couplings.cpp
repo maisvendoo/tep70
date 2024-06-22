@@ -1,12 +1,14 @@
-#include    "filesystem.h"
-
 #include    "tep70.h"
+
+#include    <QDir>
 
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
-void TEP70::initCouplings(QString modules_dir)
+void TEP70::initCouplings(const QString &modules_dir, const QString &custom_cfg_dir)
 {
+    (void) custom_cfg_dir;
+
     // Сцепные устройства
     coupling_fwd = loadCoupling(modules_dir + QDir::separator() + coupling_module_name);
     coupling_fwd->read_config(coupling_config_name);

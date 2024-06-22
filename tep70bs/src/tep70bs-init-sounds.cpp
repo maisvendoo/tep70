@@ -159,6 +159,12 @@ void TEP70BS::initSounds()
     kvg->setSoundName("Relay");
     connect(kvg, &Relay::soundPlay, this, &TEP70BS::soundPlay);
 
+    for (size_t i = 0; i < kp.size(); ++i)
+    {
+        kp[i]->setSoundName("Relay");
+        connect(kp[i], &Relay::soundPlay, this, &TEP70BS::soundPlay);
+    }
+
     ksh1->setSoundName("Relay");
     connect(ksh1, &Relay::soundPlay, this, &TEP70BS::soundPlay);
 

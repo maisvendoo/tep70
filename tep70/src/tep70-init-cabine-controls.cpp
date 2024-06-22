@@ -5,10 +5,12 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::initCabineControls()
+void TEP70::initCabineControls(const QString &modules_dir, const QString &custom_cfg_dir)
 {
+    (void) modules_dir;
+
     km = new ControllerKM2202();
-    km->read_custom_config(config_dir + QDir::separator() + "km-2202");
+    km->read_config("km-2202", custom_cfg_dir);
 
     tumbler_field_weak1.setKolStates(3);
     tumbler_field_weak1.setKeyCode(KEY_3);
