@@ -35,7 +35,7 @@ void TEP70BS::stepSignalsOutput(double t, double dt)
     analogSignal[TUMBLER_WATER_ZALUZI] = static_cast<float>(tumbler_water_zaluzi.getHandlePos());
     analogSignal[TUMBLER_OIL_ZALUZI] = static_cast<float>(tumbler_oil_zaluzi.getHandlePos());
 
-    analogSignal[STRELKA_BAT_CURRENT] = static_cast<float>(battery->getCargeCurrent() / 150.0);
+    analogSignal[STRELKA_BAT_CURRENT] = static_cast<float>(battery->getChargeCurrent() / 150.0);
 
     double U_bat = Ucc;
     if (tumbler_voltage.getState())

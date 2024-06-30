@@ -3,8 +3,6 @@
 
 #include    "device.h"
 
-#include    "motor-magnetic-char.h"
-
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
@@ -84,7 +82,7 @@ private:
     Timer   *switch_timer;
 
     /// Характеристика намагничивания обмотки возбуждения
-    MotorMagneticChar   magnetic_char;
+    LinearInterpolation   magnetic_char;
 
     void preStep(state_vector_t &Y, double t);
 

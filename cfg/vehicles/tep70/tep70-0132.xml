@@ -37,6 +37,6 @@
 		<ElectroAirDistModule>evr305</ElectroAirDistModule>
 		<ElectroAirDistConfig>evr305</ElectroAirDistConfig>
 
-		<DriverPos>1.0 9.2 3.6</DriverPos>
+		<DriverPos>0.9 9.2 3.6</DriverPos>
 	</Vehicle>
 </Config>

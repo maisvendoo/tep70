@@ -33,7 +33,7 @@ void TEP70BS::initControlCircuit(const QString &modules_dir, const QString &cust
 
     oilpump_time_relay = new TimeRelay(3);
     oilpump_time_relay->read_config("rpu-3m", custom_cfg_dir);
-    oilpump_time_relay->setTimeout(60.0);
+    oilpump_time_relay->setTimeoutOn(60.0);
     oilpump_time_relay->setInitContactState(0, false);
     oilpump_time_relay->setInitContactState(1, false);
     oilpump_time_relay->setInitContactState(2, false);
@@ -45,7 +45,7 @@ void TEP70BS::initControlCircuit(const QString &modules_dir, const QString &cust
 
     starter_time_relay = new TimeRelay(1);
     starter_time_relay->read_config("rpu-3m", custom_cfg_dir);
-    starter_time_relay->setTimeout(12.0);
+    starter_time_relay->setTimeoutOn(12.0);
     starter_time_relay->setInitContactState(0, false);
 
     ru10 = new Relay(2);
@@ -85,12 +85,12 @@ void TEP70BS::initControlCircuit(const QString &modules_dir, const QString &cust
 
     rv4 = new TimeRelay(1);
     rv4->read_config("rpu-3m", custom_cfg_dir);
-    rv4->setTimeout(60.0);
+    rv4->setTimeoutOn(60.0);
     rv4->setInitContactState(0, true);
 
     rv9 = new TimeRelay(1);
     rv9->read_config("rpu-3m", custom_cfg_dir);
-    rv9->setTimeout(5.0);
+    rv9->setTimeoutOn(5.0);
     rv9->setInitContactState(0, false);
 
     krn = new Relay(6);

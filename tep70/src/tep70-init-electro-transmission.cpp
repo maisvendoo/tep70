@@ -83,11 +83,11 @@ void TEP70::initElectroTransmission(const QString &modules_dir, const QString &c
 
     ksh2_delay = new TimeRelay(1);
     ksh2_delay->read_config("rpu-3m", custom_cfg_dir);
-    ksh2_delay->setTimeout(2.0);
+    ksh2_delay->setTimeoutOn(2.0);
     ksh2_delay->setInitContactState(0, false);
 
     ksh1_delay = new TimeRelay(1);
     ksh1_delay->read_config("rpu-3m", custom_cfg_dir);
-    ksh1_delay->setTimeout(2.0);
+    ksh1_delay->setTimeoutOn(2.0);
     ksh1_delay->setInitContactState(0, true);
 }

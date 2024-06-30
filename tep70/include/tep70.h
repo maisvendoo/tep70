@@ -16,12 +16,9 @@
 #include    "vehicle-api.h"
 #include    "tep70-signals.h"
 
-#include    "battery.h"
-#include    "relay.h"
 #include    "fuel-tank.h"
 #include    "electric-fuel-pump.h"
 #include    "disel.h"
-#include    "time-relay.h"
 #include    "electric-oil-pump.h"
 #include    "starter-generator.h"
 #include    "voltage-regulator.h"
@@ -35,7 +32,6 @@
 #include    "km-2202.h"
 #include    "reversor.h"
 #include    "brake-switcher.h"
-#include    "hysteresis-relay.h"
 
 /*!
  * \class

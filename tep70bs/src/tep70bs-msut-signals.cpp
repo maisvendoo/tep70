@@ -53,7 +53,7 @@ void TEP70BS::stepMSUTsignals(double t, double dt)
 
     analogSignal[MSUT_P_OIL] = disel->getOilPressure() * Physics::g;
     analogSignal[MSUT_P_FUEL] = electro_fuel_pump->getFuelPressure() * Physics::g;
-    analogSignal[MSUT_I_AB] = hs_p(battery->getCargeCurrent());
+    analogSignal[MSUT_I_AB] = hs_p(battery->getChargeCurrent());
     analogSignal[MSUT_U_CHAIN] = Ucc;
 
     analogSignal[MSUT_TIMER_PROKACHKA] = msut_output.oil_pump_timer;

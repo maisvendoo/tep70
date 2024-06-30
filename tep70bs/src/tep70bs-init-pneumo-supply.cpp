@@ -30,7 +30,7 @@ void TEP70BS::initPneumoSupply(const QString &modules_dir, const QString &custom
     rv6 = new TimeRelay(1);
     rv6->read_config("rpu-3m", custom_cfg_dir);
     rv6->setInitContactState(0, false);
-    rv6->setTimeout(5.0);
+    rv6->setTimeoutOn(5.0);
 
     ktk1 = new Relay(3);
     ktk1->read_config("rpu-3m", custom_cfg_dir);
