@@ -31,7 +31,7 @@ void TEP70::stepBrakesControl(double t, double dt)
     // ЭПК
     epk->setFLpressure(main_reservoir->getPressure());
     epk->setBPpressure(brakepipe->getPressure());
-    epk->powerOn(true);
+    epk->setPowered(true);
     epk->setControl(keys);
     epk->step(t, dt);
 

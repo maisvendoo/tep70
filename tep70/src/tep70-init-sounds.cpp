@@ -172,6 +172,7 @@ void TEP70::initSounds()
     connect(ru1, &Relay::soundPlay, this, &TEP70::soundPlay);
 
     connect(horn, &TrainHorn::soundPlay, this, &TEP70::soundPlay);
+    connect(horn, &TrainHorn::soundSetVolume, this, &TEP70::soundSetVolume);
     connect(horn, &TrainHorn::soundStop, this, &TEP70::soundStop);
 
     connect(km, &ControllerKM2202::soundPlay, this, &TEP70::soundPlay);

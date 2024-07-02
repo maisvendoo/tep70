@@ -67,7 +67,7 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[KRAN_254_POD] = static_cast<float>(loco_crane->getHandleShift());
     analogSignal[KRAN_254_RUK] = static_cast<float>(loco_crane->getHandlePosition());
 
-    analogSignal[KLUCH_EPK] = static_cast<float>(epk->getStateKey());
+    analogSignal[KLUCH_EPK] = static_cast<float>(epk->isKeyOn());
     analogSignal[RB1] = static_cast<float>(button_RB1);
 
     analogSignal[SIGLIGHT_EPT_O] = static_cast<float>(epb_control->stateReleaseLamp());
