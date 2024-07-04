@@ -330,6 +330,9 @@ private:
     /// Свисток и тифон
     TrainHorn   *horn;
 
+    /// Система подачи песка
+    SandingSystem   *sand_system;
+
     double tracForce;
 
     bool    is_svistok;

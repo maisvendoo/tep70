@@ -10,4 +10,10 @@ void TEP70BS::initOther(const QString &modules_dir, const QString &custom_cfg_di
 
     horn = new TrainHorn();
     horn->read_config("train-horn");
+
+    // Система подачи песка
+    sand_system = new SandingSystem();
+    sand_system->read_config("sanding-system");
+    sand_system->setSandMassMax(payload_mass);
+    sand_system->setSandLevel(payload_coeff);
 }

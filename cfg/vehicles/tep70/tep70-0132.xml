@@ -2,7 +2,7 @@
 <Config>
 	<Vehicle>
 		<EmptyMass>129000</EmptyMass>
-		<PayloadMass>0</PayloadMass>
+		<PayloadMass>800</PayloadMass>
 		<Length>21.7</Length>
 		<WheelDiameter>1.22</WheelDiameter>
 		<MainResist>loco-resist</MainResist>
