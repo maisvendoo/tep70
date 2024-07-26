@@ -127,33 +127,48 @@ TEP70::~TEP70()
 void TEP70::initialization()
 {
     FileSystem &fs = FileSystem::getInstance();
-    QString modules_dir = QString(fs.getModulesDir().c_str());   
+    QString modules_dir = QString(fs.getModulesDir().c_str());
+    QString custom_cfg_dir(fs.getVehiclesDir().c_str());
+    custom_cfg_dir += fs.separator() + config_dir;
 
-    initCouplings(modules_dir);
+    initCouplings(modules_dir, custom_cfg_dir);
 
-    initCabineControls();
+    initCabineControls(modules_dir, custom_cfg_dir);
 
-    initControlCircuit();
+    initControlCircuit(modules_dir, custom_cfg_dir);
 
-    initFuelSystem();
+    initFuelSystem(modules_dir, custom_cfg_dir);
 
-    initDisel();
+    initDisel(modules_dir, custom_cfg_dir);
 
-    initOilSystem();
+    initOilSystem(modules_dir, custom_cfg_dir);
 
-    initPneumoSupply(modules_dir);
+    initPneumoSupply(modules_dir, custom_cfg_dir);
 
-    initBrakesControl(modules_dir);
+    initBrakesControl(modules_dir, custom_cfg_dir);
 
-    initBrakesEquipment(modules_dir);
+    initBrakesEquipment(modules_dir, custom_cfg_dir);
 
-    initEPB(modules_dir);
+    initEPB(modules_dir, custom_cfg_dir);
 
-    initElectroTransmission();
+    initElectroTransmission(modules_dir, custom_cfg_dir);
 
-    initOther();
+    initOther(modules_dir, custom_cfg_dir);
 
     initSounds();
+/*
+    reg = new Registrator(0.1);
+    reg->setFileName("tep70-char");
+    reg->init();
+*/
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70::preStep(double t)
+{
+    preStepCouplings(t);
 }
 
 //------------------------------------------------------------------------------
@@ -161,9 +176,6 @@ void TEP70::initialization()
 //------------------------------------------------------------------------------
 void TEP70::step(double t, double dt)
 {
-    Q_UNUSED(t)
-    Q_UNUSED(dt)
-
     stepCouplings(t, dt);
 
     stepCabineControls(t, dt);
@@ -191,6 +203,15 @@ void TEP70::step(double t, double dt)
     stepSignalsOutput(t, dt);
 
     debugOutput(t, dt);
+
+    if (reg == nullptr)
+        return;
+
+    QString line = QString("%1 %2 %3")
+                       .arg(velocity * Physics::kmh, 6, 'f', 1)
+                       .arg(tracForce / 1000.0, 6, 'f', 1)
+                       .arg(motor[0]->getAncorCurrent(), 6, 'f', 1);
+    reg->print(line, t, dt);
 }
 
 //------------------------------------------------------------------------------

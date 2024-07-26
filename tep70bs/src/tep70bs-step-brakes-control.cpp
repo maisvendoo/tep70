@@ -31,7 +31,7 @@ void TEP70BS::stepBrakesControl(double t, double dt)
     // ЭПК
     epk->setFLpressure(main_reservoir->getPressure());
     epk->setBPpressure(brakepipe->getPressure());
-    epk->powerOn(true);
+    epk->setPowered(true);
     epk->setControl(keys);
     epk->step(t, dt);
 
@@ -41,8 +41,13 @@ void TEP70BS::stepBrakesControl(double t, double dt)
     // Выход клапана подключен через тройник к повторителям давления тележек
     double bc_flow1 = 0.0;
     bc_flow1 += brake_lock->getBCflow();
+
+    anglecock_bc_fwd->setHoseFlow(hose_bc_fwd->getFlow());
     bc_flow1 += anglecock_bc_fwd->getFlowToPipe();
+
+    anglecock_bc_bwd->setHoseFlow(hose_bc_bwd->getFlow());
     bc_flow1 += anglecock_bc_bwd->getFlowToPipe();
+
     bc_switch_valve->setInputFlow1(bc_flow1);
     bc_switch_valve->setInputFlow2(electro_air_dist->getBCflow());
     bc_switch_valve->setOutputPressure(bc_splitter->getInputPressure());
@@ -67,19 +72,25 @@ void TEP70BS::stepBrakesControl(double t, double dt)
 
     // Концевые краны магистрали тормозных цилиндров
     anglecock_bc_fwd->setPipePressure(bc_switch_valve->getPressure1());
-    anglecock_bc_fwd->setHoseFlow(hose_bc_fwd->getFlow());
+    //anglecock_bc_fwd->setControl(keys);
     anglecock_bc_fwd->step(t, dt);
 
     anglecock_bc_bwd->setPipePressure(bc_switch_valve->getPressure1());
-    anglecock_bc_bwd->setHoseFlow(hose_bc_bwd->getFlow());
+    //anglecock_bc_bwd->setControl(keys);
     anglecock_bc_bwd->step(t, dt);
 
     // Рукава магистрали тормозных цилиндров
     hose_bc_fwd->setPressure(anglecock_bc_fwd->getPressureToHose());
     hose_bc_fwd->setFlowCoeff(anglecock_bc_fwd->getFlowCoeff());
+    hose_bc_fwd->setCoord(railway_coord + dir * orient * (length / 2.0 - anglecock_bc_fwd->getShiftCoord()));
+    hose_bc_fwd->setShiftSide(anglecock_bc_fwd->getShiftSide());
+    //hose_bc_fwd->setControl(keys);
     hose_bc_fwd->step(t, dt);
 
     hose_bc_bwd->setPressure(anglecock_bc_bwd->getPressureToHose());
     hose_bc_bwd->setFlowCoeff(anglecock_bc_bwd->getFlowCoeff());
+    hose_bc_bwd->setCoord(railway_coord - dir * orient * (length / 2.0 - anglecock_bc_bwd->getShiftCoord()));
+    hose_bc_bwd->setShiftSide(anglecock_bc_bwd->getShiftSide());
+    //hose_bc_bwd->setControl(keys);
     hose_bc_bwd->step(t, dt);
 }

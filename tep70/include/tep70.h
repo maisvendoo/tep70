@@ -16,12 +16,9 @@
 #include    "vehicle-api.h"
 #include    "tep70-signals.h"
 
-#include    "battery.h"
-#include    "relay.h"
 #include    "fuel-tank.h"
 #include    "electric-fuel-pump.h"
 #include    "disel.h"
-#include    "time-relay.h"
 #include    "electric-oil-pump.h"
 #include    "starter-generator.h"
 #include    "voltage-regulator.h"
@@ -35,7 +32,6 @@
 #include    "km-2202.h"
 #include    "reversor.h"
 #include    "brake-switcher.h"
-#include    "hysteresis-relay.h"
 
 /*!
  * \class
@@ -336,6 +332,9 @@ private:
     /// Свисток и тифон
     TrainHorn   *horn;
 
+    /// Система подачи песка
+    SandingSystem   *sand_system;
+
     double tracForce;
 
     bool    is_svistok;
@@ -416,43 +415,49 @@ private:
     void initialization();
 
     /// Инициализация сцепных устройств
-    void initCouplings(QString modules_dir);
+    void initCouplings(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация органов управления в кабине
-    void initCabineControls();
+    void initCabineControls(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация цепей управления
-    void initControlCircuit();
+    void initControlCircuit(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация топливной системы
-    void initFuelSystem();
+    void initFuelSystem(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация дизеля
-    void initDisel();
+    void initDisel(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация маслянной системы
-    void initOilSystem();
+    void initOilSystem(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация питательной магистрали
-    void initPneumoSupply(QString modules_dir);
+    void initPneumoSupply(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация приборов управления тормозами
-    void initBrakesControl(QString modules_dir);
+    void initBrakesControl(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация тормозного оборудования
-    void initBrakesEquipment(QString modules_dir);
+    void initBrakesEquipment(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация ЭПТ
-    void initEPB(QString modules_dir);
+    void initEPB(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация электрической передачи
-    void initElectroTransmission();
+    void initElectroTransmission(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация прочего оборудования
-    void initOther();
+    void initOther(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация звуков
     void initSounds();
+
+    /// Предварительные расчёты перед симуляцией
+    void preStep(double t);
+
+    /// Предварительный расчёт координат сцепных устройств
+    void preStepCouplings(double t);
 
     /// Шаг моделирования всех систем локомотива в целом
     void step(double t, double dt);

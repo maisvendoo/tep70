@@ -11,7 +11,7 @@ void TEP70::stepDecodeAlsn()
     analogSignal[LS_Y] = 0.0f;
     analogSignal[LS_G] = 0.0f;
 
-    if (!epk->getStateKey())
+    if (!epk->isKeyOn())
         return;
 
     switch (alsn_info.code_alsn)

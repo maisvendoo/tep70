@@ -156,6 +156,12 @@ void TEP70::initSounds()
     kvg->setSoundName("Relay");
     connect(kvg, &Relay::soundPlay, this, &TEP70::soundPlay);
 
+    for (size_t i = 0; i < kp.size(); ++i)
+    {
+        kp[i]->setSoundName("Relay");
+        connect(kp[i], &Relay::soundPlay, this, &TEP70::soundPlay);
+    }
+
     ksh1->setSoundName("Relay");
     connect(ksh1, &Relay::soundPlay, this, &TEP70::soundPlay);
 
@@ -166,6 +172,7 @@ void TEP70::initSounds()
     connect(ru1, &Relay::soundPlay, this, &TEP70::soundPlay);
 
     connect(horn, &TrainHorn::soundPlay, this, &TEP70::soundPlay);
+    connect(horn, &TrainHorn::soundSetVolume, this, &TEP70::soundSetVolume);
     connect(horn, &TrainHorn::soundStop, this, &TEP70::soundStop);
 
     connect(km, &ControllerKM2202::soundPlay, this, &TEP70::soundPlay);
