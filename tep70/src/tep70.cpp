@@ -202,6 +202,8 @@ void TEP70::step(double t, double dt)
 
     stepSignalsOutput(t, dt);
 
+    stepSoundsSignals(t, dt);
+
     debugOutput(t, dt);
 
     if (reg == nullptr)

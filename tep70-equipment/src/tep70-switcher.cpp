@@ -8,7 +8,7 @@ TEP70Switcher::TEP70Switcher(QObject* parent, int key_code, int kol_states)
     , old_state(state)
     , soundName("Switcher")
 {
-    setKolStates(kol_states);
+    setNumPositions(kol_states);
     setKeyCode(key_code);
 }
 

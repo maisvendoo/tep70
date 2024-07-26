@@ -21,3 +21,4 @@ HEADERS += $$files(./include/*.h)
 HEADERS += $$files(../tep70-equipment/include/*.h)
 SOURCES += $$files(./src/*.cpp)
 SOURCES += $$files(../tep70-equipment/src/*.cpp)
+

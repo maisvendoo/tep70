@@ -501,6 +501,9 @@ private:
     /// Вывод сигналов для анимаций
     void stepSignalsOutput(double t, double dt);
 
+    /// Вывод сигналов озвучки
+    void stepSoundsSignals(double t, double dt);
+
     /// Работа локомотивного светофора по сигналам АЛСН
     void stepDecodeAlsn();
 

@@ -104,22 +104,22 @@ void TEP70::stepElectroTransmission(double t, double dt)
     if (I_gen >= 1.0)
         k_field = trac_gen->getVoltage() / I_gen;
 
-    rp1->setActive(tumbler_field_weak1.getState() == 2);
+    rp1->setActive(tumbler_field_weak1.getPosition() == 2);
     rp1->setLocked(ksh1_delay->getContactState(0));
     rp1->setValue(k_field);
 
-    rp2->setActive( (tumbler_field_weak2.getState() == 2) && ksh2_delay->getContactState(0) );
+    rp2->setActive( (tumbler_field_weak2.getPosition() == 2) && ksh2_delay->getContactState(0) );
     rp2->setValue(k_field);
 
     // Цепь контактора КШ2
-    bool is_KSH2_on = ( (tumbler_field_weak2.getState() == 0) &&
+    bool is_KSH2_on = ( (tumbler_field_weak2.getPosition() == 0) &&
                       ru1->getContactState(1) ) ||
-                      ( (tumbler_field_weak2.getState() == 2) && rp2->getState() );
+                      ( (tumbler_field_weak2.getPosition() == 2) && rp2->getState() );
 
     // Цепь контактора КШ1
-    bool is_KSH1_on = ( (tumbler_field_weak1.getState() == 0) &&
+    bool is_KSH1_on = ( (tumbler_field_weak1.getPosition() == 0) &&
                       ru1->getContactState(0) ) ||
-                      ( rp1->getState()  && tumbler_field_weak1.getState() == 2);
+                      ( rp1->getState()  && tumbler_field_weak1.getPosition() == 2);
 
     ksh2_delay->setControlVoltage(Ucc * static_cast<double>(ksh1->getContactState(1)));
     ksh2_delay->step(t, dt);
