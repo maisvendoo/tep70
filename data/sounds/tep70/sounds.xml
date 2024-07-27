@@ -1,462 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
 
-	<!-- Скоростемер -->
+	<!-- Тумблер ОП1 -->
 	<Sound>
-		<Name>Skorostemer</Name>
-		<Path>skorostemer.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Реверсивная рукоятка -->
-	<Sound>
-		<Name>Revers_Ruk</Name>
-		<Path>revers-ruk.wav</Path>
-		<InitVolume>50</InitVolume>
-		<MaxVolume>50</MaxVolume>
+		<SignalID>200</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.58 9.73 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Реверсивная рукоятка -->
+	<!-- Тумблер ОП2 -->
 	<Sound>
-		<Name>Shturval</Name>
-		<Path>shturval.wav</Path>
-		<InitVolume>60</InitVolume>
-		<MaxVolume>60</MaxVolume>
+		<SignalID>201</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.63 9.73 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Автоматический защитный выключатель (АЗВ) -->
-
-	<!-- Включение -->
+	<!-- Тумблер жалюзи вода -->
 	<Sound>
-		<Name>AZV_On</Name>
-		<Path>azv.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>202</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 9.73 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Выключение -->
+	<!-- Тумблер жалюзи масло -->
 	<Sound>
-		<Name>AZV_Off</Name>
-		<Path>azv.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>203</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.73 9.73 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Тумблеры -->
-
-	<!-- Включение -->
+	<!-- АЗВ управление общее -->
 	<Sound>
-		<Name>Tumbler_On</Name>
-		<Path>tumbler.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>204</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.32 9.87 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Выключение -->
+	<!-- АЗВ управление тепловозом -->
 	<Sound>
-		<Name>Tumbler_Off</Name>
-		<Path>tumbler.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>205</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.35 9.87 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Многопозиционные тумблеры -->
+	<!-- АЗВ топливный насос -->
 	<Sound>
-		<Name>Switcher</Name>
-		<Path>tumbler.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>206</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.42 9.87 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Реле и контакторы -->
+	<!-- АЗВ ЭПТ -->
 	<Sound>
-		<Name>Relay</Name>
-		<Path>relay.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>207</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.93 9.87 2.71</LocalPosition>
 	</Sound>
 
-
-	<!-- Электрический топливный насос (ЭТН) -->
+	<!-- АЗВ ЭДТ -->
 	<Sound>
-		<Name>Fuel_Pump</Name>
-		<Path>fuel_pump.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>50</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Электрический масляный насос (ЭМН) -->
-	<Sound>
-		<Name>Oil_Pump</Name>
-		<Path>oil_pump.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>30</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Стартер-генератор -->
-	<Sound>
-		<Name>Starter</Name>
-		<Path>starter.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Дизель -->
-	<Sound>
-		<Name>Disel</Name>
-		<Path>x0.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos0</Name>
-		<Path>x0.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos1</Name>
-		<Path>x1.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos2</Name>
-		<Path>x2.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos3</Name>
-		<Path>x3.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos4</Name>
-		<Path>x4.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos5</Name>
-		<Path>x5.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos6</Name>
-		<Path>x6.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos7</Name>
-		<Path>x7.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos8</Name>
-		<Path>x8.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos9</Name>
-		<Path>x9.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos10</Name>
-		<Path>x10.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos11</Name>
-		<Path>x11.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos12</Name>
-		<Path>x12.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos13</Name>
-		<Path>x13.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos14</Name>
-		<Path>x14.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos15</Name>
-		<Path>x15.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Мотор-компрессор -->
-	<Sound>
-		<Name>Motor_Compressor</Name>
-		<Path>compr.wav</Path>
-		<InitVolume>50</InitVolume>
-		<MaxVolume>50</MaxVolume>
-		<InitPitch>0.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Щелчек рукоятки крана 395 -->
-	<Sound>
-		<Name>Kran_395_ruk</Name>
-		<Path>395-chelk.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>208</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.87 9.87 2.71</LocalPosition>
 	</Sound>
-	
-	<!-- Щелчек рукоятки крана 254 -->
+
+	<!-- Тумблер Напяржение ЦУ/Напряжение ЭПТ -->
 	<Sound>
-		<Name>254-chelk</Name>
-		<Path>254-chelk.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>209</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-	
-	<!-- Звук наполнения крана 254 -->
-	<Sound>
-		<Name>254_vpusk</Name>
-		<Path>254_vpusk.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
-	</Sound>
-	
-	<!-- Звук отпуска крана 254 -->
-	<Sound>
-		<Name>254_vypusk</Name>
-		<Path>254_vypusk.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
+		<LocalPosition>-1.288 10.08 2.85</LocalPosition>
 	</Sound>
 
-	<!-- Щелчек комбинированного крана -->
+	<!-- Тумблер аварийная остановка дизеля -->
 	<Sound>
-		<Name>Komb_kran</Name>
-		<Path>komb-kran.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>210</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.85 10.08 2.95</LocalPosition>
 	</Sound>
-
-	<!-- Щелчек комбинированного крана -->
-	<Sound>
-		<Name>UBT_367_ruk</Name>
-		<Path>ubt-367-ruk.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>0</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>KRM395_vpusk</Name>
-		<Path>395_vpusk.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>KRM395_vipusk</Name>
-		<Path>395_vypusk.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>KRM395_1</Name>
-		<Path>395_1.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>KRM395_2</Name>
-		<Path>395_2.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>25</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>KRM395_5</Name>
-		<Path>395_5.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
-	</Sound>
-
-	<!-- Свисток -->
-	<Sound>
-		<Name>Svistok</Name>
-		<Path>svistok.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>0</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Тифон -->
-	<Sound>
-		<Name>Tifon</Name>
-		<Path>tifon.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>0</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
 
 </Config>
