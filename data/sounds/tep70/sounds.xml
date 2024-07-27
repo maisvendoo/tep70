@@ -301,4 +301,16 @@
 		<LocalPosition>1.0 10.0 4.4</LocalPosition>
 	</Sound>
 
+	<!-- Топливный насос -->
+	<Sound>
+		<SignalID>225</SignalID>
+		<Filename>fuel_pump.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
 </Config>

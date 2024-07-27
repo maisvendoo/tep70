@@ -40,4 +40,7 @@ void TEP70::stepSoundsSignals(double t, double dt)
     // Свистулька и тифулька :-)
     analogSignal[SOUND_SVISTOK] = horn->getSoundSignal(TrainHorn::SVISTOK_SOUND);
     analogSignal[SOUND_TIFON] = horn->getSoundSignal(TrainHorn::TIFON_SOUND);
+
+    // Топливный насос
+    analogSignal[SOUND_FUEL_PUMP] = electro_fuel_pump->getSoundSignal();
 }
