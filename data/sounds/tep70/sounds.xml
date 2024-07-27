@@ -277,4 +277,28 @@
 		<LocalPosition>1.2 9.7 2.7</LocalPosition>
 	</Sound>
 
+	<!-- Свисток -->
+	<Sound>
+		<SignalID>223</SignalID>
+		<Filename>svistok.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.8 8.6 4.6</LocalPosition>
+	</Sound>
+
+	<!-- Тифон -->
+	<Sound>
+		<SignalID>224</SignalID>
+		<Filename>tifon.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.0 10.0 4.4</LocalPosition>
+	</Sound>
+
 </Config>
