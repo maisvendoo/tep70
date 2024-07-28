@@ -704,4 +704,40 @@
 		<LocalPosition>0.0 0.0 2.5</LocalPosition>
 	</Sound>
 
+	<!-- Скоростемер -->
+	<Sound>
+		<SignalID>261</SignalID>
+		<Filename>skorostemer.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.24 9.98 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Мотор-компрессор -->
+	<Sound>
+		<SignalID>262</SignalID>
+		<Filename>compr.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.64 -4.32 2.6</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ мотор-компрессор -->
+	<Sound>
+		<SignalID>263</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.32 9.87 2.71</LocalPosition>
+	</Sound>
+
 </Config>

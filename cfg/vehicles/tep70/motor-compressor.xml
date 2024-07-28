@@ -5,6 +5,9 @@
 		<SubStepNum>1</SubStepNum>
 		<Solver>euler</Solver>
 
+		<!-- Номинальное напряжение -->
+		<Unom>110.0</Unom>
+
 		<!-- Номинальная угловая скорость -->
 		<omega0>104.7</omega0>
 

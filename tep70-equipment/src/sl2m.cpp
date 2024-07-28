@@ -10,7 +10,7 @@ SL2M::SL2M(QObject *parent) : Device(parent)
   , wear_gap(1.0)
   , max_speed(150.0)
   , arrow_pos(0.0)
-  , Dk(1.25)
+  , Dk(1.2)
   , sound_speed(2.0)
   , shaft_pos(0.0)
   , freq_coeff(1.0)
@@ -40,6 +40,7 @@ void SL2M::setOmega(double value)
 void SL2M::setWheelDiameter(double diam)
 {
     Dk = diam;
+    omega_begin_sound = speed_begin_sound * 2.0 / Dk / Physics::kmh;
 }
 
 //------------------------------------------------------------------------------
@@ -70,9 +71,7 @@ void SL2M::preStep(state_vector_t &Y, double t)
 
     double shaft_angle = Y[0];
 
-    shaft_pos = static_cast<float>(abs(shaft_angle) / 2.0 / Physics::PI);
-
-    emit soundSetVolume("Skorostemer", static_cast<int>(100 * hs_p(abs(omega) * Dk / 2.0 - sound_speed)));
+    shaft_pos = static_cast<float>(abs(shaft_angle) / 2.0 / Physics::PI);    
 }
 
 //------------------------------------------------------------------------------

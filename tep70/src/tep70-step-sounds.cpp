@@ -78,4 +78,11 @@ void TEP70::stepSoundsSignals(double t, double dt)
     analogSignal[SOUND_120_130] = sound_state_t::createSoundSignal((Vkmh > 120.0) && (Vkmh <= 130.0));
     analogSignal[SOUND_130_140] = sound_state_t::createSoundSignal((Vkmh > 130.0) && (Vkmh <= 140.0));
     analogSignal[SOUND_140_X] = sound_state_t::createSoundSignal(Vkmh > 140.0);
+
+    // Скоростемер
+    analogSignal[SOUND_SKOROSTEMER] = speed_meter->getSoundSignal();
+
+    // Мотор-компрессор
+    analogSignal[SOUND_MOTOR_COMPRESSOR] = motor_compressor->getSoundSignal();
+    analogSignal[SOUND_AZV_MOTOR_COMPRESSOR] = azv_motor_compressor.getSoundSignal(Trigger::CHANGE_SOUND);
 }
