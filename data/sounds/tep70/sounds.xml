@@ -538,4 +538,170 @@
 		<LocalPosition>0.69 9б87 2.7</LocalPosition>
 	</Sound>
 
+	<!-- Перестуки -->
+	<Sound>
+		<SignalID>246</SignalID>
+		<Filename>perestuk/5-10.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>247</SignalID>
+		<Filename>perestuk/10-20.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>248</SignalID>
+		<Filename>perestuk/20-30.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>249</SignalID>
+		<Filename>perestuk/30-40.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>250</SignalID>
+		<Filename>perestuk/40-50.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>251</SignalID>
+		<Filename>perestuk/50-60.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>252</SignalID>
+		<Filename>perestuk/60-70.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>253</SignalID>
+		<Filename>perestuk/70-80.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>254</SignalID>
+		<Filename>perestuk/80-90.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>255</SignalID>
+		<Filename>perestuk/90-100.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>256</SignalID>
+		<Filename>perestuk/100-110.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>257</SignalID>
+		<Filename>perestuk/110-120.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>258</SignalID>
+		<Filename>perestuk/120-130.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>259</SignalID>
+		<Filename>perestuk/130-140.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>260</SignalID>
+		<Filename>perestuk/140-~.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
 </Config>
