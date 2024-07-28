@@ -65,6 +65,11 @@ public:
     /// Вернуть фактический расход топлива
     double getFuelFlow() const { return Q_fuel; }
 
+    float getSoundSignal(size_t pos_idx = 0) const override
+    {
+        return sound_states[pos_idx].createSoundSignal();
+    }
+
 private:
 
     enum
@@ -157,6 +162,8 @@ private:
     };
 
     std::array<double, NUM_COEFFS>  K;
+
+    std::array<sound_state_t, MAX_POS + 2> sound_states;
 
     void preStep(state_vector_t &Y, double t);
 

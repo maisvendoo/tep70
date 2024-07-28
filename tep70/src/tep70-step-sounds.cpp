@@ -43,4 +43,16 @@ void TEP70::stepSoundsSignals(double t, double dt)
 
     // Топливный насос
     analogSignal[SOUND_FUEL_PUMP] = electro_fuel_pump->getSoundSignal();
+
+    // Маслопрокачивающий насос
+    analogSignal[SOUND_OIL_PUMP] = electro_oil_pump->getSoundSignal();
+
+    // Стартер-генератор
+    analogSignal[SOUND_STARTER_GENERATOR] = starter_generator->getSoundSignal();
+
+    // Дизель
+    for (size_t i = 0; i <= 15; ++i)
+    {
+        analogSignal[SOUND_DISEL_X0 + i] = disel->getSoundSignal(i);
+    }
 }

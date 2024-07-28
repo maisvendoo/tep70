@@ -34,6 +34,12 @@ public:
 
     double getAncorCurrent() const { return Ia; }
 
+    float getSoundSignal(size_t idx = 0) const override
+    {
+        (void) idx;
+        return sound_state.createSoundSignal();
+    }
+
 private:
 
     /// Напряжение на якоре
@@ -83,6 +89,8 @@ private:
 
     /// Характеристика намагничивания обмотки возбуждения
     LinearInterpolation   magnetic_char;
+
+    sound_state_t sound_state;
 
     void preStep(state_vector_t &Y, double t);
 
