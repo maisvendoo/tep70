@@ -88,7 +88,7 @@ void ElectricFuelPump::preStep(state_vector_t &Y, double t)
     }
 
     sound_state.pitch = static_cast<float>(Y[0] / omega_nom);
-    sound_state.volume = static_cast<int>(Y[0] / omega_nom);
+    sound_state.volume = static_cast<float>(Y[0] / omega_nom);
 }
 
 //------------------------------------------------------------------------------
