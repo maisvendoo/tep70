@@ -195,7 +195,7 @@ void StarterGenerator::preStep_generator(state_vector_t &Y, double t)
     Ia = Y[0] = In;
     If = Y[1];
 
-    U = cPhi(Y[1]) * omega - Ra * In;
+    U = pf(cPhi(Y[1]) * omega - Ra * In);
 }
 
 //------------------------------------------------------------------------------
