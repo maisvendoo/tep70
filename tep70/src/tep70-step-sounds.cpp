@@ -55,4 +55,9 @@ void TEP70::stepSoundsSignals(double t, double dt)
     {
         analogSignal[SOUND_DISEL_X0 + i] = disel->getSoundSignal(i);
     }
+
+    // Реверсивкая рукоятка
+    analogSignal[SOUND_REVERS_HANDLE] = km->getSoundSignal(ControllerKM2202::REVERS_SHAFT);
+    // Главный вал контроллера
+    analogSignal[SOUND_CONTROLLER] = km->getSoundSignal(ControllerKM2202::MAIN_SHAFT);
 }

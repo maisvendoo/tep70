@@ -49,7 +49,18 @@ public:
     bool isForward() const { return rs_position == RS_FORWARD; }
 
     /// Получить состояние контакта "Назад"
-    bool isBackward() const { return rs_position == RS_BACKWARD; }    
+    bool isBackward() const { return rs_position == RS_BACKWARD; }
+
+    enum
+    {
+        MAIN_SHAFT = 0,
+        REVERS_SHAFT = 1
+    };
+
+    float getSoundSignal(size_t idx = 0) const override
+    {
+        return sound_states[idx].createSoundSignal();
+    }
 
 private:
 
@@ -93,6 +104,8 @@ private:
     Timer   revers_shaft_timer;
 
     QMap<int, double>   n_ref;
+
+    std::array<sound_state_t, 2> sound_states;
 
     void preStep(state_vector_t &Y, double t);
 

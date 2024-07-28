@@ -514,4 +514,28 @@
 		<LocalPosition>0.0 0.0 2.5</LocalPosition>
 	</Sound>
 
+	<!-- Реверсивная рукоятка -->
+	<Sound>
+		<SignalID>244</SignalID>
+		<Filename>revers-ruk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.69 9б87 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Главный вал КМ (штурвал) -->
+	<Sound>
+		<SignalID>245</SignalID>
+		<Filename>shturval.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.69 9б87 2.7</LocalPosition>
+	</Sound>
+
 </Config>

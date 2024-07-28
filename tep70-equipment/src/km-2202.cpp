@@ -171,7 +171,7 @@ void ControllerKM2202::slotRotateMainShaft()
     ms_position = cut(ms_position, static_cast<int>(MS_ZERO), static_cast<int>(MS_MAX_POSITION));
 
     if (ms_position != pos_old)
-        emit soundPlay("Shturval");
+        sound_states[MAIN_SHAFT].play(true);
 }
 
 //------------------------------------------------------------------------------
@@ -190,5 +190,5 @@ void ControllerKM2202::slotRotateReversShaft()
     rs_position = cut(rs_position, static_cast<int>(RS_BACKWARD), static_cast<int>(RS_FORWARD));
 
     if (rs_position != pos_old)
-        emit soundPlay("Revers_Ruk");
+        sound_states[REVERS_SHAFT].play(true);
 }
