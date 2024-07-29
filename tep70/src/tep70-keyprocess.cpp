@@ -13,7 +13,15 @@ void TEP70::keyProcess()
 
     button_tifon = getKeyState(KEY_B);
 
-    button_RB1 = getKeyState(KEY_Z);
+    // Если активна РБ на внешнем пульте
+    if (control_signals.analogSignal[CS_RBS].is_active)
+    {
+        button_RB1 = static_cast<bool>(control_signals.analogSignal[CS_RBS].cur_value);
+    }
+    else
+    {
+        button_RB1 = getKeyState(KEY_Z);
+    }
 
     // Включение АЗВ "Управление общее"
     if (getKeyState(KEY_J))
