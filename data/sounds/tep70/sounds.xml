@@ -740,4 +740,316 @@
 		<LocalPosition>0.32 9.87 2.71</LocalPosition>
 	</Sound>
 
+	<!-- Контактор топливного насоса -->
+	<Sound>
+		<SignalID>264</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ8 -->
+	<Sound>
+		<SignalID>265</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Контактор маслопрокачивающего насоса -->
+	<Sound>
+		<SignalID>266</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле времени маслопрокачивающего насоса -->
+	<Sound>
+		<SignalID>267</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле времени стартер-генератора -->
+	<Sound>
+		<SignalID>268</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Контактор стартер-генератора -->
+	<Sound>
+		<SignalID>269</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ10 -->
+	<Sound>
+		<SignalID>270</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ6 -->
+	<Sound>
+		<SignalID>271</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ42 -->
+	<Sound>
+		<SignalID>272</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ7 -->
+	<Sound>
+		<SignalID>273</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ15 -->
+	<Sound>
+		<SignalID>274</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Вентиль МВ6 -->
+	<Sound>
+		<SignalID>275</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Вентиль топливного насоса -->
+	<Sound>
+		<SignalID>276</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ4 -->
+	<Sound>
+		<SignalID>277</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РВ4 -->
+	<Sound>
+		<SignalID>278</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РВ9 -->
+	<Sound>
+		<SignalID>279</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Контактор регулятора напряжения -->
+	<Sound>
+		<SignalID>280</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ18 -->
+	<Sound>
+		<SignalID>281</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Котактор мотор-компрессора 1 -->
+	<Sound>
+		<SignalID>282</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.64 -4.32 2.6</LocalPosition>
+	</Sound>
+
+	<!-- Котактор мотор-компрессора 2 -->
+	<Sound>
+		<SignalID>289</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.64 -4.32 2.6</LocalPosition>
+	</Sound>
+
+	<!-- Реле РВ6 -->
+	<Sound>
+		<SignalID>283</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Контактор возбуждения возбудителя -->
+	<Sound>
+		<SignalID>284</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Контактор возбуждения генератора -->
+	<Sound>
+		<SignalID>285</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Контактор ОВ1 -->
+	<Sound>
+		<SignalID>286</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Контактор ОВ2 -->
+	<Sound>
+		<SignalID>287</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ1 -->
+	<Sound>
+		<SignalID>288</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
 </Config>

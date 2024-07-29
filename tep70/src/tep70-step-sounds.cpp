@@ -85,4 +85,32 @@ void TEP70::stepSoundsSignals(double t, double dt)
     // Мотор-компрессор
     analogSignal[SOUND_MOTOR_COMPRESSOR] = motor_compressor->getSoundSignal();
     analogSignal[SOUND_AZV_MOTOR_COMPRESSOR] = azv_motor_compressor.getSoundSignal(Trigger::CHANGE_SOUND);
+
+    // Реле и контакторы
+    analogSignal[SOUND_KONTACTOR_FUEL_PUMP] = kontaktor_fuel_pump->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RU8] = ru8->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_KONTACTOR_OIL_PUMP] = kontaktor_oil_pump->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_OIL_PUMP_TIME_RELAY] = oilpump_time_relay->getSoundSignal(TimeRelay::CHANGE_SOUND);
+    analogSignal[SOUND_STARTER_TIME_RELAY] = starter_time_relay->getSoundSignal(TimeRelay::CHANGE_SOUND);
+    analogSignal[SOUND_RU10] = ru10->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RU6] = ru6->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RU42] = ru42->getSoundSignal(Relay::CHANGE_SOUND);
+    //analogSignal[SOUND_RU7] = ru7->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RU15] = ru15->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_MV6] = mv6->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_VTN] = vtn->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RU4] = ru4->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RV4] = rv4->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RV9] = rv9->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_KRN] = krn->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RU18] = ru18->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_KTK1] = ktk1->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_KTK2] = ktk2->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RV6] = rv6->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_KVV] = kvv->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_KVG] = kvg->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_KSH1] = ksh1->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_KSH2] = ksh2->getSoundSignal(Relay::CHANGE_SOUND);
+    analogSignal[SOUND_RU1] = ru1->getSoundSignal(Relay::CHANGE_SOUND);
+
 }
