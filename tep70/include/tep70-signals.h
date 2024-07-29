@@ -204,7 +204,9 @@ enum
     SOUND_KSH1 = 286,
     SOUND_KSH2 = 287,
     SOUND_RU1 = 288,
-    SOUND_KTK2 = 289
+    SOUND_KTK2 = 289,
+
+    SOUND_SAND_DELIVERY = 290
 };
 
 #endif // TEP70_SIGNALS_H

@@ -113,4 +113,6 @@ void TEP70::stepSoundsSignals(double t, double dt)
     analogSignal[SOUND_KSH2] = ksh2->getSoundSignal(Relay::CHANGE_SOUND);
     analogSignal[SOUND_RU1] = ru1->getSoundSignal(Relay::CHANGE_SOUND);
 
+    // Песочница
+    analogSignal[SOUND_SAND_DELIVERY] = sand_system->getSoundSignal();
 }
