@@ -154,8 +154,6 @@ void TEP70::initialization()
     initElectroTransmission(modules_dir, custom_cfg_dir);
 
     initOther(modules_dir, custom_cfg_dir);
-
-    initSounds();
 /*
     reg = new Registrator(0.1);
     reg->setFileName("tep70-char");

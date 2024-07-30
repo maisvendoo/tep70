@@ -23,7 +23,6 @@
 #include    "starter-generator.h"
 #include    "voltage-regulator.h"
 #include    "tep70-motor-compressor.h"
-#include    "tep70-switcher.h"
 #include    "field-generator.h"
 #include    "trac-generator.h"
 #include    "field-regulator.h"
@@ -409,18 +408,18 @@ private:
     Trigger button_start_disel;
 
     /// Тумблер "Ослабление поля I ступени руч./авт."
-    TEP70Switcher tumbler_field_weak1;
+    Switcher tumbler_field_weak1;
 
     /// Тумблер "Ослабление поля II ступени руч./авт."
-    TEP70Switcher tumbler_field_weak2;
+    Switcher tumbler_field_weak2;
 
     /// Тумблер "Управление жалюзи воды руч./авт."
-    TEP70Switcher tumbler_water_zaluzi;
+    Switcher tumbler_water_zaluzi;
 
     /// Тумблер "Управление жалюзи масла руч./авт."
-    TEP70Switcher tumbler_oil_zaluzi;
+    Switcher tumbler_oil_zaluzi;
 
-    TEP70Switcher tumbler_revers;
+    Switcher tumbler_revers;
 
     msut_input_t msut_input;
 
@@ -473,9 +472,6 @@ private:
 
     /// Инициализация МСУТ
     void initMSUT(const QString &modules_dir, const QString &custom_cfg_dir);
-
-    /// Инициализация звуков
-    void initSounds();
 
     /// Инициализация процедуры автозапуска
     void initAutostart();

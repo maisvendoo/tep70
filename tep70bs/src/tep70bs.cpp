@@ -160,8 +160,6 @@ void TEP70BS::initialization()
     initMSUT(modules_dir, custom_cfg_dir);
 
     initAutostart();
-
-    initSounds();
 /*
     reg = new Registrator(0.1);
     reg->setFileName("tep70-char");

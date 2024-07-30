@@ -164,7 +164,7 @@
 		<InitVolume>0.0</InitVolume>
 		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
-		<Loop>0</Loop>
+		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
 		<LocalPosition>1.2 9.7 2.7</LocalPosition>
 	</Sound>
@@ -1052,7 +1052,7 @@
 		<LocalPosition>0.68 6.43 3.26</LocalPosition>
 	</Sound>
 
-	<!-- Песочница -->
+	<!-- Песочница спереди -->
 	<Sound>
 		<SignalID>290</SignalID>
 		<Filename>sandbox.wav</Filename>
@@ -1061,7 +1061,19 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.5 9.8 1.0</LocalPosition>
+		<LocalPosition>0.0 8.0 0.0</LocalPosition>
+	</Sound>
+
+	<!-- Песочница сзади -->
+	<Sound>
+		<SignalID>290</SignalID>
+		<Filename>sandbox.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -8.0 0.0</LocalPosition>
 	</Sound>
 
 </Config>

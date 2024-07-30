@@ -13,7 +13,7 @@ void TEP70BS::stepSignalsOutput(double t, double dt)
     analogSignal[LS_G] = 1.0f;
 
     analogSignal[KM_SHTURVAL] = km->getMainShaftPos();
-    analogSignal[KM_REVERSOR] = tumbler_revers.getState() - 1;
+    analogSignal[KM_REVERSOR] = tumbler_revers.getPosition() - 1;
 
     analogSignal[BUTTON_DISEL_START] = static_cast<float>(button_start_disel.getState());
     analogSignal[BUTTON_BRAKE_RELEASE] = static_cast<float>(!button_brake_release);
@@ -30,10 +30,10 @@ void TEP70BS::stepSignalsOutput(double t, double dt)
     analogSignal[TUMBLER_VOLTMETER] = static_cast<float>(tumbler_voltage.getState());
     analogSignal[TUMBLER_DISEL_STOP] = static_cast<float>(tumbler_disel_stop.getState());
 
-    analogSignal[TUMBLER_FIELD_WEAK1] = static_cast<float>(tumbler_field_weak1.getHandlePos());
-    analogSignal[TUMBLER_FIELD_WEAK2] = static_cast<float>(tumbler_field_weak2.getHandlePos());
-    analogSignal[TUMBLER_WATER_ZALUZI] = static_cast<float>(tumbler_water_zaluzi.getHandlePos());
-    analogSignal[TUMBLER_OIL_ZALUZI] = static_cast<float>(tumbler_oil_zaluzi.getHandlePos());
+    analogSignal[TUMBLER_FIELD_WEAK1] = static_cast<float>(tumbler_field_weak1.getHandlePosition());
+    analogSignal[TUMBLER_FIELD_WEAK2] = static_cast<float>(tumbler_field_weak2.getHandlePosition());
+    analogSignal[TUMBLER_WATER_ZALUZI] = static_cast<float>(tumbler_water_zaluzi.getHandlePosition());
+    analogSignal[TUMBLER_OIL_ZALUZI] = static_cast<float>(tumbler_oil_zaluzi.getHandlePosition());
 
     analogSignal[STRELKA_BAT_CURRENT] = static_cast<float>(battery->getChargeCurrent() / 150.0);
 
