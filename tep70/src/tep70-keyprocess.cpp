@@ -98,7 +98,7 @@ void TEP70::keyProcess()
         }
     }
 
-    if (getKeyState(KEY_1))
+    if (getKeyState(KEY_1) && !isAlt())
     {
         if (isShift())
         {
@@ -110,7 +110,7 @@ void TEP70::keyProcess()
         }
     }
 
-    if (getKeyState(KEY_2))
+    if (getKeyState(KEY_2) && !isAlt())
     {
         if (isShift())
         {
@@ -122,7 +122,7 @@ void TEP70::keyProcess()
         }
     }
 
-    if (getKeyState(KEY_7))
+    if (getKeyState(KEY_7) && !isAlt())
     {
         if (isShift())
         {
