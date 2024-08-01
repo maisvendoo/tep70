@@ -22,6 +22,12 @@ public:
 
     float getShaftPos() const;
 
+    float getSoundSignal(size_t idx = 0) const override
+    {
+        (void) idx;
+        return sound_state_t::createSoundSignal(abs(omega) >= omega_begin_sound);
+    }
+
 private:
 
     /// Угловая скорость вращения колесной пары
@@ -43,7 +49,7 @@ private:
     float arrow_pos;
 
     /// Диаметр бандажа
-    double Dk;
+    double Dk = 1.2;
 
     double sound_speed;
 
@@ -51,6 +57,10 @@ private:
     float shaft_pos;
 
     double freq_coeff;
+
+    double speed_begin_sound = 2.0;
+
+    double omega_begin_sound = speed_begin_sound * 2.0 / Dk / Physics::kmh;
 
     void preStep(state_vector_t &Y, double t);
 

@@ -26,6 +26,12 @@ public:
     /// Задать напряжение на двигателе насоса
     void setVoltage(double U);
 
+    float getSoundSignal(size_t idx = 0) const override
+    {
+        (void) idx;
+        return sound_state.createSoundSignal();
+    }
+
 private:
 
     /// Напряжение питания, В
@@ -68,6 +74,8 @@ private:
     double fuel_press;
 
     bool is_started;
+
+    sound_state_t sound_state;
 
     void preStep(state_vector_t &Y, double t);
 

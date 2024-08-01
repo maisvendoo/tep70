@@ -59,18 +59,18 @@ void ElectricOilPump::preStep(state_vector_t &Y, double t)
 
     if ( (Y[0] >= 0.1) && !is_started)
     {
-        emit soundPlay("Oil_Pump");
+        sound_state.play(true);
         is_started = true;
     }
 
     if ((Y[0] < 0.1) && is_started)
     {
-        emit soundStop("Oil_Pump");
+        sound_state.play(false);
         is_started = false;
     }
 
-    emit soundSetPitch("Oil_Pump", static_cast<float>(Y[0] / omega_nom));
-    emit soundSetVolume("Oil_Pump", static_cast<int>(Y[0] * 100 / omega_nom));
+    sound_state.pitch = static_cast<float>(Y[0] / omega_nom);
+    sound_state.volume = static_cast<float>(Y[0] / omega_nom);
 }
 
 //------------------------------------------------------------------------------

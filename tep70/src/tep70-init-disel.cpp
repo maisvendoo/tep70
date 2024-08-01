@@ -1,24 +1,22 @@
 #include    "tep70.h"
 
-#include    "filesystem.h"
 #include    <QDir>
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::initDisel()
+void TEP70::initDisel(const QString &modules_dir, const QString &custom_cfg_dir)
 {
+    (void) modules_dir;
+
     disel = new Disel();
-    disel->read_custom_config(config_dir + QDir::separator() + "disel");
+    disel->read_config("disel", custom_cfg_dir);
 
     starter_generator = new StarterGenerator();
-    starter_generator->read_custom_config(config_dir + QDir::separator() + "starter-generator");
+    starter_generator->read_config("starter-generator", custom_cfg_dir);
 
-    FileSystem &fs = FileSystem::getInstance();
-    QString cfg_dir = QString(fs.getVehiclesDir().c_str()) + QDir::separator() + config_dir;
-
-    starter_generator->init(cfg_dir + QDir::separator() + "5sg-magnetic-char.txt");
+    starter_generator->init(custom_cfg_dir + QDir::separator() + "5sg-magnetic-char.txt");
 
     voltage_regulator = new VoltageRegulator();
-    voltage_regulator->read_custom_config(config_dir + QDir::separator() + "voltage-regulator");
+    voltage_regulator->read_config("voltage-regulator", custom_cfg_dir);
 }

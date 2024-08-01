@@ -3,8 +3,10 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70BS::initFuelSystem()
+void TEP70BS::initFuelSystem(const QString &modules_dir, const QString &custom_cfg_dir)
 {
-    electro_fuel_pump = new ElectricFuelPump();
+    (void) modules_dir;
+    (void) custom_cfg_dir;
 
+    electro_fuel_pump = new ElectricFuelPump();
 }

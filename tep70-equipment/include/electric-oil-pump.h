@@ -20,6 +20,12 @@ public:
 
     double getCurrent() const;
 
+    float getSoundSignal(size_t idx = 0) const override
+    {
+        (void) idx;
+        return sound_state.createSoundSignal();
+    }
+
 private:
 
     /// Напряжение питания, В
@@ -57,6 +63,8 @@ private:
 
     /// Признак запуска
     bool    is_started;
+
+    sound_state_t sound_state;
 
     void preStep(state_vector_t &Y, double t);
 

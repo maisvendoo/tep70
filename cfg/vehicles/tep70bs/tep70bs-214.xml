@@ -2,9 +2,7 @@
 <Config>
 	<Vehicle>
 		<EmptyMass>129000</EmptyMass>
-		<PayloadMass>0</PayloadMass>
-		<FuelCapacity>6000</FuelCapacity>
-		<FuelLevel>1.0</FuelLevel>
+		<PayloadMass>800</PayloadMass>
 		<Length>21.7</Length>
 		<WheelDiameter>1.22</WheelDiameter>
 		<MainResist>loco-resist</MainResist>
@@ -12,8 +10,11 @@
 		<NumAxis>6</NumAxis>
 		<WheelInertia>100.0</WheelInertia>
 		<SoundDir>tep70</SoundDir>
+		<AnimationsConfigDir>tep70bs</AnimationsConfigDir>
 
 		<ReductorCoeff>3.12</ReductorCoeff>
+		<FuelCapacity>6000</FuelCapacity>
+		<FuelLevel>1.0</FuelLevel>
 
 		<ExtTexturesDir>tep70bs/rzd</ExtTexturesDir>
 

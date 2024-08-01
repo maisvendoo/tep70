@@ -87,7 +87,7 @@ void Disel::preStep(state_vector_t &Y, double t)
         }
 
         if (Y[1] < 1.0)
-            emit soundStop("Disel");
+            sound_states[pos_count].play(false);
     }
     else
     {
@@ -116,8 +116,8 @@ void Disel::preStep(state_vector_t &Y, double t)
 
     switchDiselSound(n_ref_prev, n_ref);
 
-    emit soundSetPitch(soundName, static_cast<float>(getShaftFreq() / n_ref));
-    emit soundSetVolume(soundName, static_cast<int>(Y[1] * 100.0 / 36.7));
+    sound_states[pos_count].pitch = static_cast<float>(getShaftFreq() / n_ref);
+    sound_states[pos_count].volume = static_cast<float>(Y[1] / 36.7);
 }
 
 //------------------------------------------------------------------------------
@@ -173,6 +173,8 @@ void Disel::switchDiselSound(double n_ref_prev, double n_ref)
 
     if (n0 != n1)
     {
+        sound_states[pos_count].play(false);
+
         if (n1 > n0)
         {
             pos_count++;
@@ -184,9 +186,7 @@ void Disel::switchDiselSound(double n_ref_prev, double n_ref)
 
         pos_count = cut(pos_count, static_cast<int>(MIN_POS), static_cast<int>(MAX_POS));
 
-        emit soundStop(soundName);
-        soundName = QString("pos%1").arg(pos_count);
-        emit soundPlay(soundName);
+        sound_states[pos_count].play(true);
     }
 }
 
@@ -196,6 +196,6 @@ void Disel::switchDiselSound(double n_ref_prev, double n_ref)
 void Disel::slotFuelIgnition()
 {
     is_fuel_ignition = state_mv6 && static_cast<bool>(hs_p(fuel_pressure - 0.1));
-    emit soundPlay(soundName);
+    sound_states[pos_count].play(true);
     timer->stop();
 }

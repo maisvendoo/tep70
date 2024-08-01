@@ -1,462 +1,1079 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
 
-	<!-- Скоростемер -->
+	<!-- Тумблер ОП1 -->
 	<Sound>
-		<Name>Skorostemer</Name>
-		<Path>skorostemer.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Реверсивная рукоятка -->
-	<Sound>
-		<Name>Revers_Ruk</Name>
-		<Path>revers-ruk.wav</Path>
-		<InitVolume>50</InitVolume>
-		<MaxVolume>50</MaxVolume>
+		<SignalID>200</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.58 9.73 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Реверсивная рукоятка -->
+	<!-- Тумблер ОП2 -->
 	<Sound>
-		<Name>Shturval</Name>
-		<Path>shturval.wav</Path>
-		<InitVolume>60</InitVolume>
-		<MaxVolume>60</MaxVolume>
+		<SignalID>201</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.63 9.73 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Автоматический защитный выключатель (АЗВ) -->
-
-	<!-- Включение -->
+	<!-- Тумблер жалюзи вода -->
 	<Sound>
-		<Name>AZV_On</Name>
-		<Path>azv.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>202</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 9.73 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Выключение -->
+	<!-- Тумблер жалюзи масло -->
 	<Sound>
-		<Name>AZV_Off</Name>
-		<Path>azv.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>203</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.73 9.73 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Тумблеры -->
-
-	<!-- Включение -->
+	<!-- АЗВ управление общее -->
 	<Sound>
-		<Name>Tumbler_On</Name>
-		<Path>tumbler.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>204</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.32 9.87 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Выключение -->
+	<!-- АЗВ управление тепловозом -->
 	<Sound>
-		<Name>Tumbler_Off</Name>
-		<Path>tumbler.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>205</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.35 9.87 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Многопозиционные тумблеры -->
+	<!-- АЗВ топливный насос -->
 	<Sound>
-		<Name>Switcher</Name>
-		<Path>tumbler.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>206</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.42 9.87 2.71</LocalPosition>
 	</Sound>
 
-	<!-- Реле и контакторы -->
+	<!-- АЗВ ЭПТ -->
 	<Sound>
-		<Name>Relay</Name>
-		<Path>relay.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>207</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.93 9.87 2.71</LocalPosition>
 	</Sound>
 
-
-	<!-- Электрический топливный насос (ЭТН) -->
+	<!-- АЗВ ЭДТ -->
 	<Sound>
-		<Name>Fuel_Pump</Name>
-		<Path>fuel_pump.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>50</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Электрический масляный насос (ЭМН) -->
-	<Sound>
-		<Name>Oil_Pump</Name>
-		<Path>oil_pump.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>30</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Стартер-генератор -->
-	<Sound>
-		<Name>Starter</Name>
-		<Path>starter.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Дизель -->
-	<Sound>
-		<Name>Disel</Name>
-		<Path>x0.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos0</Name>
-		<Path>x0.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos1</Name>
-		<Path>x1.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos2</Name>
-		<Path>x2.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos3</Name>
-		<Path>x3.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos4</Name>
-		<Path>x4.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos5</Name>
-		<Path>x5.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos6</Name>
-		<Path>x6.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos7</Name>
-		<Path>x7.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos8</Name>
-		<Path>x8.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos9</Name>
-		<Path>x9.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos10</Name>
-		<Path>x10.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos11</Name>
-		<Path>x11.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos12</Name>
-		<Path>x12.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos13</Name>
-		<Path>x13.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos14</Name>
-		<Path>x14.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<Sound>
-		<Name>pos15</Name>
-		<Path>x15.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Мотор-компрессор -->
-	<Sound>
-		<Name>Motor_Compressor</Name>
-		<Path>compr.wav</Path>
-		<InitVolume>50</InitVolume>
-		<MaxVolume>50</MaxVolume>
-		<InitPitch>0.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-
-	<!-- Щелчек рукоятки крана 395 -->
-	<Sound>
-		<Name>Kran_395_ruk</Name>
-		<Path>395-chelk.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>208</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.87 9.87 2.71</LocalPosition>
 	</Sound>
-	
-	<!-- Щелчек рукоятки крана 254 -->
+
+	<!-- Тумблер Напяржение ЦУ/Напряжение ЭПТ -->
 	<Sound>
-		<Name>254-chelk</Name>
-		<Path>254-chelk.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>209</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-	</Sound>
-	
-	<!-- Звук наполнения крана 254 -->
-	<Sound>
-		<Name>254_vpusk</Name>
-		<Path>254_vpusk.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
-	</Sound>
-	
-	<!-- Звук отпуска крана 254 -->
-	<Sound>
-		<Name>254_vypusk</Name>
-		<Path>254_vypusk.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
-		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
+		<LocalPosition>-1.288 10.08 2.85</LocalPosition>
 	</Sound>
 
-	<!-- Щелчек комбинированного крана -->
+	<!-- Тумблер аварийная остановка дизеля -->
 	<Sound>
-		<Name>Komb_kran</Name>
-		<Path>komb-kran.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>210</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.85 10.08 2.95</LocalPosition>
 	</Sound>
 
-	<!-- Щелчек комбинированного крана -->
+	<!-- Щелчок блокировки тормозных приборов -->
 	<Sound>
-		<Name>UBT_367_ruk</Name>
-		<Path>ubt-367-ruk.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>211</SignalID>
+		<Filename>ubt-367-ruk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
 	</Sound>
 
+	<!-- Щелчок комбинированного крана -->
 	<Sound>
-		<Name>KRM395_vpusk</Name>
-		<Path>395_vpusk.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>212</SignalID>
+		<Filename>komb-kran.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
 	</Sound>
 
+	<!-- Опорожнение тормозной магистрали от комбинированного крана -->
 	<Sound>
-		<Name>KRM395_vipusk</Name>
-		<Path>395_vypusk.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>213</SignalID>
+		<Filename>395_vypusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
 	</Sound>
 
+	<!-- Щелчок рукоятки крана 395 -->
 	<Sound>
-		<Name>KRM395_1</Name>
-		<Path>395_1.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>214</SignalID>
+		<Filename>395-chelk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
-		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
 	</Sound>
 
+	<!-- Стабилизатор крана 395 -->
 	<Sound>
-		<Name>KRM395_2</Name>
-		<Path>395_2.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>25</MaxVolume>
+		<SignalID>215</SignalID>
+		<Filename>395_2.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>0.3</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
 	</Sound>
 
+	<!-- Наполнение уравнительного резервуара крана 395 -->
 	<Sound>
-		<Name>KRM395_5</Name>
-		<Path>395_5.wav</Path>
-		<InitVolume>0</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>216</SignalID>
+		<Filename>395_1.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
-		<PlayOnStart>1</PlayOnStart>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Опорожнение уравнительного резервуара крана 395 -->
+	<Sound>
+		<SignalID>217</SignalID>
+		<Filename>395_5.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Наполнение тормозной магистрали от крана 395 -->
+	<Sound>
+		<SignalID>218</SignalID>
+		<Filename>395_vpusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Опорожнение тормозной магистрали от крана 395 -->
+	<Sound>
+		<SignalID>219</SignalID>
+		<Filename>395_vypusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Щелчок рукоятки крана 215 -->
+	<Sound>
+		<SignalID>220</SignalID>
+		<Filename>254-chelk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.34 9.89 2.9</LocalPosition>
+	</Sound>
+
+	<!-- Наполнение магистрали тормозных цилиндров от крана 254 -->
+	<Sound>
+		<SignalID>221</SignalID>
+		<Filename>254_vpusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Опорожнение магистрали тормозных цилиндров от крана 254 -->
+	<Sound>
+		<SignalID>222</SignalID>
+		<Filename>254_vypusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.2 9.7 2.7</LocalPosition>
 	</Sound>
 
 	<!-- Свисток -->
 	<Sound>
-		<Name>Svistok</Name>
-		<Path>svistok.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>223</SignalID>
+		<Filename>svistok.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
-		<Loop>0</Loop>
+		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.8 8.6 4.6</LocalPosition>
 	</Sound>
 
 	<!-- Тифон -->
 	<Sound>
-		<Name>Tifon</Name>
-		<Path>tifon.wav</Path>
-		<InitVolume>100</InitVolume>
-		<MaxVolume>100</MaxVolume>
+		<SignalID>224</SignalID>
+		<Filename>tifon.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.0 10.0 4.4</LocalPosition>
+	</Sound>
+
+	<!-- Топливный насос -->
+	<Sound>
+		<SignalID>225</SignalID>
+		<Filename>fuel_pump.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Маслопрокачивающий насос -->
+	<Sound>
+		<SignalID>226</SignalID>
+		<Filename>oil_pump.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Стартер-генератор -->
+	<Sound>
+		<SignalID>227</SignalID>
+		<Filename>starter.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Дизель -->
+	<Sound>
+		<SignalID>228</SignalID>
+		<Filename>x0.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>229</SignalID>
+		<Filename>x1.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>230</SignalID>
+		<Filename>x2.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>231</SignalID>
+		<Filename>x3.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>232</SignalID>
+		<Filename>x4.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>233</SignalID>
+		<Filename>x5.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>234</SignalID>
+		<Filename>x6.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>235</SignalID>
+		<Filename>x7.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>236</SignalID>
+		<Filename>x8.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>237</SignalID>
+		<Filename>x9.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>238</SignalID>
+		<Filename>x10.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>239</SignalID>
+		<Filename>x11.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>240</SignalID>
+		<Filename>x12.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>241</SignalID>
+		<Filename>x13.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>242</SignalID>
+		<Filename>x14.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>243</SignalID>
+		<Filename>x15.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реверсивная рукоятка -->
+	<Sound>
+		<SignalID>244</SignalID>
+		<Filename>revers-ruk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.69 9б87 2.7</LocalPosition>
 	</Sound>
 
+	<!-- Главный вал КМ (штурвал) -->
+	<Sound>
+		<SignalID>245</SignalID>
+		<Filename>shturval.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.69 9б87 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Перестуки -->
+	<Sound>
+		<SignalID>246</SignalID>
+		<Filename>perestuk/5-10.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>247</SignalID>
+		<Filename>perestuk/10-20.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>248</SignalID>
+		<Filename>perestuk/20-30.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>249</SignalID>
+		<Filename>perestuk/30-40.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>250</SignalID>
+		<Filename>perestuk/40-50.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>251</SignalID>
+		<Filename>perestuk/50-60.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>252</SignalID>
+		<Filename>perestuk/60-70.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>253</SignalID>
+		<Filename>perestuk/70-80.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>254</SignalID>
+		<Filename>perestuk/80-90.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>255</SignalID>
+		<Filename>perestuk/90-100.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>256</SignalID>
+		<Filename>perestuk/100-110.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>257</SignalID>
+		<Filename>perestuk/110-120.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>258</SignalID>
+		<Filename>perestuk/120-130.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>259</SignalID>
+		<Filename>perestuk/130-140.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>260</SignalID>
+		<Filename>perestuk/140-~.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Скоростемер -->
+	<Sound>
+		<SignalID>261</SignalID>
+		<Filename>skorostemer.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.24 9.98 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Мотор-компрессор -->
+	<Sound>
+		<SignalID>262</SignalID>
+		<Filename>compr.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.64 -4.32 2.6</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ мотор-компрессор -->
+	<Sound>
+		<SignalID>263</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.32 9.87 2.71</LocalPosition>
+	</Sound>
+
+	<!-- Контактор топливного насоса -->
+	<Sound>
+		<SignalID>264</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ8 -->
+	<Sound>
+		<SignalID>265</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Контактор маслопрокачивающего насоса -->
+	<Sound>
+		<SignalID>266</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле времени маслопрокачивающего насоса -->
+	<Sound>
+		<SignalID>267</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле времени стартер-генератора -->
+	<Sound>
+		<SignalID>268</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Контактор стартер-генератора -->
+	<Sound>
+		<SignalID>269</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ10 -->
+	<Sound>
+		<SignalID>270</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ6 -->
+	<Sound>
+		<SignalID>271</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ42 -->
+	<Sound>
+		<SignalID>272</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ7 -->
+	<Sound>
+		<SignalID>273</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ15 -->
+	<Sound>
+		<SignalID>274</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Вентиль МВ6 -->
+	<Sound>
+		<SignalID>275</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Вентиль топливного насоса -->
+	<Sound>
+		<SignalID>276</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ4 -->
+	<Sound>
+		<SignalID>277</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РВ4 -->
+	<Sound>
+		<SignalID>278</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РВ9 -->
+	<Sound>
+		<SignalID>279</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Контактор регулятора напряжения -->
+	<Sound>
+		<SignalID>280</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ18 -->
+	<Sound>
+		<SignalID>281</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Котактор мотор-компрессора 1 -->
+	<Sound>
+		<SignalID>282</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.64 -4.32 2.6</LocalPosition>
+	</Sound>
+
+	<!-- Котактор мотор-компрессора 2 -->
+	<Sound>
+		<SignalID>289</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.64 -4.32 2.6</LocalPosition>
+	</Sound>
+
+	<!-- Реле РВ6 -->
+	<Sound>
+		<SignalID>283</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Контактор возбуждения возбудителя -->
+	<Sound>
+		<SignalID>284</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Контактор возбуждения генератора -->
+	<Sound>
+		<SignalID>285</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Контактор ОВ1 -->
+	<Sound>
+		<SignalID>286</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Контактор ОВ2 -->
+	<Sound>
+		<SignalID>287</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 0.0 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Реле РУ1 -->
+	<Sound>
+		<SignalID>288</SignalID>
+		<Filename>relay.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.68 6.43 3.26</LocalPosition>
+	</Sound>
+
+	<!-- Песочница спереди -->
+	<Sound>
+		<SignalID>290</SignalID>
+		<Filename>sandbox.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 8.0 0.0</LocalPosition>
+	</Sound>
+
+	<!-- Песочница сзади -->
+	<Sound>
+		<SignalID>290</SignalID>
+		<Filename>sandbox.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -8.0 0.0</LocalPosition>
+	</Sound>
 
 </Config>

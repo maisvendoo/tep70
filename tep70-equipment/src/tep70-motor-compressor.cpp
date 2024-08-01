@@ -79,8 +79,8 @@ void TEP70MotorCompressor::load_config(CfgReader &cfg)
 
     cfg.getDouble(secName, "K_pressure", K_pressure);
     cfg.getDouble(secName, "K_flow", K_flow);
+    cfg.getDouble(secName, "Unom", U_nom);
 
-    cfg.getString(secName, "SoundName", soundName);
     cfg.getBool(secName, "RegulateSoundByOnOff", reg_sound_by_on_off);
     cfg.getBool(secName, "RegulateSoundByPitch", reg_sound_by_pitch);
 }

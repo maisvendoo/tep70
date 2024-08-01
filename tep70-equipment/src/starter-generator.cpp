@@ -115,18 +115,18 @@ void StarterGenerator::preStep(state_vector_t &Y, double t)
 
     if ( (Ua >= 62.0) && !is_started)
     {
-        emit soundPlay("Starter");
+        sound_state.play(true);
         is_started = true;
     }
 
     if ( (Ua < 62.0) && is_started)
     {
-        emit soundStop("Starter");
+        sound_state.play(false);
         is_started = false;
     }
 
-    emit soundSetPitch("Starter", static_cast<float>(omega / 66.0));
-    emit soundSetVolume("Starter", static_cast<int>(Y[0] * 100.0 / 1600.0));
+    sound_state.pitch = static_cast<float>(omega / 66.0);
+    sound_state.volume = static_cast<float>(Y[0] / 1600.0);
 
     DebugMsg = QString("Uсг: %1 Iсг: %2 omg: %3")
             .arg(Ua, 5, 'f', 1)
@@ -195,7 +195,7 @@ void StarterGenerator::preStep_generator(state_vector_t &Y, double t)
     Ia = Y[0] = In;
     If = Y[1];
 
-    U = cPhi(Y[1]) * omega - Ra * In;
+    U = pf(cPhi(Y[1]) * omega - Ra * In);
 }
 
 //------------------------------------------------------------------------------

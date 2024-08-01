@@ -16,17 +16,13 @@
 #include    "vehicle-api.h"
 #include    "tep70-signals.h"
 
-#include    "battery.h"
-#include    "relay.h"
 #include    "fuel-tank.h"
 #include    "electric-fuel-pump.h"
 #include    "disel.h"
-#include    "time-relay.h"
 #include    "electric-oil-pump.h"
 #include    "starter-generator.h"
 #include    "voltage-regulator.h"
 #include    "tep70-motor-compressor.h"
-#include    "tep70-switcher.h"
 #include    "field-generator.h"
 #include    "trac-generator.h"
 #include    "field-regulator.h"
@@ -35,7 +31,6 @@
 #include    "km-2202.h"
 #include    "reversor.h"
 #include    "brake-switcher.h"
-#include    "hysteresis-relay.h"
 
 /*!
  * \class
@@ -336,6 +331,9 @@ private:
     /// Свисток и тифон
     TrainHorn   *horn;
 
+    /// Система подачи песка
+    SandingSystem   *sand_system;
+
     double tracForce;
 
     bool    is_svistok;
@@ -401,58 +399,55 @@ private:
     Trigger tumbler_disel_stop;
 
     /// Тумблер "Ослабление поля I ступени руч./авт."
-    TEP70Switcher tumbler_field_weak1;
+    Switcher tumbler_field_weak1;
 
     /// Тумблер "Ослабление поля II ступени руч./авт."
-    TEP70Switcher tumbler_field_weak2;
+    Switcher tumbler_field_weak2;
 
     /// Тумблер "Управление жалюзи воды руч./авт."
-    TEP70Switcher tumbler_water_zaluzi;
+    Switcher tumbler_water_zaluzi;
 
     /// Тумблер "Управление жалюзи масла руч./авт."
-    TEP70Switcher tumbler_oil_zaluzi;
+    Switcher tumbler_oil_zaluzi;
 
     /// Инициализация всех систем тепловоза
     void initialization();
 
     /// Инициализация сцепных устройств
-    void initCouplings(QString modules_dir);
+    void initCouplings(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация органов управления в кабине
-    void initCabineControls();
+    void initCabineControls(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация цепей управления
-    void initControlCircuit();
+    void initControlCircuit(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация топливной системы
-    void initFuelSystem();
+    void initFuelSystem(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация дизеля
-    void initDisel();
+    void initDisel(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация маслянной системы
-    void initOilSystem();
+    void initOilSystem(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация питательной магистрали
-    void initPneumoSupply(QString modules_dir);
+    void initPneumoSupply(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация приборов управления тормозами
-    void initBrakesControl(QString modules_dir);
+    void initBrakesControl(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация тормозного оборудования
-    void initBrakesEquipment(QString modules_dir);
+    void initBrakesEquipment(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация ЭПТ
-    void initEPB(QString modules_dir);
+    void initEPB(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация электрической передачи
-    void initElectroTransmission();
+    void initElectroTransmission(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация прочего оборудования
-    void initOther();
-
-    /// Инициализация звуков
-    void initSounds();
+    void initOther(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Предварительные расчёты перед симуляцией
     void preStep(double t);
@@ -501,6 +496,9 @@ private:
 
     /// Вывод сигналов для анимаций
     void stepSignalsOutput(double t, double dt);
+
+    /// Вывод сигналов озвучки
+    void stepSoundsSignals(double t, double dt);
 
     /// Работа локомотивного светофора по сигналам АЛСН
     void stepDecodeAlsn();

@@ -130,36 +130,36 @@ void TEP70BS::initialization()
 {
     FileSystem &fs = FileSystem::getInstance();
     QString modules_dir = QString(fs.getModulesDir().c_str());
+    QString custom_cfg_dir(fs.getVehiclesDir().c_str());
+    custom_cfg_dir += fs.separator() + config_dir;
 
-    initCouplings(modules_dir);
+    initCouplings(modules_dir, custom_cfg_dir);
 
-    initCabineControls();
+    initCabineControls(modules_dir, custom_cfg_dir);
 
-    initControlCircuit();
+    initControlCircuit(modules_dir, custom_cfg_dir);
 
-    initFuelSystem();
+    initFuelSystem(modules_dir, custom_cfg_dir);
 
-    initDisel();
+    initDisel(modules_dir, custom_cfg_dir);
 
-    initOilSystem();
+    initOilSystem(modules_dir, custom_cfg_dir);
 
-    initPneumoSupply(modules_dir);
+    initPneumoSupply(modules_dir, custom_cfg_dir);
 
-    initBrakesControl(modules_dir);
+    initBrakesControl(modules_dir, custom_cfg_dir);
 
-    initBrakesEquipment(modules_dir);
+    initBrakesEquipment(modules_dir, custom_cfg_dir);
 
-    initEPB(modules_dir);
+    initEPB(modules_dir, custom_cfg_dir);
 
-    initElectroTransmission();
+    initElectroTransmission(modules_dir, custom_cfg_dir);
 
-    initOther();
+    initOther(modules_dir, custom_cfg_dir);
 
-    initMSUT();
+    initMSUT(modules_dir, custom_cfg_dir);
 
     initAutostart();
-
-    initSounds();
 /*
     reg = new Registrator(0.1);
     reg->setFileName("tep70-char");
@@ -180,9 +180,6 @@ void TEP70BS::preStep(double t)
 //------------------------------------------------------------------------------
 void TEP70BS::step(double t, double dt)
 {
-    Q_UNUSED(t)
-    Q_UNUSED(dt)
-
     stepCouplings(t, dt);
 
     stepCabineControls(t, dt);

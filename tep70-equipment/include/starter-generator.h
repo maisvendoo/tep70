@@ -3,8 +3,6 @@
 
 #include    "device.h"
 
-#include    "motor-magnetic-char.h"
-
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
@@ -35,6 +33,12 @@ public:
     double getTorque();
 
     double getAncorCurrent() const { return Ia; }
+
+    float getSoundSignal(size_t idx = 0) const override
+    {
+        (void) idx;
+        return sound_state.createSoundSignal();
+    }
 
 private:
 
@@ -84,7 +88,9 @@ private:
     Timer   *switch_timer;
 
     /// Характеристика намагничивания обмотки возбуждения
-    MotorMagneticChar   magnetic_char;
+    LinearInterpolation   magnetic_char;
+
+    sound_state_t sound_state;
 
     void preStep(state_vector_t &Y, double t);
 
