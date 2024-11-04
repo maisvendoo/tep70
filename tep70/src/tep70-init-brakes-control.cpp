@@ -21,10 +21,6 @@ void TEP70::initBrakesControl(const QString &modules_dir, const QString &custom_
                 modules_dir + QDir::separator() + loco_crane_module_name);
     loco_crane->read_config(loco_crane_config_name);
 
-    // ЭПК
-    epk = loadAutoTrainStop(modules_dir + QDir::separator() + "epk150");
-    epk->read_config("epk150");
-
     // Переключательный клапан магистрали тормозных цилиндров
     bc_switch_valve = new SwitchingValve();
     bc_switch_valve->read_config("zpk", custom_cfg_dir);

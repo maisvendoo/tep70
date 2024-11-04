@@ -16,9 +16,8 @@ void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
     brake_lock->setState(true);
     brake_lock->setCombineCranePosition(0);
 
-    charge_press = p0;
     brake_crane->init(pBP, pFL);
-    brake_crane->setChargePressure(charge_press);
+    brake_crane->setChargePressure(p0);
 
     loco_crane->init(pBP, pFL);
 
