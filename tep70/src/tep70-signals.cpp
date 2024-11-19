@@ -11,7 +11,11 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[STRELKA_WATER_TEMP] = 0.0;
 
     // Состояние локомотивного светофора
-    stepDecodeAlsn();
+    analogSignal[LS_G] = static_cast<float>(alsn_decoder->getCode() == ALSN::GREEN);
+    analogSignal[LS_Y] = static_cast<float>(alsn_decoder->getCode() == ALSN::YELLOW);
+    analogSignal[LS_YR] = static_cast<float>(alsn_decoder->getCode() == ALSN::RED_YELLOW);
+    analogSignal[LS_R] = 0.0f;
+    analogSignal[LS_W] = static_cast<float>(alsn_decoder->getCode() == ALSN::NO_CODE);
 
     analogSignal[KM_SHTURVAL] = km->getMainShaftPos();
     analogSignal[KM_REVERSOR] = km->getReversState();
