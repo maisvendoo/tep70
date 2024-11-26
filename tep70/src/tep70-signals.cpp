@@ -11,11 +11,17 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[STRELKA_WATER_TEMP] = 0.0;
 
     // Состояние локомотивного светофора
-    analogSignal[LS_G] = static_cast<float>(alsn_decoder->getCode() == ALSN::GREEN);
+    /*analogSignal[LS_G] = static_cast<float>(alsn_decoder->getCode() == ALSN::GREEN);
     analogSignal[LS_Y] = static_cast<float>(alsn_decoder->getCode() == ALSN::YELLOW);
     analogSignal[LS_YR] = static_cast<float>(alsn_decoder->getCode() == ALSN::RED_YELLOW);
     analogSignal[LS_R] = 0.0f;
-    analogSignal[LS_W] = static_cast<float>(alsn_decoder->getCode() == ALSN::NO_CODE);
+    analogSignal[LS_W] = static_cast<float>(alsn_decoder->getCode() == ALSN::NO_CODE);*/
+    // Лампы локомотивного светофора
+    analogSignal[LS_W] = safety_device->getWhiteLamp();
+    analogSignal[LS_YR] = safety_device->getRedYellowLamp();
+    analogSignal[LS_R] = safety_device->getRedLamp();
+    analogSignal[LS_Y] = safety_device->getYellowLamp();
+    analogSignal[LS_G] = safety_device->getGreenLamp();
 
     analogSignal[KM_SHTURVAL] = km->getMainShaftPos();
     analogSignal[KM_REVERSOR] = km->getReversState();
@@ -91,6 +97,11 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[WHEEL_4] = static_cast<float>(wheel_rotation_angle[3] / 2.0 / Physics::PI);
     analogSignal[WHEEL_5] = static_cast<float>(wheel_rotation_angle[4] / 2.0 / Physics::PI);
     analogSignal[WHEEL_6] = static_cast<float>(wheel_rotation_angle[5] / 2.0 / Physics::PI);
+
+    // ЭПК
+    analogSignal[SOUND_EPK_ON] = key_epk.getSoundSignal(Trigger::ON_SOUND);
+    analogSignal[SOUND_EPK_OFF] = key_epk.getSoundSignal(Trigger::OFF_SOUND);
+    analogSignal[SOUND_EPK] = epk->getSoundSignal();
 }
 
 //------------------------------------------------------------------------------

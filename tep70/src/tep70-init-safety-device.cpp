@@ -38,4 +38,7 @@ void TEP70::initSafetyDevices(const QString &modules_dir, const QString &custom_
     // Дешифратор АЛСН
     alsn_decoder = new DecoderALSN();
     alsn_decoder->read_config("ALSN-decoder");
+
+    // УКБМ
+    safety_device = new SafetyDevice;
 }

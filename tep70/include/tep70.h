@@ -13,24 +13,25 @@
 #ifndef     TEP70_H
 #define     TEP70_H
 
-#include    "vehicle-api.h"
-#include    "tep70-signals.h"
+#include    <vehicle-api.h>
+#include    <tep70-signals.h>
 
-#include    "fuel-tank.h"
-#include    "electric-fuel-pump.h"
-#include    "disel.h"
-#include    "electric-oil-pump.h"
-#include    "starter-generator.h"
-#include    "voltage-regulator.h"
-#include    "tep70-motor-compressor.h"
-#include    "field-generator.h"
-#include    "trac-generator.h"
-#include    "field-regulator.h"
-#include    "trac-motor.h"
-#include    "sl2m.h"
-#include    "km-2202.h"
-#include    "reversor.h"
-#include    "brake-switcher.h"
+#include    <fuel-tank.h>
+#include    <electric-fuel-pump.h>
+#include    <disel.h>
+#include    <electric-oil-pump.h>
+#include    <starter-generator.h>
+#include    <voltage-regulator.h>
+#include    <tep70-motor-compressor.h>
+#include    <field-generator.h>
+#include    <trac-generator.h>
+#include    <field-regulator.h>
+#include    <trac-motor.h>
+#include    <sl2m.h>
+#include    <km-2202.h>
+#include    <reversor.h>
+#include    <brake-switcher.h>
+#include    <alsn-ukbm.h>
 
 /*!
  * \class
@@ -204,6 +205,9 @@ private:
 
     /// ЭПК автостопа
     AutoTrainStop       *epk = nullptr;
+
+    /// УКБМ
+    SafetyDevice        *safety_device = nullptr;
 
     /// Тормозная магистраль
     Reservoir           *brakepipe = nullptr;
@@ -418,6 +422,20 @@ private:
 
     /// Тумблер "Управление жалюзи масла руч./авт."
     Switcher tumbler_oil_zaluzi;
+
+    enum
+    {
+        NUM_RB = 3,
+        RB = 0,
+        RBS = 1,
+        RBP = 2
+    };
+
+    /// Рукоятки бдительности
+    std::array<Trigger, NUM_RB> rb;
+
+    /// Ключ ЭПК
+    Trigger key_epk;
 
     /// Инициализация всех систем тепловоза
     void initialization();

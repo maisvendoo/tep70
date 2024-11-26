@@ -22,10 +22,15 @@ public:
 
     float getShaftPos() const;
 
-    float getSoundSignal(size_t idx = 0) const override
+    /// Состояние звука работы
+    virtual sound_state_t getSoundState(size_t idx = 0) const;
+
+    /// Сигнал состояния звука работы
+    virtual float getSoundSignal(size_t idx = 0) const;
+
+    double getVelocity() const
     {
-        (void) idx;
-        return sound_state_t::createSoundSignal(abs(omega) >= omega_begin_sound);
+        return velocity;
     }
 
 private:
@@ -39,7 +44,7 @@ private:
     /// Угловая скорость вращения вала
     double omega_s;
 
-    /// Показатель износта - величина разбега стрелки, км/ч
+    /// Показатель износа - величина разбега стрелки, км/ч
     double wear_gap;
 
     /// Максимальна скорость на шкале
@@ -49,18 +54,18 @@ private:
     float arrow_pos;
 
     /// Диаметр бандажа
-    double Dk = 1.2;
+    double Dk;
 
-    double sound_speed;
+    /// Скорость начала работы звука скоростемера
+    double speed_begin_sound;
+    double omega_begin_sound;
 
     /// Сигнал положения вала
     float shaft_pos;
 
     double freq_coeff;
 
-    double speed_begin_sound = 2.0;
-
-    double omega_begin_sound = speed_begin_sound * 2.0 / Dk / Physics::kmh;
+    double velocity = 0.0;
 
     void preStep(state_vector_t &Y, double t);
 

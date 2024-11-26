@@ -20,7 +20,15 @@ void TEP70::stepSafetyDevices(double t, double dt)
     // Электропневматический клапан автостопа
     epk->setFLpressure(main_reservoir->getPressure());
     epk->setBPpressure(brakepipe->getPressure());
-    epk->setPowered(true);
-    epk->setControl(keys);
+    epk->setPowered(safety_device->getEPKstate());
+    epk->setKeyOn(key_epk.getState());
     epk->step(t, dt);
+
+    // УКБМ
+    safety_device->setAlsnCode(alsn_decoder->getCode());
+    safety_device->setRBstate(rb[RB].getState());
+    safety_device->setRBSstate(rb[RBS].getState());
+    safety_device->setKeyEPK(epk->isKeyOn());
+    safety_device->setVelocity(speed_meter->getVelocity());
+    safety_device->step(t, dt);
 }

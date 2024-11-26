@@ -133,4 +133,34 @@ void TEP70::keyProcess()
             azv_motor_compressor.reset();
         }
     }
+
+    if (getKeyState(KEY_Z))
+    {
+        rb[RB].set();
+    }
+    else
+    {
+        rb[RB].reset();
+    }
+
+    if (getKeyState(KEY_M))
+    {
+        rb[RBS].set();
+    }
+    else
+    {
+        rb[RBS].reset();
+    }
+
+    if (getKeyState(KEY_N) && !isAlt())
+    {
+        if (isShift())
+        {
+            key_epk.set();
+        }
+        else
+        {
+            key_epk.reset();
+        }
+    }
 }
