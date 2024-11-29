@@ -8,6 +8,18 @@ void TEP70::stepElectroTransmission(double t, double dt)
     // Ток, потребляемый от главного генератора
     I_gen = 0.0;
 
+    // Цепь реле РУ9 - контроль сбора тяги от ЭПК (В будущем добавить другие блокировки)
+    bool is_RU9_ON = !epk->getEmergencyBrakeContact();
+
+    ru9->setVoltage(Ucc * static_cast<double>(is_RU9_ON));
+    ru9->step(t, dt);
+
+    // Состояние провода 819
+    bool is_819_ON = ru9->getContactState(RU9_EPK_CTRL) &&
+                     key_epk.getState() &&
+                     brake_lock->isUnlocked() &&
+                     azv_upr_tepl.getState();
+
     // Состояние цепи поездных контакторов
     bool is_KP_on = azv_upr_tepl.getState() && brake_switcher->isTraction();
 
@@ -145,7 +157,7 @@ void TEP70::stepElectroTransmission(double t, double dt)
     reversor->step(t, dt);
 
     // Цепь вентиля "Тяга" тормозного переключателя
-    bool is_TRAC_on = azv_upr_tepl.getState() &&
+    bool is_TRAC_on = is_819_ON &&
                      (is_KP1_KP7_off || brake_switcher->isTraction()) &&
                      km->isNoZero();
 

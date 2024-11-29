@@ -437,6 +437,15 @@ private:
     /// Ключ ЭПК
     Trigger key_epk;
 
+    enum
+    {
+        NUM_RU9_CONTACS = 1,
+        RU9_EPK_CTRL = 0
+    };
+
+    /// Реле контроля сбора схемы от ЭПК
+    Relay *ru9 = new Relay(NUM_RU9_CONTACS);
+
     /// Инициализация всех систем тепловоза
     void initialization();
 
