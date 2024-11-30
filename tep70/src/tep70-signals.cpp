@@ -102,6 +102,8 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[SOUND_EPK_ON] = key_epk.getSoundSignal(Trigger::ON_SOUND);
     analogSignal[SOUND_EPK_OFF] = key_epk.getSoundSignal(Trigger::OFF_SOUND);
     analogSignal[SOUND_EPK] = epk->getSoundSignal();
+
+    analogSignal[SIGLIGHT_PSS] = safety_device->getStatePSS();
 }
 
 //------------------------------------------------------------------------------
