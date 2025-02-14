@@ -31,7 +31,7 @@ xcopy /E /Y ..\data\models\%ADDON_NAME%\*.* %PKG_DIR%\%DIR_NAME%\data\models\%AD
 xcopy /E /Y ..\data\sounds\%ADDON_NAME%\*.* %PKG_DIR%\%DIR_NAME%\data\sounds\%ADDON_NAME%
 
 rem Копируем документацию
-xcopy /E /Y ..\docs\*.pdf %PKG_DIR%\%DIR_NAME%\docs\
+xcopy /E /Y ..\tep70\docs\*.pdf %PKG_DIR%\%DIR_NAME%\docs\
 
 rem Архифируем в 7zip
 cd %PKG_DIR%\%DIR_NAME%
