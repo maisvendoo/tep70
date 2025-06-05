@@ -16,11 +16,11 @@
 		<FuelCapacity>6000</FuelCapacity>
 		<FuelLevel>1.0</FuelLevel>
 
-		<ExtModelName>tep70/tep70.osgt</ExtModelName>
+		<ExtModelName>tep70/tep70.gltf</ExtModelName>
 		<ModelShift>0.0 0.0 0.312</ModelShift>
 
-		<CabineModel>tep70/tep70-cabview.osgt</CabineModel>
-		<CabineShift>0.0 -0.05 0.465</CabineShift>
+		<CabineModel>tep70/tep70-cabview.gltf</CabineModel>
+		<CabineShift>0.0 0.0 0.312</CabineShift>
 
 		<CouplingModule>sa3</CouplingModule>
 		<CouplingConfig>sa3</CouplingConfig>
