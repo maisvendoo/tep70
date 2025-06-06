@@ -25,6 +25,8 @@ void TEP70::debugOutput(double t, double dt)
                     .arg(km->getReversState(), 2)
                     .arg(km->getPositionNumber(), 2)
                     .arg(I_gen, 7, 'f', 1);
+    DebugMsg += QString("Fuel:%1kg|")
+                    .arg(fuel_tank->getFuelMass(), 5, 'f', 0);
 
     DebugMsg += QString("\n");
     DebugMsg += QString("%1%2%3-%4-couplings-%5-%6%7%8")
