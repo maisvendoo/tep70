@@ -28,6 +28,12 @@ void TEP70::debugOutput(double t, double dt)
     DebugMsg += QString("Fuel:%1kg|")
                     .arg(fuel_tank->getFuelMass(), 5, 'f', 0);
 
+    DebugMsg += QString("Oil press: %1 MPa|")
+                    .arg(disel->getOilPressure(), 4, 'f', 2);
+
+    DebugMsg += QString("Fuel press: %1 MPa|")
+                    .arg(electro_fuel_pump->getFuelPressure(), 4, 'f', 2);
+
     DebugMsg += QString("\n");
     DebugMsg += QString("%1%2%3-%4-couplings-%5-%6%7%8")
                     .arg(coupling_fwd->isLinked() ? "=" : " ")
