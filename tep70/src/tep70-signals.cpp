@@ -104,6 +104,9 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[SOUND_EPK] = epk->getSoundSignal();
 
     analogSignal[SIGLIGHT_PSS] = safety_device->getStatePSS();
+
+    // Переключатель величины тормозного усилия
+    analogSignal[BRAKE_FORCE_SWITCH] = static_cast<float>(brake_force_switch.getHandlePosition());
 }
 
 //------------------------------------------------------------------------------

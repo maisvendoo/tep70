@@ -1111,4 +1111,15 @@
 		<LocalPosition>1.23 9.02 2.5</LocalPosition>
 	</Sound>
 
+	<Sound>
+		<SignalID>294</SignalID>
+		<Filename>brake_force_switch.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.52 9.81 2.85</LocalPosition>
+	</Sound>
+
 </Config>

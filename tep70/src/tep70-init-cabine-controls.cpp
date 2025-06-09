@@ -27,4 +27,8 @@ void TEP70::initCabineControls(const QString &modules_dir, const QString &custom
     tumbler_oil_zaluzi.setNumPositions(3);
     tumbler_oil_zaluzi.setKeyCode(KEY_7);
     tumbler_oil_zaluzi.setState(1);
+
+    brake_force_switch.setNumPositions(13);
+    brake_force_switch.setKeyCode(KEY_F);
+    brake_force_switch.setState(0);
 }

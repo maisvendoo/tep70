@@ -100,6 +100,8 @@ enum
     VAL_PRSKOR1 = 73,
     VAL_PRSKOR2 = 74,
 
+    BRAKE_FORCE_SWITCH = 75,
+
     WHEEL_1 = 194,
     WHEEL_2 = 195,
     WHEEL_3 = 196,
@@ -210,7 +212,9 @@ enum
 
     SOUND_EPK_ON = 291,
     SOUND_EPK_OFF = 292,
-    SOUND_EPK = 293
+    SOUND_EPK = 293,
+
+    SOUND_BRAKE_FORCE_SWITCH = 294
 };
 
 #endif // TEP70_SIGNALS_H

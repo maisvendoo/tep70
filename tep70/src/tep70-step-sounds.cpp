@@ -115,4 +115,7 @@ void TEP70::stepSoundsSignals(double t, double dt)
 
     // Песочница
     analogSignal[SOUND_SAND_DELIVERY] = sand_system->getSoundSignal();
+
+    // Переключатель тормозного усилия
+    analogSignal[SOUND_BRAKE_FORCE_SWITCH] = brake_force_switch.getSoundSignal();
 }

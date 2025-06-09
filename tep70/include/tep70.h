@@ -446,6 +446,9 @@ private:
     /// Реле контроля сбора схемы от ЭПК
     Relay *ru9 = new Relay(NUM_RU9_CONTACS);
 
+    /// Переключатель тормозного усилия (задел под ЭДТ)
+    Switcher brake_force_switch;
+
     /// Инициализация всех систем тепловоза
     void initialization();
 
