@@ -35,8 +35,17 @@
 		<AirDistConfig>vr242</AirDistConfig>
 
 		<ElectroAirDistModule>evr305</ElectroAirDistModule>
-		<ElectroAirDistConfig>evr305</ElectroAirDistConfig>
-
-		<DriverPos>0.9 9.2 3.6</DriverPos>
+		<ElectroAirDistConfig>evr305</ElectroAirDistConfig>		
 	</Vehicle>
+
+	<Cabine>
+		<DriverPos>0.9 9.2 3.6</DriverPos>
+		<DriverDir>0.0</DriverDir>
+	</Cabine>
+
+	<Cabine>
+		<DriverPos>-0.9 -9.2 3.6</DriverPos>
+		<DriverDir>180.0</DriverDir>
+	</Cabine>
+
 </Config>
