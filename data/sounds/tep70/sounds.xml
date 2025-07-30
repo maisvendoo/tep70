@@ -523,7 +523,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.69 9б87 2.7</LocalPosition>
+		<LocalPosition>0.69 9.87 2.7</LocalPosition>
 	</Sound>
 
 	<!-- Главный вал КМ (штурвал) -->
@@ -535,7 +535,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.69 9б87 2.7</LocalPosition>
+		<LocalPosition>0.69 9.87 2.7</LocalPosition>
 	</Sound>
 
 	<!-- Перестуки -->
@@ -1120,6 +1120,390 @@
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
 		<LocalPosition>0.52 9.81 2.85</LocalPosition>
+	</Sound>
+
+	<!-- Кабина 2 -->
+
+	<!-- Тумблер ОП1 -->
+	<Sound>
+		<SignalID>355</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.58 -9.73 2.71</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер ОП2 -->
+	<Sound>
+		<SignalID>356</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.63 -9.73 2.71</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер жалюзи вода -->
+	<Sound>
+		<SignalID>357</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.68 -9.73 2.71</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер жалюзи масло -->
+	<Sound>
+		<SignalID>358</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.73 -9.73 2.71</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ управление общее -->
+	<Sound>
+		<SignalID>359</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.32 -9.87 2.71</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ управление тепловозом -->
+	<Sound>
+		<SignalID>360</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.35 -9.87 2.71</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ топливный насос -->
+	<Sound>
+		<SignalID>361</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.42 -9.87 2.71</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ ЭПТ -->
+	<Sound>
+		<SignalID>362</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.93 -9.87 2.71</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ ЭДТ -->
+	<Sound>
+		<SignalID>363</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.87 -9.87 2.71</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер Напяржение ЦУ/Напряжение ЭПТ -->
+	<Sound>
+		<SignalID>364</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>1.288 -10.08 2.85</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер аварийная остановка дизеля -->
+	<Sound>
+		<SignalID>365</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.85 -10.08 2.95</LocalPosition>
+	</Sound>
+
+	<!-- Щелчок блокировки тормозных приборов -->
+	<Sound>
+		<SignalID>366</SignalID>
+		<Filename>ubt-367-ruk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Щелчок комбинированного крана -->
+	<Sound>
+		<SignalID>367</SignalID>
+		<Filename>komb-kran.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Опорожнение тормозной магистрали от комбинированного крана -->
+	<Sound>
+		<SignalID>368</SignalID>
+		<Filename>395_vypusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Щелчок рукоятки крана 395 -->
+	<Sound>
+		<SignalID>369</SignalID>
+		<Filename>395-chelk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Стабилизатор крана 395 -->
+	<Sound>
+		<SignalID>370</SignalID>
+		<Filename>395_2.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>0.3</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Наполнение уравнительного резервуара крана 395 -->
+	<Sound>
+		<SignalID>371</SignalID>
+		<Filename>395_1.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Опорожнение уравнительного резервуара крана 395 -->
+	<Sound>
+		<SignalID>372</SignalID>
+		<Filename>395_5.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Наполнение тормозной магистрали от крана 395 -->
+	<Sound>
+		<SignalID>373</SignalID>
+		<Filename>395_vpusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Опорожнение тормозной магистрали от крана 395 -->
+	<Sound>
+		<SignalID>374</SignalID>
+		<Filename>395_vypusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Щелчок рукоятки крана 215 -->
+	<Sound>
+		<SignalID>375</SignalID>
+		<Filename>254-chelk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.34 -9.89 2.9</LocalPosition>
+	</Sound>
+
+	<!-- Наполнение магистрали тормозных цилиндров от крана 254 -->
+	<Sound>
+		<SignalID>376</SignalID>
+		<Filename>254_vpusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Опорожнение магистрали тормозных цилиндров от крана 254 -->
+	<Sound>
+		<SignalID>377</SignalID>
+		<Filename>254_vypusk.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.2 -9.7 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Свисток -->
+	<Sound>
+		<SignalID>378</SignalID>
+		<Filename>svistok.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.8 -8.6 4.6</LocalPosition>
+	</Sound>
+
+	<!-- Тифон -->
+	<Sound>
+		<SignalID>379</SignalID>
+		<Filename>tifon.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.0 -10.0 4.4</LocalPosition>
+	</Sound>
+
+	<!-- Реверсивная рукоятка -->
+	<Sound>
+		<SignalID>380</SignalID>
+		<Filename>revers-ruk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.69 -9.87 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Главный вал КМ (штурвал) -->
+	<Sound>
+		<SignalID>381</SignalID>
+		<Filename>shturval.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.69 -9.87 2.7</LocalPosition>
+	</Sound>
+
+	<!-- Скоростемер -->
+	<Sound>
+		<SignalID>382</SignalID>
+		<Filename>skorostemer.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.24 -9.98 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Ключ ЭПК вкл. -->
+	<Sound>
+		<SignalID>384</SignalID>
+		<Filename>epk_vkl.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.23 -9.02 2.5</LocalPosition>
+	</Sound>
+
+	<!-- Ключ ЭПК выкл. -->
+	<Sound>
+		<SignalID>385</SignalID>
+		<Filename>epk_vkl.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.23 -9.02 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>386</SignalID>
+		<Filename>epk.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-1.23 -9.02 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>387</SignalID>
+		<Filename>brake_force_switch.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.52 -9.81 2.85</LocalPosition>
 	</Sound>
 
 </Config>
