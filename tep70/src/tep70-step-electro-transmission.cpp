@@ -9,7 +9,7 @@ void TEP70::stepElectroTransmission(double t, double dt)
     I_gen = 0.0;
 
     // Цепь реле РУ9 - контроль сбора тяги от ЭПК (В будущем добавить другие блокировки)
-    bool is_RU9_ON = !epk->getEmergencyBrakeContact();
+    bool is_RU9_ON = !(epk[CAB1]->getEmergencyBrakeContact() || epk[CAB2]->getEmergencyBrakeContact());
 
     ru9->setVoltage(Ucc * static_cast<double>(is_RU9_ON));
     ru9->step(t, dt);
@@ -17,7 +17,7 @@ void TEP70::stepElectroTransmission(double t, double dt)
     // Состояние провода 819
     bool is_819_ON = ru9->getContactState(RU9_EPK_CTRL) &&
                      key_epk.getState() &&
-                     brake_lock->isUnlocked() &&
+                     (brake_lock[CAB1]->isUnlocked() || brake_lock[CAB2]->isUnlocked()) &&
                      azv_upr_tepl.getState();
 
     // Состояние цепи поездных контакторов
@@ -99,10 +99,6 @@ void TEP70::stepElectroTransmission(double t, double dt)
     field_reg->setGenCurrent(I_gen);
     field_reg->setKMPosition(km[CAB1]->getPositionNumber());
     field_reg->step(t, dt);
-
-    speed_meter->setWheelDiameter(wheel_diameter[0]);
-    speed_meter->setOmega(wheel_omega[0]);
-    speed_meter->step(t, dt);
 
     // Цепь реле РУ1
     bool is_RU1_on = azv_upr_tepl.getState() && km[CAB1]->is12orMore();

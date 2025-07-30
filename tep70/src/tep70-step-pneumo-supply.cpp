@@ -45,8 +45,10 @@ void TEP70::stepPneumoSupply(double t, double dt)
     FL_flow += motor_compressor->getFLflow();
     FL_flow += horn->getFLflow();
     FL_flow += sand_system->getFLflow();
-    FL_flow += brake_lock->getFLflow();
-    FL_flow += epk->getFLflow();
+    FL_flow += brake_lock[CAB1]->getFLflow();
+    FL_flow += brake_lock[CAB2]->getFLflow();
+    FL_flow += epk[CAB1]->getFLflow();
+    FL_flow += epk[CAB2]->getFLflow();
     FL_flow += bc_pressure_relay[TROLLEY_FWD]->getFLflow();
     FL_flow += bc_pressure_relay[TROLLEY_BWD]->getFLflow();
 

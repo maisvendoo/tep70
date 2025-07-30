@@ -205,19 +205,19 @@ private:
     TimeRelay           *rv6 = nullptr;
 
     /// Блокировочное устройство УБТ усл.№367м
-    BrakeLock           *brake_lock = nullptr;
+    BrakeLock           *brake_lock[CABS_NUM] = {nullptr, nullptr};
 
     /// Поездной кран машиниста усл.№395
-    BrakeCrane          *brake_crane = nullptr;
+    BrakeCrane          *brake_crane[CABS_NUM] = {nullptr, nullptr};
 
     /// Кран впомогательного тормоза усл.№254
-    LocoCrane           *loco_crane = nullptr;
+    LocoCrane           *loco_crane[CABS_NUM] = {nullptr, nullptr};
 
     /// ЭПК автостопа
-    AutoTrainStop       *epk = nullptr;
+    AutoTrainStop       *epk[CABS_NUM] = {nullptr, nullptr};
 
     /// УКБМ
-    SafetyDevice        *safety_device = nullptr;
+    SafetyDevice        *safety_device[CABS_NUM] = {nullptr, nullptr};
 
     /// Тормозная магистраль
     Reservoir           *brakepipe = nullptr;
@@ -304,7 +304,7 @@ private:
     Registrator             *reg = nullptr;
 
     /// Скоростемер
-    SL2M                    *speed_meter = nullptr;
+    SL2M                    *speed_meter[CABS_NUM] = {nullptr, nullptr};
 
     /// Кнопка "Пуск дизеля"
     bool    button_disel_start = false;
@@ -392,7 +392,7 @@ private:
     CoilALSN    *coil_ALSN_bwd = nullptr;
 
     /// Дешифратор сигнала АЛСН
-    DecoderALSN *alsn_decoder = nullptr;
+    DecoderALSN *alsn_decoder[CABS_NUM] = {nullptr, nullptr};
 
     /// АЗВ "Управление общее"
     Trigger azv_common_control;
