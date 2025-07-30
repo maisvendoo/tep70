@@ -22,8 +22,8 @@ void TEP70::debugOutput(double t, double dt)
                     .arg(brake_crane->getPositionName(), 3)
                     .arg(loco_crane->getHandlePosition() * 100.0, 3, 'f', 0);
     DebugMsg += QString("Rev%1|Pos %2|I%3 A|")
-                    .arg(km->getReversState(), 2)
-                    .arg(km->getPositionNumber(), 2)
+                    .arg(km[cabine_idx]->getReversState(), 2)
+                    .arg(km[cabine_idx]->getPositionNumber(), 2)
                     .arg(I_gen, 7, 'f', 1);
     DebugMsg += QString("Fuel:%1kg|")
                     .arg(fuel_tank->getFuelMass(), 5, 'f', 0);

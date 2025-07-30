@@ -12,7 +12,7 @@ void TEP70::stepDisel(double t, double dt)
     disel->setFuelPressure(electro_fuel_pump->getFuelPressure());
     disel->setMV6state(mv6->getContactState(0));
     disel->setVTNstate(vtn->getContactState(0));
-    disel->setRefFreq(km->getRefFreq());
+    disel->setRefFreq(km[CAB1]->getRefFreq()); // ??????
     disel->setFuelLevel(fuel_tank->getFuelLevel());
     disel->step(t, dt);
 

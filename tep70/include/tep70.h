@@ -86,8 +86,18 @@ private:
     /// Расцепной рычаг сзади
     OperatingRod *oper_rod_bwd = nullptr;
 
+    enum
+    {
+        /// Число кабин
+        CABS_NUM = 2,
+        /// Индекс 1 кабины
+        CAB1 = 0,
+        /// Индекс 2 кабины
+        CAB2 = 1
+    };
+
     /// Контроллер машиниста
-    ControllerKM2202    *km = nullptr;
+    ControllerKM2202    *km[CABS_NUM] = {nullptr, nullptr};
 
     /// Аккумуляторная батарея
     Battery             *battery = nullptr;

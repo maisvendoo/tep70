@@ -57,9 +57,11 @@ void TEP70::stepSoundsSignals(double t, double dt)
     }
 
     // Реверсивкая рукоятка
-    analogSignal[SOUND_REVERS_HANDLE] = km->getSoundSignal(ControllerKM2202::REVERS_SHAFT);
+    analogSignal[SOUND_REVERS_HANDLE] = km[CAB1]->getSoundSignal(ControllerKM2202::REVERS_SHAFT);
+    analogSignal[CAB2_SOUND_REVERS_HANDLE] = km[CAB2]->getSoundSignal(ControllerKM2202::REVERS_SHAFT);
     // Главный вал контроллера
-    analogSignal[SOUND_CONTROLLER] = km->getSoundSignal(ControllerKM2202::MAIN_SHAFT);
+    analogSignal[SOUND_CONTROLLER] = km[CAB1]->getSoundSignal(ControllerKM2202::MAIN_SHAFT);
+    analogSignal[CAB2_SOUND_CONTROLLER] = km[CAB2]->getSoundSignal(ControllerKM2202::MAIN_SHAFT);
 
     // Перестуки
     double Vkmh = abs(velocity) * Physics::kmh;

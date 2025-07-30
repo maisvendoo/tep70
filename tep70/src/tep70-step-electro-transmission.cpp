@@ -97,7 +97,7 @@ void TEP70::stepElectroTransmission(double t, double dt)
     field_reg->setOmega(disel->getOmega());
     field_reg->setGenVoltage(trac_gen->getVoltage());
     field_reg->setGenCurrent(I_gen);
-    field_reg->setKMPosition(km->getPositionNumber());
+    field_reg->setKMPosition(km[CAB1]->getPositionNumber());
     field_reg->step(t, dt);
 
     speed_meter->setWheelDiameter(wheel_diameter[0]);
@@ -105,7 +105,7 @@ void TEP70::stepElectroTransmission(double t, double dt)
     speed_meter->step(t, dt);
 
     // Цепь реле РУ1
-    bool is_RU1_on = azv_upr_tepl.getState() && km->is12orMore();
+    bool is_RU1_on = azv_upr_tepl.getState() && km[CAB1]->is12orMore();
 
     ru1->setVoltage(Ucc * static_cast<double>(is_RU1_on));
     ru1->step(t, dt);
@@ -147,10 +147,10 @@ void TEP70::stepElectroTransmission(double t, double dt)
 
 
     // Цепь вентиля реверсора вперед
-    bool is_Revers_Forward = azv_upr_tepl.getState() && km->isForward();
+    bool is_Revers_Forward = azv_upr_tepl.getState() && km[CAB1]->isForward();
 
     // Цепь вентиля реверсора назад
-    bool is_Revers_Backward = azv_upr_tepl.getState() && km->isBackward();
+    bool is_Revers_Backward = azv_upr_tepl.getState() && km[CAB1]->isBackward();
 
     reversor->setForwardValveState(is_Revers_Forward);
     reversor->setBackwardValveState(is_Revers_Backward);
@@ -159,7 +159,7 @@ void TEP70::stepElectroTransmission(double t, double dt)
     // Цепь вентиля "Тяга" тормозного переключателя
     bool is_TRAC_on = is_819_ON &&
                      (is_KP1_KP7_off || brake_switcher->isTraction()) &&
-                     km->isNoZero();
+                     km[CAB1]->isNoZero();
 
     brake_switcher->setTracValeState(is_TRAC_on);
     brake_switcher->setBrakeValveState(false);

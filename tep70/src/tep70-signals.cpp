@@ -23,8 +23,11 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[LS_Y] = safety_device->getYellowLamp();
     analogSignal[LS_G] = safety_device->getGreenLamp();
 
-    analogSignal[KM_SHTURVAL] = km->getMainShaftPos();
-    analogSignal[KM_REVERSOR] = km->getReversState();
+    analogSignal[KM_SHTURVAL] = km[CAB1]->getMainShaftPos();
+    analogSignal[KM_REVERSOR] = km[CAB1]->getReversState();
+
+    analogSignal[CAB2_KM_SHTURVAL] = km[CAB2]->getMainShaftPos();
+    analogSignal[CAB2_KM_REVERSOR] = km[CAB2]->getReversState();
 
     analogSignal[BUTTON_DISEL_START] = static_cast<float>(button_disel_start);
     analogSignal[BUTTON_BRAKE_RELEASE] = static_cast<float>(button_brake_release);

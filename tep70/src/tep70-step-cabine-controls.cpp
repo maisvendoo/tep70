@@ -5,8 +5,9 @@
 //------------------------------------------------------------------------------
 void TEP70::stepCabineControls(double t, double dt)
 {
-    km->setControl(keys);
-    km->step(t, dt);
+    km[cabine_idx]->setControl(keys);
+    km[CAB1]->step(t, dt);
+    km[CAB2]->step(t, dt);
 
     tumbler_field_weak1.setControl(keys);
     tumbler_field_weak1.step(t, dt);
