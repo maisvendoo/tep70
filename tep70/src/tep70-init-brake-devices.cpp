@@ -1,5 +1,7 @@
 #include    "tep70.h"
 
+#include    "filesystem.h"
+
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
@@ -37,6 +39,12 @@ void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
     electro_air_dist->init(pBP, pFL);
 
     supply_reservoir->setY(0, pBP);
+
+    // Загрузка состояния тормозного оборудования из собственного конфига
+    FileSystem &fs = FileSystem::getInstance();
+    QString custom_cfg_dir(fs.getVehiclesDir().c_str());
+    custom_cfg_dir += QDir::separator() + config_dir;
+    load_brakes_config(custom_cfg_dir + QDir::separator() + "brakes-init.xml");
 
     // Состояние рукавов и концевых кранов магистрали тормозных цилиндров
     if (hose_bc_fwd->isLinked())
@@ -99,5 +107,74 @@ void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
     else
     {
         anglecock_bp_bwd->close();
+    }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70::load_brakes_config(QString path)
+{
+    CfgReader cfg;
+
+    if (cfg.load(path))
+    {
+        QString secName = "BrakesState";
+        double tmp_dbl;
+        int tmp_int;
+
+        tmp_dbl = 1.0e-4;
+        if (cfg.getDouble(secName, "MainReservoirLeak", tmp_dbl))
+        {
+            main_reservoir->setLeakCoeff(tmp_dbl);
+        }
+
+        tmp_int = 2;
+        if (cfg.getInt(secName, "TrainCranePosCab1", tmp_int))
+        {
+            brake_crane[CAB1]->setHandlePosition(tmp_int - 1);
+        }
+
+        tmp_int = 7;
+        if (cfg.getInt(secName, "TrainCranePosCab2", tmp_int))
+        {
+            brake_crane[CAB2]->setHandlePosition(tmp_int - 1);
+        }
+
+        tmp_dbl = 1.0;
+        if (cfg.getDouble(secName, "LocoCranePosCab1", tmp_dbl))
+        {
+            loco_crane[CAB1]->setHandlePosition(tmp_dbl);
+        }
+
+        tmp_dbl = 1.0;
+        if (cfg.getDouble(secName, "LocoCranePosCab2", tmp_dbl))
+        {
+            loco_crane[CAB2]->setHandlePosition(tmp_dbl);
+        }
+
+        tmp_int = 0;
+        if (cfg.getInt(secName, "CombineCranePosCab1", tmp_int))
+        {
+            brake_lock[CAB1]->setCombineCranePosition(tmp_int);
+        }
+
+        tmp_int = 0;
+        if (cfg.getInt(secName, "CombineCranePosCab2", tmp_int))
+        {
+            brake_lock[CAB2]->setCombineCranePosition(tmp_int);
+        }
+
+        tmp_int = 1;
+        if (cfg.getInt(secName, "BrakeLockDeviceCab1", tmp_int))
+        {
+            brake_lock[CAB1]->setState(tmp_int);
+        }
+
+        tmp_int = 0;
+        if (cfg.getInt(secName, "BrakeLockDeviceCab2", tmp_int))
+        {
+            brake_lock[CAB2]->setState(tmp_int);
+        }
     }
 }

@@ -569,6 +569,8 @@ private:
 
     /// Обработка клавиш
     void keyProcess();
+
+    void load_brakes_config(QString path);
 };
 
 #endif // TEP70_H
