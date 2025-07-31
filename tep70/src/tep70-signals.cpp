@@ -40,7 +40,8 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[AZV_COMMON_CONTROL] = static_cast<float>(azv_common_control[CAB1].getState());
     analogSignal[CAB2_AZV_COMMON_CONTROL] = static_cast<float>(azv_common_control[CAB2].getState());
 
-    analogSignal[AZV_UPR_TEPL] = static_cast<float>(azv_upr_tepl.getState());
+    analogSignal[AZV_UPR_TEPL] = static_cast<float>(azv_upr_tepl[CAB1].getState());
+    analogSignal[CAB2_AZV_UPR_TEPL] = static_cast<float>(azv_upr_tepl[CAB2].getState());
 
     analogSignal[AZV_FUEL_PUMP] = static_cast<float>(azv_fuel_pump[CAB1].getState());
     analogSignal[CAB2_AZV_FUEL_PUMP] = static_cast<float>(azv_fuel_pump[CAB2].getState());

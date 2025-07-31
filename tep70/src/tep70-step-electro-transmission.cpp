@@ -18,10 +18,10 @@ void TEP70::stepElectroTransmission(double t, double dt)
     bool is_819_ON = ru9->getContactState(RU9_EPK_CTRL) &&
                      key_epk.getState() &&
                      (brake_lock[CAB1]->isUnlocked() || brake_lock[CAB2]->isUnlocked()) &&
-                     azv_upr_tepl.getState();
+                     azv_upr_tepl[CAB1].getState();
 
     // Состояние цепи поездных контакторов
-    bool is_KP_on = azv_upr_tepl.getState() && brake_switcher->isTraction();
+    bool is_KP_on = azv_upr_tepl[CAB1].getState() && brake_switcher->isTraction();
 
     tracForce = 0;
 
@@ -64,13 +64,13 @@ void TEP70::stepElectroTransmission(double t, double dt)
     is_KP1_KP7_off = is_KP1_KP7_off && kp[6]->getContactState(1);
 
     // Состояние цепи контактора возбуждения возбудителя
-    bool is_KVV_on = azv_upr_tepl.getState() && is_KP1_KP6_on;
+    bool is_KVV_on = azv_upr_tepl[CAB1].getState() && is_KP1_KP6_on;
 
     kvv->setVoltage(Ucc * static_cast<double>(is_KVV_on));
     kvv->step(t, dt);
 
     // Состояние цепи контактора возбуждения генератора
-    bool is_KVG_on = azv_upr_tepl.getState() && is_KP1_KP6_on;
+    bool is_KVG_on = azv_upr_tepl[CAB1].getState() && is_KP1_KP6_on;
 
     kvg->setVoltage(Ucc * static_cast<double>(is_KVG_on));
     kvg->step(t, dt);
@@ -101,7 +101,7 @@ void TEP70::stepElectroTransmission(double t, double dt)
     field_reg->step(t, dt);
 
     // Цепь реле РУ1
-    bool is_RU1_on = azv_upr_tepl.getState() && km[CAB1]->is12orMore();
+    bool is_RU1_on = azv_upr_tepl[CAB1].getState() && km[CAB1]->is12orMore();
 
     ru1->setVoltage(Ucc * static_cast<double>(is_RU1_on));
     ru1->step(t, dt);
@@ -143,10 +143,10 @@ void TEP70::stepElectroTransmission(double t, double dt)
 
 
     // Цепь вентиля реверсора вперед
-    bool is_Revers_Forward = azv_upr_tepl.getState() && km[CAB1]->isForward();
+    bool is_Revers_Forward = azv_upr_tepl[CAB1].getState() && km[CAB1]->isForward();
 
     // Цепь вентиля реверсора назад
-    bool is_Revers_Backward = azv_upr_tepl.getState() && km[CAB1]->isBackward();
+    bool is_Revers_Backward = azv_upr_tepl[CAB1].getState() && km[CAB1]->isBackward();
 
     reversor->setForwardValveState(is_Revers_Forward);
     reversor->setBackwardValveState(is_Revers_Backward);

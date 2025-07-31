@@ -401,8 +401,8 @@ private:
     /// АЗВ "Управление общее" (АВ2)
     Trigger azv_common_control[CABS_NUM];
 
-    /// АЗВ "Управление тепловозом"
-    Trigger azv_upr_tepl;
+    /// АЗВ "Управление тепловозом" (АВ1)
+    Trigger azv_upr_tepl[CABS_NUM];
 
     /// АЗВ "Топливный насос" (АВ4)
     Trigger azv_fuel_pump[CABS_NUM];

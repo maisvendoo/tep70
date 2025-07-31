@@ -44,11 +44,11 @@ void TEP70::keyProcess()
     {
         if (isShift())
         {
-            azv_upr_tepl.set();
+            azv_upr_tepl[cabine_idx].set();
         }
         else
         {
-            azv_upr_tepl.reset();
+            azv_upr_tepl[cabine_idx].reset();
         }
     }
 
