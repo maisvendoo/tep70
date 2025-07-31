@@ -423,7 +423,7 @@ private:
     Trigger tumbler_voltage;
 
     /// Тумблер "Аварийная остановка дизеля"
-    Trigger tumbler_disel_stop;
+    Trigger tumbler_disel_stop[CABS_NUM];
 
     /// Тумблер "Ослабление поля I ступени руч./авт."
     Switcher tumbler_field_weak1;

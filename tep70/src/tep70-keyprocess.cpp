@@ -114,11 +114,11 @@ void TEP70::keyProcess()
     {
         if (isShift())
         {
-            tumbler_disel_stop.set();
+            tumbler_disel_stop[cabine_idx].set();
         }
         else
         {
-            tumbler_disel_stop.reset();
+            tumbler_disel_stop[cabine_idx].reset();
         }
     }
 

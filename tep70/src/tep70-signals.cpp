@@ -48,7 +48,9 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[AZV_EPT_ON] = static_cast<float>(azv_ept_on.getState());
 
     analogSignal[TUMBLER_VOLTMETER] = static_cast<float>(tumbler_voltage.getState());
-    analogSignal[TUMBLER_DISEL_STOP] = static_cast<float>(tumbler_disel_stop.getState());
+
+    analogSignal[TUMBLER_DISEL_STOP] = static_cast<float>(tumbler_disel_stop[CAB1].getState());
+    analogSignal[CAB2_TUMBLER_DISEL_STOP] = static_cast<float>(tumbler_disel_stop[CAB2].getState());
 
     analogSignal[TUMBLER_FIELD_WEAK1] = static_cast<float>(tumbler_field_weak1.getHandlePosition());
     analogSignal[TUMBLER_FIELD_WEAK2] = static_cast<float>(tumbler_field_weak2.getHandlePosition());

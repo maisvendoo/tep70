@@ -25,7 +25,9 @@ void TEP70::stepSoundsSignals(double t, double dt)
     analogSignal[SOUND_AZV_EPT] = azv_ept_on.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_AZV_EDT] = azv_edt_on.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_TUMBLER_VOLTAGE] = tumbler_voltage.getSoundSignal(Trigger::CHANGE_SOUND);
-    analogSignal[SOUND_TUMBLER_DISEL_STOP] = tumbler_disel_stop.getSoundSignal(Trigger::CHANGE_SOUND);
+
+    analogSignal[SOUND_TUMBLER_DISEL_STOP] = tumbler_disel_stop[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_TUMBLER_DISEL_STOP] = tumbler_disel_stop[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
 
     // Устройство блокировки тормозов
     analogSignal[SOUND_BRAKE_LOCK_CHANGE_LOCK_POS] = brake_lock[CAB1]->getSoundSignal(BrakeLock::CHANGE_LOCK_POS_SOUND);
