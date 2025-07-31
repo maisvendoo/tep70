@@ -449,7 +449,7 @@ private:
     std::array<Trigger, NUM_RB> rb;
 
     /// Ключ ЭПК
-    Trigger key_epk;
+    Trigger key_epk[CABS_NUM];
 
     enum
     {

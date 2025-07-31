@@ -159,11 +159,11 @@ void TEP70::keyProcess()
     {
         if (isShift())
         {
-            key_epk.set();
+            key_epk[cabine_idx].set();
         }
         else
         {
-            key_epk.reset();
+            key_epk[cabine_idx].reset();
         }
     }
 }

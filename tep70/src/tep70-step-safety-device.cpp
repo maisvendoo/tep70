@@ -37,7 +37,7 @@ void TEP70::stepSafetyDevices(double t, double dt)
         epk[cab_idx]->setFLpressure(main_reservoir->getPressure());
         epk[cab_idx]->setBPpressure(brakepipe->getPressure());
         epk[cab_idx]->setPowered(safety_device[cab_idx]->getEPKstate());
-        epk[cab_idx]->setKeyOn(key_epk/*[cab_idx]*/.getState());
+        epk[cab_idx]->setKeyOn(key_epk[cab_idx].getState());
         epk[cab_idx]->step(t, dt);
     }
 }
