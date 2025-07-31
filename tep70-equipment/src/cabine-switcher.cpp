@@ -21,7 +21,8 @@ CabineSwitcher::~CabineSwitcher()
 //------------------------------------------------------------------------------
 void CabineSwitcher::preStep(state_vector_t &Y, double t)
 {
-
+    is_cabine1 = cabine_idx == 0;
+    is_cabine2 = cabine_idx == 1;
 }
 
 //------------------------------------------------------------------------------

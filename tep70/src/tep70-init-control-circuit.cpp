@@ -9,6 +9,8 @@ void TEP70::initControlCircuit(const QString &modules_dir, const QString &custom
 {
     (void) modules_dir;
 
+    cabine_switcher = new CabineSwitcher();
+
     battery = new Battery();
     battery->read_config("battery", custom_cfg_dir);
 

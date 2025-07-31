@@ -37,6 +37,10 @@ void TEP70::stepControlCircuit(double t, double dt)
     battery->setLoadCurrent(Icc);
     battery->step(t, dt);
 
+    // Переключатель-блокировка рабочей кабины
+    cabine_switcher->setCabineIndex(cabine_idx);
+    cabine_switcher->step(t, dt);
+
     // Определяем состояни цепи контактора топливного насоса (КТН)
     bool is_KTH_on = azv_fuel_pump[CAB1].getState() &&
                      tumbler_disel_stop.getState() &&

@@ -14,7 +14,31 @@ public:
 
     ~CabineSwitcher();
 
+    void setCabineIndex(int cabine_idx)
+    {
+        this->cabine_idx = cabine_idx;
+    }
+
+    bool isCabine1() const
+    {
+        return is_cabine1;
+    }
+
+    bool isCabine2() const
+    {
+        return is_cabine2;
+    }
+
 private:
+
+    /// Индекс текущей кабины
+    int cabine_idx = 0;
+
+    /// Кабина 1 активна
+    bool is_cabine1 = false;
+
+    /// Кабина 2 активна
+    bool is_cabine2 = false;
 
     void preStep(state_vector_t &Y, double t);
 

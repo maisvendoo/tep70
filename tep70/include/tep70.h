@@ -32,6 +32,7 @@
 #include    <reversor.h>
 #include    <brake-switcher.h>
 #include    <alsn-ukbm.h>
+#include    <cabine-switcher.h>
 
 /*!
  * \class
@@ -85,6 +86,9 @@ private:
     OperatingRod *oper_rod_fwd = nullptr;
     /// Расцепной рычаг сзади
     OperatingRod *oper_rod_bwd = nullptr;
+
+    /// Переключатель-блокировка рабочей кабины
+    CabineSwitcher *cabine_switcher = nullptr;
 
     enum
     {
