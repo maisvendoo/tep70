@@ -394,13 +394,13 @@ private:
     /// Дешифратор сигнала АЛСН
     DecoderALSN *alsn_decoder[CABS_NUM] = {nullptr, nullptr};
 
-    /// АЗВ "Управление общее"
-    Trigger azv_common_control;
+    /// АЗВ "Управление общее" (АВ2)
+    Trigger azv_common_control[CABS_NUM];
 
     /// АЗВ "Управление тепловозом"
     Trigger azv_upr_tepl;
 
-    /// АЗВ "Топливный насос"
+    /// АЗВ "Топливный насос" (АВ4)
     Trigger azv_fuel_pump;
 
     /// АЗВ "ЭДТ"

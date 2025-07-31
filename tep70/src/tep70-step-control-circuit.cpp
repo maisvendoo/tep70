@@ -46,7 +46,7 @@ void TEP70::stepControlCircuit(double t, double dt)
     kontaktor_fuel_pump->step(t, dt);
 
     // Состояние цепи кнопки "Пуск дизеля"
-    bool is_Button_Start_on = azv_common_control.getState() &&
+    bool is_Button_Start_on = azv_common_control[CAB1].getState() &&
                               km[CAB1]->isZero() &&
                               (button_disel_start || ru8->getContactState(0));
 
@@ -63,7 +63,7 @@ void TEP70::stepControlCircuit(double t, double dt)
     bool is_KMH_on_start = is_Button_Start_on && ru42->getContactState(0);
 
     // Состояние цепи КМН при остановке дизеля (прокачка после остановки)
-    bool is_KMN_on_stop = azv_common_control.getState() &&
+    bool is_KMN_on_stop = azv_common_control[CAB1].getState() &&
                           ru6->getContactState(3) &&
                           ru15->getContactState(2);
 
@@ -127,14 +127,14 @@ void TEP70::stepControlCircuit(double t, double dt)
     ru42->setVoltage(Ucc * static_cast<double>(is_RU6_on));
     ru42->step(t, dt);
 
-    bool is_RU15_on = azv_common_control.getState() &&
+    bool is_RU15_on = azv_common_control[CAB1].getState() &&
                       rv4->getContactState(0) &&
                       (ru6->getContactState(2) || ru15->getContactState(0));
 
     ru15->setVoltage(Ucc * static_cast<double>(is_RU15_on));
     ru15->step(t, dt);
 
-    bool is_RV4_on = azv_common_control.getState() &&
+    bool is_RV4_on = azv_common_control[CAB1].getState() &&
                      ru6->getContactState(3) &&
                      ru15->getContactState(1);
 

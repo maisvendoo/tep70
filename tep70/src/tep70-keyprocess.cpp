@@ -28,11 +28,11 @@ void TEP70::keyProcess()
     {
         if (isShift())
         {
-            azv_common_control.set();
+            azv_common_control[cabine_idx].set();
         }
         else
         {
-            azv_common_control.reset();
+            azv_common_control[cabine_idx].reset();
         }
     }
 

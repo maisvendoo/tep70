@@ -35,7 +35,9 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[BUTTON_SVISTOK] = static_cast<float>(button_svistok);
     analogSignal[BUTTON_TIFON] = static_cast<float>(button_tifon);
 
-    analogSignal[AZV_COMMON_CONTROL] = static_cast<float>(azv_common_control.getState());
+    analogSignal[AZV_COMMON_CONTROL] = static_cast<float>(azv_common_control[CAB1].getState());
+    analogSignal[CAB2_AZV_COMMON_CONTROL] = static_cast<float>(azv_common_control[CAB2].getState());
+
     analogSignal[AZV_UPR_TEPL] = static_cast<float>(azv_upr_tepl.getState());
     analogSignal[AZV_FUEL_PUMP] = static_cast<float>(azv_fuel_pump.getState());
     analogSignal[AZV_EDT_ON] = static_cast<float>(azv_edt_on.getState());
@@ -139,7 +141,8 @@ void TEP70::stepSignalsOutput(double t, double dt)
 //------------------------------------------------------------------------------
 float TEP70::getLampState(double signal)
 {
-    bool state = azv_common_control.getState() && static_cast<bool>(signal);
+    bool state = (azv_common_control[CAB1].getState() || azv_common_control[CAB2].getState()) &&
+                 static_cast<bool>(signal);
 
     return static_cast<float>(state);
 }
