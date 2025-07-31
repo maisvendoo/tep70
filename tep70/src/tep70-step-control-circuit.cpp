@@ -42,8 +42,8 @@ void TEP70::stepControlCircuit(double t, double dt)
     cabine_switcher->step(t, dt);
 
     // Определяем состояни цепи контактора топливного насоса (КТН)
-    bool is_AB4_on = (azv_fuel_pump[CAB1].getState() && cabine_switcher->isCabine1()) ||
-                     (azv_fuel_pump[CAB2].getState() && cabine_switcher->isCabine2());
+    bool is_AB4_on = azv_fuel_pump[CAB1].getState()  ||
+                     azv_fuel_pump[CAB2].getState();
 
     bool is_KTH_on = is_AB4_on &&
                      tumbler_disel_stop[CAB1].getState() &&
