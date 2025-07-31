@@ -5,7 +5,10 @@
 //------------------------------------------------------------------------------
 void TEP70::keyProcess()
 {
-    button_disel_start = getKeyState(KEY_K);
+    if (getKeyState(KEY_K))
+        button_disel_start[cabine_idx].set();
+    else
+        button_disel_start[cabine_idx].reset();
 
     button_brake_release = getKeyState(KEY_R);
 

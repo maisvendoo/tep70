@@ -30,7 +30,9 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[CAB2_KM_SHTURVAL] = km[CAB2]->getMainShaftPos();
     analogSignal[CAB2_KM_REVERSOR] = km[CAB2]->getReversState();
 
-    analogSignal[BUTTON_DISEL_START] = static_cast<float>(button_disel_start);
+    analogSignal[BUTTON_DISEL_START] = static_cast<float>(button_disel_start[CAB1].getState());
+    analogSignal[CAB2_BUTTON_DISEL_START] = static_cast<float>(button_disel_start[CAB2].getState());
+
     analogSignal[BUTTON_BRAKE_RELEASE] = static_cast<float>(button_brake_release);
     analogSignal[BUTTON_SVISTOK] = static_cast<float>(button_svistok);
     analogSignal[BUTTON_TIFON] = static_cast<float>(button_tifon);

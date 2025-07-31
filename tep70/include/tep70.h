@@ -311,7 +311,7 @@ private:
     SL2M                    *speed_meter[CABS_NUM] = {nullptr, nullptr};
 
     /// Кнопка "Пуск дизеля"
-    bool    button_disel_start = false;
+    Trigger    button_disel_start[CABS_NUM];
 
     /// Кнопка "Отпуск тормозов"
     bool    button_brake_release = false;
