@@ -7,8 +7,10 @@ void TEP70::stepSignalsOutput(double t, double dt)
     Q_UNUSED(dt)
 
     analogSignal[STRELKA_REOSTATE_CURRENT] = 0.0;
+    analogSignal[CAB2_STRELKA_REOSTATE_CURRENT] = 0.0;
 
     analogSignal[STRELKA_WATER_TEMP] = 0.0;
+    analogSignal[CAB2_STRELKA_WATER_TEMP] = 0.0;
 
     // Лампы локомотивного светофора
     analogSignal[LS_W] = safety_device[CAB1]->getWhiteLamp();
@@ -55,12 +57,18 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[TUMBLER_DISEL_STOP] = static_cast<float>(tumbler_disel_stop[CAB1].getState());
     analogSignal[CAB2_TUMBLER_DISEL_STOP] = static_cast<float>(tumbler_disel_stop[CAB2].getState());
 
-    analogSignal[TUMBLER_FIELD_WEAK1] = static_cast<float>(tumbler_field_weak1.getHandlePosition());
-    analogSignal[TUMBLER_FIELD_WEAK2] = static_cast<float>(tumbler_field_weak2.getHandlePosition());
-    analogSignal[TUMBLER_WATER_ZALUZI] = static_cast<float>(tumbler_water_zaluzi.getHandlePosition());
-    analogSignal[TUMBLER_OIL_ZALUZI] = static_cast<float>(tumbler_oil_zaluzi.getHandlePosition());
+    analogSignal[TUMBLER_FIELD_WEAK1] = static_cast<float>(tumbler_field_weak1[CAB1].getHandlePosition());
+    analogSignal[TUMBLER_FIELD_WEAK2] = static_cast<float>(tumbler_field_weak2[CAB1].getHandlePosition());
+    analogSignal[CAB2_TUMBLER_FIELD_WEAK1] = static_cast<float>(tumbler_field_weak1[CAB2].getHandlePosition());
+    analogSignal[CAB2_TUMBLER_FIELD_WEAK2] = static_cast<float>(tumbler_field_weak2[CAB2].getHandlePosition());
+
+    analogSignal[TUMBLER_WATER_ZALUZI] = static_cast<float>(tumbler_water_zaluzi[CAB1].getHandlePosition());
+    analogSignal[TUMBLER_OIL_ZALUZI] = static_cast<float>(tumbler_oil_zaluzi[CAB1].getHandlePosition());
+    analogSignal[CAB2_TUMBLER_WATER_ZALUZI] = static_cast<float>(tumbler_water_zaluzi[CAB2].getHandlePosition());
+    analogSignal[CAB2_TUMBLER_OIL_ZALUZI] = static_cast<float>(tumbler_oil_zaluzi[CAB2].getHandlePosition());
 
     analogSignal[STRELKA_BAT_CURRENT] = static_cast<float>(battery->getChargeCurrent() / 150.0);
+    analogSignal[CAB2_STRELKA_BAT_CURRENT] = static_cast<float>(battery->getChargeCurrent() / 150.0);
 
     double U_bat = Ucc;
     if (tumbler_voltage.getState())
@@ -68,9 +76,12 @@ void TEP70::stepSignalsOutput(double t, double dt)
         U_bat = epb_converter->getOutputVoltage();
     }
     analogSignal[STRELKA_BAT_VOLTAGE] = static_cast<float>(U_bat / 150.0);
+    analogSignal[CAB2_STRELKA_BAT_VOLTAGE] = static_cast<float>(U_bat / 150.0);
 
     analogSignal[STRELKA_FUEL_PRESS] = static_cast<float>(electro_fuel_pump->getFuelPressure() * Physics::g / 15.0);
     analogSignal[STRELKA_OIL_PRESS] = static_cast<float>(disel->getOilPressure() * Physics::g / 15.0);
+    analogSignal[CAB2_STRELKA_FUEL_PRESS] = static_cast<float>(electro_fuel_pump->getFuelPressure() * Physics::g / 15.0);
+    analogSignal[CAB2_STRELKA_OIL_PRESS] = static_cast<float>(disel->getOilPressure() * Physics::g / 15.0);
 
     analogSignal[SIGLIGHT_OIL_PRESS] = getLampState(hs_p(0.1 - disel->getOilPressure()));
     analogSignal[SIGLIGHT_ZB] = getLampState(hs_p(100.0 - starter_generator->getVoltage()));
@@ -126,9 +137,11 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[SIGLIGHT_EPT_P] = static_cast<float>(epb_control->stateHoldLamp());
     analogSignal[SIGLIGHT_EPT_T] = static_cast<float>(epb_control->stateBrakeLamp());
 
-
+    // Тяговый генератор
     analogSignal[STRELKA_GEN_CURRENT] = static_cast<float>(I_gen / 10000.0);
     analogSignal[STRELKA_GEN_VOLTAGE] = static_cast<float>(trac_gen->getVoltage() / 1000.0);
+    analogSignal[CAB2_STRELKA_GEN_CURRENT] = static_cast<float>(I_gen / 10000.0);
+    analogSignal[CAB2_STRELKA_GEN_VOLTAGE] = static_cast<float>(trac_gen->getVoltage() / 1000.0);
 
     analogSignal[WHEEL_1] = static_cast<float>(wheel_rotation_angle[0] / 2.0 / Physics::PI);
     analogSignal[WHEEL_2] = static_cast<float>(wheel_rotation_angle[1] / 2.0 / Physics::PI);

@@ -426,16 +426,16 @@ private:
     Trigger tumbler_disel_stop[CABS_NUM];
 
     /// Тумблер "Ослабление поля I ступени руч./авт."
-    Switcher tumbler_field_weak1;
+    Switcher tumbler_field_weak1[CABS_NUM];
 
     /// Тумблер "Ослабление поля II ступени руч./авт."
-    Switcher tumbler_field_weak2;
+    Switcher tumbler_field_weak2[CABS_NUM];
 
     /// Тумблер "Управление жалюзи воды руч./авт."
-    Switcher tumbler_water_zaluzi;
+    Switcher tumbler_water_zaluzi[CABS_NUM];
 
     /// Тумблер "Управление жалюзи масла руч./авт."
-    Switcher tumbler_oil_zaluzi;
+    Switcher tumbler_oil_zaluzi[CABS_NUM];
 
     enum
     {

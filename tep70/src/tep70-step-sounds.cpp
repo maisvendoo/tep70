@@ -9,10 +9,15 @@ void TEP70::stepSoundsSignals(double t, double dt)
     (void) dt;
 
     // Тумблеры и АЗВ на пульте машиниста
-    analogSignal[SOUND_TUMBLER_OP1] = tumbler_field_weak1.getSoundSignal(Trigger::CHANGE_SOUND);
-    analogSignal[SOUND_TUMBLER_OP2] = tumbler_field_weak2.getSoundSignal(Trigger::CHANGE_SOUND);
-    analogSignal[SOUND_TUMBLER_BLINDS_WATER] = tumbler_water_zaluzi.getSoundSignal(Trigger::CHANGE_SOUND);
-    analogSignal[SOUND_TUMBLER_BLINDS_OIL] = tumbler_oil_zaluzi.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_TUMBLER_OP1] = tumbler_field_weak1[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_TUMBLER_OP2] = tumbler_field_weak2[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_TUMBLER_OP1] = tumbler_field_weak1[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_TUMBLER_OP2] = tumbler_field_weak2[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
+
+    analogSignal[SOUND_TUMBLER_BLINDS_WATER] = tumbler_water_zaluzi[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_TUMBLER_BLINDS_OIL] = tumbler_oil_zaluzi[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_TUMBLER_BLINDS_WATER] = tumbler_water_zaluzi[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_TUMBLER_BLINDS_OIL] = tumbler_oil_zaluzi[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
 
     analogSignal[SOUND_AZV_COMMON_CONTROL] = azv_common_control[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[CAB2_SOUND_AZV_COMMON_CONTROL] = azv_common_control[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);

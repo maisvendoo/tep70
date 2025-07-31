@@ -127,22 +127,34 @@ void TEP70::stepElectroTransmission(double t, double dt)
     if (I_gen >= 1.0)
         k_field = trac_gen->getVoltage() / I_gen;
 
-    rp1->setActive(tumbler_field_weak1.getPosition() == 2);
+    bool is_OP1_manual = ((tumbler_field_weak1[CAB1].getPosition() == 0) && cabine_switcher->isCabine1()) ||
+                         ((tumbler_field_weak1[CAB2].getPosition() == 0) && cabine_switcher->isCabine2());
+
+    bool is_OP1_auto =   ((tumbler_field_weak1[CAB1].getPosition() == 2) && cabine_switcher->isCabine1()) ||
+                         ((tumbler_field_weak1[CAB2].getPosition() == 2) && cabine_switcher->isCabine2());
+
+    bool is_OP2_manual = ((tumbler_field_weak2[CAB1].getPosition() == 0) && cabine_switcher->isCabine1()) ||
+                         ((tumbler_field_weak2[CAB2].getPosition() == 0) && cabine_switcher->isCabine2());
+
+    bool is_OP2_auto =   ((tumbler_field_weak2[CAB1].getPosition() == 2) && cabine_switcher->isCabine1()) ||
+                         ((tumbler_field_weak2[CAB2].getPosition() == 2) && cabine_switcher->isCabine2());
+
+    rp1->setActive(is_OP1_auto);
     rp1->setLocked(ksh1_delay->getContactState(0));
     rp1->setValue(k_field);
 
-    rp2->setActive( (tumbler_field_weak2.getPosition() == 2) && ksh2_delay->getContactState(0) );
+    rp2->setActive( (is_OP2_auto) && ksh2_delay->getContactState(0) );
     rp2->setValue(k_field);
 
     // Цепь контактора КШ2
-    bool is_KSH2_on = ( (tumbler_field_weak2.getPosition() == 0) &&
+    bool is_KSH2_on = ( (is_OP2_manual) &&
                       ru1->getContactState(1) ) ||
-                      ( (tumbler_field_weak2.getPosition() == 2) && rp2->getState() );
+                      ( (is_OP2_auto) && rp2->getState() );
 
     // Цепь контактора КШ1
-    bool is_KSH1_on = ( (tumbler_field_weak1.getPosition() == 0) &&
+    bool is_KSH1_on = ( (is_OP1_manual) &&
                       ru1->getContactState(0) ) ||
-                      ( rp1->getState()  && tumbler_field_weak1.getPosition() == 2);
+                      ( rp1->getState()  && is_OP1_auto);
 
     ksh2_delay->setControlVoltage(Ucc * static_cast<double>(ksh1->getContactState(1)));
     ksh2_delay->step(t, dt);
