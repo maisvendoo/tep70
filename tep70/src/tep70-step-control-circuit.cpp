@@ -38,7 +38,7 @@ void TEP70::stepControlCircuit(double t, double dt)
     battery->step(t, dt);
 
     // Определяем состояни цепи контактора топливного насоса (КТН)
-    bool is_KTH_on = azv_fuel_pump.getState() &&
+    bool is_KTH_on = azv_fuel_pump[CAB1].getState() &&
                      tumbler_disel_stop.getState() &&
                      ru6->getContactState(1);
 
@@ -80,7 +80,7 @@ void TEP70::stepControlCircuit(double t, double dt)
     bool is_RDM4_on = static_cast<bool>(hs_p(disel->getOilPressure() - 0.05));
 
 
-    bool is_MV6_on = azv_fuel_pump.getState() &&
+    bool is_MV6_on = azv_fuel_pump[CAB1].getState() &&
                      tumbler_disel_stop.getState() &&
                     (ru8->getContactState(1) || is_RDM4_on);
 

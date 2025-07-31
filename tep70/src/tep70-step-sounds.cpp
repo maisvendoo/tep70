@@ -18,7 +18,10 @@ void TEP70::stepSoundsSignals(double t, double dt)
     analogSignal[CAB2_SOUND_AZV_COMMON_CONTROL] = azv_common_control[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
 
     analogSignal[SOUND_AZV_LOCO_CONTROL] = azv_upr_tepl.getSoundSignal(Trigger::CHANGE_SOUND);
-    analogSignal[SOUND_AZV_FUIL_PUMP] = azv_fuel_pump.getSoundSignal(Trigger::CHANGE_SOUND);
+
+    analogSignal[SOUND_AZV_FUIL_PUMP] = azv_fuel_pump[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_AZV_FUIL_PUMP] = azv_fuel_pump[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
+
     analogSignal[SOUND_AZV_EPT] = azv_ept_on.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_AZV_EDT] = azv_edt_on.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_TUMBLER_VOLTAGE] = tumbler_voltage.getSoundSignal(Trigger::CHANGE_SOUND);

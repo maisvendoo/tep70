@@ -401,7 +401,7 @@ private:
     Trigger azv_upr_tepl;
 
     /// АЗВ "Топливный насос" (АВ4)
-    Trigger azv_fuel_pump;
+    Trigger azv_fuel_pump[CABS_NUM];
 
     /// АЗВ "ЭДТ"
     Trigger azv_edt_on;

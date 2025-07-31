@@ -54,11 +54,11 @@ void TEP70::keyProcess()
     {
         if (isShift())
         {
-            azv_fuel_pump.set();
+            azv_fuel_pump[cabine_idx].set();
         }
         else
         {
-            azv_fuel_pump.reset();
+            azv_fuel_pump[cabine_idx].reset();
         }
     }
 
