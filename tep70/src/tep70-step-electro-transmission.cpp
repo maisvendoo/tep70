@@ -8,10 +8,15 @@ void TEP70::stepElectroTransmission(double t, double dt)
     // Ток, потребляемый от главного генератора
     I_gen = 0.0;
 
-    // Цепь реле РУ9 - контроль сбора тяги от ЭПК (В будущем добавить другие блокировки)
-    bool is_RU9_ON = !(epk[CAB1]->getEmergencyBrakeContact() || epk[CAB2]->getEmergencyBrakeContact());
+    // Микропереключатели крана машиниста для контроля ЭТ
+    bool is_KMT_ON1 = brake_crane[CAB1]->getPositionName() != "VI";
+    bool is_KMT_ON2 = brake_crane[CAB2]->getPositionName() != "VI";
 
-    ru9->setVoltage(Ucc * static_cast<double>(is_RU9_ON));
+    // Цепь реле РУ9 - контроль сбора тяги от ЭПК (В будущем добавить другие блокировки)    
+    bool is_RU9_ON1 = cabine_switcher->isCabine1() && is_KMT_ON1 && (!epk[CAB1]->getEmergencyBrakeContact());
+    bool is_RU9_ON2 = cabine_switcher->isCabine2() && is_KMT_ON2 && (!epk[CAB2]->getEmergencyBrakeContact());
+
+    ru9->setVoltage(Ucc * static_cast<double>(is_RU9_ON1 || is_RU9_ON2));
     ru9->step(t, dt);
 
     // Состояние провода 819
