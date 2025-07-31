@@ -165,10 +165,14 @@ void TEP70::stepElectroTransmission(double t, double dt)
     reversor->setBackwardValveState(is_Revers_Backward);
     reversor->step(t, dt);
 
+    // Цепь реле РУ21
+    ru21->setVoltage(0);
+    ru21->step(t, dt);
+
     // Цепь вентиля "Тяга" тормозного переключателя
     bool is_TRAC_on = is_819_ON &&
-                     (is_KP1_KP7_off || brake_switcher->isTraction()) &&
-                     km[CAB1]->isNoZero();
+                      (is_KP1_KP7_off || (brake_switcher->isTraction() && ru21->getContactState(RU21_TRAC_ON)));
+
 
     brake_switcher->setTracValeState(is_TRAC_on);
     brake_switcher->setBrakeValveState(false);

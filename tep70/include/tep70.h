@@ -463,6 +463,15 @@ private:
     /// Переключатель тормозного усилия (задел под ЭДТ)
     Switcher brake_force_switch;
 
+    enum
+    {
+        NUM_RU21_CONTACTS = 1,
+        RU21_TRAC_ON = 0
+    };
+
+    /// Реле РУ21 (в схеме реостатного тормоза!!!)
+    Relay *ru21 = new Relay(NUM_RU21_CONTACTS);
+
     /// Инициализация всех систем тепловоза
     void initialization();
 
