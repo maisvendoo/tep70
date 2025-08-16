@@ -1460,6 +1460,18 @@
 		<LocalPosition>-1.24 -9.98 3.0</LocalPosition>
 	</Sound>
 
+	<!-- АЗВ мотор-компрессор -->
+	<Sound>
+		<SignalID>383</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.32 -9.87 2.71</LocalPosition>
+	</Sound>
+
 	<!-- Ключ ЭПК вкл. -->
 	<Sound>
 		<SignalID>384</SignalID>

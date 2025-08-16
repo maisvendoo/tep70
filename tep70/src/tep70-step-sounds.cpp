@@ -28,9 +28,14 @@ void TEP70::stepSoundsSignals(double t, double dt)
     analogSignal[SOUND_AZV_FUIL_PUMP] = azv_fuel_pump[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[CAB2_SOUND_AZV_FUIL_PUMP] = azv_fuel_pump[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
 
-    analogSignal[SOUND_AZV_EPT] = azv_ept_on.getSoundSignal(Trigger::CHANGE_SOUND);
-    analogSignal[SOUND_AZV_EDT] = azv_edt_on.getSoundSignal(Trigger::CHANGE_SOUND);
-    analogSignal[SOUND_TUMBLER_VOLTAGE] = tumbler_voltage.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_AZV_EPT] = azv_ept_on[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_AZV_EPT] = azv_ept_on[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
+
+    analogSignal[SOUND_AZV_EDT] = azv_edt_on[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_AZV_EDT] = azv_edt_on[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
+
+    analogSignal[SOUND_TUMBLER_VOLTAGE] = tumbler_voltage[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_TUMBLER_VOLTAGE] = tumbler_voltage[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
 
     analogSignal[SOUND_TUMBLER_DISEL_STOP] = tumbler_disel_stop[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[CAB2_SOUND_TUMBLER_DISEL_STOP] = tumbler_disel_stop[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
@@ -68,7 +73,9 @@ void TEP70::stepSoundsSignals(double t, double dt)
 
     // Свистулька и тифулька :-)
     analogSignal[SOUND_SVISTOK] = horn->getSoundSignal(TrainHorn::SVISTOK_SOUND);
+    analogSignal[CAB2_SOUND_SVISTOK] = horn->getSoundSignal(TrainHorn::SVISTOK_SOUND);
     analogSignal[SOUND_TIFON] = horn->getSoundSignal(TrainHorn::TIFON_SOUND);
+    analogSignal[CAB2_SOUND_TIFON] = horn->getSoundSignal(TrainHorn::TIFON_SOUND);
 
     // Топливный насос
     analogSignal[SOUND_FUEL_PUMP] = electro_fuel_pump->getSoundSignal();
@@ -116,7 +123,8 @@ void TEP70::stepSoundsSignals(double t, double dt)
 
     // Мотор-компрессор
     analogSignal[SOUND_MOTOR_COMPRESSOR] = motor_compressor->getSoundSignal();
-    analogSignal[SOUND_AZV_MOTOR_COMPRESSOR] = azv_motor_compressor.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_AZV_MOTOR_COMPRESSOR] = azv_motor_compressor[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[CAB2_SOUND_AZV_MOTOR_COMPRESSOR] = azv_motor_compressor[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
 
     // Реле и контакторы
     analogSignal[SOUND_KONTACTOR_FUEL_PUMP] = kontaktor_fuel_pump->getSoundSignal(Relay::CHANGE_SOUND);
@@ -158,5 +166,6 @@ void TEP70::stepSoundsSignals(double t, double dt)
     analogSignal[CAB2_SOUND_EPK] = epk[CAB2]->getSoundSignal();
 
     // Переключатель тормозного усилия
-    analogSignal[SOUND_BRAKE_FORCE_SWITCH] = brake_force_switch.getSoundSignal();
+    analogSignal[SOUND_BRAKE_FORCE_SWITCH] = brake_force_switch[CAB1].getSoundSignal();
+    analogSignal[CAB2_SOUND_BRAKE_FORCE_SWITCH] = brake_force_switch[CAB2].getSoundSignal();
 }

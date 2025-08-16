@@ -20,8 +20,8 @@ void TEP70::stepEPB(double t, double dt)
     epb_converter->step(t, dt);
 
     // Контроллер двухпроводного ЭПТ
-    bool cab1_on = brake_lock[CAB1]->isUnlocked() && azv_ept_on/*[CAB1]*/.getState();
-    bool cab2_on = brake_lock[CAB2]->isUnlocked() && azv_ept_on/*[CAB2]*/.getState();
+    bool cab1_on = brake_lock[CAB1]->isUnlocked() && azv_ept_on[CAB1].getState();
+    bool cab2_on = brake_lock[CAB2]->isUnlocked() && azv_ept_on[CAB2].getState();
     epb_control->setInputVoltage(epb_converter->getOutputVoltage()
                                  * static_cast<double>(cab1_on || cab2_on) );
     epb_control->setHoldState((cab1_on && brake_crane[CAB1]->isHold()) ||
@@ -37,7 +37,7 @@ void TEP70::stepEPB(double t, double dt)
     // а иначе задаём управляющий сигнал из рабочей линии ЭПТ
     double evr_U = 0.0;
     double evr_f = 0.0;
-    if (!(button_brake_release/*[CAB1] || button_brake_release[CAB2]*/))
+    if (!(button_brake_release[CAB1].getState() || button_brake_release[CAB2].getState()))
     {
         evr_U = epb_work_U + hose_bp_fwd->getVoltage(0) + hose_bp_bwd->getVoltage(0);
         evr_f = epb_work_f + hose_bp_fwd->getFrequency(0) + hose_bp_bwd->getFrequency(0);

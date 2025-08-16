@@ -35,9 +35,14 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[BUTTON_DISEL_START] = static_cast<float>(button_disel_start[CAB1].getState());
     analogSignal[CAB2_BUTTON_DISEL_START] = static_cast<float>(button_disel_start[CAB2].getState());
 
-    analogSignal[BUTTON_BRAKE_RELEASE] = static_cast<float>(button_brake_release);
-    analogSignal[BUTTON_SVISTOK] = static_cast<float>(button_svistok);
-    analogSignal[BUTTON_TIFON] = static_cast<float>(button_tifon);
+    analogSignal[BUTTON_BRAKE_RELEASE] = static_cast<float>(button_brake_release[CAB1].getState());
+    analogSignal[CAB2_BUTTON_BRAKE_RELEASE] = static_cast<float>(button_brake_release[CAB2].getState());
+
+    analogSignal[BUTTON_SVISTOK] = static_cast<float>(button_svistok[CAB1].getState());
+    analogSignal[CAB2_BUTTON_SVISTOK] = static_cast<float>(button_svistok[CAB2].getState());
+
+    analogSignal[BUTTON_TIFON] = static_cast<float>(button_tifon[CAB1].getState());
+    analogSignal[CAB2_BUTTON_TIFON] = static_cast<float>(button_tifon[CAB2].getState());
 
     analogSignal[AZV_COMMON_CONTROL] = static_cast<float>(azv_common_control[CAB1].getState());
     analogSignal[CAB2_AZV_COMMON_CONTROL] = static_cast<float>(azv_common_control[CAB2].getState());
@@ -48,11 +53,17 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[AZV_FUEL_PUMP] = static_cast<float>(azv_fuel_pump[CAB1].getState());
     analogSignal[CAB2_AZV_FUEL_PUMP] = static_cast<float>(azv_fuel_pump[CAB2].getState());
 
-    analogSignal[AZV_EDT_ON] = static_cast<float>(azv_edt_on.getState());
-    analogSignal[AZV_EDT_POWER] = static_cast<float>(azv_edt_power.getState());
-    analogSignal[AZV_EPT_ON] = static_cast<float>(azv_ept_on.getState());
+    analogSignal[AZV_EDT_ON] = static_cast<float>(azv_edt_on[CAB1].getState());
+    analogSignal[CAB2_AZV_EDT_ON] = static_cast<float>(azv_edt_on[CAB2].getState());
 
-    analogSignal[TUMBLER_VOLTMETER] = static_cast<float>(tumbler_voltage.getState());
+    analogSignal[AZV_EDT_POWER] = static_cast<float>(azv_edt_power[CAB1].getState());
+    analogSignal[CAB2_AZV_EDT_POWER] = static_cast<float>(azv_edt_power[CAB2].getState());
+
+    analogSignal[AZV_EPT_ON] = static_cast<float>(azv_ept_on[CAB1].getState());
+    analogSignal[CAB2_AZV_EPT_ON] = static_cast<float>(azv_ept_on[CAB2].getState());
+
+    analogSignal[TUMBLER_VOLTMETER] = static_cast<float>(tumbler_voltage[CAB1].getState());
+    analogSignal[CAB2_TUMBLER_VOLTMETER] = static_cast<float>(tumbler_voltage[CAB2].getState());
 
     analogSignal[TUMBLER_DISEL_STOP] = static_cast<float>(tumbler_disel_stop[CAB1].getState());
     analogSignal[CAB2_TUMBLER_DISEL_STOP] = static_cast<float>(tumbler_disel_stop[CAB2].getState());
@@ -70,12 +81,10 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[STRELKA_BAT_CURRENT] = static_cast<float>(battery->getChargeCurrent() / 150.0);
     analogSignal[CAB2_STRELKA_BAT_CURRENT] = static_cast<float>(battery->getChargeCurrent() / 150.0);
 
-    double U_bat = Ucc;
-    if (tumbler_voltage.getState())
-    {
-        U_bat = epb_converter->getOutputVoltage();
-    }
+    double U_bat;
+    U_bat = tumbler_voltage[CAB1].getState() ? epb_converter->getOutputVoltage() : Ucc;
     analogSignal[STRELKA_BAT_VOLTAGE] = static_cast<float>(U_bat / 150.0);
+    U_bat = tumbler_voltage[CAB2].getState() ? epb_converter->getOutputVoltage() : Ucc;
     analogSignal[CAB2_STRELKA_BAT_VOLTAGE] = static_cast<float>(U_bat / 150.0);
 
     analogSignal[STRELKA_FUEL_PRESS] = static_cast<float>(electro_fuel_pump->getFuelPressure() * Physics::g / 15.0);
@@ -115,14 +124,14 @@ void TEP70::stepSignalsOutput(double t, double dt)
 
     // Приборы безопасности
     analogSignal[KLUCH_EPK] = static_cast<float>(epk[CAB1]->isKeyOn());
-    analogSignal[RB1] = static_cast<float>(rb[RB].getState());
+    analogSignal[RB1] = static_cast<float>(rb[CAB1][RB].getState());
 
     analogSignal[STRELKA_SPEED] = static_cast<float>(speed_meter[CAB1]->getArrowPos());
     analogSignal[VAL_PRSKOR1] = static_cast<float>(speed_meter[CAB1]->getShaftPos());
     analogSignal[VAL_PRSKOR2] = static_cast<float>(speed_meter[CAB1]->getShaftPos());
 
     analogSignal[CAB2_KLUCH_EPK] = static_cast<float>(epk[CAB2]->isKeyOn());
-    analogSignal[CAB2_RB1] = static_cast<float>(rb[RB].getState());
+    analogSignal[CAB2_RB1] = static_cast<float>(rb[CAB2][RB].getState());
 
     analogSignal[CAB2_STRELKA_SPEED] = static_cast<float>(speed_meter[CAB2]->getArrowPos());
     analogSignal[CAB2_VAL_PRSKOR1] = static_cast<float>(speed_meter[CAB2]->getShaftPos());
@@ -154,7 +163,8 @@ void TEP70::stepSignalsOutput(double t, double dt)
     analogSignal[CAB2_SIGLIGHT_PSS] = safety_device[CAB2]->getStatePSS();
 
     // Переключатель величины тормозного усилия
-    analogSignal[BRAKE_FORCE_SWITCH] = static_cast<float>(brake_force_switch.getHandlePosition());
+    analogSignal[BRAKE_FORCE_SWITCH] = static_cast<float>(brake_force_switch[CAB1].getHandlePosition());
+    analogSignal[CAB2_BRAKE_FORCE_SWITCH] = static_cast<float>(brake_force_switch[CAB2].getHandlePosition());
 }
 
 //------------------------------------------------------------------------------

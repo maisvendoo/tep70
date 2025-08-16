@@ -9,7 +9,8 @@
 //------------------------------------------------------------------------------
 TEP70::TEP70() : Vehicle()
 {
-
+    pressed_keys_by_cabine.resize(CABS_NUM);
+    pressed_keys_by_cabine.shrink_to_fit();
 }
 
 //------------------------------------------------------------------------------
@@ -29,6 +30,8 @@ void TEP70::initialization()
     QString modules_dir = QString(fs.getModulesDir().c_str());
     QString custom_cfg_dir(fs.getVehiclesDir().c_str());
     custom_cfg_dir += fs.separator() + config_dir;
+
+    initTumblers(modules_dir, custom_cfg_dir);
 
     initCouplings(modules_dir, custom_cfg_dir);
 
@@ -104,8 +107,6 @@ void TEP70::step(double t, double dt)
     stepSignalsOutput(t, dt);
 
     stepSoundsSignals(t, dt);
-
-    debugOutput(t, dt);
 
     if (reg == nullptr)
         return;

@@ -27,8 +27,8 @@ void TEP70::stepSafetyDevices(double t, double dt)
     {
         // УКБМ
         safety_device[cab_idx]->setAlsnCode(alsn_decoder[cab_idx]->getCode());
-        safety_device[cab_idx]->setRBstate(rb/*[cab_idx]*/[RB].getState());
-        safety_device[cab_idx]->setRBSstate(rb/*[cab_idx]*/[RBS].getState());
+        safety_device[cab_idx]->setRBstate(rb[cab_idx][RB].getState());
+        safety_device[cab_idx]->setRBSstate(rb[cab_idx][RBS].getState());
         safety_device[cab_idx]->setKeyEPK(epk[cab_idx]->isKeyOn());
         safety_device[cab_idx]->setVelocity(speed_meter[cab_idx]->getVelocity());
         safety_device[cab_idx]->step(t, dt);

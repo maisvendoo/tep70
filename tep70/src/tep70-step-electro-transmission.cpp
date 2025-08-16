@@ -110,7 +110,8 @@ void TEP70::stepElectroTransmission(double t, double dt)
     field_reg->setOmega(disel->getOmega());
     field_reg->setGenVoltage(trac_gen->getVoltage());
     field_reg->setGenCurrent(I_gen);
-    field_reg->setKMPosition(km[cabine_idx]->getPositionNumber());
+    field_reg->setKMPosition(cabine_switcher->isCabine1() * km[CAB1]->getPositionNumber() +
+                             cabine_switcher->isCabine2() * km[CAB2]->getPositionNumber()); // ???????
     field_reg->step(t, dt);
 
     // Цепь реле РУ1

@@ -87,9 +87,6 @@ private:
     /// Расцепной рычаг сзади
     OperatingRod *oper_rod_bwd = nullptr;
 
-    /// Переключатель-блокировка рабочей кабины
-    CabineSwitcher *cabine_switcher = nullptr;
-
     enum
     {
         /// Число кабин
@@ -99,6 +96,77 @@ private:
         /// Индекс 2 кабины
         CAB2 = 1
     };
+
+    /// АЗВ "Управление общее" (АВ2)
+    TriggerControl  azv_common_control[CABS_NUM];
+
+    /// АЗВ "Управление тепловозом" (АВ1)
+    TriggerControl  azv_upr_tepl[CABS_NUM];
+
+    /// АЗВ "Топливный насос" (АВ4)
+    TriggerControl  azv_fuel_pump[CABS_NUM];
+
+    /// АЗВ "ЭДТ"
+    TriggerControl  azv_edt_on[CABS_NUM];
+
+    /// АЗВ "Тормоз питание"
+    TriggerControl  azv_edt_power[CABS_NUM];
+
+    /// АЗВ "ЭПТ"
+    TriggerControl  azv_ept_on[CABS_NUM];
+
+    /// АЗВ "Компрессор"
+    TriggerControl  azv_motor_compressor[CABS_NUM];
+
+    /// Тумблер "Напряжение ЦУ. Напряжение ЭПТ"
+    TriggerControl  tumbler_voltage[CABS_NUM];
+
+    /// Тумблер "Аварийная остановка дизеля"
+    TriggerControl  tumbler_disel_stop[CABS_NUM];
+
+    /// Тумблер "Ослабление поля I ступени руч./авт."
+    SwitcherControl tumbler_field_weak1[CABS_NUM];
+
+    /// Тумблер "Ослабление поля II ступени руч./авт."
+    SwitcherControl tumbler_field_weak2[CABS_NUM];
+
+    /// Тумблер "Управление жалюзи воды руч./авт."
+    SwitcherControl tumbler_water_zaluzi[CABS_NUM];
+
+    /// Тумблер "Управление жалюзи масла руч./авт."
+    SwitcherControl tumbler_oil_zaluzi[CABS_NUM];
+
+    /// Переключатель тормозного усилия
+    SwitcherControl brake_force_switch[CABS_NUM];
+
+    /// Кнопка "Пуск дизеля"
+    TriggerControl  button_disel_start[CABS_NUM];
+
+    /// Кнопка "Отпуск тормозов"
+    TriggerControl  button_brake_release[CABS_NUM];
+
+    /// Кнопка "Свисток"
+    TriggerControl  button_svistok[CABS_NUM];
+
+    /// Кнопка "Тифон"
+    TriggerControl  button_tifon[CABS_NUM];
+
+    enum
+    {
+        NUM_RB = 3,
+        RBS = 0,
+        RB = 1,
+        RBP = 2
+    };
+
+    /// Рукоятки бдительности
+    TriggerControl rb[CABS_NUM][NUM_RB];
+
+    /// Ключ ЭПК
+    TriggerControl key_epk[CABS_NUM];
+
+    /// Переключатель-блокировка рабочей кабины
+    CabineSwitcher *cabine_switcher = nullptr;
 
     /// Контроллер машиниста
     ControllerKM2202    *km[CABS_NUM] = {nullptr, nullptr};
@@ -310,21 +378,6 @@ private:
     /// Скоростемер
     SL2M                    *speed_meter[CABS_NUM] = {nullptr, nullptr};
 
-    /// Кнопка "Пуск дизеля"
-    Trigger    button_disel_start[CABS_NUM];
-
-    /// Кнопка "Отпуск тормозов"
-    bool    button_brake_release = false;
-
-    /// Кнопка "Свисток"
-    bool    button_svistok = false;
-
-    /// Кнопка "Тифон"
-    bool    button_tifon = false;
-
-    /// Рукоятка бдительности (РБ1)
-    bool    button_RB1 = false;
-
     /// Напряжение цепей управления
     double  Ucc = 0.0;
 
@@ -398,59 +451,6 @@ private:
     /// Дешифратор сигнала АЛСН
     DecoderALSN *alsn_decoder[CABS_NUM] = {nullptr, nullptr};
 
-    /// АЗВ "Управление общее" (АВ2)
-    Trigger azv_common_control[CABS_NUM];
-
-    /// АЗВ "Управление тепловозом" (АВ1)
-    Trigger azv_upr_tepl[CABS_NUM];
-
-    /// АЗВ "Топливный насос" (АВ4)
-    Trigger azv_fuel_pump[CABS_NUM];
-
-    /// АЗВ "ЭДТ"
-    Trigger azv_edt_on;
-
-    /// АЗВ "Тормоз питание"
-    Trigger azv_edt_power;
-
-    /// АЗВ "ЭПТ"
-    Trigger azv_ept_on;
-
-    /// АЗВ "Компрессор"
-    Trigger azv_motor_compressor;
-
-    /// Тумблер "Напряжение ЦУ. Напряжение ЭПТ"
-    Trigger tumbler_voltage;
-
-    /// Тумблер "Аварийная остановка дизеля"
-    Trigger tumbler_disel_stop[CABS_NUM];
-
-    /// Тумблер "Ослабление поля I ступени руч./авт."
-    Switcher tumbler_field_weak1[CABS_NUM];
-
-    /// Тумблер "Ослабление поля II ступени руч./авт."
-    Switcher tumbler_field_weak2[CABS_NUM];
-
-    /// Тумблер "Управление жалюзи воды руч./авт."
-    Switcher tumbler_water_zaluzi[CABS_NUM];
-
-    /// Тумблер "Управление жалюзи масла руч./авт."
-    Switcher tumbler_oil_zaluzi[CABS_NUM];
-
-    enum
-    {
-        NUM_RB = 3,
-        RB = 0,
-        RBS = 1,
-        RBP = 2
-    };
-
-    /// Рукоятки бдительности
-    std::array<Trigger, NUM_RB> rb;
-
-    /// Ключ ЭПК
-    Trigger key_epk[CABS_NUM];
-
     enum
     {
         NUM_RU9_CONTACS = 1,
@@ -459,9 +459,6 @@ private:
 
     /// Реле контроля сбора схемы от ЭПК
     Relay *ru9 = new Relay(NUM_RU9_CONTACS);
-
-    /// Переключатель тормозного усилия (задел под ЭДТ)
-    Switcher brake_force_switch;
 
     enum
     {
@@ -474,6 +471,9 @@ private:
 
     /// Инициализация всех систем тепловоза
     void initialization();
+
+    /// Инициализация управления тумблерами
+    void initTumblers(const QString &modules_dir, const QString &custom_cfg_dir);
 
     /// Инициализация сцепных устройств
     void initCouplings(const QString &modules_dir, const QString &custom_cfg_dir);
@@ -572,7 +572,7 @@ private:
     void stepDecodeAlsn();
 
     /// Вывод отладочной строки
-    void debugOutput(double t, double dt);
+    void debugPrint();
 
     /// Формирование состояния сигнальных ламп
     float getLampState(double signal);

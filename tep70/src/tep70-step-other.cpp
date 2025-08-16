@@ -6,12 +6,12 @@
 void TEP70::stepOther(double t, double dt)
 {
     horn->setFLpressure(main_reservoir->getPressure());
-    horn->setControl(keys);
+    horn->setSvistokOn(button_svistok[CAB1].getState() || button_svistok[CAB2].getState());
+    horn->setTifonOn(button_tifon[CAB1].getState() || button_tifon[CAB2].getState());
     horn->step(t, dt);
 
     // Система подачи песка
     sand_system->setFLpressure(main_reservoir->getPressure());
-    sand_system->setControl(keys);
     sand_system->step(t, dt);
     for (size_t i = 0; i < num_axis; ++i)
     {
