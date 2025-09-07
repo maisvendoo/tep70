@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
-void TEP70::stepBrakesControl(double t, double dt)
+void TEP70::stepBrakesControl(const double& t, const double& dt)
 {
     for (size_t cab_idx : {CAB1, CAB2})
     {

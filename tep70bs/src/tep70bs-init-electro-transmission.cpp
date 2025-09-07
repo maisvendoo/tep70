@@ -5,7 +5,7 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70BS::initElectroTransmission(const QString &modules_dir, const QString &custom_cfg_dir)
+void TEP70BS::initElectroTransmission(const QString& modules_dir, const QString& custom_cfg_dir)
 {
     (void) modules_dir;
 

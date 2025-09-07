@@ -26,7 +26,7 @@ TEP70::~TEP70()
 //------------------------------------------------------------------------------
 void TEP70::initialization()
 {
-    FileSystem &fs = FileSystem::getInstance();
+    FileSystem& fs = FileSystem::getInstance();
     QString modules_dir = QString(fs.getModulesDir().c_str());
     QString custom_cfg_dir(fs.getVehiclesDir().c_str());
     custom_cfg_dir += fs.separator() + config_dir;
@@ -68,7 +68,22 @@ void TEP70::initialization()
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::preStep(double t)
+void TEP70::process(const simulator_time_t& t, const double& dt)
+{
+    if (needDebugMsg)
+        debugPrint(t, dt);
+
+    keyProcess(t, dt);
+
+    signalsOutput(t, dt);
+
+    soundsOutput(t, dt);
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70::preStep(const double& t)
 {
     preStepCouplings(t);
 }
@@ -76,7 +91,7 @@ void TEP70::preStep(double t)
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::step(double t, double dt)
+void TEP70::step(const double& t, const double& dt)
 {
     stepCouplings(t, dt);
 
@@ -103,10 +118,6 @@ void TEP70::step(double t, double dt)
     stepSafetyDevices(t, dt);
 
     stepOther(t, dt);
-
-    stepSignalsOutput(t, dt);
-
-    stepSoundsSignals(t, dt);
 
     if (reg == nullptr)
         return;

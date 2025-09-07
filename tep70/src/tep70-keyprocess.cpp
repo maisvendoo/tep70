@@ -3,17 +3,14 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::keyProcess()
+void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
 {
-    if (needDebugMsg)
-        debugPrint();
-
     // Переключатель-блокировка рабочей кабины
     if (getKeyState(KEY_Minus))
         cabine_switcher->setCabineIndex(CAB1);
     else if (getKeyState(KEY_Equals))
         cabine_switcher->setCabineIndex(CAB2);
-    cabine_switcher->step(0.0, 0.0);
+    cabine_switcher->step(t.simulation_seconds, dt);
 
     // Сцепные устройства
     oper_rod_fwd->setControl(&pressed_keys);
@@ -39,6 +36,8 @@ void TEP70::keyProcess()
 
     // Песочница
     sand_system->setControl(&pressed_keys);
+    // Тифон, свисток
+    horn->setControl(&pressed_keys);
 
     for (auto cab_idx : {CAB1, CAB2})
     {
@@ -127,5 +126,4 @@ void TEP70::keyProcess()
         rb[cab_idx][RBP].step();
         key_epk[cab_idx].step();
     }
-    horn->setControl(&pressed_keys);
 }

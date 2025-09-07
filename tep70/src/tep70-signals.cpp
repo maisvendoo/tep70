@@ -1,10 +1,10 @@
 #include    "tep70.h"
 
 
-void TEP70::stepSignalsOutput(double t, double dt)
+void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 {
-    Q_UNUSED(t)
-    Q_UNUSED(dt)
+    (void) t;
+    (void) dt;
 
     analogSignal[STRELKA_REOSTATE_CURRENT] = 0.0;
     analogSignal[CAB2_STRELKA_REOSTATE_CURRENT] = 0.0;

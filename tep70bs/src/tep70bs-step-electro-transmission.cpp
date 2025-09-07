@@ -3,13 +3,38 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70BS::stepElectroTransmission(double t, double dt)
+void TEP70BS::stepElectroTransmission(const double& t, const double& dt)
 {
     // Ток, потребляемый от главного генератора
     I_gen = 0.0;
 
+    // Микропереключатели крана машиниста для контроля ЭТ
+    bool is_KMT_ON1 = brake_crane[CAB1]->getPositionName() != "VI";
+    bool is_KMT_ON2 = brake_crane[CAB2]->getPositionName() != "VI";
+
+    // Цепь реле РУ9 - контроль сбора тяги от ЭПК (В будущем добавить другие блокировки)
+    bool is_RU9_ON1 = cabine_switcher->isCabine1() && is_KMT_ON1 && (!epk[CAB1]->getEmergencyBrakeContact());
+    bool is_RU9_ON2 = cabine_switcher->isCabine2() && is_KMT_ON2 && (!epk[CAB2]->getEmergencyBrakeContact());
+
+    ru9->setVoltage(Ucc * static_cast<double>(is_RU9_ON1 || is_RU9_ON2));
+    ru9->step(t, dt);
+
+    // Состояние провода 819
+    bool is_819_ON1 = cabine_switcher->isCabine1() &&
+                      km[CAB1]->isNoZero() &&
+                      brake_lock[CAB1]->isUnlocked() &&
+                      key_epk[CAB1].getState() && azv_upr_tepl[CAB1].getState();
+
+    bool is_819_ON2 = cabine_switcher->isCabine2() &&
+                      km[CAB2]->isNoZero() &&
+                      brake_lock[CAB2]->isUnlocked() &&
+                      key_epk[CAB2].getState() && azv_upr_tepl[CAB2].getState();
+
+    bool is_819_ON = ru9->getContactState(RU9_EPK_CTRL) &&
+                     (is_819_ON1 || is_819_ON2);
+
     // Состояние цепи поездных контакторов
-    bool is_KP_on = azv_upr_tepl.getState() && brake_switcher->isTraction();
+    bool is_KP_on = is_819_ON && brake_switcher->isTraction();
 
     tracForce = 0;
 
@@ -52,13 +77,13 @@ void TEP70BS::stepElectroTransmission(double t, double dt)
     is_KP1_KP7_off = is_KP1_KP7_off && kp[6]->getContactState(1);
 
     // Состояние цепи контактора возбуждения возбудителя
-    bool is_KVV_on = azv_upr_tepl.getState() && is_KP1_KP6_on;
+    bool is_KVV_on = is_819_ON && is_KP1_KP6_on;
 
     kvv->setVoltage(Ucc * static_cast<double>(is_KVV_on));
     kvv->step(t, dt);
 
     // Состояние цепи контактора возбуждения генератора
-    bool is_KVG_on = azv_upr_tepl.getState() && is_KP1_KP6_on;
+    bool is_KVG_on = is_819_ON && is_KP1_KP6_on;
 
     kvg->setVoltage(Ucc * static_cast<double>(is_KVG_on));
     kvg->step(t, dt);
@@ -85,11 +110,14 @@ void TEP70BS::stepElectroTransmission(double t, double dt)
     field_reg->setOmega(disel->getOmega());
     field_reg->setGenVoltage(trac_gen->getVoltage());
     field_reg->setGenCurrent(I_gen);
-    field_reg->setKMPosition(km->getPositionNumber());
+    field_reg->setKMPosition(cabine_switcher->isCabine1() * km[CAB1]->getPositionNumber() +
+                             cabine_switcher->isCabine2() * km[CAB2]->getPositionNumber()); // ???????
     field_reg->step(t, dt);
 
     // Цепь реле РУ1
-    bool is_RU1_on = azv_upr_tepl.getState() && km->is12orMore();
+    bool is_RU1_on = is_819_ON &&
+                     km[CAB1]->is12orMore() && cabine_switcher->isCabine1() &&
+                     km[CAB2]->is12orMore() && cabine_switcher->isCabine2();
 
     ru1->setVoltage(Ucc * static_cast<double>(is_RU1_on));
     ru1->step(t, dt);
@@ -100,22 +128,34 @@ void TEP70BS::stepElectroTransmission(double t, double dt)
     if (I_gen >= 1.0)
         k_field = trac_gen->getVoltage() / I_gen;
 
-    rp1->setActive(tumbler_field_weak1.getPosition() == 2);
+    bool is_OP1_manual = ((tumbler_field_weak1[CAB1].getPosition() == 0) && cabine_switcher->isCabine1()) ||
+                         ((tumbler_field_weak1[CAB2].getPosition() == 0) && cabine_switcher->isCabine2());
+
+    bool is_OP1_auto =   ((tumbler_field_weak1[CAB1].getPosition() == 2) && cabine_switcher->isCabine1()) ||
+                         ((tumbler_field_weak1[CAB2].getPosition() == 2) && cabine_switcher->isCabine2());
+
+    bool is_OP2_manual = ((tumbler_field_weak2[CAB1].getPosition() == 0) && cabine_switcher->isCabine1()) ||
+                         ((tumbler_field_weak2[CAB2].getPosition() == 0) && cabine_switcher->isCabine2());
+
+    bool is_OP2_auto =   ((tumbler_field_weak2[CAB1].getPosition() == 2) && cabine_switcher->isCabine1()) ||
+                         ((tumbler_field_weak2[CAB2].getPosition() == 2) && cabine_switcher->isCabine2());
+
+    rp1->setActive(is_OP1_auto);
     rp1->setLocked(ksh1_delay->getContactState(0));
     rp1->setValue(k_field);
 
-    rp2->setActive( (tumbler_field_weak2.getPosition() == 2) && ksh2_delay->getContactState(0) );
+    rp2->setActive( (is_OP2_auto) && ksh2_delay->getContactState(0) );
     rp2->setValue(k_field);
 
     // Цепь контактора КШ2
-    bool is_KSH2_on = ( (tumbler_field_weak2.getPosition() == 0) &&
+    bool is_KSH2_on = ( (is_OP2_manual) &&
                        ru1->getContactState(1) ) ||
-                      ( (tumbler_field_weak2.getPosition() == 2) && rp2->getState() );
+                      ( (is_OP2_auto) && rp2->getState() );
 
     // Цепь контактора КШ1
-    bool is_KSH1_on = ( (tumbler_field_weak1.getPosition() == 0) &&
+    bool is_KSH1_on = ( (is_OP1_manual) &&
                        ru1->getContactState(0) ) ||
-                      ( rp1->getState()  && tumbler_field_weak1.getPosition() == 2);
+                      ( rp1->getState()  && is_OP1_auto);
 
     ksh2_delay->setControlVoltage(Ucc * static_cast<double>(ksh1->getContactState(1)));
     ksh2_delay->step(t, dt);
@@ -131,19 +171,22 @@ void TEP70BS::stepElectroTransmission(double t, double dt)
 
 
     // Цепь вентиля реверсора вперед
-    bool is_Revers_Forward = azv_upr_tepl.getState() && (tumbler_revers.getPosition() == 2);
+    bool is_Revers_Forward = is_819_ON &&
+                             ((tumbler_revers[CAB1].getPosition() == 2) ||
+                              (tumbler_revers[CAB2].getPosition() == 0));
 
     // Цепь вентиля реверсора назад
-    bool is_Revers_Backward = azv_upr_tepl.getState() && (tumbler_revers.getPosition() == 0);
+    bool is_Revers_Backward = is_819_ON &&
+                              ((tumbler_revers[CAB1].getPosition() == 0) ||
+                               (tumbler_revers[CAB2].getPosition() == 2));
 
     reversor->setForwardValveState(is_Revers_Forward);
     reversor->setBackwardValveState(is_Revers_Backward);
     reversor->step(t, dt);
 
     // Цепь вентиля "Тяга" тормозного переключателя
-    bool is_TRAC_on = azv_upr_tepl.getState() &&
-                     (is_KP1_KP7_off || brake_switcher->isTraction()) &&
-                     km->isNoZero();
+    bool is_TRAC_on = is_819_ON &&
+                     (is_KP1_KP7_off || (brake_switcher->isTraction() && ru21->getContactState(RU21_TRAC_ON)));
 
     brake_switcher->setTracValeState(is_TRAC_on);
     brake_switcher->setBrakeValveState(false);

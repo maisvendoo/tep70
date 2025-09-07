@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70BS::debugOutput(double t, double dt)
+void TEP70BS::debugPrint(const simulator_time_t& t, const double& dt)
 {
     (void) t;
     (void) dt;
@@ -18,12 +18,12 @@ void TEP70BS::debugOutput(double t, double dt)
                     .arg(10.0 * supply_reservoir->getPressure(), 6, 'f', 2);
     DebugMsg += QString("pFL%1|pER%2|395:%3|254:%4%|")
                     .arg(10.0 * main_reservoir->getPressure(), 6, 'f', 2)
-                    .arg(10.0 * brake_crane->getERpressure(), 6, 'f', 2)
-                    .arg(brake_crane->getPositionName(), 3)
-                    .arg(loco_crane->getHandlePosition() * 100.0, 3, 'f', 0);
+                    .arg(10.0 * brake_crane[CAB1]->getERpressure(), 6, 'f', 2)
+                    .arg(brake_crane[CAB1]->getPositionName(), 3)
+                    .arg(loco_crane[CAB1]->getHandlePosition() * 100.0, 3, 'f', 0);
     DebugMsg += QString("Rev%1|Pos %2|I%3 A|")
-                    .arg(km->getReversState(), 2)
-                    .arg(km->getPositionNumber(), 2)
+                    .arg(km[CAB1]->getReversState(), 2)
+                    .arg(km[CAB1]->getPositionNumber(), 2)
                     .arg(I_gen, 7, 'f', 1);
     DebugMsg += QString("Fuel:%1kg|")
                     .arg(fuel_tank->getFuelMass(), 5, 'f', 0);

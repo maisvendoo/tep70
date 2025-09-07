@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
-void TEP70BS::initPneumoSupply(const QString &modules_dir, const QString &custom_cfg_dir)
+void TEP70BS::initPneumoSupply(const QString& modules_dir, const QString& custom_cfg_dir)
 {
     (void) modules_dir;
 
@@ -41,8 +41,6 @@ void TEP70BS::initPneumoSupply(const QString &modules_dir, const QString &custom
     ktk2 = new Relay(1);
     ktk2->read_config("rpu-3m", custom_cfg_dir);
     ktk2->setInitContactState(0, false);
-
-    azv_motor_compressor.set();
 
     // Концевые краны питательной магистрали
     anglecock_fl_fwd = new PneumoAngleCock();

@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70BS::stepControlCircuit(double t, double dt)
+void TEP70BS::stepControlCircuit(const double& t, const double& dt)
 {
     Ucc = max(battery->getVoltage(), starter_generator->getVoltage() * static_cast<double>(krn->getContactState(1)));
 
@@ -38,8 +38,12 @@ void TEP70BS::stepControlCircuit(double t, double dt)
     battery->step(t, dt);
 
     // Определяем состояни цепи контактора топливного насоса (КТН)
-    bool is_KTH_on = azv_fuel_pump.getState() &&
-                     tumbler_disel_stop.getState() &&
+    bool is_AB4_on = azv_fuel_pump[CAB1].getState()  ||
+                     azv_fuel_pump[CAB2].getState();
+
+    bool is_KTH_on = is_AB4_on &&
+                     tumbler_disel_stop[CAB1].getState() &&
+                     tumbler_disel_stop[CAB2].getState() &&
                      ru6->getContactState(1);
 
     //bool is_KTH_on = msut_output.is_KTN_on && ru6->getContactState(1);
@@ -48,9 +52,13 @@ void TEP70BS::stepControlCircuit(double t, double dt)
     kontaktor_fuel_pump->step(t, dt);
 
     // Состояние цепи кнопки "Пуск дизеля"
-    bool is_Button_Start_on = azv_common_control.getState() &&
-                              km->isZero() &&
-                              (button_start_disel.getState() || ru8->getContactState(0));
+    bool is_1017 = (cabine_switcher->isCabine1() && azv_common_control[CAB1].getState() && km[CAB1]->isZero()) ||
+                   (cabine_switcher->isCabine2() && azv_common_control[CAB2].getState() && km[CAB2]->isZero());
+
+    bool is_diser_start_ON = button_disel_start[CAB1].getState() || button_disel_start[CAB2].getState();
+
+    bool is_Button_Start_on = is_1017 &&
+                              (is_diser_start_ON || ru8->getContactState(0));
 
     // Определяем состояние цепи катушки реле РУ8
     bool is_RU8_on = is_Button_Start_on &&
@@ -65,7 +73,7 @@ void TEP70BS::stepControlCircuit(double t, double dt)
     bool is_KMH_on_start = is_Button_Start_on && ru42->getContactState(0);
 
     // Состояние цепи КМН при остановке дизеля (прокачка после остановки)
-    bool is_KMN_on_stop = azv_common_control.getState() &&
+    bool is_KMN_on_stop = is_1017 &&
                           ru6->getContactState(3) &&
                           ru15->getContactState(2);
 
@@ -82,9 +90,10 @@ void TEP70BS::stepControlCircuit(double t, double dt)
     bool is_RDM4_on = static_cast<bool>(hs_p(disel->getOilPressure() - 0.05));
 
 
-    bool is_MV6_on = azv_fuel_pump.getState() &&
-                     tumbler_disel_stop.getState() &&
-                    (ru8->getContactState(1) || is_RDM4_on);
+    bool is_MV6_on = is_AB4_on &&
+                     tumbler_disel_stop[CAB1].getState() &&
+                     tumbler_disel_stop[CAB2].getState() &&
+                     (ru8->getContactState(1) || is_RDM4_on);
 
     mv6->setVoltage(Ucc * static_cast<double>(is_MV6_on));
     mv6->step(t, dt);
@@ -121,7 +130,8 @@ void TEP70BS::stepControlCircuit(double t, double dt)
     vtn->setVoltage(Ucc * static_cast<double>(is_VTN_on));
     vtn->step(t, dt);
 
-    bool is_RU4_on = km->isMoreFirst();
+    bool is_RU4_on = (cabine_switcher->isCabine1() && km[CAB1]->isMoreFirst()) ||
+                     (cabine_switcher->isCabine2() && km[CAB2]->isMoreFirst());
 
     ru4->setVoltage(Ucc * static_cast<double>(is_RU4_on));
     ru4->step(t, dt);
@@ -129,14 +139,14 @@ void TEP70BS::stepControlCircuit(double t, double dt)
     ru42->setVoltage(Ucc * static_cast<double>(is_RU6_on));
     ru42->step(t, dt);
 
-    bool is_RU15_on = azv_common_control.getState() &&
+    bool is_RU15_on = is_1017 &&
                       rv4->getContactState(0) &&
                       (ru6->getContactState(2) || ru15->getContactState(0));
 
     ru15->setVoltage(Ucc * static_cast<double>(is_RU15_on));
     ru15->step(t, dt);
 
-    bool is_RV4_on = azv_common_control.getState() &&
+    bool is_RV4_on = is_1017 &&
                      ru6->getContactState(3) &&
                      ru15->getContactState(1);
 

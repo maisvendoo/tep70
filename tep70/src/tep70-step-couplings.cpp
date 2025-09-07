@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
-void TEP70::preStepCouplings(double t)
+void TEP70::preStepCouplings(const double& t)
 {
     (void) t;
 
@@ -19,7 +19,7 @@ void TEP70::preStepCouplings(double t)
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
-void TEP70::stepCouplings(double t, double dt)
+void TEP70::stepCouplings(const double& t, const double& dt)
 {
     // Управление передним сцепным устройством
     oper_rod_fwd->setCouplingForce(coupling_fwd->getCurrentForce());

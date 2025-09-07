@@ -5,14 +5,14 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70BS::initControlCircuit(const QString &modules_dir, const QString &custom_cfg_dir)
+void TEP70BS::initControlCircuit(const QString& modules_dir, const QString& custom_cfg_dir)
 {
     (void) modules_dir;
 
+    cabine_switcher = new CabineSwitcher();
+
     battery = new Battery();
     battery->read_config("battery", custom_cfg_dir);
-
-    tumbler_disel_stop.set();
 
     kontaktor_fuel_pump = new Relay(2);
     kontaktor_fuel_pump->read_config("mk-6", custom_cfg_dir);

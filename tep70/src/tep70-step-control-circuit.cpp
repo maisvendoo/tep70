@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepControlCircuit(double t, double dt)
+void TEP70::stepControlCircuit(const double& t, const double& dt)
 {
     Ucc = max(battery->getVoltage(), starter_generator->getVoltage() * static_cast<double>(krn->getContactState(1)));
 

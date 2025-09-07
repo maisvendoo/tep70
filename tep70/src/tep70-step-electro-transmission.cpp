@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepElectroTransmission(double t, double dt)
+void TEP70::stepElectroTransmission(const double& t, const double& dt)
 {
     // Ток, потребляемый от главного генератора
     I_gen = 0.0;

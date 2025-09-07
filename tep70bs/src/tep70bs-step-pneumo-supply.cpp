@@ -3,19 +3,19 @@
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
-void TEP70BS::stepPneumoSupply(double t, double dt)
+void TEP70BS::stepPneumoSupply(const double& t, const double& dt)
 {
     press_reg->setFLpressure(main_reservoir->getPressure());
     press_reg->step(t, dt);
 
     // Состояние цепи реле РУ18
-    bool is_RU18_on = azv_motor_compressor.getState() &&
-                    static_cast<bool>(press_reg->getState());
+    bool is_RU18_on = (azv_motor_compressor[CAB1].getState() || azv_motor_compressor[CAB2].getState()) &&
+                      static_cast<bool>(press_reg->getState());
 
     ru18->setVoltage(Ucc * static_cast<double>(is_RU18_on));
     ru18->step(t, dt);
 
-    bool is_RV6_on = azv_motor_compressor.getState() &&
+    bool is_RV6_on = (azv_motor_compressor[CAB1].getState() || azv_motor_compressor[CAB2].getState()) &&
                      krn->getContactState(4) &&
                      ru18->getContactState(0) &&
                      ktk1->getContactState(0);
@@ -23,7 +23,7 @@ void TEP70BS::stepPneumoSupply(double t, double dt)
     rv6->setControlVoltage(Ucc * static_cast<double>(is_RV6_on));
     rv6->step(t, dt);
 
-    bool is_KTK1_on = azv_motor_compressor.getState() &&
+    bool is_KTK1_on = (azv_motor_compressor[CAB1].getState() || azv_motor_compressor[CAB2].getState()) &&
                       krn->getContactState(5) &&
                       ru18->getContactState(1);
 
@@ -45,8 +45,10 @@ void TEP70BS::stepPneumoSupply(double t, double dt)
     FL_flow += motor_compressor->getFLflow();
     FL_flow += horn->getFLflow();
     FL_flow += sand_system->getFLflow();
-    FL_flow += brake_lock->getFLflow();
-    FL_flow += epk->getFLflow();
+    FL_flow += brake_lock[CAB1]->getFLflow();
+    FL_flow += brake_lock[CAB2]->getFLflow();
+    FL_flow += epk[CAB1]->getFLflow();
+    FL_flow += epk[CAB2]->getFLflow();
     FL_flow += bc_pressure_relay[TROLLEY_FWD]->getFLflow();
     FL_flow += bc_pressure_relay[TROLLEY_BWD]->getFLflow();
 
@@ -61,10 +63,8 @@ void TEP70BS::stepPneumoSupply(double t, double dt)
 
     // Концевые краны питательной магистрали
     anglecock_fl_fwd->setPipePressure(main_reservoir->getPressure());
-    anglecock_fl_fwd->setControl(keys);
     anglecock_fl_fwd->step(t, dt);
     anglecock_fl_bwd->setPipePressure(main_reservoir->getPressure());
-    anglecock_fl_bwd->setControl(keys);
     anglecock_fl_bwd->step(t, dt);
 
     // Рукава питательной магистрали
@@ -72,12 +72,10 @@ void TEP70BS::stepPneumoSupply(double t, double dt)
     hose_fl_fwd->setFlowCoeff(anglecock_fl_fwd->getFlowCoeff());
     hose_fl_fwd->setCoord(train_coord + dir * orient * (length / 2.0 - anglecock_fl_fwd->getShiftCoord()));
     hose_fl_fwd->setShiftSide(anglecock_fl_fwd->getShiftSide());
-    hose_fl_fwd->setControl(keys);
     hose_fl_fwd->step(t, dt);
     hose_fl_bwd->setPressure(anglecock_fl_bwd->getPressureToHose());
     hose_fl_bwd->setFlowCoeff(anglecock_fl_bwd->getFlowCoeff());
     hose_fl_bwd->setCoord(train_coord - dir * orient * (length / 2.0 - anglecock_fl_bwd->getShiftCoord()));
     hose_fl_bwd->setShiftSide(anglecock_fl_bwd->getShiftSide());
-    hose_fl_bwd->setControl(keys);
     hose_fl_bwd->step(t, dt);
 }

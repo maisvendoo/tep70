@@ -1,9 +1,9 @@
-#include    "tep70.h"
+#include    "tep70bs.h"
 
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
-void TEP70::initTumblers(const QString &modules_dir, const QString &custom_cfg_dir)
+void TEP70BS::initTumblers(const QString &modules_dir, const QString &custom_cfg_dir)
 {
     (void) modules_dir;
     (void) custom_cfg_dir;
@@ -173,5 +173,14 @@ void TEP70::initTumblers(const QString &modules_dir, const QString &custom_cfg_d
         key_epk[cab_idx].setKeySymbolOff(KEY_N);
         key_epk[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
         key_epk[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
+
+        // Переключатель реверсора
+        tumbler_revers[cab_idx].setNumPositions(3);
+        tumbler_revers[cab_idx].setKeySymbolIncrease(KEY_W);
+        tumbler_revers[cab_idx].setKeyModifierIncrease(ANY_MODIFIERS);
+        tumbler_revers[cab_idx].setKeySymbolDecrease(KEY_S);
+        tumbler_revers[cab_idx].setKeyModifierDecrease(ANY_MODIFIERS);
+        tumbler_revers[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
+        tumbler_revers[cab_idx].setInitPosition(1);
     }
 }

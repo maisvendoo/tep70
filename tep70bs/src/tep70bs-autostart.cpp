@@ -5,18 +5,18 @@ void TEP70BS::initAutostart()
 {
     start_count = 0;
 
-    triggers.push_back(&azv_common_control);
-    triggers.push_back(&azv_fuel_pump);
-    triggers.push_back(&button_start_disel);
-    triggers.push_back(&azv_upr_tepl);
-    triggers.push_back(&azv_ept_on);
+    triggers.push_back(&azv_common_control[CAB1]);
+    triggers.push_back(&azv_fuel_pump[CAB1]);
+    triggers.push_back(&button_disel_start[CAB1]);
+    triggers.push_back(&azv_upr_tepl[CAB1]);
+    triggers.push_back(&azv_ept_on[CAB1]);
 
     connect(&autoStartTimer, &Timer::process, this, &TEP70BS::slotAutostart);
     autoStartTimer.firstProcess(true);
     autoStartTimer.setTimeout(0.5);
 }
 
-void TEP70BS::stepAutostart(double t, double dt)
+void TEP70BS::stepAutostart(const double& t, const double& dt)
 {
     autoStartTimer.step(t, dt);
 }
@@ -29,13 +29,13 @@ void TEP70BS::slotAutostart()
         triggers[start_count]->set();
 
         if (!kontaktor_oil_pump->getContactState(1) &&
-             (triggers[start_count] == &button_start_disel) )
+             (triggers[start_count] == &button_disel_start[CAB1]) )
         {
             return;
         }
         else
         {
-            button_start_disel.reset();
+            button_disel_start[CAB1].reset();
 
             if (!ru10->getContactState(1) && kontaktor_oil_pump->getContactState(1))
                 return;
@@ -46,6 +46,6 @@ void TEP70BS::slotAutostart()
     else
     {
         autoStartTimer.stop();
-        tumbler_revers.setState(2);
+        tumbler_revers[CAB1].setPosition(2);
     }
 }

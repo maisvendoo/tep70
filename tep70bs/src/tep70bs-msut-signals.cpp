@@ -1,14 +1,14 @@
 #include    "tep70bs.h"
 
-void TEP70BS::stepMSUTsignals(double t, double dt)
+void TEP70BS::signalsMSUT(const simulator_time_t& t, const double& dt)
 {
-    Q_UNUSED(t)
-    Q_UNUSED(dt)
+    (void) t;
+    (void) dt;
 
     msut_input.velocity = velocity;
     msut_input.is_KP1_KP6_on = is_KP1_KP6_on;
     msut_input.bc_pressure = brake_mech[TROLLEY_FWD]->getBCpressure();
-    msut_input.button_start_state = button_start_disel.getState();
+    msut_input.button_start_state = button_disel_start[CAB1].getState();
     msut_input.button_stop_state = false;
 
     msut_input.is_KMN_on = kontaktor_oil_pump->getContactState(1);
@@ -28,7 +28,7 @@ void TEP70BS::stepMSUTsignals(double t, double dt)
     analogSignal[MSUT_VU1_U] = trac_gen->getVoltage() / 1000.0;
     analogSignal[MSUT_VU1_I_TED] = motor[0]->getAncorCurrent() / 1000.0;
 
-    analogSignal[MSUT_POSITION] = km->getPositionNumber();
+    analogSignal[MSUT_POSITION] = km[CAB1]->getPositionNumber();
 
     double power_kW = I_gen * trac_gen->getVoltage() / 1000.0;
     analogSignal[MSUT_POWER] = power_kW;

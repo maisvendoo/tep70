@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepSafetyDevices(double t, double dt)
+void TEP70::stepSafetyDevices(const double& t, const double& dt)
 {
     // Приёмные катушки АЛСН
     coil_ALSN_fwd->step(t, dt);

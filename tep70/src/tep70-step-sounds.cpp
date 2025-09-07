@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepSoundsSignals(double t, double dt)
+void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
 {
     (void) t;
     (void) dt;

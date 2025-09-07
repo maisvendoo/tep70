@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::stepDisel(double t, double dt)
+void TEP70::stepDisel(const double& t, const double& dt)
 {
     disel->setQ_emn(electro_oil_pump->getOilFlow());
     disel->setStarterTorque(starter_generator->getTorque());

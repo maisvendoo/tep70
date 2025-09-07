@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70BS::stepDisel(double t, double dt)
+void TEP70BS::stepDisel(const double& t, const double& dt)
 {
     disel->setQ_emn(electro_oil_pump->getOilFlow());
     disel->setStarterTorque(starter_generator->getTorque());
@@ -12,7 +12,7 @@ void TEP70BS::stepDisel(double t, double dt)
     disel->setFuelPressure(electro_fuel_pump->getFuelPressure());
     disel->setMV6state(mv6->getContactState(0));
     disel->setVTNstate(vtn->getContactState(0));
-    disel->setRefFreq(km->getRefFreq());
+    disel->setRefFreq(max(km[CAB1]->getRefFreq(), km[CAB2]->getRefFreq())); // ??????
     disel->setFuelLevel(fuel_tank->getFuelLevel());
     disel->step(t, dt);
 

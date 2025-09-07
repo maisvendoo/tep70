@@ -3,8 +3,11 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70::debugPrint()
+void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
 {
+    (void) t;
+    (void) dt;
+
     DebugMsg = "";
 
     DebugMsg += QString("CABINE 1|");
@@ -67,6 +70,10 @@ void TEP70::debugPrint()
                     .arg(10.0 * brake_mech[TROLLEY_FWD]->getBCpressure(), 6, 'f', 2)
                     .arg(10.0 * supply_reservoir->getPressure(), 6, 'f', 2)
                     .arg(10.0 * main_reservoir->getPressure(), 6, 'f', 2);
+    DebugMsg += QString("Switch1:%1|Switch2:%2|Splitter:%3|")
+                    .arg(10.0 * bc_switch_valve->getPressure1(), 6, 'f', 2)
+                    .arg(10.0 * bc_switch_valve->getPressure2(), 6, 'f', 2)
+                    .arg(10.0 * bc_splitter->getInputPressure(), 6, 'f', 2);
     DebugMsg += QString("I%3 A|").arg(I_gen, 8, 'f', 1);
     DebugMsg += QString("Fuel:%1kg|")
                     .arg(fuel_tank->getFuelMass(), 5, 'f', 0);
