@@ -31,8 +31,6 @@ void TEP70::initialization()
     QString custom_cfg_dir(fs.getVehiclesDir().c_str());
     custom_cfg_dir += fs.separator() + config_dir;
 
-    initTumblers(modules_dir, custom_cfg_dir);
-
     initCouplings(modules_dir, custom_cfg_dir);
 
     initCabineControls(modules_dir, custom_cfg_dir);
@@ -58,6 +56,8 @@ void TEP70::initialization()
     initSafetyDevices(modules_dir, custom_cfg_dir);
 
     initOther(modules_dir, custom_cfg_dir);
+
+    initControl(modules_dir, custom_cfg_dir);
 /*
     reg = new Registrator(0.1);
     reg->setFileName("tep70-char");

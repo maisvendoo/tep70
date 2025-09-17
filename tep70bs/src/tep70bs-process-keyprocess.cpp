@@ -16,28 +16,6 @@ void TEP70BS::keyProcess(const simulator_time_t& t, const double& dt)
     cabine_switcher->step(t.simulation_seconds, dt);*/
     cabine_switcher->setCabineIndex(CAB1);
 
-    // Сцепные устройства
-    oper_rod_fwd->setControl(&pressed_keys);
-    oper_rod_bwd->setControl(&pressed_keys);
-
-    // Концевые краны и рукава тормозной магистрали
-    anglecock_bp_fwd->setControl(&pressed_keys);
-    anglecock_bp_bwd->setControl(&pressed_keys);
-    hose_bp_fwd->setControl(&pressed_keys);
-    hose_bp_bwd->setControl(&pressed_keys);
-
-    // Концевые краны и рукава питательной магистрали
-    anglecock_fl_fwd->setControl(&pressed_keys);
-    anglecock_fl_bwd->setControl(&pressed_keys);
-    hose_fl_fwd->setControl(&pressed_keys);
-    hose_fl_bwd->setControl(&pressed_keys);
-
-    // Концевые краны и рукава магистрали тормозных цилиндров
-    anglecock_bc_fwd->setControl(&pressed_keys);
-    anglecock_bc_bwd->setControl(&pressed_keys);
-    hose_bc_fwd->setControl(&pressed_keys);
-    hose_bc_bwd->setControl(&pressed_keys);
-
     // Песочница
     sand_system->setControl(&pressed_keys);
     // Тифон, свисток

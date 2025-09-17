@@ -94,6 +94,8 @@ void TEP70BS::initialization()
 
     initMSUT(modules_dir, custom_cfg_dir);
 
+    initControl(modules_dir, custom_cfg_dir);
+
     initAutostart();
 /*
     reg = new Registrator(0.1);

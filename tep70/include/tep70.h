@@ -473,9 +473,6 @@ private:
     /// Инициализация всех систем тепловоза
     void initialization() override;
 
-    /// Инициализация управления тумблерами
-    void initTumblers(const QString& modules_dir, const QString& custom_cfg_dir);
-
     /// Инициализация сцепных устройств
     void initCouplings(const QString& modules_dir, const QString& custom_cfg_dir);
 
@@ -514,6 +511,9 @@ private:
 
     /// Инициализация прочего оборудования
     void initOther(const QString& modules_dir, const QString& custom_cfg_dir);
+
+    /// Инициализация управления
+    void initControl(const QString& modules_dir, const QString& custom_cfg_dir);
 
 
     /// Процесс симуляции
