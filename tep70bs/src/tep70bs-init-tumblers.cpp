@@ -96,6 +96,9 @@ void TEP70BS::initControl(const QString &modules_dir, const QString &custom_cfg_
 
     for (auto cab_idx : {CAB1, CAB2})
     {
+        // Устройство блокировки тормозов усл.№ 367
+        brake_lock[cab_idx]->setControl(&pressed_keys_by_cabine[cab_idx]);
+
         // АЗВ "Управление общее" (АВ2)
         azv_common_control[cab_idx].setKeySymbolOn(KEY_Y);
         azv_common_control[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);

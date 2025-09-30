@@ -41,13 +41,13 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[CAB2_SOUND_TUMBLER_DISEL_STOP] = tumbler_disel_stop[CAB2].getSoundSignal(Trigger::CHANGE_SOUND);
 
     // Устройство блокировки тормозов
-    analogSignal[SOUND_BRAKE_LOCK_CHANGE_LOCK_POS] = brake_lock[CAB1]->getSoundSignal(BrakeLock::CHANGE_LOCK_POS_SOUND);
-    analogSignal[SOUND_BRAKE_LOCK_CHANGE_COMB_POS] = brake_lock[CAB1]->getSoundSignal(BrakeLock::CHANGE_COMB_POS_SOUND);
-    analogSignal[SOUND_BRAKE_LOCK_BP_DRAIN_FLOW] = brake_lock[CAB1]->getSoundSignal(BrakeLock::BP_DRAIN_FLOW_SOUND);
+    analogSignal[SOUND_BRAKE_LOCK_CHANGE_LOCK_POS] = brake_lock[CAB1]->getSoundSignal(PneumoBrakeLock::LOCK_STATE_CHANGED);
+    analogSignal[SOUND_BRAKE_LOCK_CHANGE_COMB_POS] = brake_lock[CAB1]->getSoundSignal(PneumoCombineCrane::CHANGE_COMB_POS_SOUND);
+    analogSignal[SOUND_BRAKE_LOCK_BP_DRAIN_FLOW] = brake_lock[CAB1]->getSoundSignal(PneumoCombineCrane::BP_DRAIN_FLOW_SOUND);
 
-    analogSignal[CAB2_SOUND_BRAKE_LOCK_CHANGE_LOCK_POS] = brake_lock[CAB2]->getSoundSignal(BrakeLock::CHANGE_LOCK_POS_SOUND);
-    analogSignal[CAB2_SOUND_BRAKE_LOCK_CHANGE_COMB_POS] = brake_lock[CAB2]->getSoundSignal(BrakeLock::CHANGE_COMB_POS_SOUND);
-    analogSignal[CAB2_SOUND_BRAKE_LOCK_BP_DRAIN_FLOW] = brake_lock[CAB2]->getSoundSignal(BrakeLock::BP_DRAIN_FLOW_SOUND);
+    analogSignal[CAB2_SOUND_BRAKE_LOCK_CHANGE_LOCK_POS] = brake_lock[CAB2]->getSoundSignal(PneumoBrakeLock::LOCK_STATE_CHANGED);
+    analogSignal[CAB2_SOUND_BRAKE_LOCK_CHANGE_COMB_POS] = brake_lock[CAB2]->getSoundSignal(PneumoCombineCrane::CHANGE_COMB_POS_SOUND);
+    analogSignal[CAB2_SOUND_BRAKE_LOCK_BP_DRAIN_FLOW] = brake_lock[CAB2]->getSoundSignal(PneumoCombineCrane::BP_DRAIN_FLOW_SOUND);
     // Кран поездного тормоза
     analogSignal[SOUND_BRAKE_CRANE_CHANGE_POS] = brake_crane[CAB1]->getSoundSignal(BrakeCrane::CHANGE_POS_SOUND);
     analogSignal[SOUND_BRAKE_CRANE_ER_STAB_FLOW] = brake_crane[CAB1]->getSoundSignal(BrakeCrane::ER_STAB_SOUND);

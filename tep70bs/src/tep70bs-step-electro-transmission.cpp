@@ -22,12 +22,12 @@ void TEP70BS::stepElectroTransmission(const double& t, const double& dt)
     // Состояние провода 819
     bool is_819_ON1 = cabine_switcher->isCabine1() &&
                       km[CAB1]->isNoZero() &&
-                      brake_lock[CAB1]->isUnlocked() &&
+                      brake_lock[CAB1]->isStateOn() &&
                       key_epk[CAB1].getState() && azv_upr_tepl[CAB1].getState();
 
     bool is_819_ON2 = cabine_switcher->isCabine2() &&
                       km[CAB2]->isNoZero() &&
-                      brake_lock[CAB2]->isUnlocked() &&
+                      brake_lock[CAB2]->isStateOn() &&
                       key_epk[CAB2].getState() && azv_upr_tepl[CAB2].getState();
 
     bool is_819_ON = ru9->getContactState(RU9_EPK_CTRL) &&

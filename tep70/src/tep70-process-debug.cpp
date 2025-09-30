@@ -11,10 +11,10 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
     DebugMsg = "";
 
     DebugMsg += QString("CABINE 1|");
-    if (brake_lock[CAB1]->isUnlocked())
+    if (brake_lock[CAB1]->isStateOn())
     {
         DebugMsg += QString("367comb:%1|395:%2|pER%3|254:%4%|")
-                        .arg(brake_lock[CAB1]->getCombCranePosition(), 2, 'f', 0)
+                        .arg(brake_lock[CAB1]->getCombineCraneHandlePosition(), 2, 'f', 0)
                         .arg(brake_crane[CAB1]->getPositionName(), 3)
                         .arg(10.0 * brake_crane[CAB1]->getERpressure(), 6, 'f', 2)
                         .arg(loco_crane[CAB1]->getHandlePosition() * 100.0, 3, 'f', 0);
@@ -22,7 +22,7 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
     else
     {
         DebugMsg += QString("367comb:%1| BRAKE CRANES ARE LOCKED  |")
-                        .arg(brake_lock[CAB1]->getCombCranePosition(), 2, 'f', 0);
+                        .arg(brake_lock[CAB1]->getCombineCraneHandlePosition(), 2, 'f', 0);
     }
 
     DebugMsg += QString("Rev%1|Pos %2|EDT %3|")
@@ -120,10 +120,10 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
 
     DebugMsg += QString("\n");
     DebugMsg += QString("CABINE 2|");
-    if (brake_lock[CAB2]->isUnlocked())
+    if (brake_lock[CAB2]->isStateOn())
     {
         DebugMsg += QString("367comb:%1|395:%2|pER%3|254:%4%|")
-                        .arg(brake_lock[CAB2]->getCombCranePosition(), 2, 'f', 0)
+                        .arg(brake_lock[CAB2]->getCombineCraneHandlePosition(), 2, 'f', 0)
                         .arg(brake_crane[CAB2]->getPositionName(), 3)
                         .arg(10.0 * brake_crane[CAB2]->getERpressure(), 6, 'f', 2)
                         .arg(loco_crane[CAB2]->getHandlePosition() * 100.0, 3, 'f', 0);
@@ -131,7 +131,7 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
     else
     {
         DebugMsg += QString("367comb:%1| BRAKE CRANES ARE LOCKED  |")
-                        .arg(brake_lock[CAB2]->getCombCranePosition(), 2, 'f', 0);
+                        .arg(brake_lock[CAB2]->getCombineCraneHandlePosition(), 2, 'f', 0);
     }
 
     DebugMsg += QString("Rev%1|Pos %2|EDT %3|")

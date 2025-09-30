@@ -281,7 +281,7 @@ private:
     TimeRelay*          rv6 = nullptr;
 
     /// Блокировочное устройство УБТ усл.№367м
-    BrakeLock*          brake_lock[CABS_NUM] = {nullptr, nullptr};
+    PneumoBrakeLock     *brake_lock[CABS_NUM] = {nullptr, nullptr};
 
     /// Поездной кран машиниста усл.№395
     BrakeCrane*         brake_crane[CABS_NUM] = {nullptr, nullptr};
@@ -615,6 +615,8 @@ private:
 
     /// Формирование состояния сигнальных ламп
     float getLampState(double signal);
+
+    void load_brakes_config(QString path);
 
 private slots:
 

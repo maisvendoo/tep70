@@ -7,18 +7,16 @@
 //------------------------------------------------------------------------
 void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
 {
-    // Инициализация давления в питательной магистрали
-    main_reservoir->setY(0, pFL);
-    anglecock_fl_fwd->setPipePressure(pFL);
-    anglecock_fl_bwd->setPipePressure(pFL);
-    hose_fl_fwd->setPressure(pFL);
-    hose_fl_bwd->setPressure(pFL);
+    // Загрузка состояния тормозного оборудования из собственного конфига
+    FileSystem &fs = FileSystem::getInstance();
+    QString custom_cfg_dir(fs.getVehiclesDir().c_str());
+    custom_cfg_dir += QDir::separator() + config_dir;
+    load_brakes_config(custom_cfg_dir + QDir::separator() + "brakes-init.xml");
 
     // Инициализация давления в приборах управления тормозами
     for (size_t cab_idx : {CAB1, CAB2})
     {
-        brake_lock[cab_idx]->setState(true);
-        brake_lock[cab_idx]->setCombineCranePosition(0);
+        brake_lock[cab_idx]->init(pBP, pFL);
 
         brake_crane[cab_idx]->init(pBP, pFL);
         brake_crane[cab_idx]->setChargePressure(p0);
@@ -27,6 +25,13 @@ void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
 
         epk[cab_idx]->init(pBP, pFL);
     }
+
+    // Инициализация давления в питательной магистрали
+    main_reservoir->setY(0, pFL);
+    anglecock_fl_fwd->setPipePressure(pFL);
+    anglecock_fl_bwd->setPipePressure(pFL);
+    hose_fl_fwd->setPressure(pFL);
+    hose_fl_bwd->setPressure(pFL);
 
     // Инициализация давления в тормозной магистрали
     brakepipe->setY(0, pBP);
@@ -39,12 +44,6 @@ void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
     electro_air_dist->init(pBP, pFL);
 
     supply_reservoir->setY(0, pBP);
-
-    // Загрузка состояния тормозного оборудования из собственного конфига
-    FileSystem &fs = FileSystem::getInstance();
-    QString custom_cfg_dir(fs.getVehiclesDir().c_str());
-    custom_cfg_dir += QDir::separator() + config_dir;
-    load_brakes_config(custom_cfg_dir + QDir::separator() + "brakes-init.xml");
 
     // Состояние рукавов и концевых кранов магистрали тормозных цилиндров
     if (hose_bc_fwd->isLinked())
@@ -159,7 +158,7 @@ void TEP70::load_brakes_config(QString path)
             brake_lock[CAB1]->setCombineCranePosition(tmp_int);
         }
 
-        tmp_int = 0;
+        tmp_int = -1;
         if (cfg.getInt(secName, "CombineCranePosCab2", tmp_int))
         {
             brake_lock[CAB2]->setCombineCranePosition(tmp_int);
@@ -168,13 +167,17 @@ void TEP70::load_brakes_config(QString path)
         tmp_int = 1;
         if (cfg.getInt(secName, "BrakeLockDeviceCab1", tmp_int))
         {
-            brake_lock[CAB1]->setState(tmp_int);
+            brake_lock[CAB1]->setStateOn(tmp_int);
         }
+        // Не допускаем двух рукояток в устройствах блокировки тормозов
+        brake_lock[CAB2]->allowLockHandle(!(brake_lock[CAB1]->isLockHandle()));
 
         tmp_int = 0;
         if (cfg.getInt(secName, "BrakeLockDeviceCab2", tmp_int))
         {
-            brake_lock[CAB2]->setState(tmp_int);
+            brake_lock[CAB2]->setStateOn(tmp_int);
         }
+        // Не допускаем двух рукояток в устройствах блокировки тормозов
+        brake_lock[CAB1]->allowLockHandle(!(brake_lock[CAB2]->isLockHandle()));
     }
 }

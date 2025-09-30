@@ -97,14 +97,14 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
 
     // Органы управления тормозами
-    analogSignal[RUK_367] = static_cast<float>(brake_lock[CAB1]->getMainHandlePosition());
-    analogSignal[COMB_KRAN] = static_cast<float>(brake_lock[CAB1]->getCombCranePosition());
+    analogSignal[RUK_367] = static_cast<float>(brake_lock[CAB1]->getLockHandlePosition());
+    analogSignal[COMB_KRAN] = static_cast<float>(brake_lock[CAB1]->getCombineCraneHandlePosition());
     analogSignal[KRAN_395_RUK] = static_cast<float>(brake_crane[CAB1]->getHandlePosition());
     analogSignal[KRAN_254_POD] = static_cast<float>(loco_crane[CAB1]->getHandleShift());
     analogSignal[KRAN_254_RUK] = static_cast<float>(loco_crane[CAB1]->getHandlePosition());
 
-    analogSignal[CAB2_RUK_367] = static_cast<float>(brake_lock[CAB2]->getMainHandlePosition());
-    analogSignal[CAB2_COMB_KRAN] = static_cast<float>(brake_lock[CAB2]->getCombCranePosition());
+    analogSignal[CAB2_RUK_367] = static_cast<float>(brake_lock[CAB2]->getLockHandlePosition());
+    analogSignal[CAB2_COMB_KRAN] = static_cast<float>(brake_lock[CAB2]->getCombineCraneHandlePosition());
     analogSignal[CAB2_KRAN_395_RUK] = static_cast<float>(brake_crane[CAB2]->getHandlePosition());
     analogSignal[CAB2_KRAN_254_POD] = static_cast<float>(loco_crane[CAB2]->getHandleShift());
     analogSignal[CAB2_KRAN_254_RUK] = static_cast<float>(loco_crane[CAB2]->getHandlePosition());

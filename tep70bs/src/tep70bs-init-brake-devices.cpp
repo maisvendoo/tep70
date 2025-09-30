@@ -1,22 +1,22 @@
 #include    "tep70bs.h"
 
+#include    "filesystem.h"
+
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
 void TEP70BS::initBrakeDevices(double p0, double pBP, double pFL)
 {
-    // Инициализация давления в питательной магистрали
-    main_reservoir->setY(0, pFL);
-    anglecock_fl_fwd->setPipePressure(pFL);
-    anglecock_fl_bwd->setPipePressure(pFL);
-    hose_fl_fwd->setPressure(pFL);
-    hose_fl_bwd->setPressure(pFL);
+    // Загрузка состояния тормозного оборудования из собственного конфига
+    FileSystem &fs = FileSystem::getInstance();
+    QString custom_cfg_dir(fs.getVehiclesDir().c_str());
+    custom_cfg_dir += QDir::separator() + config_dir;
+    load_brakes_config(custom_cfg_dir + QDir::separator() + "brakes-init.xml");
 
     // Инициализация давления в приборах управления тормозами
     for (size_t cab_idx : {CAB1, CAB2})
     {
-        brake_lock[cab_idx]->setState(true);
-        brake_lock[cab_idx]->setCombineCranePosition(0);
+        brake_lock[cab_idx]->init(pBP, pFL);
 
         brake_crane[cab_idx]->init(pBP, pFL);
         brake_crane[cab_idx]->setChargePressure(p0);
@@ -25,6 +25,13 @@ void TEP70BS::initBrakeDevices(double p0, double pBP, double pFL)
 
         epk[cab_idx]->init(pBP, pFL);
     }
+
+    // Инициализация давления в питательной магистрали
+    main_reservoir->setY(0, pFL);
+    anglecock_fl_fwd->setPipePressure(pFL);
+    anglecock_fl_bwd->setPipePressure(pFL);
+    hose_fl_fwd->setPressure(pFL);
+    hose_fl_bwd->setPressure(pFL);
 
     // Инициализация давления в тормозной магистрали
     brakepipe->setY(0, pBP);
@@ -99,5 +106,78 @@ void TEP70BS::initBrakeDevices(double p0, double pBP, double pFL)
     else
     {
         anglecock_bp_bwd->close();
+    }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70BS::load_brakes_config(QString path)
+{
+    CfgReader cfg;
+
+    if (cfg.load(path))
+    {
+        QString secName = "BrakesState";
+        double tmp_dbl;
+        int tmp_int;
+
+        tmp_dbl = 1.0e-4;
+        if (cfg.getDouble(secName, "MainReservoirLeak", tmp_dbl))
+        {
+            main_reservoir->setLeakCoeff(tmp_dbl);
+        }
+
+        tmp_int = 2;
+        if (cfg.getInt(secName, "TrainCranePosCab1", tmp_int))
+        {
+            brake_crane[CAB1]->setHandlePosition(tmp_int - 1);
+        }
+
+        tmp_int = 7;
+        if (cfg.getInt(secName, "TrainCranePosCab2", tmp_int))
+        {
+            brake_crane[CAB2]->setHandlePosition(tmp_int - 1);
+        }
+
+        tmp_dbl = 1.0;
+        if (cfg.getDouble(secName, "LocoCranePosCab1", tmp_dbl))
+        {
+            loco_crane[CAB1]->setHandlePosition(tmp_dbl);
+        }
+
+        tmp_dbl = 1.0;
+        if (cfg.getDouble(secName, "LocoCranePosCab2", tmp_dbl))
+        {
+            loco_crane[CAB2]->setHandlePosition(tmp_dbl);
+        }
+
+        tmp_int = 0;
+        if (cfg.getInt(secName, "CombineCranePosCab1", tmp_int))
+        {
+            brake_lock[CAB1]->setCombineCranePosition(tmp_int);
+        }
+
+        tmp_int = -1;
+        if (cfg.getInt(secName, "CombineCranePosCab2", tmp_int))
+        {
+            brake_lock[CAB2]->setCombineCranePosition(tmp_int);
+        }
+
+        tmp_int = 1;
+        if (cfg.getInt(secName, "BrakeLockDeviceCab1", tmp_int))
+        {
+            brake_lock[CAB1]->setStateOn(tmp_int);
+        }
+        // Не допускаем двух рукояток в устройствах блокировки тормозов
+        brake_lock[CAB2]->allowLockHandle(!(brake_lock[CAB1]->isLockHandle()));
+
+        tmp_int = 0;
+        if (cfg.getInt(secName, "BrakeLockDeviceCab2", tmp_int))
+        {
+            brake_lock[CAB2]->setStateOn(tmp_int);
+        }
+        // Не допускаем двух рукояток в устройствах блокировки тормозов
+        brake_lock[CAB1]->allowLockHandle(!(brake_lock[CAB2]->isLockHandle()));
     }
 }

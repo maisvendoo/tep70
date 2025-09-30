@@ -54,8 +54,8 @@ void TEP70BS::signalsOutput(const simulator_time_t& t, const double& dt)
 
     analogSignal[STRELKA_PM] = static_cast<float>(main_reservoir->getPressure() / 1.6);
 
-    analogSignal[RUK_367] = static_cast<float>(brake_lock[CAB1]->getMainHandlePosition());
-    analogSignal[COMB_KRAN] = static_cast<float>(brake_lock[CAB1]->getCombCranePosition());
+    analogSignal[RUK_367] = static_cast<float>(brake_lock[CAB1]->getLockHandlePosition());
+    analogSignal[COMB_KRAN] = static_cast<float>(brake_lock[CAB1]->getCombineCraneHandlePosition());
 
     analogSignal[STRELKA_TM] = static_cast<float>(brakepipe->getPressure() / 1.6);
     analogSignal[KRAN_395_RUK] = static_cast<float>(brake_crane[CAB1]->getHandlePosition());

@@ -277,7 +277,7 @@ private:
     TimeRelay*          rv6 = nullptr;
 
     /// Блокировочное устройство УБТ усл.№367м
-    BrakeLock*          brake_lock[CABS_NUM] = {nullptr, nullptr};
+    PneumoBrakeLock     *brake_lock[CABS_NUM] = {nullptr, nullptr};
 
     /// Поездной кран машиниста усл.№395
     BrakeCrane*         brake_crane[CABS_NUM] = {nullptr, nullptr};
@@ -580,16 +580,7 @@ private:
 
     /// Шаг моделирования прочего оборудования
     void stepOther(const double& t, const double& dt);
-/*
-    /// Вывод сигналов для анимаций
-    void stepSignalsOutput(double t, double dt);
 
-    /// Вывод сигналов озвучки
-    void stepSoundsSignals(double t, double dt);
-
-    /// Работа локомотивного светофора по сигналам АЛСН
-    void stepDecodeAlsn();
-*/
 
     /// Формирование состояния сигнальных ламп
     float getLampState(double signal);

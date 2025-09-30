@@ -20,8 +20,8 @@ void TEP70::stepEPB(const double& t, const double& dt)
     epb_converter->step(t, dt);
 
     // Контроллер двухпроводного ЭПТ
-    bool cab1_on = brake_lock[CAB1]->isUnlocked() && azv_ept_on[CAB1].getState();
-    bool cab2_on = brake_lock[CAB2]->isUnlocked() && azv_ept_on[CAB2].getState();
+    bool cab1_on = brake_lock[CAB1]->isStateOn() && azv_ept_on[CAB1].getState();
+    bool cab2_on = brake_lock[CAB2]->isStateOn() && azv_ept_on[CAB2].getState();
     epb_control->setInputVoltage(epb_converter->getOutputVoltage()
                                  * static_cast<double>(cab1_on || cab2_on) );
     epb_control->setHoldState((cab1_on && brake_crane[CAB1]->isHold()) ||
