@@ -107,25 +107,25 @@ void ControllerKM2202::load_config(CfgReader &cfg)
 //------------------------------------------------------------------------------
 void ControllerKM2202::stepKeysControl(double t, double dt)
 {
-    if (getKeyState(KEY_A) || getKeyState(KEY_D) )
+    if (getKeyState(pressed_keys, KEY_A) || getKeyState(pressed_keys, KEY_D) )
     {
-        if (getKeyState(KEY_A))
+        if (getKeyState(*pressed_keys, KEY_A))
         {
             ms_dir = 1;
             main_shaft_timer.start();
         }
 
-        if (getKeyState(KEY_D))
+        if (getKeyState(*pressed_keys, KEY_D))
         {
-            if (!isControl())
-            {
+/*            if (!isModifier(*pressed_keys, MODIFIER_Control))
+            {*/
                 ms_dir = -1;
                 main_shaft_timer.start();
-            }
+/*            }
             else
             {
-                //ms_position = MS_ZERO;
-            }
+                ms_position = MS_ZERO;
+            }*/
         }
     }
     else
@@ -134,12 +134,12 @@ void ControllerKM2202::stepKeysControl(double t, double dt)
     }
 
 
-    if (getKeyState(KEY_W) || getKeyState(KEY_S))
+    if (getKeyState(pressed_keys, KEY_W) || getKeyState(pressed_keys, KEY_S))
     {
-        if (getKeyState(KEY_W))
+        if (getKeyState(*pressed_keys, KEY_W))
             rs_dir = 1;
 
-        if (getKeyState(KEY_S))
+        if (getKeyState(*pressed_keys, KEY_S))
             rs_dir = -1;
 
         revers_shaft_timer.start();

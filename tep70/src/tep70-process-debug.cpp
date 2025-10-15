@@ -30,11 +30,11 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                     .arg(km[CAB1]->getPositionNumber(), 2)
                     .arg(brake_force_switch[CAB1].getPosition(), 2);
 
-    if (key_epk[CAB1].getState())
+    if (epk[CAB1]->isKeyOn())
     {
         if (safety_device[CAB1]->getEPKstate())
         {
-            DebugMsg += QString("EPK on|");
+            DebugMsg += QString("EPK:on|");
             DebugMsg += QString("limit %1km/h(%2km/h|%3m)|")
                             .arg(speedmap_fwd->getCurrentLimit(), 3, 'f', 0)
                             .arg(speedmap_fwd->getNextLimit(), 3, 'f', 0)
@@ -43,9 +43,9 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
         else
         {
             if (epk[CAB1]->getEmergencyBrakeContact())
-                DebugMsg += QString("EPK EMERGENCY |");
+                DebugMsg += QString("EPK:EMERGENCY |");
             else
-                DebugMsg += QString("EPK  WHISTLE  |");
+                DebugMsg += QString("EPK: WHISTLE  |");
 
             DebugMsg += QString("limit %1km/h|")
                             .arg(speedmap_fwd->getCurrentLimit(), 3, 'f', 0);
@@ -58,7 +58,14 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
     }
     else
     {
-        DebugMsg += QString(" EPK off");
+        if (epk[CAB1]->isKey())
+        {
+            DebugMsg += QString("EPK:OFF");
+        }
+        else
+        {
+            DebugMsg += QString("EPK:NO KEY");
+        }
     }
 
     DebugMsg += QString("\n");
@@ -139,11 +146,11 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                     .arg(km[CAB2]->getPositionNumber(), 2)
                     .arg(brake_force_switch[CAB2].getPosition(), 2);
 
-    if (key_epk[CAB2].getState())
+    if (epk[CAB2]->isKeyOn())
     {
         if (safety_device[CAB2]->getEPKstate())
         {
-            DebugMsg += QString("EPK on|");
+            DebugMsg += QString("EPK:on|");
             DebugMsg += QString("limit %1km/h(%2km/h|%3m)|")
                             .arg(speedmap_bwd->getCurrentLimit(), 3, 'f', 0)
                             .arg(speedmap_bwd->getNextLimit(), 3, 'f', 0)
@@ -152,9 +159,9 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
         else
         {
             if (epk[CAB2]->getEmergencyBrakeContact())
-                DebugMsg += QString("EPK EMERGENCY |");
+                DebugMsg += QString("EPK:EMERGENCY |");
             else
-                DebugMsg += QString("EPK  WHISTLE  |");
+                DebugMsg += QString("EPK: WHISTLE  |");
 
             DebugMsg += QString("limit %1km/h|")
                             .arg(speedmap_bwd->getCurrentLimit(), 3, 'f', 0);
@@ -167,6 +174,13 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
     }
     else
     {
-        DebugMsg += QString(" EPK off");
+        if (epk[CAB2]->isKey())
+        {
+            DebugMsg += QString("EPK:OFF");
+        }
+        else
+        {
+            DebugMsg += QString("EPK:NO KEY");
+        }
     }
 }

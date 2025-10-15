@@ -162,9 +162,6 @@ private:
     /// Рукоятки бдительности
     TriggerControl rb[CABS_NUM][NUM_RB];
 
-    /// Ключ ЭПК
-    TriggerControl key_epk[CABS_NUM];
-
     /// Переключатель-блокировка рабочей кабины
     CabineSwitcher* cabine_switcher = nullptr;
 
@@ -277,7 +274,7 @@ private:
     TimeRelay*          rv6 = nullptr;
 
     /// Блокировочное устройство УБТ усл.№367м
-    PneumoBrakeLock     *brake_lock[CABS_NUM] = {nullptr, nullptr};
+    PneumoBrakeLock*    brake_lock[CABS_NUM] = {nullptr, nullptr};
 
     /// Поездной кран машиниста усл.№395
     BrakeCrane*         brake_crane[CABS_NUM] = {nullptr, nullptr};

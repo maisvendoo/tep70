@@ -25,6 +25,10 @@ void TEP70BS::keyProcess(const simulator_time_t& t, const double& dt)
     brake_lock[CAB2]->allowLockHandle(!(brake_lock[CAB1]->isLockHandle()));
     brake_lock[CAB1]->allowLockHandle(!(brake_lock[CAB2]->isLockHandle()));
 
+    // Не допускаем двух ключей в электропневматических клапанах автостопа
+    epk[CAB2]->allowKey(!(epk[CAB1]->isKey()));
+    epk[CAB1]->allowKey(!(epk[CAB2]->isKey()));
+
     for (auto cab_idx : {CAB1, CAB2})
     {
         // Управляем краном, учитывая возможное наличие внешнего пульта
@@ -107,6 +111,5 @@ void TEP70BS::keyProcess(const simulator_time_t& t, const double& dt)
         }
         rb[cab_idx][RB].step();
         rb[cab_idx][RBP].step();
-        key_epk[cab_idx].step();
     }
 }

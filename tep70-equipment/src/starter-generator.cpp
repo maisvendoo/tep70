@@ -127,11 +127,11 @@ void StarterGenerator::preStep(state_vector_t &Y, double t)
 
     sound_state.pitch = static_cast<float>(omega / 66.0);
     sound_state.volume = static_cast<float>(Y[0] / 1600.0);
-
-    DebugMsg = QString("Uсг: %1 Iсг: %2 omg: %3")
+/*
+    QString DebugMsg = QString("Uсг: %1 Iсг: %2 omg: %3")
             .arg(Ua, 5, 'f', 1)
             .arg(Ia, 6, 'f', 1)
-            .arg(omega, 6, 'f', 1);
+            .arg(omega, 6, 'f', 1);*/
 }
 
 //------------------------------------------------------------------------------

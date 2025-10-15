@@ -5,7 +5,7 @@
 //------------------------------------------------------------------------
 void TEP70::stepEPB(const double& t, const double& dt)
 {
-    // Потребляемый ток в рабочей линии ЭПТ
+    // Потребляемый ток электровоздухораспределителя
     double evr_current = electro_air_dist->getCurrent(0);
 
     // Потребляемый ток в рабочей линии ЭПТ
@@ -34,7 +34,7 @@ void TEP70::stepEPB(const double& t, const double& dt)
     double epb_work_f = epb_control->getWorkFrequency();
 
     // Управление электровоздухораспределителем: отключается кнопкой "Отпуск тормозов",
-    // а иначе задаём управляющий сигнал из рабочей линии ЭПТ
+    // а иначе задаём управляющий сигнал из контроллера или рабочей линии ЭПТ
     double evr_U = 0.0;
     double evr_f = 0.0;
     if (!(button_brake_release[CAB1].getState() || button_brake_release[CAB2].getState()))

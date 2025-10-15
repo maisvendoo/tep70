@@ -99,6 +99,9 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         // Устройство блокировки тормозов усл.№ 367
         brake_lock[cab_idx]->setControl(&pressed_keys_by_cabine[cab_idx]);
 
+        // Электропневматический клапан автостопа
+        epk[cab_idx]->setControl(&pressed_keys_by_cabine[cab_idx]);
+
         // АЗВ "Управление общее" (АВ2)
         azv_common_control[cab_idx].setKeySymbolOn(KEY_Y);
         azv_common_control[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
@@ -255,12 +258,5 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         rb[cab_idx][RBP].setKeySymbolOff(KEY_Undefined);
         rb[cab_idx][RBP].setKeyModifierOff(KEY_Undefined);
         rb[cab_idx][RBP].setControl(&pressed_keys_by_cabine[cab_idx]);
-
-        // Ключ ЭПК
-        key_epk[cab_idx].setKeySymbolOn(KEY_N);
-        key_epk[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
-        key_epk[cab_idx].setKeySymbolOff(KEY_N);
-        key_epk[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
-        key_epk[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
     }
 }

@@ -157,12 +157,12 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[SOUND_SAND_DELIVERY] = sand_system->getSoundSignal();
 
     // ЭПК
-    analogSignal[SOUND_EPK_ON] = key_epk[CAB1].getSoundSignal(Trigger::ON_SOUND);
-    analogSignal[SOUND_EPK_OFF] = key_epk[CAB1].getSoundSignal(Trigger::OFF_SOUND);
+    analogSignal[SOUND_EPK_ON] = epk[CAB1]->getSoundSignal(AutoTrainStop::KEY_STATE_ON);
+    analogSignal[SOUND_EPK_OFF] = epk[CAB1]->getSoundSignal(AutoTrainStop::KEY_STATE_OFF);
     analogSignal[SOUND_EPK] = epk[CAB1]->getSoundSignal();
 
-    analogSignal[CAB2_SOUND_EPK_ON] = key_epk[CAB2].getSoundSignal(Trigger::ON_SOUND);
-    analogSignal[CAB2_SOUND_EPK_OFF] = key_epk[CAB2].getSoundSignal(Trigger::OFF_SOUND);
+    analogSignal[CAB2_SOUND_EPK_ON] = epk[CAB2]->getSoundSignal(AutoTrainStop::KEY_STATE_ON);
+    analogSignal[CAB2_SOUND_EPK_OFF] = epk[CAB2]->getSoundSignal(AutoTrainStop::KEY_STATE_OFF);
     analogSignal[CAB2_SOUND_EPK] = epk[CAB2]->getSoundSignal();
 
     // Переключатель тормозного усилия
