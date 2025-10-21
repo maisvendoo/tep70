@@ -18,12 +18,8 @@ KlubDisplay::KlubDisplay(QWidget *parent, Qt::WindowFlags f) : AbstractDisplay(p
     this->setAttribute(Qt::WA_TransparentForMouseEvents);
 
     this->setLayout(new QVBoxLayout);
-    this-> setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    this->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     this->layout()->setContentsMargins(0, 0, 0, 0);
-
-    connect(&update_timer, &QTimer::timeout, this, &KlubDisplay::slotUpdateTimer);
-    update_timer.setInterval(500);
-    update_timer.start();
 }
 
 //------------------------------------------------------------------------------
@@ -67,8 +63,22 @@ void KlubDisplay::init()
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void KlubDisplay::slotUpdateTimer()
+void KlubDisplay::update(double t, double dt)
 {
+    (void) t;
+
+    // Интервал обновления
+    upd_time += dt;
+    if ((upd_time < upd_interval) || (signal_id < 0))
+    {
+        need_repaint = false;
+        return;
+    }
+
+    input_signals.resize(SIGNALS_NUM_TOTAL, 0.0f);
+    need_repaint = true;
+    upd_time = 0.0;
+
     if (!TO_BOOL(input_signals[KLUB_ON]))
         return;
 

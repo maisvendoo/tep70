@@ -26,11 +26,6 @@ MsutDisplay::MsutDisplay(QWidget *parent, Qt::WindowFlags f)
     this->layout()->setContentsMargins(0, 0, 0, 0);
 
 
-    connect(&update_timer, &QTimer::timeout, this, &MsutDisplay::slotUpdateTimer);
-    update_timer.setInterval(500);
-    update_timer.start();
-
-
     timerCount_ = 10;
     connect(&timerObratniyOtschet_, &QTimer::timeout,
             this, &MsutDisplay::slotTimerObratniyOtschet_);
@@ -152,9 +147,24 @@ void MsutDisplay::drawNumberLabel_(QLabel* lab, QRect geo, int fontSize, QString
 
 
 
-void MsutDisplay::slotUpdateTimer()
+void MsutDisplay::update(double t, double dt)
 {
-//    if (    (!TO_BOOL(input_signals[MSUT_SPEED])) ||
+    (void) t;
+
+    // Интервал обновления
+    upd_time += dt;
+    if ((upd_time < upd_interval) || (signal_id < 0))
+    {
+        need_repaint = false;
+        return;
+    }
+
+    input_signals.resize(SIGNALS_NUM_TOTAL, 0.0f);
+    need_repaint = true;
+    upd_time = 0.0;
+
+
+    //    if (    (!TO_BOOL(input_signals[MSUT_SPEED])) ||
 //            (!TO_BOOL(input_signals[MSUT_ACCELLERATION])) ||
 //            (!TO_BOOL(input_signals[MSUT_ET_T])) ||
 //            (!TO_BOOL(input_signals[MSUT_REVERSOR])) ||

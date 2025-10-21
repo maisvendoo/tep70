@@ -17,23 +17,20 @@ public:
     KlubDisplay(QWidget *parent = Q_NULLPTR,
                 Qt::WindowFlags f = Qt::WindowFlags());
 
-    ~KlubDisplay();
+    ~KlubDisplay() override;
 
-    void init();
+    void init() override;
+
+    void update(double t, double dt) override;
 
 private:
+
+    double upd_interval = 0.1;
+    double upd_time = 0.0;
 
     bool alarm_state;
 
     LEDLamp *alarm;
-
-
-
-    QTimer update_timer;
-
-private slots:
-
-    void slotUpdateTimer();
 };
 
 #endif

@@ -134,7 +134,9 @@ enum
     WHEEL_3 = 196,
     WHEEL_4 = 197,
     WHEEL_5 = 198,
-    WHEEL_6 = 199
+    WHEEL_6 = 199,
+
+    SIGNALS_NUM_TOTAL
 };
 
 #endif // TEP70_SIGNALS_H

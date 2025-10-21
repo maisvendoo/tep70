@@ -25,9 +25,11 @@ public:
     MsutDisplay(QWidget *parent = Q_NULLPTR,
                 Qt::WindowFlags f = Qt::WindowFlags());
 
-    ~MsutDisplay();
+    ~MsutDisplay() override;
 
-    void init();
+    void init() override;
+
+    void update(double t, double dt) override;
 
 private:
     QLabel* background_;
@@ -58,17 +60,15 @@ private:
     int timerCount_;
 
 
+    double upd_interval = 0.1;
+    double upd_time = 0.0;
 
 
     void drawNumberLabel_(QLabel* lab, QRect geo, int fontSize,
                           QString color = "white", Qt::Alignment align = Qt::AlignCenter);
 
 
-
-    QTimer update_timer;
-
 private slots:
-    void slotUpdateTimer();
 
     void slotTimerObratniyOtschet_();
 //    void slotTimerProkachka_();
