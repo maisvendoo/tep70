@@ -247,11 +247,11 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         rb[cab_idx][RBS].setKeyModifierOff(KEY_Undefined);
         rb[cab_idx][RBS].setControl(&pressed_keys_by_cabine[cab_idx]);
 
-        rb[cab_idx][RB1].setKeySymbolOn(KEY_Z);
-        rb[cab_idx][RB1].setKeyModifierOn(ANY_MODIFIERS);
-        rb[cab_idx][RB1].setKeySymbolOff(KEY_Undefined);
-        rb[cab_idx][RB1].setKeyModifierOff(KEY_Undefined);
-        rb[cab_idx][RB1].setControl(&pressed_keys_by_cabine[cab_idx]);
+        rb[cab_idx][RB].setKeySymbolOn(KEY_Z);
+        rb[cab_idx][RB].setKeyModifierOn(ANY_MODIFIERS);
+        rb[cab_idx][RB].setKeySymbolOff(KEY_Undefined);
+        rb[cab_idx][RB].setKeyModifierOff(KEY_Undefined);
+        rb[cab_idx][RB].setControl(&pressed_keys_by_cabine[cab_idx]);
 
         rb[cab_idx][RBP].setKeySymbolOn(KEY_Tilde);
         rb[cab_idx][RBP].setKeyModifierOn(ANY_MODIFIERS);
