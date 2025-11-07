@@ -35,7 +35,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.69 9.87 2.7</LocalPosition>
+		<LocalPosition>0.68 9.8 2.8</LocalPosition>
 	</Sound>
 
 	<!-- Реверсивная рукоятка - извлечь -->
@@ -47,7 +47,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.69 9.87 2.7</LocalPosition>
+		<LocalPosition>0.68 9.8 2.8</LocalPosition>
 	</Sound>
 
 	<!-- Реверсивная рукоятка -->
@@ -614,7 +614,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.6 8.3 4.8</LocalPosition>
+		<LocalPosition>-0.6 -8.3 4.8</LocalPosition>
 	</Sound>
 
 	<!-- Тифон -->
@@ -626,7 +626,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.6 8.3 4.8</LocalPosition>
+		<LocalPosition>-0.6 -8.3 4.8</LocalPosition>
 	</Sound>
 
 	<!-- Реверсивная рукоятка - вставить -->
@@ -638,7 +638,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.69 9.87 2.7</LocalPosition>
+		<LocalPosition>-0.68 -9.8 2.8</LocalPosition>
 	</Sound>
 
 	<!-- Реверсивная рукоятка - извлечь -->
@@ -650,7 +650,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.69 9.87 2.7</LocalPosition>
+		<LocalPosition>-0.68 -9.8 2.8</LocalPosition>
 	</Sound>
 
 	<!-- Реверсивная рукоятка -->
@@ -662,7 +662,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.68 9.8 2.8</LocalPosition>
+		<LocalPosition>-0.68 -9.8 2.8</LocalPosition>
 	</Sound>
 
 	<!-- Главный вал КМ (штурвал) -->
@@ -674,7 +674,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.68 9.8 2.8</LocalPosition>
+		<LocalPosition>-0.68 -9.8 2.8</LocalPosition>
 	</Sound>
 
 	<!-- Вставить рукоятку блокировки тормозных приборов -->
@@ -686,7 +686,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.2 9.7 2.3</LocalPosition>
+		<LocalPosition>-1.2 -9.7 2.3</LocalPosition>
 	</Sound>
 
 	<!-- Извлечь рукоятку блокировки тормозных приборов -->
@@ -698,7 +698,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.2 9.7 2.3</LocalPosition>
+		<LocalPosition>-1.2 -9.7 2.3</LocalPosition>
 	</Sound>
 
 	<!-- Щелчок блокировки тормозных приборов -->
@@ -710,7 +710,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.2 9.7 2.3</LocalPosition>
+		<LocalPosition>-1.2 -9.7 2.3</LocalPosition>
 	</Sound>
 
 	<!-- Щелчок комбинированного крана -->
@@ -722,7 +722,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.2 9.5 2.2</LocalPosition>
+		<LocalPosition>-1.2 -9.5 2.2</LocalPosition>
 	</Sound>
 
 	<!-- Опорожнение тормозной магистрали от комбинированного крана -->
@@ -734,7 +734,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.2 9.7 2.2</LocalPosition>
+		<LocalPosition>-1.2 -9.7 2.2</LocalPosition>
 	</Sound>
 
 	<!-- Щелчок рукоятки крана 395 -->
@@ -746,7 +746,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.3 9.4 2.9</LocalPosition>
+		<LocalPosition>-1.3 -9.4 2.9</LocalPosition>
 	</Sound>
 
 	<!-- Стабилизатор крана 395 -->
@@ -758,7 +758,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.3 9.4 2.9</LocalPosition>
+		<LocalPosition>-1.3 -9.4 2.9</LocalPosition>
 	</Sound>
 
 	<!-- Наполнение уравнительного резервуара крана 395 -->
@@ -770,7 +770,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.3 9.4 2.9</LocalPosition>
+		<LocalPosition>-1.3 -9.4 2.9</LocalPosition>
 	</Sound>
 
 	<!-- Опорожнение уравнительного резервуара крана 395 -->
@@ -782,7 +782,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.3 9.4 2.9</LocalPosition>
+		<LocalPosition>-1.3 -9.4 2.9</LocalPosition>
 	</Sound>
 
 	<!-- Наполнение тормозной магистрали от крана 395 -->
@@ -794,7 +794,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.3 9.4 2.9</LocalPosition>
+		<LocalPosition>-1.3 -9.4 2.9</LocalPosition>
 	</Sound>
 
 	<!-- Опорожнение тормозной магистрали от крана 395 -->
@@ -806,7 +806,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.3 9.4 2.9</LocalPosition>
+		<LocalPosition>-1.3 -9.4 2.9</LocalPosition>
 	</Sound>
 
 	<!-- Щелчок рукоятки крана 254 -->
@@ -818,7 +818,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.34 9.89 2.9</LocalPosition>
+		<LocalPosition>-1.34 -9.89 2.9</LocalPosition>
 	</Sound>
 
 	<!-- Наполнение магистрали тормозных цилиндров от крана 254 -->
@@ -830,7 +830,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.3 9.7 3.0</LocalPosition>
+		<LocalPosition>-1.3 -9.7 3.0</LocalPosition>
 	</Sound>
 
 	<!-- Опорожнение магистрали тормозных цилиндров от крана 254 -->
@@ -842,7 +842,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.3 9.7 3.0</LocalPosition>
+		<LocalPosition>-1.3 -9.7 3.0</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ освещение кабины -->
@@ -854,7 +854,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.24 9.81 2.84</LocalPosition>
+		<LocalPosition>-0.24 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ освещение пульта -->
@@ -866,7 +866,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.27 9.81 2.84</LocalPosition>
+		<LocalPosition>-0.27 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ управление общее -->
@@ -878,7 +878,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.32 9.81 2.84</LocalPosition>
+		<LocalPosition>-0.32 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ управление тепловозом -->
@@ -890,7 +890,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.35 9.81 2.84</LocalPosition>
+		<LocalPosition>-0.35 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ топливный насос -->
@@ -902,7 +902,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.42 9.81 2.84</LocalPosition>
+		<LocalPosition>-0.42 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ ЭДТ -->
@@ -914,7 +914,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.87 9.81 2.84</LocalPosition>
+		<LocalPosition>-0.87 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ ЭПТ -->
@@ -926,7 +926,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.90 9.81 2.84</LocalPosition>
+		<LocalPosition>-0.90 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ ЭПТ питание -->
@@ -938,7 +938,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.93 9.81 2.84</LocalPosition>
+		<LocalPosition>-0.93 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ Прожектор тускло -->
@@ -950,7 +950,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.97 9.81 2.84</LocalPosition>
+		<LocalPosition>-0.97 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- АЗВ Прожектор ярко -->
@@ -962,7 +962,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.00 9.81 2.84</LocalPosition>
+		<LocalPosition>-1.00 -9.81 2.84</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер ОП1 -->
@@ -974,7 +974,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.58 9.68 2.84</LocalPosition>
+		<LocalPosition>-0.58 -9.68 2.84</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер ОП2 -->
@@ -986,7 +986,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.63 9.68 2.84</LocalPosition>
+		<LocalPosition>-0.63 -9.68 2.84</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер жалюзи вода -->
@@ -998,7 +998,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.68 9.68 2.84</LocalPosition>
+		<LocalPosition>-0.68 -9.68 2.84</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер жалюзи масло -->
@@ -1010,7 +1010,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.73 9.68 2.84</LocalPosition>
+		<LocalPosition>-0.73 -9.68 2.84</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер Напяржение ЦУ/Напряжение ЭПТ -->
@@ -1022,7 +1022,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>-1.28 10.02 2.94</LocalPosition>
+		<LocalPosition>1.28 -10.02 2.94</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер аварийная остановка дизеля -->
@@ -1034,7 +1034,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>-0.85 10.06 3.04</LocalPosition>
+		<LocalPosition>0.85 -10.06 3.04</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер буферный фонарь левый -->
@@ -1046,7 +1046,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>-1.07 9.67 2.87</LocalPosition>
+		<LocalPosition>1.07 -9.67 2.87</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер буферный фонарь правый -->
@@ -1058,7 +1058,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>-1.03 9.67 2.87</LocalPosition>
+		<LocalPosition>1.03 -9.67 2.87</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер подсветка номера -->
@@ -1070,7 +1070,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>-1.00 9.67 2.87</LocalPosition>
+		<LocalPosition>1.00 -9.67 2.87</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер освещение пульта -->
@@ -1082,7 +1082,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>-0.96 9.67 2.87</LocalPosition>
+		<LocalPosition>0.96 -9.67 2.87</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер освещение резервное -->
@@ -1094,7 +1094,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>-0.92 9.67 2.87</LocalPosition>
+		<LocalPosition>0.92 -9.67 2.87</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер калориферы -->
@@ -1106,7 +1106,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>-0.88 9.67 2.87</LocalPosition>
+		<LocalPosition>0.88 -9.67 2.87</LocalPosition>
 	</Sound>
 
 	<!-- Тумблер вентиляторы -->
@@ -1118,7 +1118,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>-0.84 9.67 2.87</LocalPosition>
+		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
 	</Sound>
 
 	<!-- Ключ ЭПК вставить -->
@@ -1130,7 +1130,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.3 8.7 2.6</LocalPosition>
+		<LocalPosition>-0.3 -8.7 2.6</LocalPosition>
 	</Sound>
 
 	<!-- Ключ ЭПК извлечь -->
@@ -1142,7 +1142,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.3 8.7 2.6</LocalPosition>
+		<LocalPosition>-0.3 -8.7 2.6</LocalPosition>
 	</Sound>
 
 	<!-- Ключ ЭПК вкл. -->
@@ -1154,7 +1154,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.3 8.7 2.6</LocalPosition>
+		<LocalPosition>-0.3 -8.7 2.6</LocalPosition>
 	</Sound>
 
 	<!-- Ключ ЭПК выкл. -->
@@ -1166,7 +1166,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.3 8.7 2.6</LocalPosition>
+		<LocalPosition>-0.3 -8.7 2.6</LocalPosition>
 	</Sound>
 
 	<!-- Свист ЭПК -->
@@ -1178,7 +1178,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.3 8.7 2.6</LocalPosition>
+		<LocalPosition>-0.3 -8.7 2.6</LocalPosition>
 	</Sound>
 
 	<!-- Переключатель тормозного усилия -->
@@ -1190,7 +1190,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.52 9.81 2.85</LocalPosition>
+		<LocalPosition>-0.52 -9.81 2.85</LocalPosition>
 	</Sound>
 
 	<!-- Скоростемер -->
@@ -1202,7 +1202,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>1.24 9.98 3.0</LocalPosition>
+		<LocalPosition>-1.24 -9.98 3.0</LocalPosition>
 	</Sound>
 
 
