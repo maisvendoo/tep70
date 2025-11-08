@@ -87,6 +87,9 @@ private:
     /// Расцепной рычаг сзади
     OperatingRod* oper_rod_bwd = nullptr;
 
+    /// АЗВ "Компрессор" (АВ 9)
+    TriggerControl  azv_motor_compressor;
+
     enum
     {
         /// Число кабин
@@ -97,58 +100,73 @@ private:
         CAB2 = 1
     };
 
-    /// АЗВ "Управление общее" (АВ2)
+    /// АЗВ "Освещение кабины" (АВ 26)
+    TriggerControl  azv_cabine_light[CABS_NUM];
+
+    /// АЗВ "Освещение пульта" (АВ 25)
+    TriggerControl  azv_panel_light[CABS_NUM];
+
+    /// АЗВ "Управление общее" (АВ 2)
     TriggerControl  azv_common_control[CABS_NUM];
 
-    /// АЗВ "Управление тепловозом" (АВ1)
+    /// АЗВ "Управление тепловозом" (АВ 1)
     TriggerControl  azv_upr_tepl[CABS_NUM];
 
-    /// АЗВ "Топливный насос" (АВ4)
+    /// АЗВ "Топливный насос" (АВ 4)
     TriggerControl  azv_fuel_pump[CABS_NUM];
 
-    /// АЗВ "ЭДТ"
+    /// АЗВ "ЭДТ" (АВ 7)
     TriggerControl  azv_edt_on[CABS_NUM];
 
-    /// АЗВ "Тормоз питание"
-    TriggerControl  azv_edt_power[CABS_NUM];
-
-    /// АЗВ "ЭПТ"
+    /// АЗВ "ЭПТ" (АВ 19)
     TriggerControl  azv_ept_on[CABS_NUM];
 
-    /// АЗВ "Компрессор"
-    TriggerControl  azv_motor_compressor[CABS_NUM];
+    /// АЗВ "ЭПТ питание" (АВ 18)
+    TriggerControl  azv_ept_power[CABS_NUM];
 
-    /// Тумблер "Напряжение ЦУ. Напряжение ЭПТ"
-    TriggerControl  tumbler_voltage[CABS_NUM];
+    /// АЗВ "Прожектор тускло" (АВ 23)
+    TriggerControl  azv_spotlight_low[CABS_NUM];
 
-    /// Тумблер "Аварийная остановка дизеля"
-    TriggerControl  tumbler_disel_stop[CABS_NUM];
+    /// АЗВ "Прожектор ярко" (АВ 24)
+    TriggerControl  azv_spotlight_high[CABS_NUM];
 
-    /// Тумблер "Ослабление поля I ступени руч./авт."
+    /// Тумблер "Ослабление поля I ступени руч./авт." (Тб 1)
     SwitcherControl tumbler_field_weak1[CABS_NUM];
 
-    /// Тумблер "Ослабление поля II ступени руч./авт."
+    /// Тумблер "Ослабление поля II ступени руч./авт." (Тб 2)
     SwitcherControl tumbler_field_weak2[CABS_NUM];
 
-    /// Тумблер "Управление жалюзи воды руч./авт."
+    /// Тумблер "Управление жалюзи воды руч./авт." (Тб 8)
     SwitcherControl tumbler_water_zaluzi[CABS_NUM];
 
-    /// Тумблер "Управление жалюзи масла руч./авт."
+    /// Тумблер "Управление жалюзи масла руч./авт." (Тб 9)
     SwitcherControl tumbler_oil_zaluzi[CABS_NUM];
 
-    /// Переключатель тормозного усилия
-    SwitcherControl brake_force_switch[CABS_NUM];
+    /// Тумблер "Напряжение ЦУ / Напряжение ЭПТ" (Тб 15)
+    TriggerControl  tumbler_voltage[CABS_NUM];
 
-    /// Кнопка "Пуск дизеля"
+    /// Тумблер "Аварийная остановка дизеля" (Тб 6)
+    TriggerControl  tumbler_disel_stop[CABS_NUM];
+
+    /// Тумблер "Буферный фонарь левый" (Тб 35)
+    SwitcherControl tumbler_bufferliht_L[CABS_NUM];
+
+    /// Тумблер "Буферный фонарь правый" (Тб 36)
+    SwitcherControl tumbler_bufferliht_R[CABS_NUM];
+
+    /// Тумблер "Номерные знаки" (Тб 37)
+    TriggerControl tumbler_number_light[CABS_NUM];
+
+    /// Кнопка "Пуск дизеля" (Кн 3)
     TriggerControl  button_disel_start[CABS_NUM];
 
-    /// Кнопка "Отпуск тормозов"
+    /// Кнопка "Отпуск тормозов" (Кн 17)
     TriggerControl  button_brake_release[CABS_NUM];
 
-    /// Кнопка "Свисток"
+    /// Кнопка "Свисток" (Кн 7)
     TriggerControl  button_svistok[CABS_NUM];
 
-    /// Кнопка "Тифон"
+    /// Кнопка "Тифон" (Кн 6)
     TriggerControl  button_tifon[CABS_NUM];
 
     enum
@@ -161,6 +179,9 @@ private:
 
     /// Рукоятки бдительности
     TriggerControl rb[CABS_NUM][NUM_RB];
+
+    /// Переключатель тормозного усилия
+    SwitcherControl brake_force_switch[CABS_NUM];
 
     /// Переключатель-блокировка рабочей кабины
     CabineSwitcher* cabine_switcher = nullptr;

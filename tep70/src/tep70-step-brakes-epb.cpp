@@ -15,7 +15,8 @@ void TEP70::stepEPB(const double& t, const double& dt)
     epb_work_curr += hose_bp_bwd->getCurrent(0);
 
     // Преобразователь напряжения для ЭПТ
-    epb_converter->setInputVoltage(Ucc);
+    bool is_epb_power = azv_ept_power[CAB1].getState() || azv_ept_power[CAB2].getState();
+    epb_converter->setInputVoltage(Ucc * static_cast<double>(is_epb_power));
     epb_converter->setOutputCurrent(epb_work_curr);
     epb_converter->step(t, dt);
 

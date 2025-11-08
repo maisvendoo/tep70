@@ -44,16 +44,16 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_SOUND_LOCO_CRANE_BC_DRAIN_FLOW + d] = loco_crane[cab_idx]->getSoundSignal(LocoCrane::BC_DRAIN_FLOW_SOUND);
 
         // АЗВ на пульте машиниста
-        analogSignal[CAB1_SOUND_AZV_CABINE_LIGHT + d] = sound_state_t::createSoundSignal(false);
-        analogSignal[CAB1_SOUND_AZV_PANEL_LIGHT + d] = sound_state_t::createSoundSignal(false);
+        analogSignal[CAB1_SOUND_AZV_CABINE_LIGHT + d] = azv_cabine_light[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[CAB1_SOUND_AZV_PANEL_LIGHT + d] = azv_panel_light[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
         analogSignal[CAB1_SOUND_AZV_COMMON_CONTROL + d] = azv_common_control[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
         analogSignal[CAB1_SOUND_AZV_LOCO_CONTROL + d] = azv_upr_tepl[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
         analogSignal[CAB1_SOUND_AZV_FUEL_PUMP + d] = azv_fuel_pump[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
         analogSignal[CAB1_SOUND_AZV_EDT_ON + d] = azv_edt_on[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
         analogSignal[CAB1_SOUND_AZV_EPB_ON + d] = azv_ept_on[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
-        analogSignal[CAB1_SOUND_AZV_EPB_POWER + d] = azv_edt_power[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
-        analogSignal[CAB1_SOUND_AZV_SPOTLIGHT_LOW + d] = sound_state_t::createSoundSignal(false);
-        analogSignal[CAB1_SOUND_AZV_SPOTLIGHT_HIGH + d] = sound_state_t::createSoundSignal(false);
+        analogSignal[CAB1_SOUND_AZV_EPB_POWER + d] = azv_ept_power[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[CAB1_SOUND_AZV_SPOTLIGHT_LOW + d] = azv_spotlight_low[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[CAB1_SOUND_AZV_SPOTLIGHT_HIGH + d] = azv_spotlight_high[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
 
         // Тумблеры на пульте машиниста
         analogSignal[CAB1_SOUND_TUMBLER_FIELD_WEAK1 + d] = tumbler_field_weak1[cab_idx].getSoundSignal();
@@ -64,9 +64,9 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
         // Тумблеры на пульте помощника
         analogSignal[CAB1_SOUND_TUMBLER_VOLTMETER + d] = tumbler_voltage[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
         analogSignal[CAB1_SOUND_TUMBLER_DISEL_STOP + d] = tumbler_disel_stop[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
-        analogSignal[CAB1_SOUND_TUMBLER_BUFFERLIGHT_L + d] = sound_state_t::createSoundSignal(false);
-        analogSignal[CAB1_SOUND_TUMBLER_BUFFERLIGHT_R + d] = sound_state_t::createSoundSignal(false);
-        analogSignal[CAB1_SOUND_TUMBLER_NUMBER_LIGHT + d] = sound_state_t::createSoundSignal(false);
+        analogSignal[CAB1_SOUND_TUMBLER_BUFFERLIGHT_L + d] = tumbler_bufferliht_L[cab_idx].getSoundSignal();
+        analogSignal[CAB1_SOUND_TUMBLER_BUFFERLIGHT_R + d] = tumbler_bufferliht_R[cab_idx].getSoundSignal();
+        analogSignal[CAB1_SOUND_TUMBLER_NUMBER_LIGHT + d] = tumbler_number_light[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
         analogSignal[CAB1_SOUND_TUMBLER_PANEL_POM_LIGHT + d] = sound_state_t::createSoundSignal(false);
         analogSignal[CAB1_SOUND_TUMBLER_RESERVE_LIGHT + d] = sound_state_t::createSoundSignal(false);
         analogSignal[CAB1_SOUND_TUMBLER_CAB_HEATER + d] = sound_state_t::createSoundSignal(false);
@@ -137,7 +137,7 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[SOUND_KSH2] = ksh2->getSoundSignal(Relay::CHANGE_SOUND);
     analogSignal[SOUND_RU1] = ru1->getSoundSignal(Relay::CHANGE_SOUND);
 
-    analogSignal[SOUND_AZV_MOTOR_COMPRESSOR] = azv_motor_compressor[CAB1].getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_AZV_MOTOR_COMPRESSOR] = azv_motor_compressor.getSoundSignal(Trigger::CHANGE_SOUND);
 
     // Мотор-компрессор
     analogSignal[SOUND_MOTOR_COMPRESSOR] = motor_compressor->getSoundSignal();

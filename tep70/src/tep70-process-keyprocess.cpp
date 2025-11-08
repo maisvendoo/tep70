@@ -25,6 +25,8 @@ void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
     epk[CAB2]->allowKey(!(epk[CAB1]->isKey()));
     epk[CAB1]->allowKey(!(epk[CAB2]->isKey()));
 
+    azv_motor_compressor.step();
+
     for (auto cab_idx : {CAB1, CAB2})
     {
         // Управляем краном, учитывая возможное наличие внешнего пульта
@@ -69,20 +71,28 @@ void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
         km[cab_idx]->setControl(&pressed_keys_by_cabine[cab_idx]);
 
         // Тумблеры, кнопки
+        azv_cabine_light[cab_idx].step();
+        azv_panel_light[cab_idx].step();
         azv_common_control[cab_idx].step();
         azv_upr_tepl[cab_idx].step();
         azv_fuel_pump[cab_idx].step();
         azv_edt_on[cab_idx].step();
-        azv_edt_power[cab_idx].step();
         azv_ept_on[cab_idx].step();
-        azv_motor_compressor[cab_idx].step();
-        tumbler_voltage[cab_idx].step();
-        tumbler_disel_stop[cab_idx].step();
+        azv_ept_power[cab_idx].step();
+        azv_spotlight_low[cab_idx].step();
+        azv_spotlight_high[cab_idx].step();
+
         tumbler_field_weak1[cab_idx].step();
         tumbler_field_weak2[cab_idx].step();
         tumbler_water_zaluzi[cab_idx].step();
         tumbler_oil_zaluzi[cab_idx].step();
-        brake_force_switch[cab_idx].step();
+
+        tumbler_voltage[cab_idx].step();
+        tumbler_disel_stop[cab_idx].step();
+        tumbler_bufferliht_L[cab_idx].step();
+        tumbler_bufferliht_R[cab_idx].step();
+        tumbler_number_light[cab_idx].step();
+
         button_disel_start[cab_idx].step();
         button_brake_release[cab_idx].step();
         button_svistok[cab_idx].step();
@@ -107,5 +117,7 @@ void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
         }
         rb[cab_idx][RB].step();
         rb[cab_idx][RBP].step();
+
+        brake_force_switch[cab_idx].step();
     }
 }

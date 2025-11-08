@@ -15,6 +15,10 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[WHEELSET_5] = static_cast<float>(wheel_rotation_angle[4] / 2.0 / Physics::PI);
     analogSignal[WHEELSET_6] = static_cast<float>(wheel_rotation_angle[5] / 2.0 / Physics::PI);
 
+    // Подсветка номерных знаков
+    analogSignal[NUMBER_LIGHT] = static_cast<float>(tumbler_number_light[CAB1].getState() ||
+                                                    tumbler_number_light[CAB2].getState());
+
     // Поворот часовой и минутной стрелки на скоростемерах
     analogSignal[TIME_3SL2M_HOUR] = static_cast<float>(t.time.hour()) + static_cast<float>(t.time.minute()) / 60.0f;
     analogSignal[TIME_3SL2M_MINUTE] = static_cast<float>(t.time.minute()) + static_cast<float>(t.time.sec()) / 60.0f;
@@ -25,13 +29,24 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         std::uint16_t d = (SPOTLIGHT_BWD - SPOTLIGHT_FWD) * cab_idx;
 
         // Освещение
-        analogSignal[SPOTLIGHT_FWD + d] = 0.0;
-        analogSignal[BUFFERLIGHT_FWD_L_WHITE + d] = 0.0;
-        analogSignal[BUFFERLIGHT_FWD_L_RED + d] = 0.0;
-        analogSignal[BUFFERLIGHT_FWD_R_WHITE + d] = 0.0;
-        analogSignal[BUFFERLIGHT_FWD_R_RED + d] = 0.0;
-        analogSignal[CAB1_LIGHT_CABINE + d] = 0.0;
-        analogSignal[CAB1_LIGHT_DEVICES + d] = 0.0;
+        // Прожектор
+        if (azv_spotlight_low[cab_idx].getState())
+        {
+            std::uint8_t intensity = 1 + azv_spotlight_high[cab_idx].getState();
+            analogSignal[SPOTLIGHT_FWD + d] = static_cast<float>(intensity) / 2.0f;
+        }
+        else
+        {
+            analogSignal[SPOTLIGHT_FWD + d] = 0.0f;
+        }
+
+        // Буферные огни
+        analogSignal[BUFFERLIGHT_FWD_L_WHITE + d] = static_cast<float>(tumbler_bufferliht_L[cab_idx].isSwitched(2));
+        analogSignal[BUFFERLIGHT_FWD_L_RED + d] = static_cast<float>(tumbler_bufferliht_L[cab_idx].isSwitched(0));
+        analogSignal[BUFFERLIGHT_FWD_R_WHITE + d] = static_cast<float>(tumbler_bufferliht_R[cab_idx].isSwitched(2));
+        analogSignal[BUFFERLIGHT_FWD_R_RED + d] = static_cast<float>(tumbler_bufferliht_R[cab_idx].isSwitched(0));
+        analogSignal[CAB1_LIGHT_CABINE + d] = static_cast<float>(azv_cabine_light[cab_idx].getState());
+        analogSignal[CAB1_LIGHT_DEVICES + d] = static_cast<float>(azv_panel_light[cab_idx].getState());
 
         analogSignal[CAB1_LS_WHITE + d] = safety_device[cab_idx]->getWhiteLamp();
         analogSignal[CAB1_LS_RED + d] = safety_device[cab_idx]->getRedLamp();
@@ -108,16 +123,16 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_LOCO_CRANE_HANDLE_POS + d] = static_cast<float>(loco_crane[cab_idx]->getHandlePosition());
 
         // Автоматические защитные выключатели на пульте машиниста
-        analogSignal[CAB1_AZV_CABINE_LIGHT + d] = 0.0f;
-        analogSignal[CAB1_AZV_PANEL_LIGHT + d] = 0.0f;
+        analogSignal[CAB1_AZV_CABINE_LIGHT + d] = static_cast<float>(azv_cabine_light[cab_idx].getState());
+        analogSignal[CAB1_AZV_PANEL_LIGHT + d] = static_cast<float>(azv_panel_light[cab_idx].getState());
         analogSignal[CAB1_AZV_COMMON_CONTROL + d] = static_cast<float>(azv_common_control[cab_idx].getState());
         analogSignal[CAB1_AZV_LOCO_CONTROL + d] = static_cast<float>(azv_upr_tepl[cab_idx].getState());
         analogSignal[CAB1_AZV_FUEL_PUMP + d] = static_cast<float>(azv_fuel_pump[cab_idx].getState());
         analogSignal[CAB1_AZV_EDT_ON + d] = static_cast<float>(azv_edt_on[cab_idx].getState());
         analogSignal[CAB1_AZV_EPB_ON + d] = static_cast<float>(azv_ept_on[cab_idx].getState());
-        analogSignal[CAB1_AZV_EPB_POWER + d] = static_cast<float>(azv_edt_power[cab_idx].getState());
-        analogSignal[CAB1_AZV_SPOTLIGHT_LOW + d] = 0.0f;
-        analogSignal[CAB1_AZV_SPOTLIGHT_HIGH + d] = 0.0f;
+        analogSignal[CAB1_AZV_EPB_POWER + d] = static_cast<float>(azv_ept_power[cab_idx].getState());
+        analogSignal[CAB1_AZV_SPOTLIGHT_LOW + d] = static_cast<float>(azv_spotlight_low[cab_idx].getState());
+        analogSignal[CAB1_AZV_SPOTLIGHT_HIGH + d] = static_cast<float>(azv_spotlight_high[cab_idx].getState());
 
         // Тумблеры на пульте машиниста
         analogSignal[CAB1_TUMBLER_FIELD_WEAK1 + d] = tumbler_field_weak1[cab_idx].getHandlePosition();
@@ -128,9 +143,9 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         // Тумблеры на пульте помощника
         analogSignal[CAB1_TUMBLER_VOLTMETER + d] = static_cast<float>(tumbler_voltage[cab_idx].getState());
         analogSignal[CAB1_TUMBLER_DISEL_STOP + d] = static_cast<float>(tumbler_disel_stop[cab_idx].getState());
-        analogSignal[CAB1_TUMBLER_BUFFERLIGHT_L + d] = 0.5f;
-        analogSignal[CAB1_TUMBLER_BUFFERLIGHT_R + d] = 0.5f;
-        analogSignal[CAB1_TUMBLER_NUMBER_LIGHT + d] = 0.0f;
+        analogSignal[CAB1_TUMBLER_BUFFERLIGHT_L + d] = tumbler_bufferliht_L[cab_idx].getHandlePosition();
+        analogSignal[CAB1_TUMBLER_BUFFERLIGHT_R + d] = tumbler_bufferliht_R[cab_idx].getHandlePosition();
+        analogSignal[CAB1_TUMBLER_NUMBER_LIGHT + d] = static_cast<float>(tumbler_number_light[cab_idx].getState());
         analogSignal[CAB1_TUMBLER_PANEL_POM_LIGHT + d] = 0.0f;
         analogSignal[CAB1_TUMBLER_RESERVE_LIGHT + d] = 0.0f;
         analogSignal[CAB1_TUMBLER_CAB_HEATER + d] = 0.0f;

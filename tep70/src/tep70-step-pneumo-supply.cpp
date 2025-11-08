@@ -9,13 +9,13 @@ void TEP70::stepPneumoSupply(const double& t, const double& dt)
     press_reg->step(t, dt);
 
     // Состояние цепи реле РУ18
-    bool is_RU18_on = (azv_motor_compressor[CAB1].getState() || azv_motor_compressor[CAB2].getState()) &&
+    bool is_RU18_on = azv_motor_compressor.getState() &&
                     static_cast<bool>(press_reg->getState());
 
     ru18->setVoltage(Ucc * static_cast<double>(is_RU18_on));
     ru18->step(t, dt);
 
-    bool is_RV6_on = (azv_motor_compressor[CAB1].getState() || azv_motor_compressor[CAB2].getState()) &&
+    bool is_RV6_on = azv_motor_compressor.getState() &&
                      krn->getContactState(4) &&
                      ru18->getContactState(0) &&
                      ktk1->getContactState(0);
@@ -23,7 +23,7 @@ void TEP70::stepPneumoSupply(const double& t, const double& dt)
     rv6->setControlVoltage(Ucc * static_cast<double>(is_RV6_on));
     rv6->step(t, dt);
 
-    bool is_KTK1_on = (azv_motor_compressor[CAB1].getState() || azv_motor_compressor[CAB2].getState()) &&
+    bool is_KTK1_on = azv_motor_compressor.getState() &&
                       krn->getContactState(5) &&
                       ru18->getContactState(1);
 
