@@ -494,9 +494,6 @@ private:
     /// Инициализация сцепных устройств
     void initCouplings(const QString& modules_dir, const QString& custom_cfg_dir);
 
-    /// Инициализация органов управления в кабине
-    void initCabineControls(const QString& modules_dir, const QString& custom_cfg_dir);
-
     /// Инициализация цепей управления
     void initControlCircuit(const QString& modules_dir, const QString& custom_cfg_dir);
 
@@ -562,9 +559,6 @@ private:
 
     /// Шаг моделирования сцепных устройств
     void stepCouplings(const double& t, const double& dt);
-
-    /// Шаг моделирования органов управления в кабине
-    void stepCabineControls(const double& t, const double& dt);
 
     /// Шаг моделирования цепей управления
     void stepControlCircuit(const double& t, const double& dt);

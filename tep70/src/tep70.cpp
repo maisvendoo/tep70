@@ -35,8 +35,6 @@ void TEP70::initialization()
 
     initCouplings(modules_dir, custom_cfg_dir);
 
-    initCabineControls(modules_dir, custom_cfg_dir);
-
     initControlCircuit(modules_dir, custom_cfg_dir);
 
     initFuelSystem(modules_dir, custom_cfg_dir);
@@ -96,8 +94,6 @@ void TEP70::preStep(const double& t)
 void TEP70::step(const double& t, const double& dt)
 {
     stepCouplings(t, dt);
-
-    stepCabineControls(t, dt);
 
     stepControlCircuit(t, dt);
 

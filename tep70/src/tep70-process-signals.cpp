@@ -160,8 +160,8 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_BUTTON_WHISTLE + d] = static_cast<float>(horn->isSvistok());
         analogSignal[CAB1_BUTTON_RB + d] = static_cast<float>(rb[cab_idx][RB].getState());
 
-        analogSignal[CAB1_BUTTON_RBS + d] = 0.0f;
-        analogSignal[CAB1_BUTTON_RBP + d] = 0.0f;
+        analogSignal[CAB1_BUTTON_RBS + d] = static_cast<float>(rb[cab_idx][RBS].getState());
+        analogSignal[CAB1_BUTTON_RBP + d] = static_cast<float>(rb[cab_idx][RBP].getState());
         analogSignal[CAB1_EMERGENCY_STOP + d] = 0.0f;
     }
 }

@@ -9,6 +9,12 @@ void TEP70::initControlCircuit(const QString &modules_dir, const QString &custom
 {
     (void) modules_dir;
 
+    for (auto i : {CAB1, CAB2})
+    {
+        km[i] = new ControllerKM2202();
+        km[i]->read_config("km-2202", custom_cfg_dir);
+    }
+
     cabine_switcher = new CabineSwitcher();
 
     battery = new Battery();
