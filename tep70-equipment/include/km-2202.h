@@ -21,11 +21,23 @@ public:
 
     ~ControllerKM2202();
 
-    /// Вернуть текущую позицию штурвала
-    int getPositionNumber() const { return ms_position; }
+    /// Разрешить установить реверсивку (для реализации одной рукоятки на несколько кабин)
+    void allowReversHandle(bool allow);
+
+    /// Разрешение установить реверсивку (для реализации одной рукоятки на несколько кабин)
+    bool isReversHandleAllowed() const;
+
+    /// Вставить/извлечь реверсивную рукоятку
+    void insertReversHandle(bool insert);
+
+    /// Признак вставленной реверсивной рукоятки
+    bool isReversHandle() const;
 
     /// Вернуть текущую позицию реверсивки
-    int getReversState() const { return rs_position; }
+    std::int8_t getReversState() const { return rs_position; }
+
+    /// Вернуть текущую позицию штурвала
+    std::int8_t getPositionNumber() const { return ms_position; }
 
     /// Вернуть положение главного вала
     float getMainShaftPos() const;
@@ -53,14 +65,15 @@ public:
 
     enum
     {
+        NUM_SOUNDS = 2,
         MAIN_SHAFT = 0,
-        REVERS_SHAFT = 1
+        REVERS_SHAFT = 1,
+        HANDLE_CHANGE_SOUND = NUM_SOUNDS + Trigger::CHANGE_SOUND,
+        HANDLE_INSERTED_SOUND = NUM_SOUNDS + Trigger::ON_SOUND,
+        HANDLE_REMOVED_SOUND = NUM_SOUNDS + Trigger::OFF_SOUND
     };
 
-    float getSoundSignal(size_t idx = 0) const override
-    {
-        return sound_states[idx].createSoundSignal();
-    }
+    float getSoundSignal(size_t idx = 0) const override;
 
 private:
 
@@ -77,43 +90,49 @@ private:
         RS_BACKWARD = -1
     };
 
-    double  ms_delay;
+    double  ms_delay = 0.2;
 
-    double  rs_delay;
+    double  rs_delay = 0.2;
 
-    /// Положение главного вала
-    int     ms_position;
-
-    /// Направление вращения главного вала
-    int     ms_dir;
-
-    /// Положение реверсивного вала
-    int     rs_position;
-
-    /// Направление вращения реверсивного вала
-    int     rs_dir;    
+    /// Разрешение установить реверсивку (для реализации одной рукоятки на несколько кабин)
+    bool    is_reverse_handle_allowed = true;
 
     /// Контакт "Вперед" реверсивного вала
-    bool    is_forward;
+    bool    is_forward = false;
 
     /// Котакт "Назад" реверсивного вала
-    bool    is_backward;
+    bool    is_backward = false;
 
-    Timer   main_shaft_timer;
+    /// Положение реверсивного вала
+    std::int8_t rs_position = RS_ZERO;
 
-    Timer   revers_shaft_timer;
+    /// Направление вращения реверсивного вала
+    std::int8_t rs_dir = 0;
 
-    QMap<int, double>   n_ref;
+    /// Положение главного вала
+    std::int8_t ms_position = MS_ZERO;
+
+    /// Направление вращения главного вала
+    std::int8_t ms_dir = 0;
+
+    /// Признак реверсивной рукоятки
+    Trigger is_revers_handle;
+
+    Timer   main_shaft_timer = Timer(ms_delay, true);
+
+    Timer   revers_shaft_timer = Timer(rs_delay, true);
+
+    QMap<std::int8_t, double>   n_ref;
 
     std::array<sound_state_t, 2> sound_states;
 
-    void preStep(state_vector_t &Y, double t);
+    void preStep(state_vector_t &Y, double t) override;
 
-    void ode_system(const state_vector_t &Y, state_vector_t &dYdt, double t);
+    void ode_system(const state_vector_t &Y, state_vector_t &dYdt, double t) override;
 
-    void load_config(CfgReader &cfg);
+    void load_config(CfgReader &cfg) override;
 
-    void stepKeysControl(double t, double dt);
+    void stepKeysControl(double t, double dt) override;
 
 private slots:
 

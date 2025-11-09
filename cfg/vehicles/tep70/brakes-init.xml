@@ -31,5 +31,10 @@
 		<EPKCab1>1</EPKCab1>
 		<EPKCab2>0</EPKCab2>
 
+		<!-- Реверсивная рукотка
+		( 0 - извлечена, 1 - вставлена -->
+		<ReversHandleCab1>1</ReversHandleCab1>
+		<ReversHandleCab2>0</ReversHandleCab2>
+
 	</BrakesState>
 </Config>

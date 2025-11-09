@@ -25,6 +25,11 @@ void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
     epk[CAB2]->allowKey(!(epk[CAB1]->isKey()));
     epk[CAB1]->allowKey(!(epk[CAB2]->isKey()));
 
+    // Не допускаем двух реверсивных рукояток в контроллерах машиниста
+    km[CAB2]->allowReversHandle(!(km[CAB1]->isReversHandle()));
+    km[CAB1]->allowReversHandle(!(km[CAB2]->isReversHandle()));
+
+    // Тумблеры машинного отделения
     azv_motor_compressor.step();
 
     for (auto cab_idx : {CAB1, CAB2})
@@ -68,7 +73,7 @@ void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
         }
 
         // Контроллер машиниста
-        km[cab_idx]->setControl(&pressed_keys_by_cabine[cab_idx]);
+        km[cab_idx]->step(t.simulation_seconds, dt);
 
         // Тумблеры, кнопки
         azv_cabine_light[cab_idx].step();

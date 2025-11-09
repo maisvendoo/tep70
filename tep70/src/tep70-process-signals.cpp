@@ -108,8 +108,8 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_3SL2M_SHAFT + d] = speed_meter[cab_idx]->getShaftPos();
 
         // Контроллер
-        analogSignal[CAB1_IS_REVERS_HANDLE] = 1.0f;
-        analogSignal[CAB1_KM_REVERSOR_POS + d] = km[cab_idx]->getReversState();
+        analogSignal[CAB1_IS_REVERS_HANDLE + d] = static_cast<float>(km[cab_idx]->isReversHandle());
+        analogSignal[CAB1_KM_REVERSOR_POS + d] = static_cast<float>(km[cab_idx]->getReversState());
         analogSignal[CAB1_KM_SHTURVAL_POS + d] = km[cab_idx]->getMainShaftPos();
         analogSignal[CAB1_BRAKE_FORCE_SWITCH + d] = brake_force_switch[cab_idx].getHandlePosition();
 

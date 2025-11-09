@@ -25,10 +25,16 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                         .arg(brake_lock[CAB1]->getCombineCraneHandlePosition(), 2, 'f', 0);
     }
 
-    DebugMsg += QString("Rev%1|Pos %2|EDT %3|")
-                    .arg(km[CAB1]->getReversState(), 2)
-                    .arg(km[CAB1]->getPositionNumber(), 2)
-                    .arg(brake_force_switch[CAB1].getPosition(), 2);
+    if (km[CAB1]->isReversHandle())
+    {
+        DebugMsg += QString("Rev%1|Pos %2|")
+                        .arg(km[CAB1]->getReversState(), 2)
+                        .arg(km[CAB1]->getPositionNumber(), 2);
+    }
+    else
+    {
+        DebugMsg += QString(" NO  REVERS |");
+    }
 
     if (epk[CAB1]->isKeyOn())
     {
@@ -77,10 +83,12 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                     .arg(10.0 * brake_mech[TROLLEY_FWD]->getBCpressure(), 6, 'f', 2)
                     .arg(10.0 * supply_reservoir->getPressure(), 6, 'f', 2)
                     .arg(10.0 * main_reservoir->getPressure(), 6, 'f', 2);
+/*
     DebugMsg += QString("Switch1:%1|Switch2:%2|Splitter:%3|")
                     .arg(10.0 * bc_switch_valve->getPressure1(), 6, 'f', 2)
                     .arg(10.0 * bc_switch_valve->getPressure2(), 6, 'f', 2)
                     .arg(10.0 * bc_splitter->getInputPressure(), 6, 'f', 2);
+*/
     DebugMsg += QString("I%3 A|").arg(I_gen, 8, 'f', 1);
     DebugMsg += QString("Fuel:%1kg|")
                     .arg(fuel_tank->getFuelMass(), 5, 'f', 0);
@@ -141,10 +149,16 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                         .arg(brake_lock[CAB2]->getCombineCraneHandlePosition(), 2, 'f', 0);
     }
 
-    DebugMsg += QString("Rev%1|Pos %2|EDT %3|")
-                    .arg(km[CAB2]->getReversState(), 2)
-                    .arg(km[CAB2]->getPositionNumber(), 2)
-                    .arg(brake_force_switch[CAB2].getPosition(), 2);
+    if (km[CAB2]->isReversHandle())
+    {
+        DebugMsg += QString("Rev%1|Pos %2|")
+                        .arg(km[CAB2]->getReversState(), 2)
+                        .arg(km[CAB2]->getPositionNumber(), 2);
+    }
+    else
+    {
+        DebugMsg += QString(" NO  REVERS |");
+    }
 
     if (epk[CAB2]->isKeyOn())
     {

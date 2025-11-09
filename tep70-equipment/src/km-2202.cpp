@@ -4,14 +4,6 @@
 //
 //------------------------------------------------------------------------------
 ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
-  , ms_delay(0.2)
-  , rs_delay(0.2)
-  , ms_position(MS_ZERO)
-  , ms_dir(0)
-  , rs_position(RS_ZERO)
-  , rs_dir(0)
-  , is_forward(false)
-  , is_backward(false)
 {
     main_shaft_timer.firstProcess(true);
     connect(&main_shaft_timer, &Timer::process,
@@ -33,9 +25,67 @@ ControllerKM2202::~ControllerKM2202()
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
+void ControllerKM2202::allowReversHandle(bool allow)
+{
+    is_reverse_handle_allowed = allow;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+bool ControllerKM2202::isReversHandleAllowed() const
+{
+    return is_reverse_handle_allowed;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void ControllerKM2202::insertReversHandle(bool insert)
+{
+    insert = insert && is_reverse_handle_allowed;
+
+    if (insert)
+    {
+        // Вставляем реверсивную рукоятку
+        is_revers_handle.set();
+        return;
+    }
+
+    // Извлечение реверсивной рукоятки только в нулевом положении
+    if (rs_position == RS_ZERO)
+    {
+        is_revers_handle.reset();
+    }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+bool ControllerKM2202::isReversHandle() const
+{
+    return is_revers_handle.getState();
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 float ControllerKM2202::getMainShaftPos() const
 {
     return static_cast<float>(ms_position) / MS_MAX_POSITION;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+float ControllerKM2202::getSoundSignal(size_t idx) const
+{
+    if (idx < NUM_SOUNDS)
+    {
+        return sound_states[idx].createSoundSignal();
+    }
+
+    return is_revers_handle.getSoundSignal(idx - NUM_SOUNDS);
 }
 
 //------------------------------------------------------------------------------
@@ -67,7 +117,6 @@ void ControllerKM2202::load_config(CfgReader &cfg)
     QString secName = "Device";
 
     int timeout = 200;
-
     if (cfg.getInt(secName, "MainShaftDelay", timeout))
     {
         ms_delay = static_cast<double>(timeout) / 1000.0;
@@ -76,7 +125,6 @@ void ControllerKM2202::load_config(CfgReader &cfg)
     main_shaft_timer.setTimeout(ms_delay);
 
     timeout = 200;
-
     if (cfg.getInt(secName, "ReversShaftDelay", timeout))
     {
         rs_delay = static_cast<double>(timeout) / 1000.0;
@@ -85,18 +133,15 @@ void ControllerKM2202::load_config(CfgReader &cfg)
     revers_shaft_timer.setTimeout(rs_delay);
 
     QDomNode secNode = cfg.getFirstSection("Pos");
-
     while (!secNode.isNull())
     {
         int number = 0;
-
         cfg.getInt(secNode, "Number", number);
 
         double shaft_freq = 0;
-
         cfg.getDouble(secNode, "ShaftFreq", shaft_freq);
 
-        n_ref.insert(number, shaft_freq);
+        n_ref.insert(static_cast<std::int8_t>(number), shaft_freq);
 
         secNode = cfg.getNextSection();
     }
@@ -137,12 +182,38 @@ void ControllerKM2202::stepKeysControl(double t, double dt)
     if (getKeyState(pressed_keys, KEY_W) || getKeyState(pressed_keys, KEY_S))
     {
         if (getKeyState(*pressed_keys, KEY_W))
-            rs_dir = 1;
+        {
+            if (isModifier(*pressed_keys, MODIFIER_OnlyShift))
+            {
+                // Shift - вставляем реверсивку
+                insertReversHandle(true);
+
+                revers_shaft_timer.stop();
+            }
+            else
+            {
+                if (isModifier(*pressed_keys, MODIFIER_OnlyControl))
+                {
+                    // Ctrl - извлекаем реверсивку
+                    insertReversHandle(false);
+
+                    revers_shaft_timer.stop();
+                }
+                else
+                {
+                    rs_dir = 1;
+
+                    revers_shaft_timer.start();
+                }
+            }
+        }
 
         if (getKeyState(*pressed_keys, KEY_S))
+        {
             rs_dir = -1;
 
-        revers_shaft_timer.start();
+            revers_shaft_timer.start();
+        }
     }
     else
     {
@@ -166,9 +237,9 @@ void ControllerKM2202::slotRotateMainShaft()
         return;
     }
 
-    int pos_old = ms_position;
+    std::int8_t pos_old = ms_position;
     ms_position += ms_dir;
-    ms_position = cut(ms_position, static_cast<int>(MS_ZERO), static_cast<int>(MS_MAX_POSITION));
+    ms_position = std::clamp(ms_position, static_cast<std::int8_t>(MS_ZERO), static_cast<std::int8_t>(MS_MAX_POSITION));
 
     if (ms_position != pos_old)
         sound_states[MAIN_SHAFT].play(true);
@@ -185,9 +256,9 @@ void ControllerKM2202::slotRotateReversShaft()
         return;
     }
 
-    int pos_old = rs_position;
+    std::int8_t pos_old = rs_position;
     rs_position += rs_dir;
-    rs_position = cut(rs_position, static_cast<int>(RS_BACKWARD), static_cast<int>(RS_FORWARD));
+    rs_position = std::clamp(rs_position, static_cast<std::int8_t>(RS_BACKWARD), static_cast<std::int8_t>(RS_FORWARD));
 
     if (rs_position != pos_old)
         sound_states[REVERS_SHAFT].play(true);
