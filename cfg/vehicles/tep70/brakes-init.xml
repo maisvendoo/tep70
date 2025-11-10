@@ -24,7 +24,7 @@
 		<!-- Положение комбинированного крана
 		( -1 - положение двойной тяги, 0 - поездное, 1 - экстренное торможение -->
 		<CombineCranePosCab1>0</CombineCranePosCab1>
-		<CombineCranePosCab2>-1</CombineCranePosCab2>
+		<CombineCranePosCab2>0</CombineCranePosCab2>
 
 		<!-- Ключ электропневматического клапана автостопа
 		( 0 - извлечён, 1 - вставлен, ЭПК выключен, 2 - вставлен, ЭПК включён -->
