@@ -128,16 +128,16 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         azv_panel_light[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
 
         // АЗВ "Управление общее" (АВ 2)
-        azv_common_control[cab_idx].setKeySymbolOn(KEY_Y);
+        azv_common_control[cab_idx].setKeySymbolOn(KEY_U);
         azv_common_control[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
-        azv_common_control[cab_idx].setKeySymbolOff(KEY_Y);
+        azv_common_control[cab_idx].setKeySymbolOff(KEY_U);
         azv_common_control[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
         azv_common_control[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
 
         // АЗВ "Управление тепловозом" (АВ 1)
-        azv_upr_tepl[cab_idx].setKeySymbolOn(KEY_U);
+        azv_upr_tepl[cab_idx].setKeySymbolOn(KEY_I);
         azv_upr_tepl[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
-        azv_upr_tepl[cab_idx].setKeySymbolOff(KEY_U);
+        azv_upr_tepl[cab_idx].setKeySymbolOff(KEY_I);
         azv_upr_tepl[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
         azv_upr_tepl[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
 
@@ -232,6 +232,7 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         tumbler_disel_stop[cab_idx].setKeySymbolOff(KEY_O);
         tumbler_disel_stop[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
         tumbler_disel_stop[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
+        tumbler_disel_stop[cab_idx].setInitState(true);
 
         // Тумблер "Буферный фонарь левый" (Тб 35)
         tumbler_bufferliht_L[cab_idx].setNumPositions(3);

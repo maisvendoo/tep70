@@ -20,9 +20,6 @@ void TEP70::initControlCircuit(const QString &modules_dir, const QString &custom
     battery = new Battery();
     battery->read_config("battery", custom_cfg_dir);
 
-    tumbler_disel_stop[CAB1].set();
-    tumbler_disel_stop[CAB2].set();
-
     kontaktor_fuel_pump = new Relay(2);
     kontaktor_fuel_pump->read_config("mk-6", custom_cfg_dir);
     kontaktor_fuel_pump->setInitContactState(0, false);
