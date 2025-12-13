@@ -10,17 +10,10 @@
 		<NumAxis>6</NumAxis>
 		<WheelInertia>100.0</WheelInertia>
 		<SoundDir>tep70</SoundDir>
-		<AnimationsConfigDir>tep70</AnimationsConfigDir>
 
 		<ReductorCoeff>3.12</ReductorCoeff>
 		<FuelCapacity>6000</FuelCapacity>
 		<FuelLevel>1.0</FuelLevel>
-
-		<ExtModelName>tep70/tep70.gltf</ExtModelName>
-		<ModelShift>0.0 0.0 0.312</ModelShift>
-
-		<CabineModel>tep70/tep70-cabview.gltf</CabineModel>
-		<CabineShift>0.0 0.0 0.312</CabineShift>
 
 		<CouplingModule>sa3</CouplingModule>
 		<CouplingConfig>sa3</CouplingConfig>
@@ -35,8 +28,10 @@
 		<AirDistConfig>vr242</AirDistConfig>
 
 		<ElectroAirDistModule>evr305</ElectroAirDistModule>
-		<ElectroAirDistConfig>evr305</ElectroAirDistConfig>		
+		<ElectroAirDistConfig>evr305</ElectroAirDistConfig>
+
 	</Vehicle>
+
 
 	<Cabine>
 		<DriverPos>0.9 9.2 3.6</DriverPos>
@@ -47,5 +42,18 @@
 		<DriverPos>-0.9 -9.2 3.6</DriverPos>
 		<DriverDir>180.0</DriverDir>
 	</Cabine>
+
+
+	<Model>
+		<ModelName>tep70/tep70.gltf</ModelName>
+		<ModelShift>0.0 0.0 0.312</ModelShift>
+		<AnimationsConfigDir>tep70</AnimationsConfigDir>
+	</Model>
+
+	<Model>
+		<ModelName>tep70/tep70-cabview.gltf</ModelName>
+		<ModelShift>0.0 0.0 0.312</ModelShift>
+		<AnimationsConfigDir>tep70</AnimationsConfigDir>
+	</Model>
 
 </Config>
