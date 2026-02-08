@@ -34,25 +34,23 @@
 
 
 	<Cabine>
-		<DriverPos>0.9 9.2 3.6</DriverPos>
+		<DriverPos>0.9 9.2 3.3</DriverPos>
 		<DriverDir>0.0</DriverDir>
 	</Cabine>
 
 	<Cabine>
-		<DriverPos>-0.9 -9.2 3.6</DriverPos>
+		<DriverPos>-0.9 -9.2 3.3</DriverPos>
 		<DriverDir>180.0</DriverDir>
 	</Cabine>
 
 
 	<Model>
 		<ModelName>tep70/tep70.gltf</ModelName>
-		<ModelShift>0.0 0.0 0.312</ModelShift>
 		<AnimationsConfigDir>tep70</AnimationsConfigDir>
 	</Model>
 
 	<Model>
 		<ModelName>tep70/tep70-cabview.gltf</ModelName>
-		<ModelShift>0.0 0.0 0.312</ModelShift>
 		<AnimationsConfigDir>tep70</AnimationsConfigDir>
 	</Model>
 
