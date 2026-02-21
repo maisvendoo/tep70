@@ -85,5 +85,22 @@ void TEP70::slotAutostart()
     {
         autoStartTimer->stop();
         start_count = 0;
+
+        tumbler_field_weak1[autostart_cab].setPosition(2);
+        tumbler_field_weak2[autostart_cab].setPosition(2);
+
+        km[autostart_cab]->setReversFwd();
+
+        km[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
+        km[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
+        brake_lock[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
+        brake_lock[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
+        epk[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
+        epk[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
+
+        if (auto_start_autopilot)
+        {
+            // TODO: запуск автоведения
+        }
     }
 }

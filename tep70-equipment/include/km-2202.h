@@ -75,6 +75,18 @@ public:
 
     float getSoundSignal(size_t idx = 0) const override;
 
+    void setReversFwd()
+    {
+        rs_dir = 1;
+        slotRotateReversShaft();
+    }
+
+    void setReversBwd()
+    {
+        rs_dir = -1;
+        slotRotateReversShaft();
+    }
+
 private:
 
     enum
