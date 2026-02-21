@@ -63,6 +63,7 @@ void TEP70::initialization()
     reg->setFileName("tep70-char");
     reg->init();
 */
+    connect(autoStartTimer, &Timer::process, this, &TEP70::slotAutostart);
 }
 
 //------------------------------------------------------------------------------
@@ -117,14 +118,16 @@ void TEP70::step(const double& t, const double& dt)
 
     stepOther(t, dt);
 
-    if (reg == nullptr)
+    autoStartTimer->step(t, dt);
+
+    /*if (reg == nullptr)
         return;
 
     QString line = QString("%1 %2 %3")
                        .arg(velocity * Physics::kmh, 6, 'f', 1)
                        .arg(tracForce / 1000.0, 6, 'f', 1)
                        .arg(motor[0]->getAncorCurrent(), 6, 'f', 1);
-    reg->print(line, t, dt);
+    reg->print(line, t, dt);*/
 }
 
 //------------------------------------------------------------------------------

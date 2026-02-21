@@ -598,6 +598,18 @@ private:
     float getLampState(double signal);
 
     void load_brakes_config(QString path);
+
+    Timer *autoStartTimer = new Timer(0.5, false);
+
+    std::vector<Trigger *> autostart_triggers;
+    size_t start_count = 0;
+    size_t autostart_cab = 0;
+
+    bool initAutostartProgram(int cab_autostart_request);
+
+private slots:
+
+    void slotAutostart();
 };
 
 #endif // TEP70_H
