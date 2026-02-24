@@ -33,6 +33,7 @@
 #include    <brake-switcher.h>
 #include    <alsn-ukbm.h>
 #include    <cabine-switcher.h>
+#include    <tep70-autopilot-types.h>
 
 /*!
  * \class
@@ -76,6 +77,13 @@ private:
     QString electro_airdist_module_name = "evr305";
     /// Имя конфига электровоздухорапределителя
     QString electro_airdist_config_name = "evr305";
+
+    /// Имя модуля автоведения
+    QString autopilot_module_name = "tep70-autopilot";
+    /// Имя конфига модуля автоведения
+    QString autopilot_config_name = "tep70-autopilot";
+    /// Каталог поиска кастомных модулей
+    QString custom_modules_dir = "tep70";
 
     /// Сцепка спереди
     Coupling* coupling_fwd = nullptr;
@@ -606,6 +614,10 @@ private:
     size_t autostart_cab = 0;
 
     TriggerControl autopilot_switcher[CABS_NUM];
+
+    tep70_control_t *auto_control[CABS_NUM] = {nullptr, nullptr};
+
+    tep70_feedback_t *auto_feedback[CABS_NUM];
 
     bool initAutostartProgram(int cab_autostart_request);
 
