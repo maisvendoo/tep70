@@ -619,6 +619,8 @@ private:
 
     tep70_feedback_t *auto_feedback[CABS_NUM];
 
+    double charge_press = 0.0;
+
     bool initAutostartProgram(int cab_autostart_request);
 
     void initAutopilot(const QString& modules_dir, const QString& custom_cfg_dir);

@@ -142,5 +142,7 @@ void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
         rb[cab_idx][RBP].step();
 
         brake_force_switch[cab_idx].step();
+
+        autopilot_switcher[cab_idx].step();
     }
 }

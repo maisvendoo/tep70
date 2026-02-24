@@ -5,7 +5,7 @@
 //------------------------------------------------------------------------------
 TEP70Autopilot::TEP70Autopilot() : Autopilot(nullptr)
 {
-
+    connect(km_delay, &Timer::process, this, &TEP70Autopilot::slotDelayTimer);
 }
 
 //------------------------------------------------------------------------------
@@ -30,6 +30,8 @@ auto_control_t *TEP70Autopilot::getControl()
 void TEP70Autopilot::step(double t, double dt)
 {
     Autopilot::step(t, dt);
+
+    km_delay->step(t, dt);
 }
 
 //------------------------------------------------------------------------------
@@ -46,7 +48,76 @@ void TEP70Autopilot::initAutoBrakeControl(const QString &config_name,
 //------------------------------------------------------------------------------
 void TEP70Autopilot::preStep(state_vector_t &Y, double t)
 {
+    // Приводим общую структуру обратной связи к нашему типу
+    auto_feedback = dynamic_cast<tep70_feedback_t *>(feedback);
 
+    if (auto_feedback == nullptr)
+    {
+        return;
+    }
+
+    Y[0] = cut(Y[0], -1.0, 1.0);
+
+    dv = v_ref - auto_feedback->v_cur;
+
+    // Вычисляем задание по току ТЭД
+    double kp = Kp * train_mass / ref_mass;
+
+    double dv_s = pf(feedback->v_tau - feedback->v_cur);
+
+    double I_ref = Imax * (kp * dv - Ks * dv_s + getY(0));
+
+    I_ref = cut(I_ref, 0.0, Imax);
+
+    // Блокирование тяги по давлению в ТЦ
+    if (auto_feedback->pBC > 0.04)
+    {
+        lock_traction = true;
+    }
+    else
+    {
+        // Если тяга заблокирована но скорость не упала сильно
+        if (lock_traction && dv < 10.0)
+            lock_traction = true; // продолжаем блокировать тягу
+        else
+            lock_traction = false;
+    }
+
+    // Если ток упал ниже уставки
+    if (auto_feedback->I_gen < I_ref - delta_I)
+    {
+        if (!lock_traction)
+        {
+            // + позиция
+            plusPos();
+        }
+    }
+
+    // Если ток сильно выше уставки
+    if (auto_feedback->I_gen > I_ref + delta_I)
+    {
+        // - позиция
+        minusPos();
+    }
+
+    // Если превышаем скорость - мотаем вниз до упора
+    if (dv < -dV_traction_off)
+    {
+        zeroPos();
+    }
+
+    // Отбиваем ПСС
+    auto_control->press_RB = auto_feedback->is_vigilance_control;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70Autopilot::ode_system(const state_vector_t &Y,
+                                state_vector_t &dYdt,
+                                double t)
+{
+    dYdt[0] = Ki * dv;
 }
 
 //------------------------------------------------------------------------------
@@ -54,7 +125,77 @@ void TEP70Autopilot::preStep(state_vector_t &Y, double t)
 //------------------------------------------------------------------------------
 void TEP70Autopilot::load_config(CfgReader &cfg)
 {
+    Autopilot::load_config(cfg);
 
+    QString secName = "Device";
+
+    cfg.getDouble(secName, "Imax", Imax);
+    cfg.getDouble(secName, "DeltaI", delta_I);
+    cfg.getDouble(secName, "Kp", Kp);
+    cfg.getDouble(secName, "Ki", Ki);
+    cfg.getDouble(secName, "Ks", Ks);
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70Autopilot::plusPos()
+{
+    if (km_delay->isStarted())
+    {
+        return;
+    }
+
+    auto_control->km_pos++;
+
+    if (!km_delay->isStarted())
+    {
+        km_delay->start();
+    }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70Autopilot::minusPos()
+{
+    if (km_delay->isStarted())
+    {
+        return;
+    }
+
+    auto_control->km_pos--;
+
+    if (!km_delay->isStarted())
+    {
+        km_delay->start();
+    }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70Autopilot::zeroPos()
+{
+    if (km_delay->isStarted())
+    {
+        return;
+    }
+
+    auto_control->km_pos = 0;
+
+    if (!km_delay->isStarted())
+    {
+        km_delay->start();
+    }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70Autopilot::slotDelayTimer()
+{
+    km_delay->stop();
 }
 
 GET_AUTOPILOT(TEP70Autopilot)

@@ -7,6 +7,8 @@
 //------------------------------------------------------------------------
 void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
 {
+    charge_press = p0;
+
     // Загрузка состояния тормозного оборудования из собственного конфига
     FileSystem &fs = FileSystem::getInstance();
     QString custom_cfg_dir(fs.getVehiclesDir().c_str());

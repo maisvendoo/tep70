@@ -87,6 +87,11 @@ public:
         slotRotateReversShaft();
     }
 
+    void setPos(int8_t pos)
+    {
+        ms_position = cut(pos, static_cast<int8_t>(MS_ZERO), static_cast<int8_t>(MS_MAX_POSITION));
+    }
+
 private:
 
     enum
