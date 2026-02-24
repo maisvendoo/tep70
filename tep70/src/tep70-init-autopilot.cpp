@@ -94,14 +94,14 @@ void TEP70::OnAutopilot()
     if (km[CAB1]->isReversHandle())
     {
         initAutostartProgram(CAB1);
-        autopilot_switcher[CAB1].set();
+        //autopilot_switcher[CAB1].set();
     }
 
     if (km[CAB2]->isReversHandle())
     {
         initAutostartProgram(CAB2);
-        autopilot_switcher[CAB2].set();
-    }
+        //autopilot_switcher[CAB2].set();
+    }    
 
     autoStartTimer->start();
 }
