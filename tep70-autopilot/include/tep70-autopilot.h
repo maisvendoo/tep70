@@ -48,6 +48,9 @@ private:
 
     tep70_feedback_t *auto_feedback = nullptr;
 
+    /// Тормозной контроллер
+    AutopilotBrakeController *brake_control = new AutopilotBrakeController;
+
     void preStep(state_vector_t &Y, double t) override;
 
     void ode_system(const state_vector_t &Y,

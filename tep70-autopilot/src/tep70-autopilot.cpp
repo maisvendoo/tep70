@@ -32,6 +32,7 @@ void TEP70Autopilot::step(double t, double dt)
     Autopilot::step(t, dt);
 
     km_delay->step(t, dt);
+    brake_control->step(t, dt);
 }
 
 //------------------------------------------------------------------------------
@@ -40,7 +41,7 @@ void TEP70Autopilot::step(double t, double dt)
 void TEP70Autopilot::initAutoBrakeControl(const QString &config_name,
                                           const QString &custom_cfg_dir)
 {
-
+    brake_control->read_config(config_name, custom_cfg_dir);
 }
 
 //------------------------------------------------------------------------------
@@ -105,6 +106,26 @@ void TEP70Autopilot::preStep(state_vector_t &Y, double t)
     {
         zeroPos();
     }
+
+    brake_control->setBrakePressures(auto_feedback->pEQ,
+                                     auto_feedback->pBC,
+                                     auto_feedback->p_charge);
+
+    brake_control->setFeedback(auto_feedback->v_cur, dist_target, a_brake, accel_meter->value());
+
+    brake_control->step_control(auto_feedback->is_EPB_on,
+                                dv,
+                                is_motion_allowed,
+                                lock_traction,
+                                is_disable_release);
+
+    autopilot_brake_control_state_t bc_state = brake_control->getControlState();
+
+    auto_control->krm_pos = bc_state.brake_crane_pos_ref;
+    auto_control->kvt_pos = bc_state.loco_crane_pos_ref;
+
+    // Управляем прожектором - включаем когда разрешено движение
+    auto_control->spotlight_ON = is_motion_allowed;
 
     // Отбиваем ПСС
     auto_control->press_RB = auto_feedback->is_vigilance_control;

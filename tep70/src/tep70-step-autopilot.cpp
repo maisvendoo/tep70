@@ -85,8 +85,8 @@ void TEP70::stepAutopilot(double t, double dt)
         loco_crane[cab_idx]->setHandlePosition(auto_control[cab_idx]->kvt_pos);
 
         // Управление прожектором
-        /*auto_control[cab_idx]->spotlight_ON ? spotlight_low_tumbler[cab_idx].set() :
-            spotlight_low_tumbler[cab_idx].reset();*/
+        auto_control[cab_idx]->spotlight_ON ? azv_spotlight_low[cab_idx].set() :
+            azv_spotlight_low[cab_idx].reset();
 
         sand_system->setSandDeliveryOn(auto_control[cab_idx]->sand_ON);
     }

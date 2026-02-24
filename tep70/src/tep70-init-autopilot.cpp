@@ -74,6 +74,13 @@ void TEP70::prepareCabineForAutopilot(int my_cab_idx, int other_cab_idx)
         azv_ept_power[my_cab_idx].set();
         azv_ept_on[my_cab_idx].set();
     }
+
+    tumbler_bufferliht_L[my_cab_idx].setPosition(2);
+    tumbler_bufferliht_R[my_cab_idx].setPosition(2);
+    azv_spotlight_high[my_cab_idx].set();
+
+    // В другой кабине
+    tumbler_bufferliht_L[other_cab_idx].setPosition(2);
 }
 
 //------------------------------------------------------------------------------
