@@ -74,6 +74,7 @@ void TEP70Autopilot::preStep(state_vector_t &Y, double t)
     if (auto_feedback->pBC > 0.04)
     {
         lock_traction = true;
+        zeroPos();
     }
     else
     {
