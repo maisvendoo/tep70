@@ -605,11 +605,25 @@ private:
     size_t start_count = 0;
     size_t autostart_cab = 0;
 
+    TriggerControl autopilot_switcher[CABS_NUM];
+
     bool initAutostartProgram(int cab_autostart_request);
+
+    void initAutopilot(const QString& modules_dir, const QString& custom_cfg_dir);
+
+    void stepAutopilot(double t, double dt);
+
+    void prepareCabineForAutopilot(int my_cab_idx, int other_cab_idx);
+
+    void OnAutopilot() override;
+
+    void OffAutopilot() override;
 
 private slots:
 
     void slotAutostart();
+
+    void slotInitTrainForAutopilot();
 };
 
 #endif // TEP70_H

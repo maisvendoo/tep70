@@ -64,6 +64,8 @@ void TEP70::initialization()
     reg->init();
 */
     connect(autoStartTimer, &Timer::process, this, &TEP70::slotAutostart);
+
+    initAutopilot(modules_dir, custom_cfg_dir);
 }
 
 //------------------------------------------------------------------------------
@@ -128,6 +130,8 @@ void TEP70::step(const double& t, const double& dt)
                        .arg(tracForce / 1000.0, 6, 'f', 1)
                        .arg(motor[0]->getAncorCurrent(), 6, 'f', 1);
     reg->print(line, t, dt);*/
+
+    stepAutopilot(t, dt);
 }
 
 //------------------------------------------------------------------------------

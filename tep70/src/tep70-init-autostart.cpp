@@ -100,7 +100,8 @@ void TEP70::slotAutostart()
 
         if (auto_start_autopilot)
         {
-            // TODO: запуск автоведения
+            autopilot_switcher[CAB1].set();
+            autopilot_switcher[CAB2].set();
         }
     }
 }
