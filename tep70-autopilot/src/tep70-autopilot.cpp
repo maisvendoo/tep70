@@ -170,6 +170,11 @@ void TEP70Autopilot::plusPos()
 
     auto_control->km_pos++;
 
+    if (auto_control->km_pos > 15)
+    {
+        auto_control->km_pos = 15;
+    }
+
     if (!km_delay->isStarted())
     {
         km_delay->start();
@@ -187,6 +192,11 @@ void TEP70Autopilot::minusPos()
     }
 
     auto_control->km_pos--;
+
+    if (auto_control->km_pos < 0)
+    {
+        auto_control->km_pos = 0;
+    }
 
     if (!km_delay->isStarted())
     {
