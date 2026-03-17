@@ -85,6 +85,11 @@ void TEP70Autopilot::preStep(state_vector_t &Y, double t)
             lock_traction = false;
     }
 
+    if (qAbs(I_ref) < 100.0)
+    {
+        zeroPos();
+    }
+
     // Если ток упал ниже уставки
     if (auto_feedback->I_gen < I_ref - delta_I)
     {
@@ -170,6 +175,11 @@ void TEP70Autopilot::plusPos()
 
     auto_control->km_pos++;
 
+    if (auto_control->km_pos > 15)
+    {
+        auto_control->km_pos = 15;
+    }
+
     if (!km_delay->isStarted())
     {
         km_delay->start();
@@ -188,6 +198,11 @@ void TEP70Autopilot::minusPos()
 
     auto_control->km_pos--;
 
+    if (auto_control->km_pos < 0)
+    {
+        auto_control->km_pos = 0;
+    }
+
     if (!km_delay->isStarted())
     {
         km_delay->start();
@@ -201,6 +216,7 @@ void TEP70Autopilot::zeroPos()
 {
     if (km_delay->isStarted())
     {
+        km_delay->stop();
         return;
     }
 
