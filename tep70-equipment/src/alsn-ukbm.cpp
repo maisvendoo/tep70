@@ -40,6 +40,7 @@ void SafetyDevice::preStep(state_vector_t &Y, double t)
     if (!key_epk)
     {
         off_all_lamps();
+        resetPSS();
         is_red.reset();
         return;
     }
@@ -58,7 +59,11 @@ void SafetyDevice::preStep(state_vector_t &Y, double t)
         setPSS();
         epk_state.reset();
 
-        return;
+        // Не даем возможности отбить свисток только при превышении 20 км/ч
+        if (v_kmh > 20.0)
+        {
+            return;
+        }
     }
 
     if (is_lamp_on(WHITE_LAMP))
@@ -118,6 +123,12 @@ void SafetyDevice::preStep(state_vector_t &Y, double t)
 
     if (state_RBS)
     {
+        // Если отбиваем красный, то включаем белый
+        if (is_red.getState())
+        {
+            is_red.reset();
+        }
+
         epk_state.set();
         resetPSS();
     }
@@ -147,6 +158,12 @@ void SafetyDevice::load_config(CfgReader &cfg)
 //------------------------------------------------------------------------------
 void SafetyDevice::alsn_process(int code_alsn)
 {
+    // Отрезаем сигнал с дешифратора АЛСН при маневровом режиме
+    if (is_shinting_mode)
+    {
+        code_alsn = ALSN::NO_CODE;
+    }
+
     switch (code_alsn)
     {
     case ALSN::NO_CODE:

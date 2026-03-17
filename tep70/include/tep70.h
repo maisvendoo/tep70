@@ -633,6 +633,8 @@ private:
 
     void OffAutopilot() override;
 
+    TriggerControl shunting_mode_switcher[CABS_NUM];
+
 private slots:
 
     void slotAutostart();

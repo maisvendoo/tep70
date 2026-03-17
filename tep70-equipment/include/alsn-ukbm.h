@@ -62,6 +62,12 @@ public:
         return pss_lamp;
     }
 
+    /// Прием сигнала от переключателя маневрового режима
+    void setShuntingModeState(bool is_shunting_mode)
+    {
+        this->is_shinting_mode = is_shunting_mode;
+    }
+
 private:
 
     int code_alsn = 0;
@@ -109,6 +115,8 @@ private:
     void setPSS();
 
     void resetPSS();
+
+    bool is_shinting_mode = false;
 
 private slots:
 
