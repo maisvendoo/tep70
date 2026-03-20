@@ -1,4 +1,5 @@
 #include    <tep70.h>
+#include    <train-horn.h>
 
 //------------------------------------------------------------------------------
 //
@@ -89,5 +90,8 @@ void TEP70::stepAutopilot(double t, double dt)
             azv_spotlight_low[cab_idx].reset();
 
         sand_system->setSandDeliveryOn(auto_control[cab_idx]->sand_ON);
+
+        horn->setSvistokOn(auto_control[cab_idx]->whistle);
+        horn->setTifonOn(auto_control[cab_idx]->typhoid);
     }
 }
