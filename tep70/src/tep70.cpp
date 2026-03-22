@@ -81,6 +81,8 @@ void TEP70::process(const simulator_time_t& t, const double& dt)
     signalsOutput(t, dt);
 
     soundsOutput(t, dt);
+
+    stepAutopilot(t.simulation_seconds, dt);
 }
 
 //------------------------------------------------------------------------------
@@ -129,9 +131,7 @@ void TEP70::step(const double& t, const double& dt)
                        .arg(velocity * Physics::kmh, 6, 'f', 1)
                        .arg(tracForce / 1000.0, 6, 'f', 1)
                        .arg(motor[0]->getAncorCurrent(), 6, 'f', 1);
-    reg->print(line, t, dt);*/
-
-    stepAutopilot(t, dt);
+    reg->print(line, t, dt);*/    
 }
 
 //------------------------------------------------------------------------------
