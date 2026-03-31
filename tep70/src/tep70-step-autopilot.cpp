@@ -96,7 +96,12 @@ void TEP70::stepAutopilot(double t, double dt)
 
         sand_system->setSandDeliveryOn(auto_control[cab_idx]->sand_ON);
 
+        horn->lockManualControl(true);
         horn->setSvistokOn(auto_control[cab_idx]->whistle);
         horn->setTifonOn(auto_control[cab_idx]->typhoid);
+    }
+    else
+    {
+        horn->lockManualControl(false);
     }
 }
