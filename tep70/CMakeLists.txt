@@ -20,7 +20,7 @@ file (GLOB EQP_INCLUDES "../tep70-equipment/include/*.h")
 file (GLOB SOURCES "./src/*.cpp")
 file (GLOB EQP_SOURCES "../tep70-equipment/src/*.cpp")
 
-add_library (${TARGET} MODULE ${SOURCES} ${INCLUDES} ${EQP_SOURCES} ${EQP_INCLUDES})
+add_library (${TARGET} SHARED ${SOURCES} ${INCLUDES} ${EQP_SOURCES} ${EQP_INCLUDES})
 
 target_include_directories (${TARGET} PRIVATE ./include/)
 target_include_directories (${TARGET} PRIVATE ../tep70-equipment/include)
