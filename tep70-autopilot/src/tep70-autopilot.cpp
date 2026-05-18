@@ -1,5 +1,7 @@
 #include    <tep70-autopilot.h>
 
+#include    <core/get_module.h>
+
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
@@ -236,4 +238,4 @@ void TEP70Autopilot::slotDelayTimer()
     km_delay->stop();
 }
 
-GET_AUTOPILOT(TEP70Autopilot)
+GET_MODULE(TEP70Autopilot)
