@@ -1,6 +1,7 @@
 #include    "tep70.h"
 
 #include    "filesystem.h"
+#include    <core/get_module.h>
 
 #include    <CfgReader.h>
 
@@ -131,7 +132,7 @@ void TEP70::step(const double& t, const double& dt)
                        .arg(velocity * Physics::kmh, 6, 'f', 1)
                        .arg(tracForce / 1000.0, 6, 'f', 1)
                        .arg(motor[0]->getAncorCurrent(), 6, 'f', 1);
-    reg->print(line, t, dt);*/    
+    reg->print(line, t, dt);*/
 }
 
 //------------------------------------------------------------------------------
@@ -170,4 +171,4 @@ void TEP70::loadConfig(QString cfg_path)
     }
 }
 
-GET_VEHICLE(TEP70)
+GET_MODULE(TEP70)
