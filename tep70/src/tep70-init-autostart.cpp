@@ -21,6 +21,7 @@ bool TEP70::initAutostartProgram(int cab_autostart_request)
         return false;
 
     autostart_cab = cab_autostart_request;
+    autostart_mode = AS_MODE_START;
 
     autostart_saved_state[autostart_cab].field_weak1_pos = tumbler_field_weak1[autostart_cab].getPosition();
     autostart_saved_state[autostart_cab].field_weak2_pos = tumbler_field_weak2[autostart_cab].getPosition();
@@ -61,6 +62,12 @@ bool TEP70::initAutostartProgram(int cab_autostart_request)
 //------------------------------------------------------------------------------
 void TEP70::slotAutostart()
 {
+    if (autostart_mode == AS_MODE_STOP)
+    {
+        slotAutostop();
+        return;
+    }
+
     if (start_count < autostart_triggers.size())
     {
         // Отжимаем уже нажатую кнопку пуска дизеля
@@ -112,4 +119,12 @@ void TEP70::slotAutostart()
             autopilot_switcher[CAB2].set();
         }
     }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70::slotAutostop()
+{
+    // Реализация будет добавлена при описании процедуры автоостанова
 }

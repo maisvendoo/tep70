@@ -626,6 +626,15 @@ private:
     autostart_saved_state_t autostart_saved_state[CABS_NUM];
     bool autostart_state_saved[CABS_NUM] = {false, false};
 
+    /// Режим работы процедуры автостарта/автоостанова
+    enum AutostartMode
+    {
+        AS_MODE_START = 0,
+        AS_MODE_STOP = 1
+    };
+
+    AutostartMode autostart_mode = AS_MODE_START;
+
     TriggerControl autopilot_switcher[CABS_NUM];
 
     tep70_control_t *auto_control[CABS_NUM] = {nullptr, nullptr};
@@ -635,6 +644,8 @@ private:
     double charge_press = 0.0;
 
     bool initAutostartProgram(int cab_autostart_request);
+
+    bool initAutostopProgram(int cab_autostop_request);
 
     void initAutopilot(const QString& modules_dir, const QString& custom_cfg_dir);
 
@@ -651,6 +662,8 @@ private:
 private slots:
 
     void slotAutostart();
+
+    void slotAutostop();
 
     void slotInitTrainForAutopilot();
 };
