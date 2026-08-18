@@ -635,6 +635,13 @@ private:
 
     AutostartMode autostart_mode = AS_MODE_START;
 
+    /// Признак работы дизеля в момент выключения АВ "Топливный насос"
+    bool stop_diesel_was_running = false;
+    /// Признак наблюдаемой прокачки масла после остановки дизеля
+    bool stop_recirculation_seen = false;
+    /// Счётчик тиков ожидания завершения прокачки масла (страховка от зависания)
+    int stop_wait_ticks = 0;
+
     TriggerControl autopilot_switcher[CABS_NUM];
 
     tep70_control_t *auto_control[CABS_NUM] = {nullptr, nullptr};
@@ -646,6 +653,9 @@ private:
     bool initAutostartProgram(int cab_autostart_request);
 
     bool initAutostopProgram(int cab_autostop_request);
+
+    /// Проверка завершения прокачки масла после остановки дизеля
+    bool isOilRecirculationFinished();
 
     void initAutopilot(const QString& modules_dir, const QString& custom_cfg_dir);
 
