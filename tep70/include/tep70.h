@@ -613,6 +613,19 @@ private:
     size_t start_count = 0;
     size_t autostart_cab = 0;
 
+    /// Сохранённое перед автостартом состояние органов управления
+    struct autostart_saved_state_t
+    {
+        std::uint16_t field_weak1_pos = 0;
+        std::uint16_t field_weak2_pos = 0;
+        std::int8_t   km_main_shaft = 0;
+        std::int8_t   km_revers = 0;
+        bool          brake_lock_on = false;
+    };
+
+    autostart_saved_state_t autostart_saved_state[CABS_NUM];
+    bool autostart_state_saved[CABS_NUM] = {false, false};
+
     TriggerControl autopilot_switcher[CABS_NUM];
 
     tep70_control_t *auto_control[CABS_NUM] = {nullptr, nullptr};

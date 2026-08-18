@@ -21,6 +21,14 @@ bool TEP70::initAutostartProgram(int cab_autostart_request)
         return false;
 
     autostart_cab = cab_autostart_request;
+
+    autostart_saved_state[autostart_cab].field_weak1_pos = tumbler_field_weak1[autostart_cab].getPosition();
+    autostart_saved_state[autostart_cab].field_weak2_pos = tumbler_field_weak2[autostart_cab].getPosition();
+    autostart_saved_state[autostart_cab].km_main_shaft = km[autostart_cab]->getPositionNumber();
+    autostart_saved_state[autostart_cab].km_revers = km[autostart_cab]->getReversState();
+    autostart_saved_state[autostart_cab].brake_lock_on = brake_lock[autostart_cab]->isStateOn();
+    autostart_state_saved[autostart_cab] = true;
+
     km[autostart_cab]->insertReversHandle(true);
     brake_lock[autostart_cab]->setStateOn(true);
     epk[autostart_cab]->insertKey(true);
