@@ -11,6 +11,12 @@ bool TEP70::initAutostartProgram(int cab_autostart_request)
     if ((cab_autostart_request != CAB1) && (cab_autostart_request != CAB2))
         return false;
 
+    bool is_requested_cab_active = (cab_autostart_request == CAB1) ? cabine_switcher->isCabine1()
+                                                                   : cabine_switcher->isCabine2();
+
+    if (!is_requested_cab_active)
+        return false;
+
     if (km[(cab_autostart_request == CAB1) ? CAB2 : CAB1]->isReversHandle())
         return false;
 
@@ -130,6 +136,12 @@ bool TEP70::initAutostopProgram(int cab_autostop_request)
         return false;
 
     if ((cab_autostop_request != CAB1) && (cab_autostop_request != CAB2))
+        return false;
+
+    bool is_requested_cab_active = (cab_autostop_request == CAB1) ? cabine_switcher->isCabine1()
+                                                                  : cabine_switcher->isCabine2();
+
+    if (!is_requested_cab_active)
         return false;
 
     autostart_cab = cab_autostop_request;
