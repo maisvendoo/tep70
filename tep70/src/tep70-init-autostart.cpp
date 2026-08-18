@@ -162,11 +162,14 @@ bool TEP70::initAutostopProgram(int cab_autostop_request)
         brake_lock[autostart_cab]->setStateOn(autostart_saved_state[autostart_cab].brake_lock_on);
     }
 
+    // Выключаем ключ ЭПК (возврат в исходное положение перед автостартом).
+    // РБС не нажимаем: контроль бдительности нужен только при включённом ЭПК
+    epk[autostart_cab]->setKeyOn(false);
+
     // Отключаем органы управления в последовательности, обратной автозапуску
     start_count = 0;
     autostart_triggers.clear();
 
-    autostart_triggers.push_back(&rb[autostart_cab][RBS]);
     autostart_triggers.push_back(&azv_upr_tepl[autostart_cab]);
     autostart_triggers.push_back(&azv_fuel_pump[autostart_cab]);
     autostart_triggers.push_back(&azv_common_control[autostart_cab]);
@@ -236,12 +239,6 @@ void TEP70::slotAutostop()
         }
 
         autostart_triggers[start_count]->reset();
-
-        // Выключаем ключ ЭПК при сбросе рукоятки бдительности
-        if (autostart_triggers[start_count] == &rb[autostart_cab][RBS])
-        {
-            epk[autostart_cab]->setKeyOn(false);
-        }
 
         start_count++;
     }
