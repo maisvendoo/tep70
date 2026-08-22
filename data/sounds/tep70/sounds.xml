@@ -594,8 +594,8 @@
 	<Sound>
 		<SignalID>249</SignalID>
 		<Filename>skorostemer.wav</Filename>
-		<InitVolume>1.0</InitVolume>
-		<MaxVolume>1.0</MaxVolume>
+		<InitVolume>0.2</InitVolume>
+		<MaxVolume>0.2</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
@@ -1197,8 +1197,8 @@
 	<Sound>
 		<SignalID>299</SignalID>
 		<Filename>skorostemer.wav</Filename>
-		<InitVolume>1.0</InitVolume>
-		<MaxVolume>1.0</MaxVolume>
+		<InitVolume>0.2</InitVolume>
+		<MaxVolume>0.2</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
@@ -1549,7 +1549,361 @@
 		<PlayOnStart>0</PlayOnStart>
 		<LocalPosition>0.0 0.0 2.5</LocalPosition>
 	</Sound>
+	
+	<!-- Дизель -->
+	<Sound>
+		<SignalID>316</SignalID>
+		<Filename>x0.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
 
+	<Sound>
+		<SignalID>317</SignalID>
+		<Filename>x1.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>318</SignalID>
+		<Filename>x2.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>319</SignalID>
+		<Filename>x3.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>320</SignalID>
+		<Filename>x4.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>321</SignalID>
+		<Filename>x5.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>322</SignalID>
+		<Filename>x6.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>323</SignalID>
+		<Filename>x7.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>324</SignalID>
+		<Filename>x8.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>325</SignalID>
+		<Filename>x9.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>326</SignalID>
+		<Filename>x10.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>327</SignalID>
+		<Filename>x11.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>328</SignalID>
+		<Filename>x12.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>329</SignalID>
+		<Filename>x13.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>330</SignalID>
+		<Filename>x14.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>331</SignalID>
+		<Filename>x15.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+	
+	<!-- Дизель -->
+	<Sound>
+		<SignalID>316</SignalID>
+		<Filename>x0.wav</Filename>
+		<InitVolume>0.5</InitVolume>
+		<MaxVolume>0.5</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>317</SignalID>
+		<Filename>x1.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>318</SignalID>
+		<Filename>x2.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>319</SignalID>
+		<Filename>x3.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>320</SignalID>
+		<Filename>x4.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>321</SignalID>
+		<Filename>x5.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>322</SignalID>
+		<Filename>x6.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>323</SignalID>
+		<Filename>x7.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>324</SignalID>
+		<Filename>x8.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>325</SignalID>
+		<Filename>x9.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>326</SignalID>
+		<Filename>x10.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>327</SignalID>
+		<Filename>x11.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>328</SignalID>
+		<Filename>x12.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>329</SignalID>
+		<Filename>x13.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>330</SignalID>
+		<Filename>x14.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>331</SignalID>
+		<Filename>x15.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+	
 	<!-- Контактор топливного насоса -->
 	<Sound>
 		<SignalID>332</SignalID>
@@ -1909,7 +2263,31 @@
 		<PlayOnStart>0</PlayOnStart>
 		<LocalPosition>0.0 0.0 2.5</LocalPosition>
 	</Sound>
-
+	
+<!-- Маслопрокачивающий насос -->
+	<Sound>
+		<SignalID>361</SignalID>
+		<Filename>oil_pump.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 9.0 2.5</LocalPosition>
+	</Sound>
+	
+	<!-- Маслопрокачивающий насос -->
+	<Sound>
+		<SignalID>361</SignalID>
+		<Filename>oil_pump.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -9.0 2.5</LocalPosition>
+	</Sound>
+	
 	<!-- Стартер-генератор -->
 	<Sound>
 		<SignalID>362</SignalID>

@@ -71,7 +71,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_SIGLIGHT_OIL_PRESS + d] = getLampState(hs_p(0.1 - disel->getOilPressure()));
         analogSignal[CAB1_SIGLIGHT_ZHAL_ET1 + d] = 0.0f;
         analogSignal[CAB1_SIGLIGHT_ZHAL_ET2 + d] = 0.0f;
-        analogSignal[CAB1_SIGLIGHT_NO_BATTERY_CHARGE] = getLampState(hs_p(100.0 - starter_generator->getVoltage()));
+        analogSignal[CAB1_SIGLIGHT_NO_BATTERY_CHARGE + d] = getLampState(hs_p(100.0 - starter_generator->getVoltage()));
 
         // Сигнальные лампы на пульте помощника
         analogSignal[CAB1_SIGLIGHT_RES_FUELPUMP + d] = 0.0f;

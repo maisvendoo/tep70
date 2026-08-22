@@ -87,6 +87,13 @@ public:
         slotRotateReversShaft();
     }
 
+    /// Вернуть реверсивный вал в нулевое положение
+    void setReversZero()
+    {
+        rs_dir = 0;
+        rs_position = RS_ZERO;
+    }
+
     void setPos(int8_t pos)
     {
         ms_position = cut(pos, static_cast<int8_t>(MS_ZERO), static_cast<int8_t>(MS_MAX_POSITION));

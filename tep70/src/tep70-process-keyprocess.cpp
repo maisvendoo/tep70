@@ -50,6 +50,19 @@ void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
         return;
     }
 
+    // Автоостанов
+    if (getKeyState(KEY_T, CAB1) && isAlt(CAB1) && initAutostopProgram(CAB1))
+    {
+        autoStartTimer->start();
+        return;
+    }
+
+    if (getKeyState(KEY_T, CAB2) && isAlt(CAB2) && initAutostopProgram(CAB2))
+    {
+        autoStartTimer->start();
+        return;
+    }
+
     for (auto cab_idx : {CAB1, CAB2})
     {
         // Управляем краном, учитывая возможное наличие внешнего пульта
