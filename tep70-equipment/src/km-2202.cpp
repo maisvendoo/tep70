@@ -70,9 +70,92 @@ bool ControllerKM2202::isReversHandle() const
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
+void ControllerKM2202::setReversHandlePos(int8_t pos)
+{
+    if (isReversHandle())
+    {
+        if (ms_position == MS_ZERO)
+        {
+            // Задаём новое положение реверсивной рукоятки
+            pos = std::clamp(pos, static_cast<std::int8_t>(RS_BACKWARD), static_cast<std::int8_t>(RS_FORWARD));
+        }
+        else
+        {
+            // Если штурвал не в нулевой позиции, реверсивка заблокирована в своём положении
+            pos = rs_position;
+        }
+    }
+    else
+    {
+        // При снятой реверсивке всегда в нуле
+        rs_position = RS_ZERO;
+    }
+
+    if (rs_position == pos)
+    {
+        // Переключать нечего, выходим
+        return;
+    }
+
+    // Переключаем и озвучиваем
+    rs_position = pos;
+    sound_states[REVERS_SHAFT].play();
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+int8_t ControllerKM2202::getReversHandlePos() const
+{
+    return rs_position;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void ControllerKM2202::setPosition(std::int8_t pos)
+{
+    if (rs_position == RS_ZERO)
+    {
+        // Блокировка поворота штурвала при нулевом положении реверсивки
+        pos = MS_ZERO;
+    }
+    else
+    {
+        pos = std::clamp(pos, static_cast<std::int8_t>(MS_ZERO), static_cast<std::int8_t>(MS_MAX_POSITION));
+    }
+
+
+    if (ms_position == pos)
+    {
+        // Переключать нечего, выходим
+        return;
+    }
+
+    // Переключаем и озвучиваем
+    ms_position = pos;
+    sound_states[MAIN_SHAFT].play();
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 float ControllerKM2202::getMainShaftPos() const
 {
     return static_cast<float>(ms_position) / MS_MAX_POSITION;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+sound_state_t ControllerKM2202::getSoundState(size_t idx) const
+{
+    if (idx < NUM_SOUNDS)
+    {
+        return sound_states[idx];
+    }
+
+    return is_revers_handle.getSoundState(idx - NUM_SOUNDS);
 }
 
 //------------------------------------------------------------------------------
@@ -159,8 +242,7 @@ void ControllerKM2202::stepKeysControl(double t, double dt)
             ms_dir = 1;
             main_shaft_timer.start();
         }
-
-        if (getKeyState(*pressed_keys, KEY_D))
+        else if (getKeyState(*pressed_keys, KEY_D))
         {
 /*            if (!isModifier(*pressed_keys, MODIFIER_Control))
             {*/
@@ -169,7 +251,7 @@ void ControllerKM2202::stepKeysControl(double t, double dt)
 /*            }
             else
             {
-                ms_position = MS_ZERO;
+                setPosition(MS_ZERO);
             }*/
         }
     }
@@ -230,19 +312,7 @@ void ControllerKM2202::stepKeysControl(double t, double dt)
 //------------------------------------------------------------------------------
 void ControllerKM2202::slotRotateMainShaft()
 {
-    // Механическая блокировка поворота главного вала
-    // в нулевом положении реверсивного
-    if (rs_position == RS_ZERO)
-    {
-        return;
-    }
-
-    std::int8_t pos_old = ms_position;
-    ms_position += ms_dir;
-    ms_position = std::clamp(ms_position, static_cast<std::int8_t>(MS_ZERO), static_cast<std::int8_t>(MS_MAX_POSITION));
-
-    if (ms_position != pos_old)
-        sound_states[MAIN_SHAFT].play(true);
+    setPosition(ms_position + ms_dir);
 }
 
 //------------------------------------------------------------------------------
@@ -250,16 +320,5 @@ void ControllerKM2202::slotRotateMainShaft()
 //------------------------------------------------------------------------------
 void ControllerKM2202::slotRotateReversShaft()
 {
-    // Механическая блокировка реверсивки на рабочих позициях
-    if (ms_position != MS_ZERO)
-    {
-        return;
-    }
-
-    std::int8_t pos_old = rs_position;
-    rs_position += rs_dir;
-    rs_position = std::clamp(rs_position, static_cast<std::int8_t>(RS_BACKWARD), static_cast<std::int8_t>(RS_FORWARD));
-
-    if (rs_position != pos_old)
-        sound_states[REVERS_SHAFT].play(true);
+    setReversHandlePos(rs_position + rs_dir);
 }

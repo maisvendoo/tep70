@@ -82,7 +82,7 @@ void TEP70::stepAutopilot(double t, double dt)
         auto_control[cab_idx]->press_RB ? rb[cab_idx][RBS].set() : rb[cab_idx][RBS].reset();
 
         // Управление КМ
-        km[cab_idx]->setPos(auto_control[cab_idx]->km_pos);
+        km[cab_idx]->setPosition(auto_control[cab_idx]->km_pos);
 
         // Управление КрМ
         brake_crane[cab_idx]->setHandlePosition(auto_control[cab_idx]->krm_pos);

@@ -10,7 +10,7 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
 
     DebugMsg = "";
 
-    DebugMsg += QString("%1CABINE 1|").arg(cabine_switcher->isCabine1() ? ">>" : "  ");
+    DebugMsg += QString("%1 CAB 1|").arg(cabine_switcher->isCabine1() ? ">>" : "  ");
     if (brake_lock[CAB1]->isStateOn())
     {
         DebugMsg += QString("367comb:%1|395:%2|pER%3|254:%4%|")
@@ -28,7 +28,7 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
     if (km[CAB1]->isReversHandle())
     {
         DebugMsg += QString("Rev%1|Pos %2|")
-                        .arg(km[CAB1]->getReversState(), 2)
+                        .arg(km[CAB1]->getReversHandlePos(), 2)
                         .arg(km[CAB1]->getPositionNumber(), 2);
     }
     else
@@ -134,7 +134,7 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                     .arg(hose_bc_bwd->isLinked() ? "/" : " ");
 
     DebugMsg += QString("\n");
-    DebugMsg += QString("%1CABINE 2|").arg(cabine_switcher->isCabine2() ? ">>" : "  ");
+    DebugMsg += QString("%1 CAB 2|").arg(cabine_switcher->isCabine2() ? ">>" : "  ");
     if (brake_lock[CAB2]->isStateOn())
     {
         DebugMsg += QString("367comb:%1|395:%2|pER%3|254:%4%|")
@@ -152,7 +152,7 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
     if (km[CAB2]->isReversHandle())
     {
         DebugMsg += QString("Rev%1|Pos %2|")
-                        .arg(km[CAB2]->getReversState(), 2)
+                        .arg(km[CAB2]->getReversHandlePos(), 2)
                         .arg(km[CAB2]->getPositionNumber(), 2);
     }
     else

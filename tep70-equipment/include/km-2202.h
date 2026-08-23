@@ -33,8 +33,20 @@ public:
     /// Признак вставленной реверсивной рукоятки
     bool isReversHandle() const;
 
+    /// Задать положение реверсивной рукоятки (-1, 0, 1)
+    void setReversHandlePos(std::int8_t pos);
+
     /// Вернуть текущую позицию реверсивки
-    std::int8_t getReversState() const { return rs_position; }
+    std::int8_t getReversHandlePos() const;
+
+    /// Получить состояние контакта "Вперед"
+    bool isForward() const { return rs_position == RS_FORWARD; }
+
+    /// Получить состояние контакта "Назад"
+    bool isBackward() const { return rs_position == RS_BACKWARD; }
+
+    /// Задать позицию штурвала (0 .. 15)
+    void setPosition(std::int8_t pos);
 
     /// Вернуть текущую позицию штурвала
     std::int8_t getPositionNumber() const { return ms_position; }
@@ -57,57 +69,31 @@ public:
     /// Получить заданную частоту вращения коленчатого вала дизеля
     double getRefFreq() const { return n_ref[ms_position]; }
 
-    /// Получить состояние контакта "Вперед"
-    bool isForward() const { return rs_position == RS_FORWARD; }
-
-    /// Получить состояние контакта "Назад"
-    bool isBackward() const { return rs_position == RS_BACKWARD; }
-
     enum
     {
-        NUM_SOUNDS = 2,
-        MAIN_SHAFT = 0,
-        REVERS_SHAFT = 1,
+        REVERS_SHAFT,
+        MAIN_SHAFT,
+        NUM_SOUNDS,
         HANDLE_CHANGE_SOUND = NUM_SOUNDS + Trigger::CHANGE_SOUND,
         HANDLE_INSERTED_SOUND = NUM_SOUNDS + Trigger::ON_SOUND,
         HANDLE_REMOVED_SOUND = NUM_SOUNDS + Trigger::OFF_SOUND
     };
 
-    float getSoundSignal(size_t idx = 0) const override;
+    /// Состояние звука
+    sound_state_t getSoundState(size_t idx = REVERS_SHAFT) const override;
 
-    void setReversFwd()
-    {
-        rs_dir = 1;
-        slotRotateReversShaft();
-    }
-
-    void setReversBwd()
-    {
-        rs_dir = -1;
-        slotRotateReversShaft();
-    }
-
-    /// Вернуть реверсивный вал в нулевое положение
-    void setReversZero()
-    {
-        rs_dir = 0;
-        rs_position = RS_ZERO;
-    }
-
-    void setPos(int8_t pos)
-    {
-        ms_position = cut(pos, static_cast<int8_t>(MS_ZERO), static_cast<int8_t>(MS_MAX_POSITION));
-    }
+    /// Сигнал состояния звука
+    float getSoundSignal(size_t idx = REVERS_SHAFT) const override;
 
 private:
 
-    enum
+    enum : std::int8_t
     {
         MS_ZERO = 0,
         MS_MAX_POSITION = 15
     };
 
-    enum
+    enum : std::int8_t
     {
         RS_FORWARD = 1,
         RS_ZERO = 0,
