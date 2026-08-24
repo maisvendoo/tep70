@@ -45,6 +45,12 @@ void ControllerKM2202::insertReversHandle(bool insert)
 {
     insert = insert && is_reverse_handle_allowed;
 
+    // Вставка и извлечение рукоятки только в нулевом положении вала
+    if (rs_position != RS_ZERO)
+    {
+        return;
+    }
+
     if (insert)
     {
         // Вставляем реверсивную рукоятку
@@ -52,11 +58,8 @@ void ControllerKM2202::insertReversHandle(bool insert)
         return;
     }
 
-    // Извлечение реверсивной рукоятки только в нулевом положении
-    if (rs_position == RS_ZERO)
-    {
-        is_revers_handle.reset();
-    }
+    // Извлекаем реверсивную рукоятку
+    is_revers_handle.reset();
 }
 
 //------------------------------------------------------------------------------
@@ -252,6 +255,12 @@ void ControllerKM2202::slotRotateReversShaft()
 {
     // Механическая блокировка реверсивки на рабочих позициях
     if (ms_position != MS_ZERO)
+    {
+        return;
+    }
+
+    // Без реверсивной рукоятки поворот вала невозможен
+    if (!is_revers_handle.getState())
     {
         return;
     }
