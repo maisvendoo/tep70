@@ -32,7 +32,7 @@ bool TEP70::initAutostartProgram(int cab_autostart_request)
     autostart_saved_state[autostart_cab].field_weak1_pos = tumbler_field_weak1[autostart_cab].getPosition();
     autostart_saved_state[autostart_cab].field_weak2_pos = tumbler_field_weak2[autostart_cab].getPosition();
     autostart_saved_state[autostart_cab].km_main_shaft = km[autostart_cab]->getPositionNumber();
-    autostart_saved_state[autostart_cab].km_revers = km[autostart_cab]->getReversState();
+    autostart_saved_state[autostart_cab].km_revers = km[autostart_cab]->getReversHandlePos();
     autostart_saved_state[autostart_cab].brake_lock_on = brake_lock[autostart_cab]->isStateOn();
     autostart_state_saved[autostart_cab] = true;
 
@@ -110,7 +110,7 @@ void TEP70::slotAutostart()
         tumbler_field_weak1[autostart_cab].setPosition(2);
         tumbler_field_weak2[autostart_cab].setPosition(2);
 
-        km[autostart_cab]->setReversFwd();
+        km[autostart_cab]->setReversHandlePos(1);
 
         km[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
         km[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
@@ -161,7 +161,7 @@ bool TEP70::initAutostopProgram(int cab_autostop_request)
     // Возвращаем главный вал КМ в нулевое положение.
     // Это необходимо для работы цепи прокачки масла после остановки
     // дизеля и для снятия блокировки реверсивного вала
-    km[autostart_cab]->setPos(0);
+    km[autostart_cab]->setPosition(0);
 
     // Восстанавливаем состояние органов управления, сохранённое перед автостартом
     if (autostart_state_saved[autostart_cab])
@@ -169,7 +169,7 @@ bool TEP70::initAutostopProgram(int cab_autostop_request)
         tumbler_field_weak1[autostart_cab].setPosition(autostart_saved_state[autostart_cab].field_weak1_pos);
         tumbler_field_weak2[autostart_cab].setPosition(autostart_saved_state[autostart_cab].field_weak2_pos);
 
-        km[autostart_cab]->setReversZero();
+        km[autostart_cab]->setReversHandlePos(0);
 
         brake_lock[autostart_cab]->setStateOn(autostart_saved_state[autostart_cab].brake_lock_on);
     }

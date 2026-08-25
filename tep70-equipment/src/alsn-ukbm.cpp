@@ -60,7 +60,7 @@ void SafetyDevice::preStep(state_vector_t &Y, double t)
         epk_state.reset();
 
         // Не даем возможности отбить свисток только при превышении 20 км/ч
-        if (v_kmh > 20.0)
+        if (v_kmh > 21.0)
         {
             return;
         }
@@ -84,7 +84,7 @@ void SafetyDevice::preStep(state_vector_t &Y, double t)
 
     if (is_lamp_on(RED_YELLOW_LAMP))
     {
-        if (v_kmh > 60.0)
+        if (v_kmh > 61.0)
         {
             setPSS();
             epk_state.reset();
@@ -99,7 +99,7 @@ void SafetyDevice::preStep(state_vector_t &Y, double t)
 
     if (is_lamp_on(YELLOW_LAMP))
     {
-        if (v_kmh > 60.0)
+        if (v_kmh > 61.0)
         {
             if (!safety_timer->isStarted())
                 safety_timer->start();
