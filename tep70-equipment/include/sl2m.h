@@ -27,7 +27,7 @@ public:
     /// Угол поворота стрелки указателя скорости, д.е.
     float getArrowPos() const;
 
-    /// Угол поворота вала привода, рад.
+    /// Счётчик оборотов вала привода, ед.
     float getShaftPos() const;
 
     /// Состояние звука работы часового механизма
@@ -55,7 +55,7 @@ private:
     double omega = 0.0;
 
     /// Шаг засечек для фиксации скорости на сегменте, м/с
-    float velocity_segment_step = 2.5 / Physics::kmh;
+    float velocity_segment_step = 3.666667 / Physics::kmh;
 
     /// Максимальная скорость на шкале, м/с
     float max_speed = 220.0 / Physics::kmh;
