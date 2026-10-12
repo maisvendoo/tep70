@@ -128,8 +128,10 @@ void TEP70::slotAutostart()
 
         // Синхронизируем control_inputs для контролов, переведённых на IOController
         control_inputs[autostart_cab][CTRL_AZV_COMMON_CONTROL].value = 1.0f;
+        control_inputs[autostart_cab][CTRL_AZV_UPR_TEPL].value = 1.0f;
         control_inputs[autostart_cab][CTRL_AZV_FUEL_PUMP].value = 1.0f;
         control_inputs[autostart_cab][CTRL_BUTTON_DISEL_START].value = 0.0f;
+        control_inputs[autostart_cab][CTRL_RBS].value = 1.0f;
     }
 }
 
@@ -273,8 +275,8 @@ void TEP70::slotAutostop()
         epk[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
 
         // Синхронизируем control_inputs после автоостанова
-        control_inputs[autostart_cab][CTRL_AZV_COMMON_CONTROL].value = 0.0f;
+        control_inputs[autostart_cab][CTRL_AZV_UPR_TEPL].value = 0.0f;
         control_inputs[autostart_cab][CTRL_AZV_FUEL_PUMP].value = 0.0f;
-        control_inputs[autostart_cab][CTRL_BUTTON_DISEL_START].value = 0.0f;
+        control_inputs[autostart_cab][CTRL_AZV_COMMON_CONTROL].value = 0.0f;
     }
 }
