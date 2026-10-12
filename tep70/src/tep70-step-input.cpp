@@ -190,10 +190,10 @@ void TEP70::stepControls(double t, double dt)
     auto &shared_inputs = control_inputs[CABS_NUM];
 
     bool rod_fwd = shared_inputs[CTRL_OPER_ROD_FWD].toBool();
-    rod_fwd ? oper_rod_fwd->release() : oper_rod_fwd->lock();
+    oper_rod_fwd->setExternalState(rod_fwd ? -1.0 : 1.0);
 
     bool rod_bwd = shared_inputs[CTRL_OPER_ROD_BWD].toBool();
-    rod_bwd ? oper_rod_bwd->release() : oper_rod_bwd->lock();
+    oper_rod_bwd->setExternalState(rod_bwd ? -1.0 : 1.0);
 
     bool ac_bc_fwd = shared_inputs[CTRL_ANGLECOCK_BC_FWD].toBool();
     ac_bc_fwd ? anglecock_bc_fwd->open() : anglecock_bc_fwd->close();
