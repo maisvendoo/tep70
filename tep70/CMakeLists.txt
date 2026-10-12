@@ -19,6 +19,7 @@ add_library (${TARGET} SHARED ${SOURCES} ${INCLUDES} ${EQP_SOURCES} ${EQP_INCLUD
 
 target_include_directories (${TARGET} PRIVATE ./include/)
 target_include_directories (${TARGET} PRIVATE ../tep70-equipment/include)
+target_include_directories (${TARGET} PRIVATE ../tep70-iocontroller/include)
 
 target_link_libraries (${TARGET} Qt6::Xml)
 target_link_libraries (${TARGET} CfgReader)

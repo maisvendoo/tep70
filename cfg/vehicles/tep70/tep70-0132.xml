@@ -30,6 +30,10 @@
 		<ElectroAirDistModule>evr305</ElectroAirDistModule>
 		<ElectroAirDistConfig>evr305</ElectroAirDistConfig>
 
+		<CustomModulesDir>tep70</CustomModulesDir>
+		<IOControllerModule>tep70-iocontroller</IOControllerModule>
+		<IOControllerConfig>tep70-iocontroller</IOControllerConfig>
+
 	</Vehicle>
 
 

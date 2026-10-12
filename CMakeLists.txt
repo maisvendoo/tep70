@@ -7,8 +7,15 @@ set(RRS_VERSION 1.9.0)
 # No lib prefix in all shared libraries
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 
+option(CLIENT_BUILD "Build for client usage" ON)
+
 add_subdirectory (tep70)
 add_subdirectory (tep70-autopilot)
+
+if (CLIENT_BUILD)
+    add_subdirectory (tep70-iocontroller)
+endif()
+
 #add_subdirectory (tep70bs)
 #add_subdirectory (klub-display)
 #add_subdirectory (msut-display)
