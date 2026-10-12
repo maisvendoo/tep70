@@ -1,4 +1,5 @@
 #include    <tep70.h>
+#include    <tep70-controls.h>
 
 //------------------------------------------------------------------------------
 //
@@ -124,6 +125,11 @@ void TEP70::slotAutostart()
             autopilot_switcher[CAB1].set();
             autopilot_switcher[CAB2].set();
         }
+
+        // Синхронизируем control_inputs для контролов, переведённых на IOController
+        control_inputs[autostart_cab][CTRL_AZV_COMMON_CONTROL].value = 1.0f;
+        control_inputs[autostart_cab][CTRL_AZV_FUEL_PUMP].value = 1.0f;
+        control_inputs[autostart_cab][CTRL_BUTTON_DISEL_START].value = 0.0f;
     }
 }
 
@@ -265,5 +271,10 @@ void TEP70::slotAutostop()
         brake_lock[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
         epk[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
         epk[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
+
+        // Синхронизируем control_inputs после автоостанова
+        control_inputs[autostart_cab][CTRL_AZV_COMMON_CONTROL].value = 0.0f;
+        control_inputs[autostart_cab][CTRL_AZV_FUEL_PUMP].value = 0.0f;
+        control_inputs[autostart_cab][CTRL_BUTTON_DISEL_START].value = 0.0f;
     }
 }

@@ -77,6 +77,8 @@ void TEP70::process(const simulator_time_t& t, const double& dt)
     if (needDebugMsg)
         debugPrint(t, dt);
 
+    stepControls(t.simulation_seconds, dt);
+
     keyProcess(t, dt);
 
     signalsOutput(t, dt);

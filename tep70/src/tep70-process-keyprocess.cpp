@@ -109,9 +109,9 @@ void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
         // Тумблеры, кнопки
         azv_cabine_light[cab_idx].step();
         azv_panel_light[cab_idx].step();
-        azv_common_control[cab_idx].step();
+        //azv_common_control[cab_idx].step(); // IOController
         azv_upr_tepl[cab_idx].step();
-        azv_fuel_pump[cab_idx].step();
+        //azv_fuel_pump[cab_idx].step(); // IOController
         azv_edt_on[cab_idx].step();
         azv_ept_on[cab_idx].step();
         azv_ept_power[cab_idx].step();
@@ -129,7 +129,7 @@ void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
         tumbler_bufferliht_R[cab_idx].step();
         tumbler_number_light[cab_idx].step();
 
-        button_disel_start[cab_idx].step();
+        //button_disel_start[cab_idx].step(); // IOController
         button_brake_release[cab_idx].step();
         button_svistok[cab_idx].step();
         button_tifon[cab_idx].step();

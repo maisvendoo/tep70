@@ -127,12 +127,11 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         azv_panel_light[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
         azv_panel_light[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
 
-        // АЗВ "Управление общее" (АВ 2)
+        // АЗВ "Управление общее" (АВ 2) — управляется через IOController
         azv_common_control[cab_idx].setKeySymbolOn(KEY_U);
         azv_common_control[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
         azv_common_control[cab_idx].setKeySymbolOff(KEY_U);
         azv_common_control[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
-        azv_common_control[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
 
         // АЗВ "Управление тепловозом" (АВ 1)
         azv_upr_tepl[cab_idx].setKeySymbolOn(KEY_I);
@@ -141,12 +140,11 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         azv_upr_tepl[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
         azv_upr_tepl[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
 
-        // АЗВ "Топливный насос" (АВ 4)
+        // АЗВ "Топливный насос" (АВ 4) — управляется через IOController
         azv_fuel_pump[cab_idx].setKeySymbolOn(KEY_P);
         azv_fuel_pump[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
         azv_fuel_pump[cab_idx].setKeySymbolOff(KEY_P);
         azv_fuel_pump[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
-        azv_fuel_pump[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
 
         // АЗВ "ЭДТ" (АВ 7)
         azv_edt_on[cab_idx].setKeySymbolOn(KEY_F);
@@ -259,12 +257,11 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         tumbler_number_light[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
         tumbler_number_light[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
 
-        // Кнопка "Пуск дизеля" (Кн 3)
+        // Кнопка "Пуск дизеля" (Кн 3) — управляется через IOController
         button_disel_start[cab_idx].setKeySymbolOn(KEY_P);
         button_disel_start[cab_idx].setKeyModifierOn(MODIFIER_OnlyAlt);
         button_disel_start[cab_idx].setKeySymbolOff(KEY_Undefined);
         button_disel_start[cab_idx].setKeyModifierOff(KEY_Undefined);
-        button_disel_start[cab_idx].setControl(&pressed_keys_by_cabine[cab_idx]);
 
         // Кнопка "Отпуск тормозов" (Кн 17)
         button_brake_release[cab_idx].setKeySymbolOn(KEY_Slash);

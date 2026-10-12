@@ -545,6 +545,9 @@ private:
     /// Управление
     void keyProcess(const simulator_time_t& t, const double& dt);
 
+    /// Обработка сигналов от IOController
+    void stepControls(double t, double dt);
+
     /// Отладочная строка
     void debugPrint(const simulator_time_t& t, const double& dt);
 
