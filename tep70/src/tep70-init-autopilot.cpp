@@ -99,12 +99,14 @@ void TEP70::OnAutopilot()
     // Делаем автозапуск
     if (km[CAB1]->isReversHandle())
     {
+        cabine_switcher->setCabineIndex(CAB1);
         initAutostartProgram(CAB1);
         //autopilot_switcher[CAB1].set();
     }
 
     if (km[CAB2]->isReversHandle())
     {
+        cabine_switcher->setCabineIndex(CAB2);
         initAutostartProgram(CAB2);
         //autopilot_switcher[CAB2].set();
     }

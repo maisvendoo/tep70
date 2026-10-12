@@ -17,6 +17,7 @@ public:
     void setCabineIndex(int cabine_idx)
     {
         this->cabine_idx = cabine_idx;
+        update();
     }
 
     bool isCabine1() const
@@ -45,6 +46,8 @@ private:
     void ode_system(const state_vector_t &Y, state_vector_t &dYdt, double t);
 
     void load_config(CfgReader &cfg);
+
+    void update();
 };
 
 #endif
