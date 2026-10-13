@@ -796,18 +796,18 @@
 		<ID>221</ID>
 		<Name>Свисток</Name>
 		<Type>Button</Type>
-		<value>0</value>
-		<KeyName>KEY_Space</KeyName>
-		<KeyModOnName>Any</KeyModOnName>
+		<value1>0</value1>
+		<value2>0</value2>
+		<KeyName>KEY_Space</KeyName>		
 	</Control>
 
 	<Control>
 		<ID>222</ID>
 		<Name>Тифон</Name>
 		<Type>Button</Type>
-		<value>0</value>
-		<KeyName>KEY_B</KeyName>
-		<KeyModOnName>Any</KeyModOnName>
+		<value1>0</value1>
+		<value2>0</value2>
+		<KeyName>KEY_B</KeyName>		
 	</Control>
 
 </Config>
