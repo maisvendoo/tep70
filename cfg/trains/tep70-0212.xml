@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+	<Common>
+		<!-- Зарядное давление, МПа -->
+		<ChargingPressure>0.5</ChargingPressure>
+		<!-- Поезд без воздуха (1 - без воздуха, 0 - полностью заряженный) -->
+		<NoAir>0</NoAir>
+
+		<Title>ТЭП70-0212 (резервом)</Title>
+		<Description>Магистральный пассажирский тепловоз Коломенского завода</Description>
+	</Common>
+
+	<Vehicle>
+		<ModuleDir>tep70</ModuleDir>
+		<Module>tep70</Module>
+		<ModuleConfigDir>tep70</ModuleConfigDir>
+		<ModuleConfig>tep70-0212</ModuleConfig>
+		<IsOrientationForward>1</IsOrientationForward>
+		<Count>1</Count>
+		<PayloadCoeff>1</PayloadCoeff>
+	</Vehicle>
+
+</Config>

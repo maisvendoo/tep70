@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+	<Vehicle>
+		<EmptyMass>129000</EmptyMass>
+		<PayloadMass>800</PayloadMass>
+		<Length>21.7</Length>
+		<WheelDiameter>1.22</WheelDiameter>
+		<MainResist>loco-resist</MainResist>
+		<WheelRailFriction>loco-diesel</WheelRailFriction>
+		<NumAxis>6</NumAxis>
+		<WheelInertia>100.0</WheelInertia>
+		<SoundDir>tep70</SoundDir>
+
+		<ReductorCoeff>3.12</ReductorCoeff>
+		<FuelCapacity>6000</FuelCapacity>
+		<FuelLevel>1.0</FuelLevel>
+
+		<CouplingModule>sa3</CouplingModule>
+		<CouplingConfig>sa3</CouplingConfig>
+
+		<BrakeCraneModule>krm395</BrakeCraneModule>
+		<BrakeCraneConfig>krm395</BrakeCraneConfig>
+
+		<LocoCraneModule>kvt254</LocoCraneModule>
+		<LocoCraneConfig>kvt254</LocoCraneConfig>
+
+		<AirDistModule>vr242</AirDistModule>
+		<AirDistConfig>vr242</AirDistConfig>
+
+		<ElectroAirDistModule>evr305</ElectroAirDistModule>
+		<ElectroAirDistConfig>evr305</ElectroAirDistConfig>
+
+		<CustomModulesDir>tep70</CustomModulesDir>
+		<IOControllerModule>tep70-iocontroller</IOControllerModule>
+		<IOControllerConfig>tep70-iocontroller</IOControllerConfig>
+
+	</Vehicle>
+
+
+	<Cabine>
+		<DriverPos>0.9 9.2 3.3</DriverPos>
+		<DriverDir>0.0</DriverDir>
+	</Cabine>
+
+	<Cabine>
+		<DriverPos>-0.9 -9.2 3.3</DriverPos>
+		<DriverDir>180.0</DriverDir>
+	</Cabine>
+
+
+	<Model>
+		<ModelName>tep70-0212/tep70-0212.gltf</ModelName>
+		<AnimationsConfigDir>tep70-0212</AnimationsConfigDir>
+	</Model>	
+
+</Config>
