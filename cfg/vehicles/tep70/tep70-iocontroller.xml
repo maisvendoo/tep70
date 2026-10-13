@@ -9,7 +9,7 @@
 	-->
 	<Control>
 		<ID>100</ID>
-		<Name>Освещение кабины (АВ 26)</Name>
+		<Name>Освещение кабины (АВ26)</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -22,7 +22,7 @@
 
 	<Control>
 		<ID>101</ID>
-		<Name>Освещение пульта (АВ 25)</Name>
+		<Name>Освещение пульта (АВ25)</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -35,7 +35,7 @@
 
 	<Control>
 		<ID>102</ID>
-		<Name>Управление общее (АВ 2)</Name>
+		<Name>Управление общее (АВ2)</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -48,7 +48,7 @@
 
 	<Control>
 		<ID>103</ID>
-		<Name>Управление тепловозом (АВ 1)</Name>
+		<Name>Управление тепловозом (АВ1)</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -61,7 +61,7 @@
 
 	<Control>
 		<ID>104</ID>
-		<Name>Топливный насос (АВ 4)</Name>
+		<Name>Топливный насос (АВ4)</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -87,7 +87,7 @@
 
 	<Control>
 		<ID>106</ID>
-		<Name>ЭПТ (АВ 19)</Name>
+		<Name>ЭПТ (АВ19)</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -100,7 +100,7 @@
 
 	<Control>
 		<ID>107</ID>
-		<Name>ЭПТ питание (АВ 18)</Name>
+		<Name>ЭПТ питание (АВ18)</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -113,7 +113,7 @@
 
 	<Control>
 		<ID>108</ID>
-		<Name>Прожектор тускло (АВ 23)</Name>
+		<Name>Прожектор тускло (АВ23)</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -126,7 +126,7 @@
 
 	<Control>
 		<ID>109</ID>
-		<Name>Прожектор ярко (АВ 24)</Name>
+		<Name>Прожектор ярко (АВ24)</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -147,10 +147,12 @@
 		<value1>1</value1>
 		<value2>1</value2>
 		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
 		<KeyNameInc>KEY_1</KeyNameInc>
 		<KeyModIncName>Shift</KeyModIncName>
 		<KeyNameDec>KEY_1</KeyNameDec>
-		<KeyModDecName>Ctrl</KeyModDecName>
+		<KeyModDecName>Ctrl</KeyModDecName>		
 		<ObjectNameCab1>Cab1_tumbler_field_weak1</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_field_weak1</ObjectNameCab2>
 	</Control>
@@ -162,6 +164,8 @@
 		<value1>1</value1>
 		<value2>1</value2>
 		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
 		<KeyNameInc>KEY_2</KeyNameInc>
 		<KeyModIncName>Shift</KeyModIncName>
 		<KeyNameDec>KEY_2</KeyNameDec>
@@ -177,6 +181,8 @@
 		<value1>1</value1>
 		<value2>1</value2>
 		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
 		<KeyNameInc>KEY_3</KeyNameInc>
 		<KeyModIncName>Shift</KeyModIncName>
 		<KeyNameDec>KEY_3</KeyNameDec>
@@ -192,6 +198,8 @@
 		<value1>1</value1>
 		<value2>1</value2>
 		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
 		<KeyNameInc>KEY_4</KeyNameInc>
 		<KeyModIncName>Shift</KeyModIncName>
 		<KeyNameDec>KEY_4</KeyNameDec>
@@ -236,6 +244,8 @@
 		<value1>1</value1>
 		<value2>1</value2>
 		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
 		<KeyNameInc>KEY_G</KeyNameInc>
 		<KeyModIncName>Shift</KeyModIncName>
 		<KeyNameDec>KEY_G</KeyNameDec>
@@ -251,6 +261,8 @@
 		<value1>1</value1>
 		<value2>1</value2>
 		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
 		<KeyNameInc>KEY_J</KeyNameInc>
 		<KeyModIncName>Shift</KeyModIncName>
 		<KeyNameDec>KEY_J</KeyNameDec>
@@ -406,6 +418,8 @@
 		<value1>0</value1>
 		<value2>0</value2>
 		<NumPositions>12</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>11</MaxValue>
 		<KeyNameInc>KEY_Period</KeyNameInc>
 		<KeyModIncName>Any</KeyModIncName>
 		<KeyNameDec>KEY_Comma</KeyNameDec>

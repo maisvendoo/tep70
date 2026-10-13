@@ -135,10 +135,10 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_AZV_SPOTLIGHT_HIGH + d] = static_cast<float>(azv_spotlight_high[cab_idx].getState());
 
         // Тумблеры на пульте машиниста
-        analogSignal[CAB1_TUMBLER_FIELD_WEAK1 + d] = tumbler_field_weak1[cab_idx].getHandlePosition();
-        analogSignal[CAB1_TUMBLER_FIELD_WEAK2 + d] = tumbler_field_weak2[cab_idx].getHandlePosition();
-        analogSignal[CAB1_TUMBLER_WATER_ZALUZI + d] = tumbler_water_zaluzi[cab_idx].getHandlePosition();
-        analogSignal[CAB1_TUMBLER_OIL_ZALUZI + d] = tumbler_oil_zaluzi[cab_idx].getHandlePosition();
+        analogSignal[CAB1_TUMBLER_FIELD_WEAK1 + d] = tumbler_field_weak1[cab_idx].getPosition();
+        analogSignal[CAB1_TUMBLER_FIELD_WEAK2 + d] = tumbler_field_weak2[cab_idx].getPosition();
+        analogSignal[CAB1_TUMBLER_WATER_ZALUZI + d] = tumbler_water_zaluzi[cab_idx].getPosition();
+        analogSignal[CAB1_TUMBLER_OIL_ZALUZI + d] = tumbler_oil_zaluzi[cab_idx].getPosition();
 
         // Тумблеры на пульте помощника
         analogSignal[CAB1_TUMBLER_VOLTMETER + d] = static_cast<float>(tumbler_voltage[cab_idx].getState());
