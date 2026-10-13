@@ -6,6 +6,7 @@
 void TEP70::stepOther(const double& t, const double& dt)
 {
     horn->setFLpressure(main_reservoir->getPressure());
+    horn->step(t, dt);
     horn->setSvistokOn(button_svistok[CAB1].getState() || button_svistok[CAB2].getState());
     horn->setTifonOn(button_tifon[CAB1].getState() || button_tifon[CAB2].getState());
 
