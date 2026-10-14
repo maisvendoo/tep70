@@ -438,6 +438,8 @@
 		<KeyName>KEY_W</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
+		<ObjectNameCab1>Cab1_revers_holder</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_revers_holder</ObjectNameCab2>
 	</Control>
 
 	<Control>
@@ -449,10 +451,8 @@
 		<NumPositions>3</NumPositions>
 		<MinValue>-1</MinValue>
 		<MaxValue>1</MaxValue>
-		<KeyNameInc>KEY_W</KeyNameInc>
-		<KeyModIncName>Any</KeyModIncName>
-		<KeyNameDec>KEY_S</KeyNameDec>
-		<KeyModDecName>Any</KeyModDecName>
+		<KeyNameInc>KEY_W</KeyNameInc>		
+		<KeyNameDec>KEY_S</KeyNameDec>		
 		<ObjectNameCab1>Cab1_KM_reversor</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_KM_reversor</ObjectNameCab2>
 	</Control>
