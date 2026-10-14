@@ -384,8 +384,7 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<KeyName>KEY_M</KeyName>
-		<KeyModOnName>Any</KeyModOnName>
+		<KeyName>KEY_M</KeyName>		
 	</Control>
 
 	<Control>
@@ -394,8 +393,7 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<KeyName>KEY_Z</KeyName>
-		<KeyModOnName>Any</KeyModOnName>
+		<KeyName>KEY_Z</KeyName>		
 	</Control>
 
 	<Control>
@@ -404,8 +402,7 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<KeyName>KEY_Tilde</KeyName>
-		<KeyModOnName>Any</KeyModOnName>
+		<KeyName>KEY_Tilde</KeyName>		
 	</Control>
 
 	<!--
@@ -420,10 +417,8 @@
 		<NumPositions>12</NumPositions>
 		<MinValue>0</MinValue>
 		<MaxValue>11</MaxValue>
-		<KeyNameInc>KEY_Period</KeyNameInc>
-		<KeyModIncName>Any</KeyModIncName>
-		<KeyNameDec>KEY_Comma</KeyNameDec>
-		<KeyModDecName>Any</KeyModDecName>
+		<KeyNameInc>KEY_Period</KeyNameInc>		
+		<KeyNameDec>KEY_Comma</KeyNameDec>		
 	</Control>
 
 	<!--
@@ -483,22 +478,28 @@
 	-->
 	<Control>
 		<ID>141</ID>
-		<Name>Ключ ЭПК вставка</Name>
+		<Name>Извлечь/вставить ключ ЭПК</Name>
 		<Type>Toggle</Type>
 		<value1>1</value1>
 		<value2>0</value2>
-		<ObjectNameCab1>Cab1_EPK_key</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_EPK_key</ObjectNameCab2>
+		<KeyName>KEY_N</KeyName>
+		<KeyModOnName>Alt</KeyModOnName>
+		<KeyModOffName>Alt</KeyModOffName>		
+		<ObjectNameCab1>Cab1_EPK_key_holder</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_EPK_key_holder</ObjectNameCab2>
 	</Control>
 
 	<Control>
 		<ID>143</ID>
-		<Name>Состояние ключа ЭПК</Name>
+		<Name>Ключ ЭПК</Name>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<ObjectNameCab1>Cab1_EPK_key_axis</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_EPK_key_axis</ObjectNameCab2>
+		<KeyName>KEY_N</KeyName>
+		<KeyModOnName>Shift</KeyModOnName>
+		<KeyModOffName>Ctrl</KeyModOffName>
+		<ObjectNameCab1>Cab1_EPK_key</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_EPK_key</ObjectNameCab2>
 	</Control>
 
 	<!--
@@ -574,7 +575,7 @@
 		<!-- Установки заданной позиции по комбинации -->
 		<PositionModkey>Alt</PositionModkey>
 		<PositionKeys>(KEY_8;0),(KEY_9;0.25),(KEY_0;0.5),(KEY_Minus;0.75),(KEY_Equals;1.0)</PositionKeys>
-		
+
 	</Control>
 
 	<!--
