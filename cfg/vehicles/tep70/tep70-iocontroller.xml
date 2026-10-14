@@ -230,7 +230,7 @@
 		<Type>Toggle</Type>
 		<value1>1</value1>
 		<value2>1</value2>
-		<KeyName>KEY_O</KeyName>
+		<KeyName>KEY_0</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
 		<ObjectNameCab1>Cab1_tumbler_disel_stop</ObjectNameCab1>
@@ -444,7 +444,7 @@
 
 	<Control>
 		<ID>144</ID>
-		<Name>Реверсор</Name>
+		<Name>Реверсивная рукоятка</Name>
 		<Type>Switcher</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -459,17 +459,21 @@
 
 	<Control>
 		<ID>145</ID>
-		<Name>Главная рукоятка КМ</Name>
+		<Name>Штурвал КМ</Name>
 		<Type>Switcher</Type>
 		<value1>0</value1>
 		<value2>0</value2>
 		<NumPositions>16</NumPositions>
 		<MinValue>0</MinValue>
 		<MaxValue>15</MaxValue>
-		<KeyNameInc>KEY_A</KeyNameInc>
-		<KeyModIncName>Any</KeyModIncName>
+		<KeyNameInc>KEY_A</KeyNameInc>		
 		<KeyNameDec>KEY_D</KeyNameDec>
-		<KeyModDecName>Any</KeyModDecName>
+
+		<!-- Настройки сброса до заданной позиции -->
+		<ResetKey>KEY_D</ResetKey>
+		<ResetModkey>Ctrl</ResetModkey>
+		<PositionForReset>0</PositionForReset>
+
 		<ObjectNameCab1>Cab1_KM_shturval</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_KM_shturval</ObjectNameCab2>
 	</Control>
@@ -528,36 +532,49 @@
 	-->
 	<Control>
 		<ID>150</ID>
-		<Name>Поездной кран КрМ 395</Name>
+		<Name>Поездной кран машиниста 395</Name>
 		<Type>Switcher</Type>
 		<value1>1</value1>
 		<value2>6</value2>
 		<NumPositions>7</NumPositions>
 		<MinValue>0</MinValue>
 		<MaxValue>6</MaxValue>
-		<KeyNameInc>KEY_BackSpace</KeyNameInc>
-		<KeyModIncName>Shift</KeyModIncName>
-		<KeyNameDec>KEY_BackSpace</KeyNameDec>
-		<KeyModDecName>Ctrl</KeyModDecName>
+		<KeyNameDec>KEY_Semicolon</KeyNameDec>
+		<KeyNameInc>KEY_Quote</KeyNameInc>
+		<PositionsNames>I,II,III,IV,IVa,IV,VI,</PositionsNames>	
+
+		<IncButtonName>RIGHT_BUTTON</IncButtonName>
+		<DecButtonName>LEFT_BUTTON</DecButtonName>
+
+		<!-- Установки заданной позиции по комбинации -->
+		<PositionModkey>Alt</PositionModkey>
+		<PositionKeys>(KEY_1;0),(KEY_2;1),(KEY_3;2),(KEY_4;3),(KEY_5;4),(KEY_6;5),(KEY_7;6)</PositionKeys>
+
 		<ObjectNameCab1>Cab1_kran395-ruk</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_kran395-ruk</ObjectNameCab2>
 	</Control>
 
 	<Control>
 		<ID>151</ID>
-		<Name>Кран вспомогательного тормоза КВТ 254</Name>
+		<Name>Кран вспомогательного тормоза 254</Name>
 		<Type>Axis</Type>
 		<value1>1.0</value1>
 		<value2>1.0</value2>
 		<Speed>2.0</Speed>
-		<MinValue>0</MinValue>
+		<MinValue>-0.03</MinValue>
 		<MaxValue>1</MaxValue>
-		<KeyNameInc>KEY_Z</KeyNameInc>
-		<KeyModIncName>Shift</KeyModIncName>
-		<KeyNameDec>KEY_Z</KeyNameDec>
-		<KeyModDecName>Ctrl</KeyModDecName>
+		<KeyNameInc>KEY_Rightbracket</KeyNameInc>
+	    <KeyNameDec>KEY_Leftbracket</KeyNameDec>
+	    <IncButtonName>RIGHT_BUTTON</IncButtonName>
+	    <DecButtonName>LEFT_BUTTON</DecButtonName>
+	    <SpringReturnLow>0.0</SpringReturnLow>
 		<ObjectNameCab1>Cab1_kran254-ruk</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_kran254-ruk</ObjectNameCab2>
+
+		<!-- Установки заданной позиции по комбинации -->
+		<PositionModkey>Alt</PositionModkey>
+		<PositionKeys>(KEY_8;0),(KEY_9;0.25),(KEY_0;0.5),(KEY_Minus;0.75),(KEY_Equals;1.0)</PositionKeys>
+		
 	</Control>
 
 	<!--
