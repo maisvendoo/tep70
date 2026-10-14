@@ -8,17 +8,17 @@
 
 	<KeyPoint>
 		<Param>0.0</Param>
-		<Value>-30.0</Value>
-	</KeyPoint>
-
-	<KeyPoint>
-		<Param>1</Param>
 		<Value>0.0</Value>
 	</KeyPoint>
 
 	<KeyPoint>
-		<Param>2</Param>
+		<Param>1</Param>
 		<Value>30.0</Value>
+	</KeyPoint>
+
+	<KeyPoint>
+		<Param>2</Param>
+		<Value>60.0</Value>
 	</KeyPoint>
 
 </Config>

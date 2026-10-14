@@ -50,12 +50,12 @@
 
 	<Model>
 		<ModelName>tep70/tep70.gltf</ModelName>
-		<AnimationsConfigDir>tep70</AnimationsConfigDir>
+		<AnimationsConfigDir>tep70-0132</AnimationsConfigDir>
 	</Model>
 
 	<Model>
 		<ModelName>tep70/tep70-cabview.gltf</ModelName>
-		<AnimationsConfigDir>tep70</AnimationsConfigDir>
+		<AnimationsConfigDir>tep70-0132</AnimationsConfigDir>
 	</Model>
 
 </Config>

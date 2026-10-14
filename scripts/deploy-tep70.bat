@@ -26,8 +26,10 @@ del %PKG_DIR%\%DIR_NAME%\cfg\trains\tep70bs*.xml
 xcopy /E /Y ..\cfg\vehicles\%ADDON_NAME%\*.* %PKG_DIR%\%DIR_NAME%\cfg\vehicles\%ADDON_NAME%\
 
 rem Копируем ресурсы
-xcopy /E /Y ..\data\animations\%ADDON_NAME%\*.* %PKG_DIR%\%DIR_NAME%\data\animations\%ADDON_NAME%
-xcopy /E /Y ..\data\models_ktx\%ADDON_NAME%\*.* %PKG_DIR%\%DIR_NAME%\data\models\%ADDON_NAME%
+rem xcopy /E /Y ..\data\animations\%ADDON_NAME%-0132\*.* %PKG_DIR%\%DIR_NAME%\data\animations\%ADDON_NAME%-0132
+xcopy /E /Y ..\data\animations\%ADDON_NAME%-0212\*.* %PKG_DIR%\%DIR_NAME%\data\animations\%ADDON_NAME%-0212
+rem xcopy /E /Y ..\data\models_ktx\%ADDON_NAME%\*.* %PKG_DIR%\%DIR_NAME%\data\models\%ADDON_NAME%
+xcopy /E /Y ..\data\models\%ADDON_NAME%-0212\*.* %PKG_DIR%\%DIR_NAME%\data\models\%ADDON_NAME%-0212
 xcopy /E /Y ..\data\sounds\%ADDON_NAME%\*.* %PKG_DIR%\%DIR_NAME%\data\sounds\%ADDON_NAME%
 
 rem Копируем документацию
