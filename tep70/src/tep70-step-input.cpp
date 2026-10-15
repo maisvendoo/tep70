@@ -200,21 +200,6 @@ void TEP70::stepControls(double t, double dt)
         // Комбинированный кран — не трогаем (УБТ-367)
     }
 
-    // Свисток и тифон (horn) — напрямую из control_inputs
-    {
-        bool svistok = control_inputs[CAB1][CTRL_BUTTON_SVISTOK].toBool() ||
-                       control_inputs[CAB2][CTRL_BUTTON_SVISTOK].toBool() ||
-                       control_inputs[CAB1][CTRL_BUTTON_SVISTOK_POM].toBool() ||
-                       control_inputs[CAB2][CTRL_BUTTON_SVISTOK_POM].toBool();
-        horn->setSvistokOn(svistok);
-
-        bool tifon = control_inputs[CAB1][CTRL_BUTTON_TIFON].toBool() ||
-                      control_inputs[CAB2][CTRL_BUTTON_TIFON].toBool() ||
-                      control_inputs[CAB1][CTRL_BUTTON_TIFON_POM].toBool() ||
-                      control_inputs[CAB2][CTRL_BUTTON_TIFON_POM].toBool();
-        horn->setTifonOn(tifon);
-    }
-
     // Общие сигналы (shared)
     auto &shared_inputs = control_inputs[CABS_NUM];
 
