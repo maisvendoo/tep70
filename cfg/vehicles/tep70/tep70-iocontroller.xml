@@ -362,7 +362,7 @@
 	</Control>
 
 	<Control>
-		<ID>125</ID>
+		<ID>190</ID>
 		<Name>Свисток (пульт помощника)</Name>
 		<Type>Button</Type>
 		<value1>0</value1>
@@ -383,7 +383,7 @@
 	</Control>
 
 	<Control>
-		<ID>126</ID>
+		<ID>191</ID>
 		<Name>Тифон (пульт помощника)</Name>
 		<Type>Button</Type>
 		<value1>0</value1>

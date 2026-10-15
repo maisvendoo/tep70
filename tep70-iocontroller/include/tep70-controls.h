@@ -90,7 +90,11 @@ enum
     CTRL_CABINE_1              = 230,
     CTRL_CABINE_2              = 231,
 
-    /// Прочее
+    /// Кнопки пульта помощника
+    CTRL_BUTTON_SVISTOK_POM    = 190,
+    CTRL_BUTTON_TIFON_POM      = 191,
+
+    // Прочее
     CTRL_SAND_BUTTON           = 220,
     CTRL_WHISTLE_BUTTON        = 221,
     CTRL_TIFON_BUTTON          = 222,
