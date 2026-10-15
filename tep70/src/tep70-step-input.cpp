@@ -144,13 +144,17 @@ void TEP70::stepControls(double t, double dt)
         control_inputs[cab_idx][CTRL_BUTTON_BRAKE_RELEASE].toBool()
             ? button_brake_release[cab_idx].set() : button_brake_release[cab_idx].reset();
 
-        bool svistok = control_inputs[cab_idx][CTRL_BUTTON_SVISTOK].toBool() ||
-                   control_inputs[cab_idx][CTRL_BUTTON_SVISTOK_POM].toBool();
-        svistok ? button_svistok[cab_idx].set() : button_svistok[cab_idx].reset();
+        control_inputs[cab_idx][CTRL_BUTTON_SVISTOK].toBool()
+            ? button_svistok[cab_idx].set() : button_svistok[cab_idx].reset();
 
-        bool tifon = control_inputs[cab_idx][CTRL_BUTTON_TIFON].toBool() ||
-                     control_inputs[cab_idx][CTRL_BUTTON_TIFON_POM].toBool();
-        tifon ? button_tifon[cab_idx].set() : button_tifon[cab_idx].reset();
+        control_inputs[cab_idx][CTRL_BUTTON_SVISTOK_POM].toBool()
+            ? button_svistok_pom[cab_idx].set() : button_svistok_pom[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_BUTTON_TIFON].toBool()
+            ? button_tifon[cab_idx].set() : button_tifon[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_BUTTON_TIFON_POM].toBool()
+            ? button_tifon_pom[cab_idx].set() : button_tifon_pom[cab_idx].reset();
 
         // РБ
         control_inputs[cab_idx][CTRL_RBS].toBool()

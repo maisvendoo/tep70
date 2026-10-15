@@ -189,6 +189,12 @@ private:
     /// Кнопка "Тифон" (Кн 6)
     TriggerControl  button_tifon[CABS_NUM];
 
+    /// Кнопка "Свисток" (пульт помощника)
+    TriggerControl  button_svistok_pom[CABS_NUM];
+
+    /// Кнопка "Тифон" (пульт помощника)
+    TriggerControl  button_tifon_pom[CABS_NUM];
+
     enum
     {
         NUM_RB = 3,
