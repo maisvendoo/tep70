@@ -220,6 +220,30 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         tumbler_number_light[cab_idx].setKeySymbolOff(KEY_Backslash);
         tumbler_number_light[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
 
+        // Тумблер "Подсветка пульта помощника"
+        tumbler_panel_pom_light[cab_idx].setKeySymbolOn(KEY_6);
+        tumbler_panel_pom_light[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
+        tumbler_panel_pom_light[cab_idx].setKeySymbolOff(KEY_6);
+        tumbler_panel_pom_light[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
+
+        // Тумблер "Резервный свет"
+        tumbler_reserve_light[cab_idx].setKeySymbolOn(KEY_7);
+        tumbler_reserve_light[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
+        tumbler_reserve_light[cab_idx].setKeySymbolOff(KEY_7);
+        tumbler_reserve_light[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
+
+        // Тумблер "Калорифер кабины"
+        tumbler_cab_heater[cab_idx].setKeySymbolOn(KEY_8);
+        tumbler_cab_heater[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
+        tumbler_cab_heater[cab_idx].setKeySymbolOff(KEY_8);
+        tumbler_cab_heater[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
+
+        // Тумблер "Вентилятор кабины"
+        tumbler_cab_fan[cab_idx].setKeySymbolOn(KEY_0);
+        tumbler_cab_fan[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);
+        tumbler_cab_fan[cab_idx].setKeySymbolOff(KEY_0);
+        tumbler_cab_fan[cab_idx].setKeyModifierOff(MODIFIER_OnlyControl);
+
         // Кнопка "Пуск дизеля" (Кн 3)
         button_disel_start[cab_idx].setKeySymbolOn(KEY_P);
         button_disel_start[cab_idx].setKeyModifierOn(MODIFIER_OnlyAlt);

@@ -125,6 +125,18 @@ void TEP70::stepControls(double t, double dt)
         control_inputs[cab_idx][CTRL_TUMBLER_NUMBER_LIGHT].toBool()
             ? tumbler_number_light[cab_idx].set() : tumbler_number_light[cab_idx].reset();
 
+        control_inputs[cab_idx][CTRL_TUMBLER_PANEL_POM_LIGHT].toBool()
+            ? tumbler_panel_pom_light[cab_idx].set() : tumbler_panel_pom_light[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_TUMBLER_RESERVE_LIGHT].toBool()
+            ? tumbler_reserve_light[cab_idx].set() : tumbler_reserve_light[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_TUMBLER_CAB_HEATER].toBool()
+            ? tumbler_cab_heater[cab_idx].set() : tumbler_cab_heater[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_TUMBLER_CAB_FAN].toBool()
+            ? tumbler_cab_fan[cab_idx].set() : tumbler_cab_fan[cab_idx].reset();
+
         // Кнопки
         control_inputs[cab_idx][CTRL_BUTTON_DISEL_START].toBool()
             ? button_disel_start[cab_idx].set() : button_disel_start[cab_idx].reset();

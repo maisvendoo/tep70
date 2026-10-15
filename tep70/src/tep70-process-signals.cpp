@@ -146,10 +146,10 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_TUMBLER_BUFFERLIGHT_L + d] = tumbler_bufferliht_L[cab_idx].getHandlePosition();
         analogSignal[CAB1_TUMBLER_BUFFERLIGHT_R + d] = tumbler_bufferliht_R[cab_idx].getHandlePosition();
         analogSignal[CAB1_TUMBLER_NUMBER_LIGHT + d] = static_cast<float>(tumbler_number_light[cab_idx].getState());
-        analogSignal[CAB1_TUMBLER_PANEL_POM_LIGHT + d] = 0.0f;
-        analogSignal[CAB1_TUMBLER_RESERVE_LIGHT + d] = 0.0f;
-        analogSignal[CAB1_TUMBLER_CAB_HEATER + d] = 0.0f;
-        analogSignal[CAB1_TUMBLER_CAB_FAN + d] = 0.0f;
+        analogSignal[CAB1_TUMBLER_PANEL_POM_LIGHT + d] = static_cast<float>(tumbler_panel_pom_light[cab_idx].getState());
+        analogSignal[CAB1_TUMBLER_RESERVE_LIGHT + d] = static_cast<float>(tumbler_reserve_light[cab_idx].getState());
+        analogSignal[CAB1_TUMBLER_CAB_HEATER + d] = static_cast<float>(tumbler_cab_heater[cab_idx].getState());
+        analogSignal[CAB1_TUMBLER_CAB_FAN + d] = static_cast<float>(tumbler_cab_fan[cab_idx].getState());
 
         // Кнопки на панели машиниста
         analogSignal[CAB1_BUTTON_DISEL_START + d] = static_cast<float>(button_disel_start[cab_idx].getState());

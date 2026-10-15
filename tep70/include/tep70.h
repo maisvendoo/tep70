@@ -165,6 +165,18 @@ private:
     /// Тумблер "Номерные знаки" (Тб 37)
     TriggerControl tumbler_number_light[CABS_NUM];
 
+    /// Тумблер "Подсветка пульта помощника"
+    TriggerControl tumbler_panel_pom_light[CABS_NUM];
+
+    /// Тумблер "Резервный свет"
+    TriggerControl tumbler_reserve_light[CABS_NUM];
+
+    /// Тумблер "Калорифер кабины"
+    TriggerControl tumbler_cab_heater[CABS_NUM];
+
+    /// Тумблер "Вентилятор кабины"
+    TriggerControl tumbler_cab_fan[CABS_NUM];
+
     /// Кнопка "Пуск дизеля" (Кн 3)
     TriggerControl  button_disel_start[CABS_NUM];
 
