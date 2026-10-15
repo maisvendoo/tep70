@@ -362,6 +362,14 @@
 	</Control>
 
 	<Control>
+		<ID>125</ID>
+		<Name>Свисток (пульт помощника)</Name>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<ObjectNameCab1>Cab1_button_pom_svistok</ObjectNameCab1>
+	</Control>
+
+	<Control>
 		<ID>126</ID>
 		<Name>Тифон (Кн 6)</Name>
 		<Type>Button</Type>
@@ -370,6 +378,14 @@
 		<KeyName>KEY_B</KeyName>
 		<ObjectNameCab1>Cab1_button_tifon</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_button_tifon</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>126</ID>
+		<Name>Тифон (пульт помощника)</Name>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<ObjectNameCab1>Cab1_button_pom_tifon</ObjectNameCab1>
 	</Control>
 
 	<!--
