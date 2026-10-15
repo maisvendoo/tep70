@@ -345,8 +345,7 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<KeyName>KEY_Slash</KeyName>
-		<KeyModOnName>Any</KeyModOnName>
+		<KeyName>KEY_Slash</KeyName>		
 		<ObjectNameCab1>Cab1_button_brake_release</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_button_brake_release</ObjectNameCab2>
 	</Control>
@@ -357,8 +356,7 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<KeyName>KEY_Space</KeyName>
-		<KeyModOnName>Any</KeyModOnName>
+		<KeyName>KEY_Space</KeyName>		
 		<ObjectNameCab1>Cab1_button_svistok</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_button_svistok</ObjectNameCab2>
 	</Control>
@@ -370,7 +368,6 @@
 		<value1>0</value1>
 		<value2>0</value2>
 		<KeyName>KEY_B</KeyName>
-		<KeyModOnName>Any</KeyModOnName>
 		<ObjectNameCab1>Cab1_button_tifon</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_button_tifon</ObjectNameCab2>
 	</Control>
