@@ -158,6 +158,9 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_BUTTON_SAND + d] = static_cast<float>(sand_system->isSandDelivery());
         analogSignal[CAB1_BUTTON_TIFON + d] = static_cast<float>(horn->isTifon());
         analogSignal[CAB1_BUTTON_WHISTLE + d] = static_cast<float>(horn->isSvistok());
+
+        analogSignal[CAB1_BUTTON_WHISTLE_POM + d] = static_cast<float>(button_svistok_pom[cab_idx].getState());
+        analogSignal[CAB1_BUTTON_TIFON_POM + d] = static_cast<float>(button_tifon_pom[cab_idx].getState());
         analogSignal[CAB1_BUTTON_RB + d] = static_cast<float>(rb[cab_idx][RB].getState());
 
         analogSignal[CAB1_BUTTON_RBS + d] = static_cast<float>(rb[cab_idx][RBS].getState());

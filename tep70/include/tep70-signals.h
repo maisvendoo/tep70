@@ -477,6 +477,12 @@ enum
     // Песочница
     SOUND_SAND_DELIVERY = 363,
 
+    // Кнопки пульта помощника
+    CAB1_BUTTON_WHISTLE_POM = 364,
+    CAB1_BUTTON_TIFON_POM = 365,
+    CAB2_BUTTON_WHISTLE_POM = 366,
+    CAB2_BUTTON_TIFON_POM = 367,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1
