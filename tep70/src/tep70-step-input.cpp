@@ -18,10 +18,10 @@ void TEP70::stepControls(double t, double dt)
     km[CAB2]->allowReversHandle(!(km[CAB1]->isReversHandle()));
     km[CAB1]->allowReversHandle(!(km[CAB2]->isReversHandle()));
 
-    // Переключатель кабины
-    if (getKeyState(KEY_Minus))
+    // Переключатель кабины — от сигналов IOController
+    if (control_inputs[CAB1][CTRL_CABINE_1].toBool() || control_inputs[CAB2][CTRL_CABINE_1].toBool())
         cabine_switcher->setCabineIndex(CAB1);
-    else if (getKeyState(KEY_Equals))
+    else if (control_inputs[CAB1][CTRL_CABINE_2].toBool() || control_inputs[CAB2][CTRL_CABINE_2].toBool())
         cabine_switcher->setCabineIndex(CAB2);
     cabine_switcher->step(t, dt);
 
