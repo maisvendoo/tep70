@@ -537,8 +537,8 @@
 		<KeyName>KEY_BackSpace</KeyName>
 		<KeyModOnName>Alt</KeyModOnName>
 		<KeyModOffName>Alt</KeyModOffName>
-		<ObjectNameCab1>Cab1_ruk_367</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_ruk_367</ObjectNameCab2>
+		<ObjectNameCab1>Cab1_Bl_367_holder</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_Bl_367_holder</ObjectNameCab2>
 	</Control>
 
 	<Control>
