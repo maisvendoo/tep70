@@ -10,6 +10,7 @@
 	<Control>
 		<ID>100</ID>
 		<Name>Освещение кабины (АВ26)</Name>
+		<Description>Включение освещения кабины</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -23,6 +24,7 @@
 	<Control>
 		<ID>101</ID>
 		<Name>Освещение пульта (АВ25)</Name>
+		<Description>Включение подсветки приборных панелей</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -36,6 +38,7 @@
 	<Control>
 		<ID>102</ID>
 		<Name>Управление общее (АВ2)</Name>
+		<Description>Включение цепей управления</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -49,6 +52,7 @@
 	<Control>
 		<ID>103</ID>
 		<Name>Управление тепловозом (АВ1)</Name>
+		<Description>Включение цепей управления тепловозом</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -62,6 +66,7 @@
 	<Control>
 		<ID>104</ID>
 		<Name>Топливный насос (АВ4)</Name>
+		<Description>Включение электропитания топливного насоса</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -75,6 +80,7 @@
 	<Control>
 		<ID>105</ID>
 		<Name>ЭДТ (АВ 7)</Name>
+		<Description>Включение электродистанционного тормоза</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -88,6 +94,7 @@
 	<Control>
 		<ID>106</ID>
 		<Name>ЭПТ (АВ19)</Name>
+		<Description>Включение электропневматического тормоза</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -101,6 +108,7 @@
 	<Control>
 		<ID>107</ID>
 		<Name>ЭПТ питание (АВ18)</Name>
+		<Description>Питание цепей электропневматического тормоза</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -114,6 +122,7 @@
 	<Control>
 		<ID>108</ID>
 		<Name>Прожектор тускло (АВ23)</Name>
+		<Description>Включение прожектора (тусклый свет)</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -127,6 +136,7 @@
 	<Control>
 		<ID>109</ID>
 		<Name>Прожектор ярко (АВ24)</Name>
+		<Description>Включение прожектора (яркий свет)</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -143,6 +153,7 @@
 	<Control>
 		<ID>110</ID>
 		<Name>Ослабление поля I ступени (Тб 1)</Name>
+		<Description>Ручное/автоматическое ослабление поля I ступени</Description>
 		<Type>Switcher</Type>
 		<value1>1</value1>
 		<value2>1</value2>
@@ -160,6 +171,7 @@
 	<Control>
 		<ID>111</ID>
 		<Name>Ослабление поля II ступени (Тб 2)</Name>
+		<Description>Ручное/автоматическое ослабление поля II ступени</Description>
 		<Type>Switcher</Type>
 		<value1>1</value1>
 		<value2>1</value2>
@@ -177,6 +189,7 @@
 	<Control>
 		<ID>112</ID>
 		<Name>Управление жалюзи воды (Тб 8)</Name>
+		<Description>Ручное/автоматическое управление жалюзи водяных радиаторов</Description>
 		<Type>Switcher</Type>
 		<value1>1</value1>
 		<value2>1</value2>
@@ -194,6 +207,7 @@
 	<Control>
 		<ID>113</ID>
 		<Name>Управление жалюзи масла (Тб 9)</Name>
+		<Description>Ручное/автоматическое управление жалюзи маслоохладителя</Description>
 		<Type>Switcher</Type>
 		<value1>1</value1>
 		<value2>1</value2>
@@ -214,6 +228,7 @@
 	<Control>
 		<ID>114</ID>
 		<Name>Вольтметр ЦУ/ЭПТ (Тб 15)</Name>
+		<Description>Переключение вольтметра между цепями управления и ЭПТ</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -227,6 +242,7 @@
 	<Control>
 		<ID>115</ID>
 		<Name>Аварийная остановка дизеля (Тб 6)</Name>
+		<Description>Аварийная остановка дизеля</Description>
 		<Type>Toggle</Type>
 		<value1>1</value1>
 		<value2>1</value2>
@@ -240,6 +256,7 @@
 	<Control>
 		<ID>116</ID>
 		<Name>Буферный фонарь левый (Тб 35)</Name>
+		<Description>Управление левым буферным фонарём</Description>
 		<Type>Switcher</Type>
 		<value1>1</value1>
 		<value2>1</value2>
@@ -257,6 +274,7 @@
 	<Control>
 		<ID>117</ID>
 		<Name>Буферный фонарь правый (Тб 36)</Name>
+		<Description>Управление правым буферным фонарём</Description>
 		<Type>Switcher</Type>
 		<value1>1</value1>
 		<value2>1</value2>
@@ -274,6 +292,7 @@
 	<Control>
 		<ID>118</ID>
 		<Name>Номерные знаки (Тб 37)</Name>
+		<Description>Включение подсветки номерных знаков</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -287,6 +306,7 @@
 	<Control>
 		<ID>119</ID>
 		<Name>Подсветка пульта помощника</Name>
+		<Description>Включение подсветки пульта помощника</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -297,6 +317,7 @@
 	<Control>
 		<ID>120</ID>
 		<Name>Резервный свет</Name>
+		<Description>Включение резервного освещения</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -307,6 +328,7 @@
 	<Control>
 		<ID>121</ID>
 		<Name>Калорифер кабины</Name>
+		<Description>Включение калорифера кабины</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -317,6 +339,7 @@
 	<Control>
 		<ID>122</ID>
 		<Name>Вентилятор кабины</Name>
+		<Description>Включение вентилятора кабины</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -330,6 +353,7 @@
 	<Control>
 		<ID>123</ID>
 		<Name>Пуск дизеля (Кн 3)</Name>
+		<Description>Пуск дизеля</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -342,6 +366,7 @@
 	<Control>
 		<ID>124</ID>
 		<Name>Отпуск тормозов (Кн 17)</Name>
+		<Description>Отпуск тормозов</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -353,6 +378,7 @@
 	<Control>
 		<ID>125</ID>
 		<Name>Свисток (Кн 7)</Name>
+		<Description>Звуковой сигнал свистком</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -364,6 +390,7 @@
 	<Control>
 		<ID>190</ID>
 		<Name>Свисток (пульт помощника)</Name>
+		<Description>Звуковой сигнал свистком (пульт помощника)</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -374,6 +401,7 @@
 	<Control>
 		<ID>126</ID>
 		<Name>Тифон (Кн 6)</Name>
+		<Description>Звуковой сигнал тифоном</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -385,6 +413,7 @@
 	<Control>
 		<ID>191</ID>
 		<Name>Тифон (пульт помощника)</Name>
+		<Description>Звуковой сигнал тифоном (пульт помощника)</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -398,6 +427,7 @@
 	<Control>
 		<ID>127</ID>
 		<Name>РБС</Name>
+		<Description>Подтверждение бдительности (рукоятка бдительности специальная)</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -409,6 +439,7 @@
 	<Control>
 		<ID>128</ID>
 		<Name>РБ</Name>
+		<Description>Подтверждение бдительности</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -420,6 +451,7 @@
 	<Control>
 		<ID>129</ID>
 		<Name>РБП</Name>
+		<Description>Подтверждение бдительности помощником</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>		
@@ -433,6 +465,7 @@
 	<Control>
 		<ID>130</ID>
 		<Name>Переключатель тормозного усилия</Name>
+		<Description>Установка тормозного усилия (12 позиций)</Description>
 		<Type>Switcher</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -449,6 +482,7 @@
 	<Control>
 		<ID>140</ID>
 		<Name>Вставка реверсивной рукоятки</Name>
+		<Description>Извлечь/вставить реверсивную рукоятку</Description>
 		<Type>Toggle</Type>
 		<value1>1</value1>
 		<value2>0</value2>
@@ -462,6 +496,7 @@
 	<Control>
 		<ID>144</ID>
 		<Name>Реверсивная рукоятка</Name>
+		<Description>Положение реверсивного вала</Description>
 		<Type>Switcher</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -477,6 +512,7 @@
 	<Control>
 		<ID>145</ID>
 		<Name>Штурвал КМ</Name>
+		<Description>Главная рукоятка контроллера машиниста</Description>
 		<Type>Switcher</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -501,6 +537,7 @@
 	<Control>
 		<ID>141</ID>
 		<Name>Извлечь/вставить ключ ЭПК</Name>
+		<Description>Извлечь/вставить ключ электропневматического клапана</Description>
 		<Type>Toggle</Type>
 		<value1>1</value1>
 		<value2>0</value2>
@@ -514,6 +551,7 @@
 	<Control>
 		<ID>143</ID>
 		<Name>Ключ ЭПК</Name>
+		<Description>Включение/отключение электропневматического клапана</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -544,6 +582,7 @@
 <Control>
 		<ID>152</ID>
 		<Name>Комбинированный кран УБТ-367</Name>
+		<Description>Переключение между двойной тягой, поездным и экстренным торможением</Description>
 		<Type>Switcher</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -567,6 +606,7 @@
 	<Control>
 		<ID>150</ID>
 		<Name>Поездной кран машиниста 395</Name>
+		<Description>Управление тормозами поезда</Description>
 		<Type>Switcher</Type>
 		<value1>1</value1>
 		<value2>6</value2>
@@ -591,6 +631,7 @@
 	<Control>
 		<ID>151</ID>
 		<Name>Кран вспомогательного тормоза 254</Name>
+		<Description>Управление тормозами локомотива</Description>
 		<Type>Axis</Type>
 		<value1>1.0</value1>
 		<value2>1.0</value2>
@@ -617,6 +658,7 @@
 	<Control>
 		<ID>160</ID>
 		<Name>Мотор-компрессор (АВ 9)</Name>
+		<Description>Включение мотор-компрессора</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
 		<KeyName>KEY_5</KeyName>
@@ -630,6 +672,7 @@
 	<Control>
 		<ID>170</ID>
 		<Name>Автоведение</Name>
+		<Description>Включение автоматического ведения</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -641,6 +684,7 @@
 	<Control>
 		<ID>171</ID>
 		<Name>Маневровый режим</Name>
+		<Description>Переключение маневрового/поездного режима</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -655,6 +699,7 @@
 	<Control>
 		<ID>180</ID>
 		<Name>Автозапуск</Name>
+		<Description>Запуск процедуры автоматического запуска дизеля</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -665,6 +710,7 @@
 	<Control>
 		<ID>181</ID>
 		<Name>Автоостанов</Name>
+		<Description>Запуск процедуры автоматической остановки дизеля</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -678,6 +724,7 @@
 	<Control>
 		<ID>230</ID>
 		<Name>Кабина 1</Name>
+		<Description>Переключение на первую кабину</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -687,6 +734,7 @@
 	<Control>
 		<ID>231</ID>
 		<Name>Кабина 2</Name>
+		<Description>Переключение на вторую кабину</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
@@ -699,6 +747,7 @@
 	<Control>
 		<ID>200</ID>
 		<Name>Расцепной рычаг вперёд</Name>
+		<Description>Расцепление передней сцепки</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_X</KeyName>
@@ -707,6 +756,7 @@
 	<Control>
 		<ID>201</ID>
 		<Name>Расцепной рычаг назад</Name>
+		<Description>Расцепление задней сцепки</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_C</KeyName>
@@ -715,6 +765,7 @@
 	<Control>
 		<ID>202</ID>
 		<Name>Концевой кран ТЦ вперёд</Name>
+		<Description>Открытие/закрытие концевого крана магистрали тормозных цилиндров (перед)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F10</KeyName>
@@ -725,6 +776,7 @@
 	<Control>
 		<ID>203</ID>
 		<Name>Концевой кран ТЦ назад</Name>
+		<Description>Открытие/закрытие концевого крана магистрали тормозных цилиндров (зад)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F11</KeyName>
@@ -735,6 +787,7 @@
 	<Control>
 		<ID>204</ID>
 		<Name>Рукав ТЦ вперёд</Name>
+		<Description>Соединение/разъединение рукава магистрали тормозных цилиндров (перед)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F9</KeyName>
@@ -745,6 +798,7 @@
 	<Control>
 		<ID>205</ID>
 		<Name>Рукав ТЦ назад</Name>
+		<Description>Соединение/разъединение рукава магистрали тормозных цилиндров (зад)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F12</KeyName>
@@ -755,6 +809,7 @@
 	<Control>
 		<ID>206</ID>
 		<Name>Концевой кран ПМ вперёд</Name>
+		<Description>Открытие/закрытие концевого крана питательной магистрали (перед)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F6</KeyName>
@@ -765,6 +820,7 @@
 	<Control>
 		<ID>207</ID>
 		<Name>Концевой кран ПМ назад</Name>
+		<Description>Открытие/закрытие концевого крана питательной магистрали (зад)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F7</KeyName>
@@ -775,6 +831,7 @@
 	<Control>
 		<ID>208</ID>
 		<Name>Рукав ПМ вперёд</Name>
+		<Description>Соединение/разъединение рукава питательной магистрали (перед)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F5</KeyName>
@@ -785,6 +842,7 @@
 	<Control>
 		<ID>209</ID>
 		<Name>Рукав ПМ назад</Name>
+		<Description>Соединение/разъединение рукава питательной магистрали (зад)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F8</KeyName>
@@ -795,6 +853,7 @@
 	<Control>
 		<ID>210</ID>
 		<Name>Концевой кран ТМ вперёд</Name>
+		<Description>Открытие/закрытие концевого крана тормозной магистрали (перед)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F2</KeyName>
@@ -805,6 +864,7 @@
 	<Control>
 		<ID>211</ID>
 		<Name>Концевой кран ТМ назад</Name>
+		<Description>Открытие/закрытие концевого крана тормозной магистрали (зад)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F3</KeyName>
@@ -815,6 +875,7 @@
 	<Control>
 		<ID>212</ID>
 		<Name>Рукав ТМ вперёд</Name>
+		<Description>Соединение/разъединение рукава тормозной магистрали (перед)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F1</KeyName>
@@ -825,6 +886,7 @@
 	<Control>
 		<ID>213</ID>
 		<Name>Рукав ТМ назад</Name>
+		<Description>Соединение/разъединение рукава тормозной магистрали (зад)</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<KeyName>KEY_F4</KeyName>
@@ -838,6 +900,7 @@
 	<Control>
 		<ID>220</ID>
 		<Name>Пескоподача</Name>
+		<Description>Подача песка под колёса</Description>
 		<Type>Button</Type>
 		<value>0</value>
 		<KeyName>KEY_Delete</KeyName>
@@ -846,6 +909,7 @@
 	<Control>
 		<ID>221</ID>
 		<Name>Свисток</Name>
+		<Description>Звуковой сигнал свистком</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>		
@@ -857,6 +921,7 @@
 	<Control>
 		<ID>222</ID>
 		<Name>Тифон</Name>
+		<Description>Звуковой сигнал тифоном</Description>
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
