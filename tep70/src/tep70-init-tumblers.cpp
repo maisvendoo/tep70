@@ -90,9 +90,6 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
 
     for (auto cab_idx : {CAB1, CAB2})
     {
-        // Устройство блокировки тормозов усл.№ 367
-        brake_lock[cab_idx]->setControl(&pressed_keys_by_cabine[cab_idx]);
-
         // АЗВ "Освещение кабины" (АВ 26)
         azv_cabine_light[cab_idx].setKeySymbolOn(KEY_K);
         azv_cabine_light[cab_idx].setKeyModifierOn(MODIFIER_OnlyShift);

@@ -43,8 +43,6 @@ bool TEP70::initAutostartProgram(int cab_autostart_request)
 
     km[CAB1]->setControl();
     km[CAB2]->setControl();
-    brake_lock[CAB1]->setControl();
-    brake_lock[CAB2]->setControl();
     epk[CAB1]->setControl();
     epk[CAB2]->setControl();
 
@@ -115,8 +113,6 @@ void TEP70::slotAutostart()
 
         km[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
         km[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
-        brake_lock[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
-        brake_lock[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
         epk[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
         epk[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
 
@@ -161,8 +157,6 @@ bool TEP70::initAutostopProgram(int cab_autostop_request)
     // Переводим органы управления в программное управление
     km[CAB1]->setControl();
     km[CAB2]->setControl();
-    brake_lock[CAB1]->setControl();
-    brake_lock[CAB2]->setControl();
     epk[CAB1]->setControl();
     epk[CAB2]->setControl();
 
@@ -269,8 +263,6 @@ void TEP70::slotAutostop()
 
         km[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
         km[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
-        brake_lock[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
-        brake_lock[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
         epk[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
         epk[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
 
