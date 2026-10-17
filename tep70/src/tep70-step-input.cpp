@@ -1,6 +1,8 @@
 #include    <tep70.h>
 #include    <tep70-controls.h>
 
+#include    <cmath>
+
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
@@ -224,6 +226,28 @@ void TEP70::stepControls(double t, double dt)
 
     bool ac_bc_bwd = shared_inputs[CTRL_ANGLECOCK_BC_BWD].toBool();
     ac_bc_bwd ? anglecock_bc_bwd->open() : anglecock_bc_bwd->close();
+
+    // Концевые краны питательной магистрали
+    bool ac_fl_fwd = shared_inputs[CTRL_ANGLECOCK_FL_FWD].toBool();
+    ac_fl_fwd ? anglecock_fl_fwd->open() : anglecock_fl_fwd->close();
+
+    bool ac_fl_bwd = shared_inputs[CTRL_ANGLECOCK_FL_BWD].toBool();
+    ac_fl_bwd ? anglecock_fl_bwd->open() : anglecock_fl_bwd->close();
+
+    // Концевые краны тормозной магистрали
+    bool ac_bp_fwd = shared_inputs[CTRL_ANGLECOCK_BP_FWD].toBool();
+    ac_bp_fwd ? anglecock_bp_fwd->open() : anglecock_bp_fwd->close();
+
+    bool ac_bp_bwd = shared_inputs[CTRL_ANGLECOCK_BP_BWD].toBool();
+    ac_bp_bwd ? anglecock_bp_bwd->open() : anglecock_bp_bwd->close();
+
+    // Рукава магистралей
+    hose_bc_fwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_BC_FWD].value)));
+    hose_bc_bwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_BC_BWD].value)));
+    hose_fl_fwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_FL_FWD].value)));
+    hose_fl_bwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_FL_BWD].value)));
+    hose_bp_fwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_BP_FWD].value)));
+    hose_bp_bwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_BP_BWD].value)));
 
     // АЗВ "Компрессор" (общий)
     bool azv_motor_comp_on = shared_inputs[CTRL_AZV_MOTOR_COMPRESSOR].toBool();
