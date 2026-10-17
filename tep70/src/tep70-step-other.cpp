@@ -18,9 +18,10 @@ void TEP70::stepOther(const double& t, const double& dt)
     sand_system->setFLpressure(main_reservoir->getPressure());
     sand_system->step(t, dt);
 
-    // Состояние пескоподачи от сигналов IOController (общий сигнал на обе кабины).
+    // Состояние пескоподачи от сигналов IOController (кнопка на пульте каждой кабины).
     // Ставится после step(), т.к. stepKeysControl иначе сбросит его в false.
-    sand_system->setSandDeliveryOn(control_inputs[CABS_NUM][CTRL_SAND_BUTTON].toBool());
+    sand_system->setSandDeliveryOn(control_inputs[CAB1][CTRL_SAND_BUTTON].toBool() ||
+                                   control_inputs[CAB2][CTRL_SAND_BUTTON].toBool());
 
     for (size_t i = 0; i < num_axis; ++i)
     {
