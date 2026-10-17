@@ -265,6 +265,12 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         button_tifon[cab_idx].setKeySymbolOff(KEY_Undefined);
         button_tifon[cab_idx].setKeyModifierOff(KEY_Undefined);
 
+        // Кнопка "Пескоподача"
+        button_sand[cab_idx].setKeySymbolOn(KEY_Delete);
+        button_sand[cab_idx].setKeyModifierOn(ANY_MODIFIERS);
+        button_sand[cab_idx].setKeySymbolOff(KEY_Undefined);
+        button_sand[cab_idx].setKeyModifierOff(KEY_Undefined);
+
         // Триггеры рукояток бдительности
         rb[cab_idx][RBS].setKeySymbolOn(KEY_M);
         rb[cab_idx][RBS].setKeyModifierOn(ANY_MODIFIERS);

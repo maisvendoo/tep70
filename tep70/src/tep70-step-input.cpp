@@ -156,6 +156,9 @@ void TEP70::stepControls(double t, double dt)
         control_inputs[cab_idx][CTRL_BUTTON_TIFON_POM].toBool()
             ? button_tifon_pom[cab_idx].set() : button_tifon_pom[cab_idx].reset();
 
+        control_inputs[cab_idx][CTRL_SAND_BUTTON].toBool()
+            ? button_sand[cab_idx].set() : button_sand[cab_idx].reset();
+
         // РБ
         control_inputs[cab_idx][CTRL_RBS].toBool()
             ? rb[cab_idx][RBS].set() : rb[cab_idx][RBS].reset();

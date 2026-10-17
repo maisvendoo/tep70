@@ -1,7 +1,5 @@
 #include    "tep70.h"
 
-#include    <tep70-controls.h>
-
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
@@ -18,10 +16,10 @@ void TEP70::stepOther(const double& t, const double& dt)
     sand_system->setFLpressure(main_reservoir->getPressure());
     sand_system->step(t, dt);
 
-    // Состояние пескоподачи от сигналов IOController (кнопка на пульте каждой кабины).
+    // Состояние пескоподачи из кнопки (управляется от IOController в stepControls).
     // Ставится после step(), т.к. stepKeysControl иначе сбросит его в false.
-    sand_system->setSandDeliveryOn(control_inputs[CAB1][CTRL_SAND_BUTTON].toBool() ||
-                                   control_inputs[CAB2][CTRL_SAND_BUTTON].toBool());
+    sand_system->setSandDeliveryOn(button_sand[CAB1].getState() ||
+                                   button_sand[CAB2].getState());
 
     for (size_t i = 0; i < num_axis; ++i)
     {
