@@ -201,7 +201,13 @@ void TEP70::stepControls(double t, double dt)
         double kvt_pos = control_inputs[cab_idx][CTRL_KVT_254].value;
         loco_crane[cab_idx]->setHandlePosition(kvt_pos);
 
-        // Комбинированный кран — не трогаем (УБТ-367)
+        // Управление блокировкой УБТ-367
+        bool is_lock367_insert = control_inputs[cab_idx][CTRL_LOCK_367_INSERTION].toBool();
+        brake_lock[cab_idx]->insertLockHandle(is_lock367_insert);
+        brake_lock[cab_idx]->setStateOn(is_lock367_insert);
+
+        brake_lock[cab_idx]->setCombineCranePosition(
+            control_inputs[cab_idx][CTRL_COMBINE_KRAN].value);
     }
 
     // Общие сигналы (shared)
