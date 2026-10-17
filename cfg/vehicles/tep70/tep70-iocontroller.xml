@@ -550,8 +550,13 @@
 		<NumPositions>3</NumPositions>
 		<MinValue>-1</MinValue>
 		<MaxValue>1</MaxValue>
+		<KeyNameInc>KEY_BackSpace</KeyNameInc>
+		<KeyModIncName>Shift</KeyModIncName>
+		<KeyNameDec>KEY_BackSpace</KeyNameDec>
+		<KeyModDecName>Ctrl</KeyModDecName>
 		<ObjectNameCab1>Cab1_comb_kran</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_comb_kran</ObjectNameCab2>
+		<PositionsNames>Двойная тяга,Открыт,ЭТ</PositionsNames>	
 	</Control>
 
 	<!--
