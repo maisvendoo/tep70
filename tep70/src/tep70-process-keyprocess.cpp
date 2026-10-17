@@ -5,8 +5,7 @@
 //------------------------------------------------------------------------------
 void TEP70::keyProcess(const simulator_time_t& t, const double& dt)
 {
-    // Песочница
-    sand_system->setControl(&pressed_keys);
+    // Песочница — состояние задаётся от IOController в stepOther(), клавиши не используются
     // Тифон, свисток
     horn->setControl(&pressed_keys);
 

@@ -23,8 +23,8 @@ void TEP70::stepControls(double t, double dt)
         cabine_switcher->setCabineIndex(CAB2);
     cabine_switcher->step(t, dt);
 
-    // Песочница, тифон, свисток
-    sand_system->setControl(&pressed_keys);
+    // Песочница — состояние задаётся из control_inputs в stepOther()
+    // после sand_system->step(), управление клавишами снято.
     horn->setControl(&pressed_keys);
 
     // АЗВ компрессор — пока не переведён, шагаем вручную

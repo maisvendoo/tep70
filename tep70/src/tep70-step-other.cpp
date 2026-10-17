@@ -1,5 +1,7 @@
 #include    "tep70.h"
 
+#include    <tep70-controls.h>
+
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
@@ -15,6 +17,11 @@ void TEP70::stepOther(const double& t, const double& dt)
     // Система подачи песка
     sand_system->setFLpressure(main_reservoir->getPressure());
     sand_system->step(t, dt);
+
+    // Состояние пескоподачи от сигналов IOController (общий сигнал на обе кабины).
+    // Ставится после step(), т.к. stepKeysControl иначе сбросит его в false.
+    sand_system->setSandDeliveryOn(control_inputs[CABS_NUM][CTRL_SAND_BUTTON].toBool());
+
     for (size_t i = 0; i < num_axis; ++i)
     {
         // Пересчёт трения колесо-рельс
