@@ -27,9 +27,6 @@ void TEP70::stepControls(double t, double dt)
     // после sand_system->step(), управление клавишами снято.
     horn->setControl(&pressed_keys);
 
-    // АЗВ компрессор — пока не переведён, шагаем вручную
-    azv_motor_compressor.step();
-
     // Контроллер машиниста — шаг для таймеров анимации вращения
     km[CAB1]->step(t, dt);
     km[CAB2]->step(t, dt);
@@ -227,4 +224,8 @@ void TEP70::stepControls(double t, double dt)
 
     bool ac_bc_bwd = shared_inputs[CTRL_ANGLECOCK_BC_BWD].toBool();
     ac_bc_bwd ? anglecock_bc_bwd->open() : anglecock_bc_bwd->close();
+
+    // АЗВ "Компрессор" (общий)
+    bool azv_motor_comp_on = shared_inputs[CTRL_AZV_MOTOR_COMPRESSOR].toBool();
+    azv_motor_comp_on ? azv_motor_compressor.set() : azv_motor_compressor.reset();
 }

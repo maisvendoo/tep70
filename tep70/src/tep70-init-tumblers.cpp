@@ -80,12 +80,7 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
     hose_bp_bwd->setKeyModifierDisconnect(MODIFIER_OnlyControl);
 
 
-    // АЗВ "Компрессор"
-    azv_motor_compressor.setKeySymbolOn(KEY_5);
-    azv_motor_compressor.setKeyModifierOn(MODIFIER_OnlyShift);
-    azv_motor_compressor.setKeySymbolOff(KEY_5);
-    azv_motor_compressor.setKeyModifierOff(MODIFIER_OnlyControl);
-    azv_motor_compressor.setControl(&pressed_keys);
+    // АЗВ "Компрессор" — управление от IOController (shared), клавиша в konфиге iocontroller
     azv_motor_compressor.setInitState(true);
 
     for (auto cab_idx : {CAB1, CAB2})
