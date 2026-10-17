@@ -41,11 +41,6 @@ bool TEP70::initAutostartProgram(int cab_autostart_request)
     brake_lock[autostart_cab]->setStateOn(true);
     epk[autostart_cab]->insertKey(true);
 
-    km[CAB1]->setControl();
-    km[CAB2]->setControl();
-    epk[CAB1]->setControl();
-    epk[CAB2]->setControl();
-
     start_count = 0;
     autostart_triggers.clear();
 
@@ -111,11 +106,6 @@ void TEP70::slotAutostart()
 
         km[autostart_cab]->setReversHandlePos(1);
 
-        km[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
-        km[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
-        epk[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
-        epk[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
-
         if (auto_start_autopilot)
         {
             autopilot_switcher[CAB1].set();
@@ -153,12 +143,6 @@ bool TEP70::initAutostopProgram(int cab_autostop_request)
 
     // Выключаем автоведение, если оно было включено
     OffAutopilot();
-
-    // Переводим органы управления в программное управление
-    km[CAB1]->setControl();
-    km[CAB2]->setControl();
-    epk[CAB1]->setControl();
-    epk[CAB2]->setControl();
 
     // Возвращаем главный вал КМ в нулевое положение.
     // Это необходимо для работы цепи прокачки масла после остановки
@@ -260,11 +244,6 @@ void TEP70::slotAutostop()
     {
         autoStartTimer->stop();
         start_count = 0;
-
-        km[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
-        km[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
-        epk[CAB1]->setControl(&pressed_keys_by_cabine[CAB1]);
-        epk[CAB2]->setControl(&pressed_keys_by_cabine[CAB2]);
 
         // Синхронизируем control_inputs после автоостанова
         control_inputs[autostart_cab][CTRL_AZV_UPR_TEPL].value = 0.0f;

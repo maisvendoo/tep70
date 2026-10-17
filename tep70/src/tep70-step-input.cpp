@@ -27,7 +27,6 @@ void TEP70::stepControls(double t, double dt)
 
     // Песочница — состояние задаётся из control_inputs в stepOther()
     // после sand_system->step(), управление клавишами снято.
-    horn->setControl(&pressed_keys);
 
     // Контроллер машиниста — шаг для таймеров анимации вращения
     km[CAB1]->step(t, dt);
