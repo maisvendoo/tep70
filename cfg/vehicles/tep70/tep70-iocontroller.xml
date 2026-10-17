@@ -541,7 +541,7 @@
 		<ObjectNameCab2>Cab2_Bl_367_holder</ObjectNameCab2>
 	</Control>
 
-	<Control>
+<Control>
 		<ID>152</ID>
 		<Name>Комбинированный кран УБТ-367</Name>
 		<Type>Switcher</Type>
@@ -554,6 +554,8 @@
 		<KeyModIncName>Shift</KeyModIncName>
 		<KeyNameDec>KEY_BackSpace</KeyNameDec>
 		<KeyModDecName>Ctrl</KeyModDecName>
+		<IncButtonName>RIGHT_BUTTON</IncButtonName>
+		<DecButtonName>LEFT_BUTTON</DecButtonName>
 		<ObjectNameCab1>Cab1_comb_kran</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_comb_kran</ObjectNameCab2>
 		<PositionsNames>Двойная тяга,Открыт,ЭТ</PositionsNames>	
