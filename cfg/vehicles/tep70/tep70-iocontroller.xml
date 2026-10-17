@@ -530,24 +530,15 @@
 	<Control>
 		<ID>142</ID>
 		<Name>Рукоятка УБТ-367</Name>
+		<Description>Извлечь/Вставить рукоятку</Description>
 		<Type>Toggle</Type>
 		<value1>1</value1>
 		<value2>0</value2>
+		<KeyName>KEY_BackSpace</KeyName>
+		<KeyModOnName>Alt</KeyModOnName>
+		<KeyModOffName>Alt</KeyModOffName>
 		<ObjectNameCab1>Cab1_ruk_367</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_ruk_367</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>144</ID>
-		<Name>Блокировка 367</Name>
-		<Description>Извлечь/Вставить рукоятку</Description>
-		<Type>Toggle</Type>
-		<value1>1.0</value1>
-		<value2>0.0</value2>
-		<KeyName>KEY_BackSpace</KeyName>
-		<KeyModOnName>Alt</KeyModOnName>		
-		<ObjectNameCab1>Cab1_Bl_367_Holder</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_Bl_367_Holder</ObjectNameCab2>
 	</Control>
 
 	<Control>
