@@ -753,20 +753,56 @@
 	-->
 	<Control>
 		<ID>200</ID>
-		<Name>Расцепной рычаг вперёд</Name>
-		<Description>Расцепление передней сцепки</Description>
-		<Type>Toggle</Type>
-		<value>0</value>
-		<KeyName>KEY_X</KeyName>
+		<Name>Расцепной рычаг передней сцепки</Name>
+		<Description>Расцепить/сцепить (вытащить/вставить) рычаг передней сцепки</Description>
+		<Type>Switcher</Type>
+		<NumPositions>2</NumPositions>
+		<MinValue>-1.0</MinValue>
+		<MaxValue>1.0</MaxValue>
+		<value>1.0</value>
+		<SpringReturnLow>0</SpringReturnLow>
+		<KeyNameInc>KEY_X</KeyNameInc>
+		<KeyModIncName></KeyModIncName>
+		<KeyNameDec>KEY_X</KeyNameDec>
+		<KeyModDecName>Shift</KeyModDecName>
 	</Control>
 
 	<Control>
 		<ID>201</ID>
-		<Name>Расцепной рычаг назад</Name>
-		<Description>Расцепление задней сцепки</Description>
+		<Name>Расцепной рычаг задней сцепки</Name>
+		<Description>Расцепить/сцепить (вытащить/вставить) рычаг задней сцепки</Description>
+		<Type>Switcher</Type>
+		<NumPositions>2</NumPositions>
+		<MinValue>-1.0</MinValue>
+		<MaxValue>1.0</MaxValue>
+		<value>1.0</value>
+		<SpringReturnLow>0</SpringReturnLow>
+		<KeyNameInc>KEY_C</KeyNameInc>
+		<KeyModIncName></KeyModIncName>
+		<KeyNameDec>KEY_C</KeyNameDec>
+		<KeyModDecName>Shift</KeyModDecName>
+	</Control>
+
+	<Control>
+		<ID>214</ID>
+		<Name>Фиксация расцепного рычага передней сцепки</Name>
+		<Description>Зафиксировать/освободить рычаг в расцепленном состоянии</Description>
 		<Type>Toggle</Type>
-		<value>0</value>
+		<value>0.0</value>
+		<KeyName>KEY_X</KeyName>
+		<KeyModOnName>Alt+Shift</KeyModOnName>
+		<KeyModOffName>Alt+Shift</KeyModOffName>
+	</Control>
+
+	<Control>
+		<ID>215</ID>
+		<Name>Фиксация расцепного рычага задней сцепки</Name>
+		<Description>Зафиксировать/освободить рычаг в расцепленном состоянии</Description>
+		<Type>Toggle</Type>
+		<value>0.0</value>
 		<KeyName>KEY_C</KeyName>
+		<KeyModOnName>Alt+Shift</KeyModOnName>
+		<KeyModOffName>Alt+Shift</KeyModOffName>
 	</Control>
 
 	<Control>

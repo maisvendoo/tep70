@@ -73,6 +73,8 @@ enum
     /// Coupling / hose / anglecock (shared index — без ObjectName)
     CTRL_OPER_ROD_FWD          = 200,
     CTRL_OPER_ROD_BWD          = 201,
+    CTRL_OPER_ROD_FIX_FWD      = 214,
+    CTRL_OPER_ROD_FIX_BWD      = 215,
     CTRL_ANGLECOCK_BC_FWD      = 202,
     CTRL_ANGLECOCK_BC_BWD      = 203,
     CTRL_HOSE_BC_FWD           = 204,

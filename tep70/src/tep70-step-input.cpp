@@ -233,11 +233,16 @@ void TEP70::stepControls(double t, double dt)
     // Общие сигналы (shared)
     auto &shared_inputs = control_inputs[CABS_NUM];
 
-    bool rod_fwd = shared_inputs[CTRL_OPER_ROD_FWD].toBool();
-    oper_rod_fwd->setExternalState(rod_fwd ? -1.0 : 1.0);
+    // Расцепные рычаги: фиксация в расцепленном положении либо аналоговое положение
+    if (shared_inputs[CTRL_OPER_ROD_FIX_FWD].toBool())
+        oper_rod_fwd->setExternalState(-1.0);
+    else
+        oper_rod_fwd->setExternalState(shared_inputs[CTRL_OPER_ROD_FWD].value);
 
-    bool rod_bwd = shared_inputs[CTRL_OPER_ROD_BWD].toBool();
-    oper_rod_bwd->setExternalState(rod_bwd ? -1.0 : 1.0);
+    if (shared_inputs[CTRL_OPER_ROD_FIX_BWD].toBool())
+        oper_rod_bwd->setExternalState(-1.0);
+    else
+        oper_rod_bwd->setExternalState(shared_inputs[CTRL_OPER_ROD_BWD].value);
 
     bool ac_bc_fwd = shared_inputs[CTRL_ANGLECOCK_BC_FWD].toBool();
     ac_bc_fwd ? anglecock_bc_fwd->open() : anglecock_bc_fwd->close();
