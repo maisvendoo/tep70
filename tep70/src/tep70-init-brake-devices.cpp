@@ -2,6 +2,8 @@
 
 #include    "filesystem.h"
 
+#include    <tep70-controls.h>
+
 //------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------
@@ -52,20 +54,28 @@ void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
     {
         hose_bc_fwd->connect();
         anglecock_bc_fwd->open();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_BC_FWD, 1.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_BC_FWD, 1.0f);
     }
     else
     {
         anglecock_bc_fwd->close();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_BC_FWD, 0.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_BC_FWD, 0.0f);
     }
 
     if (hose_bc_bwd->isLinked())
     {
         hose_bc_bwd->connect();
         anglecock_bc_bwd->open();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_BC_BWD, 1.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_BC_BWD, 1.0f);
     }
     else
     {
         anglecock_bc_bwd->close();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_BC_BWD, 0.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_BC_BWD, 0.0f);
     }
 
     // Состояние рукавов и концевых кранов питательной магистрали
@@ -73,20 +83,28 @@ void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
     {
         hose_fl_fwd->connect();
         anglecock_fl_fwd->open();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_FL_FWD, 1.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_FL_FWD, 1.0f);
     }
     else
     {
         anglecock_fl_fwd->close();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_FL_FWD, 0.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_FL_FWD, 0.0f);
     }
 
     if (hose_fl_bwd->isLinked())
     {
         hose_fl_bwd->connect();
         anglecock_fl_bwd->open();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_FL_BWD, 1.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_FL_BWD, 1.0f);
     }
     else
     {
         anglecock_fl_bwd->close();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_FL_BWD, 0.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_FL_BWD, 0.0f);
     }
 
     // Состояние рукавов и концевых кранов тормозной магистрали
@@ -94,20 +112,28 @@ void TEP70::initBrakeDevices(double p0, double pBP, double pFL)
     {
         hose_bp_fwd->connect();
         anglecock_bp_fwd->open();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_BP_FWD, 1.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_BP_FWD, 1.0f);
     }
     else
     {
         anglecock_bp_fwd->close();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_BP_FWD, 0.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_BP_FWD, 0.0f);
     }
 
     if (hose_bp_bwd->isLinked())
     {
         hose_bp_bwd->connect();
         anglecock_bp_bwd->open();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_BP_BWD, 1.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_BP_BWD, 1.0f);
     }
     else
     {
         anglecock_bp_bwd->close();
+        initClientInputSignal(CABS_NUM, CTRL_HOSE_BP_BWD, 0.0f);
+        initClientInputSignal(CABS_NUM, CTRL_ANGLECOCK_BP_BWD, 0.0f);
     }
 }
 

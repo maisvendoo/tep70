@@ -1,4 +1,5 @@
 #include    <tep70.h>
+#include    <tep70-controls.h>
 
 #include    <core/load_module.h>
 
@@ -74,14 +75,20 @@ void TEP70::prepareCabineForAutopilot(int my_cab_idx, int other_cab_idx)
     {
         azv_ept_power[my_cab_idx].set();
         azv_ept_on[my_cab_idx].set();
+        initClientInputSignal(my_cab_idx, CTRL_AZV_EPT_POWER, 1.0f);
+        initClientInputSignal(my_cab_idx, CTRL_AZV_EPT_ON, 1.0f);
     }
 
     tumbler_bufferliht_L[my_cab_idx].setPosition(2);
     tumbler_bufferliht_R[my_cab_idx].setPosition(2);
     azv_spotlight_high[my_cab_idx].set();
+    initClientInputSignal(my_cab_idx, CTRL_TUMBLER_BUFFERLIGHT_L, 2.0f);
+    initClientInputSignal(my_cab_idx, CTRL_TUMBLER_BUFFERLIGHT_R, 2.0f);
+    initClientInputSignal(my_cab_idx, CTRL_AZV_SPOTLIGHT_HIGH, 1.0f);
 
     // В другой кабине
     tumbler_bufferliht_L[other_cab_idx].setPosition(2);
+    initClientInputSignal(other_cab_idx, CTRL_TUMBLER_BUFFERLIGHT_L, 2.0f);
 }
 
 //------------------------------------------------------------------------------

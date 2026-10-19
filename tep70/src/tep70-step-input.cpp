@@ -259,13 +259,13 @@ void TEP70::stepControls(double t, double dt)
     bool ac_bp_bwd = shared_inputs[CTRL_ANGLECOCK_BP_BWD].toBool();
     ac_bp_bwd ? anglecock_bp_bwd->open() : anglecock_bp_bwd->close();
 
-    // Рукава магистралей
-    hose_bc_fwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_BC_FWD].value)));
-    hose_bc_bwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_BC_BWD].value)));
-    hose_fl_fwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_FL_FWD].value)));
-    hose_fl_bwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_FL_BWD].value)));
-    hose_bp_fwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_BP_FWD].value)));
-    hose_bp_bwd->setExternalState(static_cast<int>(std::round(shared_inputs[CTRL_HOSE_BP_BWD].value)));
+    // Рукава магистралей: 0 - разъединён, 2 - соединён (1 - нейтраль)
+    hose_bc_fwd->setExternalState(shared_inputs[CTRL_HOSE_BC_FWD].toBool() ? 2 : 0);
+    hose_bc_bwd->setExternalState(shared_inputs[CTRL_HOSE_BC_BWD].toBool() ? 2 : 0);
+    hose_fl_fwd->setExternalState(shared_inputs[CTRL_HOSE_FL_FWD].toBool() ? 2 : 0);
+    hose_fl_bwd->setExternalState(shared_inputs[CTRL_HOSE_FL_BWD].toBool() ? 2 : 0);
+    hose_bp_fwd->setExternalState(shared_inputs[CTRL_HOSE_BP_FWD].toBool() ? 2 : 0);
+    hose_bp_bwd->setExternalState(shared_inputs[CTRL_HOSE_BP_BWD].toBool() ? 2 : 0);
 
     // АЗВ "Компрессор" (общий)
     bool azv_motor_comp_on = shared_inputs[CTRL_AZV_MOTOR_COMPRESSOR].toBool();
