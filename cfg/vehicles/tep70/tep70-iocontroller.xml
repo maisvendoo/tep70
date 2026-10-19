@@ -902,7 +902,7 @@
 	</Control>
 
 	<!--
-		Песок, свисток, тифон (дубли для shared использования)
+		Песок
 	-->
 	<Control>
 		<ID>220</ID>
@@ -914,30 +914,6 @@
 		<KeyName>KEY_Delete</KeyName>
 		<ObjectNameCab1>Cab1_button_sandbox</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_button_sandbox</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>221</ID>
-		<Name>Свисток</Name>
-		<Description>Звуковой сигнал свистком</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>		
-		<KeyName>KEY_Space</KeyName>
-		<ObjectNameCab1>Cab1_button_svistok</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_svistok</ObjectNameCab2>		
-	</Control>
-
-	<Control>
-		<ID>222</ID>
-		<Name>Тифон</Name>
-		<Description>Звуковой сигнал тифоном</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<KeyName>KEY_B</KeyName>
-		<ObjectNameCab1>Cab1_button_tifon</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_tifon</ObjectNameCab2>		
 	</Control>
 
 </Config>

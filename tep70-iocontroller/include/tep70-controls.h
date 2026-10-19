@@ -96,8 +96,6 @@ enum
 
     // Прочее
     CTRL_SAND_BUTTON           = 220,
-    CTRL_WHISTLE_BUTTON        = 221,
-    CTRL_TIFON_BUTTON          = 222,
 };
 
 #endif
