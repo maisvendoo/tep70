@@ -130,7 +130,7 @@ void TEP70::slotAutostart()
         initClientInputSignal(autostart_cab, CTRL_TUMBLER_FIELD_WEAK2,
                               tumbler_field_weak2[autostart_cab].getPosition());
         initClientInputSignal(autostart_cab, CTRL_LOCK_367_INSERTION,
-                              brake_lock[autostart_cab]->isLockHandle() ? 1.0f : 0.0f);
+                              brake_lock[autostart_cab]->isStateOn() ? 1.0f : 0.0f);
         initClientInputSignal(autostart_cab, CTRL_EPK_INSERTION,
                               epk[autostart_cab]->isKey() ? 1.0f : 0.0f);
         initClientInputSignal(autostart_cab, CTRL_KEY_EPK,
@@ -288,7 +288,7 @@ void TEP70::slotAutostop()
         initClientInputSignal(autostart_cab, CTRL_TUMBLER_FIELD_WEAK2,
                               tumbler_field_weak2[autostart_cab].getPosition());
         initClientInputSignal(autostart_cab, CTRL_LOCK_367_INSERTION,
-                              brake_lock[autostart_cab]->isLockHandle() ? 1.0f : 0.0f);
+                              brake_lock[autostart_cab]->isStateOn() ? 1.0f : 0.0f);
         initClientInputSignal(autostart_cab, CTRL_KEY_EPK,
                               epk[autostart_cab]->isKeyOn() ? 1.0f : 0.0f);
         initClientInputSignal(CAB1, CTRL_AUTOPILOT, 0.0f);
