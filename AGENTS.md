@@ -2,8 +2,6 @@
 
 Данный проект - дополнение к [Russian Railway Simulator](https://github.com/maisvendoo/RRS.git).
 
-## Commands
-
 ## Architecture
 
 - cfg/trains - конфиги поездов
@@ -14,6 +12,8 @@
 - data/sounds - звуки и конфиги звуков
 - scripts/ - инсталляция проекта после сборки в симулятор и деплой дополнения для распространения
 
+## Commands
+
 Последовательность сборки:
 
 - Убедится, что заданы системные переменные RRS_DEV_ROOT и RRS_DIR
@@ -21,7 +21,7 @@
 - cmake -DCMAKE_BUILD_TYPE=Release ../sources (или любая дргугая папка, содержащая исходники)
 - Win: mingw32-make; Linux,macOS: make
 
-##Rules
+## Rules
 
 - Перед началом работы уточнить путь к исходному коду симулятора RRS
 - Ничего не делать с кодом или конфигами без утверждения плана действий!
