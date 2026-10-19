@@ -238,74 +238,8 @@ void ControllerKM2202::load_config(CfgReader &cfg)
 //------------------------------------------------------------------------------
 void ControllerKM2202::stepKeysControl(double t, double dt)
 {
-    if (getKeyState(pressed_keys, KEY_A) || getKeyState(pressed_keys, KEY_D) )
-    {
-        if (getKeyState(*pressed_keys, KEY_A))
-        {
-            ms_dir = 1;
-            main_shaft_timer.start();
-        }
-        else if (getKeyState(*pressed_keys, KEY_D))
-        {
-/*            if (!isModifier(*pressed_keys, MODIFIER_Control))
-            {*/
-                ms_dir = -1;
-                main_shaft_timer.start();
-/*            }
-            else
-            {
-                setPosition(MS_ZERO);
-            }*/
-        }
-    }
-    else
-    {
-        main_shaft_timer.stop();
-    }
-
-
-    if (getKeyState(pressed_keys, KEY_W) || getKeyState(pressed_keys, KEY_S))
-    {
-        if (getKeyState(*pressed_keys, KEY_W))
-        {
-            if (isModifier(*pressed_keys, MODIFIER_OnlyShift))
-            {
-                // Shift - вставляем реверсивку
-                insertReversHandle(true);
-
-                revers_shaft_timer.stop();
-            }
-            else
-            {
-                if (isModifier(*pressed_keys, MODIFIER_OnlyControl))
-                {
-                    // Ctrl - извлекаем реверсивку
-                    insertReversHandle(false);
-
-                    revers_shaft_timer.stop();
-                }
-                else
-                {
-                    rs_dir = 1;
-
-                    revers_shaft_timer.start();
-                }
-            }
-        }
-
-        if (getKeyState(*pressed_keys, KEY_S))
-        {
-            rs_dir = -1;
-
-            revers_shaft_timer.start();
-        }
-    }
-    else
-    {
-        revers_shaft_timer.stop();
-    }
-
-
+    // Клавиатурное управление КМ переведено на IOController.
+    // Таймеры оставлены как резерв для плавного поворота валов.
     main_shaft_timer.step(t, dt);
     revers_shaft_timer.step(t, dt);
 }
