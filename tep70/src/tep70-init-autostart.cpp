@@ -112,12 +112,35 @@ void TEP70::slotAutostart()
             autopilot_switcher[CAB2].set();
         }
 
-        // Синхронизируем control_inputs для контролов, переведённых на IOController
-        control_inputs[autostart_cab][CTRL_AZV_COMMON_CONTROL].value = 1.0f;
-        control_inputs[autostart_cab][CTRL_AZV_UPR_TEPL].value = 1.0f;
-        control_inputs[autostart_cab][CTRL_AZV_FUEL_PUMP].value = 1.0f;
-        control_inputs[autostart_cab][CTRL_BUTTON_DISEL_START].value = 0.0f;
-        control_inputs[autostart_cab][CTRL_RBS].value = 1.0f;
+        // Синхронизируем control_inputs с фактическим состоянием органов
+        initClientInputSignal(autostart_cab, CTRL_AZV_COMMON_CONTROL, 1.0f);
+        initClientInputSignal(autostart_cab, CTRL_AZV_UPR_TEPL, 1.0f);
+        initClientInputSignal(autostart_cab, CTRL_AZV_FUEL_PUMP, 1.0f);
+        initClientInputSignal(autostart_cab, CTRL_BUTTON_DISEL_START, 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_RBS,
+                              rb[autostart_cab][RBS].getState() ? 1.0f : 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_REVERS_INSERTION,
+                              km[autostart_cab]->isReversHandle() ? 1.0f : 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_REVERS_POSITION,
+                              km[autostart_cab]->getReversHandlePos());
+        initClientInputSignal(autostart_cab, CTRL_KM_MAIN_POSITION,
+                              km[autostart_cab]->getPositionNumber());
+        initClientInputSignal(autostart_cab, CTRL_TUMBLER_FIELD_WEAK1,
+                              tumbler_field_weak1[autostart_cab].getPosition());
+        initClientInputSignal(autostart_cab, CTRL_TUMBLER_FIELD_WEAK2,
+                              tumbler_field_weak2[autostart_cab].getPosition());
+        initClientInputSignal(autostart_cab, CTRL_LOCK_367_INSERTION,
+                              brake_lock[autostart_cab]->isLockHandle() ? 1.0f : 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_EPK_INSERTION,
+                              epk[autostart_cab]->isKey() ? 1.0f : 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_KEY_EPK,
+                              epk[autostart_cab]->isKeyOn() ? 1.0f : 0.0f);
+
+        if (auto_start_autopilot)
+        {
+            initClientInputSignal(CAB1, CTRL_AUTOPILOT, 1.0f);
+            initClientInputSignal(CAB2, CTRL_AUTOPILOT, 1.0f);
+        }
     }
 }
 
@@ -143,6 +166,8 @@ bool TEP70::initAutostopProgram(int cab_autostop_request)
 
     // Выключаем автоведение, если оно было включено
     OffAutopilot();
+    initClientInputSignal(CAB1, CTRL_AUTOPILOT, 0.0f);
+    initClientInputSignal(CAB2, CTRL_AUTOPILOT, 0.0f);
 
     // Возвращаем главный вал КМ в нулевое положение.
     // Это необходимо для работы цепи прокачки масла после остановки
@@ -245,9 +270,28 @@ void TEP70::slotAutostop()
         autoStartTimer->stop();
         start_count = 0;
 
-        // Синхронизируем control_inputs после автоостанова
-        control_inputs[autostart_cab][CTRL_AZV_UPR_TEPL].value = 0.0f;
-        control_inputs[autostart_cab][CTRL_AZV_FUEL_PUMP].value = 0.0f;
-        control_inputs[autostart_cab][CTRL_AZV_COMMON_CONTROL].value = 0.0f;
+        // Синхронизируем control_inputs с фактическим состоянием органов
+        initClientInputSignal(autostart_cab, CTRL_AZV_UPR_TEPL, 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_AZV_FUEL_PUMP, 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_AZV_COMMON_CONTROL, 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_BUTTON_DISEL_START, 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_RBS,
+                              rb[autostart_cab][RBS].getState() ? 1.0f : 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_REVERS_INSERTION,
+                              km[autostart_cab]->isReversHandle() ? 1.0f : 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_REVERS_POSITION,
+                              km[autostart_cab]->getReversHandlePos());
+        initClientInputSignal(autostart_cab, CTRL_KM_MAIN_POSITION,
+                              km[autostart_cab]->getPositionNumber());
+        initClientInputSignal(autostart_cab, CTRL_TUMBLER_FIELD_WEAK1,
+                              tumbler_field_weak1[autostart_cab].getPosition());
+        initClientInputSignal(autostart_cab, CTRL_TUMBLER_FIELD_WEAK2,
+                              tumbler_field_weak2[autostart_cab].getPosition());
+        initClientInputSignal(autostart_cab, CTRL_LOCK_367_INSERTION,
+                              brake_lock[autostart_cab]->isLockHandle() ? 1.0f : 0.0f);
+        initClientInputSignal(autostart_cab, CTRL_KEY_EPK,
+                              epk[autostart_cab]->isKeyOn() ? 1.0f : 0.0f);
+        initClientInputSignal(CAB1, CTRL_AUTOPILOT, 0.0f);
+        initClientInputSignal(CAB2, CTRL_AUTOPILOT, 0.0f);
     }
 }
