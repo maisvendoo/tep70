@@ -185,22 +185,41 @@ void TEP70::stepControls(double t, double dt)
         control_inputs[cab_idx][CTRL_KEY_EPK].toBool()
             ? epk[cab_idx]->setKeyOn(true) : epk[cab_idx]->setKeyOn(false);
 
-        // Реверсор и штурвал КМ
-        bool revers_insert = control_inputs[cab_idx][CTRL_REVERS_INSERTION].toBool();
-        km[cab_idx]->insertReversHandle(revers_insert);
+        // Реверсор, штурвал КМ и тормозные краны.
+        // При активном автоведении клиентское управление не применяем,
+        // а отдаём клиенту фактическое состояние органов.
+        if (!autopilot_switcher[cab_idx].getState())
+        {
+            // Реверсор и штурвал КМ
+            bool revers_insert = control_inputs[cab_idx][CTRL_REVERS_INSERTION].toBool();
+            km[cab_idx]->insertReversHandle(revers_insert);
 
-        int revers_pos = control_inputs[cab_idx][CTRL_REVERS_POSITION].value;
-        km[cab_idx]->setReversHandlePos(revers_pos);
+            int revers_pos = control_inputs[cab_idx][CTRL_REVERS_POSITION].value;
+            km[cab_idx]->setReversHandlePos(revers_pos);
 
-        int main_pos = control_inputs[cab_idx][CTRL_KM_MAIN_POSITION].value;
-        km[cab_idx]->setPosition(main_pos);
+            int main_pos = control_inputs[cab_idx][CTRL_KM_MAIN_POSITION].value;
+            km[cab_idx]->setPosition(main_pos);
 
-        // Тормозные краны
-        int krm_pos = control_inputs[cab_idx][CTRL_KRM_395].value;
-        brake_crane[cab_idx]->setHandlePosition(krm_pos);
+            // Тормозные краны
+            int krm_pos = control_inputs[cab_idx][CTRL_KRM_395].value;
+            brake_crane[cab_idx]->setHandlePosition(krm_pos);
 
-        double kvt_pos = control_inputs[cab_idx][CTRL_KVT_254].value;
-        loco_crane[cab_idx]->setHandlePosition(kvt_pos);
+            double kvt_pos = control_inputs[cab_idx][CTRL_KVT_254].value;
+            loco_crane[cab_idx]->setHandlePosition(kvt_pos);
+        }
+        else
+        {
+            initClientInputSignal(cab_idx, CTRL_REVERS_INSERTION,
+                                  km[cab_idx]->isReversHandle() ? 1.0f : 0.0f);
+            initClientInputSignal(cab_idx, CTRL_REVERS_POSITION,
+                                  km[cab_idx]->getReversHandlePos());
+            initClientInputSignal(cab_idx, CTRL_KM_MAIN_POSITION,
+                                  km[cab_idx]->getPositionNumber());
+            initClientInputSignal(cab_idx, CTRL_KRM_395,
+                                  brake_crane[cab_idx]->getHandlePosition());
+            initClientInputSignal(cab_idx, CTRL_KVT_254,
+                                  loco_crane[cab_idx]->getHandlePosition());
+        }
 
         // Управление блокировкой УБТ-367
         bool is_lock367_insert = control_inputs[cab_idx][CTRL_LOCK_367_INSERTION].toBool();
