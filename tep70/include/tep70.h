@@ -561,10 +561,7 @@ private:
 
 
     /// Процесс симуляции
-    void process(const simulator_time_t& t, const double& dt) override;
-
-    /// Управление
-    void keyProcess(const simulator_time_t& t, const double& dt);
+    void process(const simulator_time_t& t, const double& dt) override;    
 
     /// Обработка сигналов от IOController
     void stepControls(double t, double dt);
@@ -578,13 +575,11 @@ private:
     /// Сигналы для озвучки
     void soundsOutput(const simulator_time_t& t, const double& dt);
 
-
     /// Предварительные расчёты перед симуляцией
     void preStep(const double& t) override;
 
     /// Предварительный расчёт координат сцепных устройств
     void preStepCouplings(const double& t);
-
 
     /// Шаг моделирования всех систем локомотива в целом
     void step(const double& t, const double& dt) override;
@@ -624,7 +619,6 @@ private:
 
     /// Шаг моделирования прочего оборудования
     void stepOther(const double& t, const double& dt);
-
 
     /// Формирование состояния сигнальных ламп
     float getLampState(double signal);

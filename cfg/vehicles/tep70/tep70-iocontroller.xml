@@ -166,6 +166,7 @@
 		<KeyModDecName>Ctrl</KeyModDecName>		
 		<ObjectNameCab1>Cab1_tumbler_field_weak1</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_field_weak1</ObjectNameCab2>
+		<PositionsNames>Ручное,Выключено,Автоматически</PositionsNames>
 	</Control>
 
 	<Control>
@@ -184,6 +185,7 @@
 		<KeyModDecName>Ctrl</KeyModDecName>
 		<ObjectNameCab1>Cab1_tumbler_field_weak2</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_field_weak2</ObjectNameCab2>
+		<PositionsNames>Ручное,Выключено,Автоматически</PositionsNames>
 	</Control>
 
 	<Control>
@@ -202,6 +204,7 @@
 		<KeyModDecName>Ctrl</KeyModDecName>
 		<ObjectNameCab1>Cab1_tumbler_water_zaluzi</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_water_zaluzi</ObjectNameCab2>
+		<PositionsNames>Ручное,Выключено,Автоматически</PositionsNames>
 	</Control>
 
 	<Control>
@@ -220,6 +223,7 @@
 		<KeyModDecName>Ctrl</KeyModDecName>
 		<ObjectNameCab1>Cab1_tumbler_oil_zaluzi</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_oil_zaluzi</ObjectNameCab2>
+		<PositionsNames>Ручное,Выключено,Автоматически</PositionsNames>
 	</Control>
 
 	<!--
@@ -269,6 +273,7 @@
 		<KeyModDecName>Ctrl</KeyModDecName>
 		<ObjectNameCab1>Cab1_tumbler_bufferlight_L</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_bufferlight_L</ObjectNameCab2>
+		<PositionsNames>Красный,Выключено,Белый</PositionsNames>
 	</Control>
 
 	<Control>
@@ -287,6 +292,7 @@
 		<KeyModDecName>Ctrl</KeyModDecName>
 		<ObjectNameCab1>Cab1_tumbler_bufferlight_R</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_bufferlight_R</ObjectNameCab2>
+		<PositionsNames>Красный,Выключено,Белый</PositionsNames>
 	</Control>
 
 	<Control>
@@ -507,12 +513,13 @@
 		<KeyNameDec>KEY_S</KeyNameDec>		
 		<ObjectNameCab1>Cab1_KM_reversor</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_KM_reversor</ObjectNameCab2>
+		<PositionsNames>Назад,0,Вперед</PositionsNames>
 	</Control>
 
 	<Control>
 		<ID>145</ID>
 		<Name>Штурвал КМ</Name>
-		<Description>Главная рукоятка контроллера машиниста</Description>
+		<Description>Управление тягой. Задание оборотов вала дизеля</Description>
 		<Type>Switcher</Type>
 		<value1>0</value1>
 		<value2>0</value2>
