@@ -518,6 +518,18 @@
 		<LocalPosition>-0.84 9.67 2.87</LocalPosition>
 	</Sound>
 
+	<!-- Тумблер ПСС -->
+	<Sound>
+		<SignalID>368</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>-0.84 9.67 2.87</LocalPosition>
+	</Sound>
+
 	<!-- Ключ ЭПК вставить -->
 	<Sound>
 		<SignalID>243</SignalID>
@@ -1112,6 +1124,18 @@
 	<!-- Тумблер вентиляторы -->
 	<Sound>
 		<SignalID>292</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер ПСС -->
+	<Sound>
+		<SignalID>369</SignalID>
 		<Filename>tumbler.wav</Filename>
 		<InitVolume>0.0</InitVolume>
 		<MaxVolume>1.0</MaxVolume>
