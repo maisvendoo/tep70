@@ -67,10 +67,14 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_SOUND_TUMBLER_BUFFERLIGHT_L + d] = tumbler_bufferliht_L[cab_idx].getSoundSignal();
         analogSignal[CAB1_SOUND_TUMBLER_BUFFERLIGHT_R + d] = tumbler_bufferliht_R[cab_idx].getSoundSignal();
         analogSignal[CAB1_SOUND_TUMBLER_NUMBER_LIGHT + d] = tumbler_number_light[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
-        analogSignal[CAB1_SOUND_TUMBLER_PANEL_POM_LIGHT + d] = sound_state_t::createSoundSignal(false);
-        analogSignal[CAB1_SOUND_TUMBLER_RESERVE_LIGHT + d] = sound_state_t::createSoundSignal(false);
-        analogSignal[CAB1_SOUND_TUMBLER_CAB_HEATER + d] = sound_state_t::createSoundSignal(false);
-        analogSignal[CAB1_SOUND_TUMBLER_CAB_FAN + d] = sound_state_t::createSoundSignal(false);
+        analogSignal[CAB1_SOUND_TUMBLER_PANEL_POM_LIGHT + d] = tumbler_panel_pom_light[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[CAB1_SOUND_TUMBLER_RESERVE_LIGHT + d] = tumbler_reserve_light[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[CAB1_SOUND_TUMBLER_CAB_HEATER + d] = tumbler_cab_heater[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[CAB1_SOUND_TUMBLER_CAB_FAN + d] = tumbler_cab_fan[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+
+        // Тумблер ПСС (декоративный)
+        analogSignal[(cab_idx == CAB1) ? CAB1_SOUND_TUMBLER_PSS : CAB2_SOUND_TUMBLER_PSS] =
+            tumbler_pss[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
 
         // ЭПК
         analogSignal[CAB1_SOUND_EPK_INSERT_KEY + d] = epk[cab_idx]->getSoundSignal(AutoTrainStop::KEY_INSERTED);

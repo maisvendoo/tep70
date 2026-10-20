@@ -485,6 +485,10 @@ enum
     CAB2_BUTTON_WHISTLE_POM = 366,
     CAB2_BUTTON_TIFON_POM = 367,
 
+    // Звук тумблера ПСС (декоративный)
+    CAB1_SOUND_TUMBLER_PSS = 368,
+    CAB2_SOUND_TUMBLER_PSS = 369,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

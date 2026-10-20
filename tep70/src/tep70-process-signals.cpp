@@ -154,8 +154,8 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_TUMBLER_CAB_HEATER + d] = static_cast<float>(tumbler_cab_heater[cab_idx].getState());
         analogSignal[CAB1_TUMBLER_CAB_FAN + d] = static_cast<float>(tumbler_cab_fan[cab_idx].getState());
 
-        // Тумблер ПСС — декоративный, сигнал от положения контрола (control_inputs)
-        analogSignal[CAB1_TUMBLER_PSS + d] = control_inputs[cab_idx][CTRL_TUMBLER_PSS].value;
+        // Тумблер ПСС — декоративный, анимация от состояния контрола
+        analogSignal[CAB1_TUMBLER_PSS + d] = static_cast<float>(tumbler_pss[cab_idx].getState());
 
         // Кнопки на панели машиниста
         analogSignal[CAB1_BUTTON_DISEL_START + d] = static_cast<float>(button_disel_start[cab_idx].getState());

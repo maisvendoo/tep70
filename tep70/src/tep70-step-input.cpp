@@ -135,6 +135,10 @@ void TEP70::stepControls(double t, double dt)
         control_inputs[cab_idx][CTRL_TUMBLER_CAB_FAN].toBool()
             ? tumbler_cab_fan[cab_idx].set() : tumbler_cab_fan[cab_idx].reset();
 
+        // Тумблер ПСС (декоративный)
+        control_inputs[cab_idx][CTRL_TUMBLER_PSS].toBool()
+            ? tumbler_pss[cab_idx].set() : tumbler_pss[cab_idx].reset();
+
         // Кнопки
         control_inputs[cab_idx][CTRL_BUTTON_DISEL_START].toBool()
             ? button_disel_start[cab_idx].set() : button_disel_start[cab_idx].reset();

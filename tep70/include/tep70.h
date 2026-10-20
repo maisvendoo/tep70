@@ -198,6 +198,9 @@ private:
     /// Кнопка "Пескоподача"
     TriggerControl  button_sand[CABS_NUM];
 
+    /// Тумблер ПСС (декоративный, не влияет на схему)
+    TriggerControl  tumbler_pss[CABS_NUM];
+
     enum
     {
         NUM_RB = 3,
