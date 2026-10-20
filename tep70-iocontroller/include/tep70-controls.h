@@ -98,6 +98,9 @@ enum
 
     // Прочее
     CTRL_SAND_BUTTON           = 220,
+
+    /// Тумблер ПСС (декоративный, не влияет на схему)
+    CTRL_TUMBLER_PSS           = 232,
 };
 
 #endif
