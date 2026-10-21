@@ -173,6 +173,11 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_BUTTON_RBP + d] = static_cast<float>(rb[cab_idx][RBP].getState());
         analogSignal[CAB1_EMERGENCY_STOP + d] = 0.0f;
     }
+
+    // Анимации двери и шторы ВВК. Нет смысла пока делать схемный элемент,
+    // напрямую транслируем положение контрола в сигнал анимации
+    analogSignal[VVK_BLINDS_DOOR_ACTION] = control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].value;
+    analogSignal[VVK_DOOR_ACTION] = control_inputs[CABS_NUM][CTRL_VVK_DOOR].value;
 }
 
 //------------------------------------------------------------------------------

@@ -101,6 +101,9 @@ enum
 
     /// Тумблер ПСС (декоративный, не влияет на схему)
     CTRL_TUMBLER_PSS           = 232,
+
+    CTRL_VVK_BLINDS_DOOR = 240,
+    CTRL_VVK_DOOR = 241
 };
 
 #endif

@@ -963,4 +963,23 @@
 		<ObjectNameCab2>Cab2_button_sandbox</ObjectNameCab2>
 	</Control>
 
+	<!-- МАШИННОЕ ОТДЕЛЕНИЕ -->
+	<Control>
+		<ID>240</ID>
+		<Name>Штора ВВК</Name>
+		<Description>Открыть штору аппаратной камеры</Description>
+		<Type>Toggle</Type>
+		<value>0</value>		
+		<ObjectName>VVK_blind_door_Handle</ObjectName>		
+	</Control>
+
+	<Control>
+		<ID>241</ID>
+		<Name>Дверь ВВК</Name>
+		<Description>Открыть дверь аппаратной камеры</Description>
+		<Type>Toggle</Type>
+		<value>0</value>		
+		<ObjectName>VVK_door_Handle</ObjectName>		
+	</Control>
+
 </Config>
