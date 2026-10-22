@@ -8,12 +8,12 @@
 
 	<KeyPoint>
 		<Param>0.0</Param>
-		<Value>-12.0</Value>
+		<Value>-20.0</Value>
 	</KeyPoint>
 
 	<KeyPoint>
 		<Param>1.0</Param>
-		<Value>12.0</Value>
+		<Value>20.0</Value>
 	</KeyPoint>
 
 </Config>
