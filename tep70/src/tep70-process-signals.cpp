@@ -196,6 +196,17 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[AZV_TROLLEYS_LIGHT_POS] = static_cast<float>(azv_trolleys_light.getState());
     analogSignal[AZV_VVK_LIGHT_POS] = static_cast<float>(azv_vvk_light.getState());
     analogSignal[AZV_WATCH_DISEL_LIGHT_POS] = static_cast<float>(azv_watch_disel_light.getState());
+
+    // Положения органов панели ВВК
+    analogSignal[VVK_EDT_TUMBLER_POS] = static_cast<float>(edt_tumbler.getState());
+    analogSignal[VVK_SHUNTING_TUMBLER_POS] = static_cast<float>(shunting_tumbler.getState());
+    analogSignal[VVK_MANUAL_FUEL_PUMP_POS] = static_cast<float>(manual_fuel_pumping.getState());
+    analogSignal[VVK_RESERVED_FUEL_PUMP_POS] = static_cast<float>(reserved_fuel_pump.getState());
+    analogSignal[VVK_AUTOSTOP_TUMBLER_POS] = static_cast<float>(autostop_tumbler.getState());
+    analogSignal[VVK_ISOLATION_CHECK_POS] = static_cast<float>(isolation_check.getState());
+    analogSignal[VVK_FOUND_GROUND_SWITCH_POS] = found_ground_switch.getHandlePosition();
+    analogSignal[VVK_GROUND_RELAY_BUTTON_POS] = static_cast<float>(ground_relay_button.getState());
+    analogSignal[VVK_KEEP_FUEL_PUMP_BUTTON_POS] = static_cast<float>(keep_fuel_pump_button.getState());
 }
 
 //------------------------------------------------------------------------------

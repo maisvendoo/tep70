@@ -158,6 +158,15 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[SOUND_AZV_VVK_LIGHT] = azv_vvk_light.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_AZV_WATCH_DISEL_LIGHT] = azv_watch_disel_light.getSoundSignal(Trigger::CHANGE_SOUND);
 
+    // Звуки органов панели ВВК (без кнопок)
+    analogSignal[SOUND_VVK_EDT_TUMBLER] = edt_tumbler.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_VVK_SHUNTING_TUMBLER] = shunting_tumbler.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_VVK_MANUAL_FUEL_PUMP] = manual_fuel_pumping.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_VVK_RESERVED_FUEL_PUMP] = reserved_fuel_pump.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_VVK_AUTOSTOP_TUMBLER] = autostop_tumbler.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_VVK_ISOLATION_CHECK] = isolation_check.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_VVK_FOUND_GROUND_SWITCH] = found_ground_switch.getSoundSignal();
+
     // Мотор-компрессор
     analogSignal[SOUND_MOTOR_COMPRESSOR] = motor_compressor->getSoundSignal();
 

@@ -319,4 +319,32 @@ void TEP70::stepControls(double t, double dt)
 
     shared_inputs[CTRL_AZV_WATCH_DISEL_LIGHT].toBool()
         ? azv_watch_disel_light.set() : azv_watch_disel_light.reset();
+
+    // Органы панели ВВК
+    shared_inputs[CTRL_VVK_EDT_TUMBLER].toBool()
+        ? edt_tumbler.set() : edt_tumbler.reset();
+
+    shared_inputs[CTRL_VVK_SHUNTING_TUMBLER].toBool()
+        ? shunting_tumbler.set() : shunting_tumbler.reset();
+
+    shared_inputs[CTRL_VVK_MANUAL_FUEL_PUMP].toBool()
+        ? manual_fuel_pumping.set() : manual_fuel_pumping.reset();
+
+    shared_inputs[CTRL_VVK_RESERVED_FUEL_PUMP].toBool()
+        ? reserved_fuel_pump.set() : reserved_fuel_pump.reset();
+
+    shared_inputs[CTRL_VVK_AUTOSTOP_TUMBLER].toBool()
+        ? autostop_tumbler.set() : autostop_tumbler.reset();
+
+    shared_inputs[CTRL_VVK_ISOLATION_CHECK].toBool()
+        ? isolation_check.set() : isolation_check.reset();
+
+    found_ground_switch.setNumPositions(20);
+    found_ground_switch.setPosition(shared_inputs[CTRL_VVK_FOUND_GROUND_SWITCH].value);
+
+    shared_inputs[CTRL_VVK_GROUND_RELAY_BUTTON].toBool()
+        ? ground_relay_button.set() : ground_relay_button.reset();
+
+    shared_inputs[CTRL_VVK_KEEP_FUEL_PUMP_BUTTON].toBool()
+        ? keep_fuel_pump_button.set() : keep_fuel_pump_button.reset();
 }

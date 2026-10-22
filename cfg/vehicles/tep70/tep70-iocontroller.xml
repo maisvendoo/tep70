@@ -802,6 +802,90 @@
 		<ObjectName>AZV_watch_disel_light</ObjectName>
 	</Control>
 
+	<Control>
+		<ID>255</ID>
+		<Name>Тумблер ЭДТ</Name>
+		<Description>Включение электродинамического тормоза</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>tumbler_EDT</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>256</ID>
+		<Name>Тумблер шунтировки</Name>
+		<Description>Включение шунтировки</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>tumbler_shunting</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>257</ID>
+		<Name>Тумблер ручной подкачки топлива</Name>
+		<Description>Включение ручной подкачки топлива</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>tumbler_manual_fuel_pumping</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>258</ID>
+		<Name>Тумблер резервного топливного насоса</Name>
+		<Description>Включение резервного топливного насоса</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>tumbler_reserved_fuel_pump</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>259</ID>
+		<Name>Тумблер автостоп</Name>
+		<Description>Включение тумблера автостопа</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>tumbler_autostop</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>260</ID>
+		<Name>Тумблер контроля изоляции</Name>
+		<Description>Проверка сопротивления изоляции</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>tumbler_check_isolation_resistence</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>261</ID>
+		<Name>Переключатель обнаружения заземления</Name>
+		<Description>Переключатель обнаружения заземления (20 позиций)</Description>
+		<Type>Switcher</Type>
+		<value>0</value>
+		<NumPositions>20</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>19</MaxValue>
+		<ObjectName>switch_found_ground</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>262</ID>
+		<Name>Кнопка возврата реле земли</Name>
+		<Description>Возврат реле земли</Description>
+		<Type>Button</Type>
+		<value>0</value>
+		<ObjectName>button_release_ground_relay</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>263</ID>
+		<Name>Кнопка удержания топливного насоса</Name>
+		<Description>Удержание питания топливного насоса</Description>
+		<Type>Button</Type>
+		<value>0</value>
+		<ObjectName>button_keep_fuel_pump_power</ObjectName>
+	</Control>
+
 	<!--
 		Автопилот, маневровый
 	-->

@@ -137,6 +137,34 @@ private:
     /// АЗВ "Освещение осмотра дизеля"
     TriggerControl  azv_watch_disel_light;
 
+    /// Органы управления панели ВВК
+    /// Тумблер ЭДТ (электродинамический тормоз)
+    TriggerControl  edt_tumbler;
+
+    /// Тумблер шунтировки
+    TriggerControl  shunting_tumbler;
+
+    /// Тумблер ручной подкачки топлива
+    TriggerControl  manual_fuel_pumping;
+
+    /// Тумблер резервного топливного насоса
+    TriggerControl  reserved_fuel_pump;
+
+    /// Тумблер автостопа
+    TriggerControl  autostop_tumbler;
+
+    /// Тумблер контроля сопротивления изоляции
+    TriggerControl  isolation_check;
+
+    /// Переключатель обнаружения заземления (20 позиций)
+    SwitcherControl found_ground_switch;
+
+    /// Кнопка возврата реле земли
+    TriggerControl  ground_relay_button;
+
+    /// Кнопка удержания питания топливного насоса
+    TriggerControl  keep_fuel_pump_button;
+
     enum
     {
         /// Число кабин

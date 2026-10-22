@@ -2408,6 +2408,90 @@
 		<LocalPosition>0.0 7.5 3.0</LocalPosition>
 	</Sound>
 
+	<!-- Тумблер ЭДТ -->
+	<Sound>
+		<SignalID>408</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер шунтировки -->
+	<Sound>
+		<SignalID>409</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер ручной подкачки топлива -->
+	<Sound>
+		<SignalID>410</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер резервного топливного насоса -->
+	<Sound>
+		<SignalID>411</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер автостоп -->
+	<Sound>
+		<SignalID>412</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер контроля изоляции -->
+	<Sound>
+		<SignalID>413</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Переключатель обнаружения заземления -->
+	<Sound>
+		<SignalID>414</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
 	<!-- Мотор-компрессор -->
 	<Sound>
 		<SignalID>359</SignalID>
