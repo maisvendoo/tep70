@@ -178,6 +178,9 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     // напрямую транслируем положение контрола в сигнал анимации
     analogSignal[VVK_BLINDS_DOOR_ACTION] = control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].value;
     analogSignal[VVK_DOOR_ACTION] = control_inputs[CABS_NUM][CTRL_VVK_DOOR].value;
+
+    // Положение АЗВ компрессора (общий, для ВВК)
+    analogSignal[AZV_MOTOR_COMPRESSOR_POS] = static_cast<float>(azv_motor_compressor.getState());
 }
 
 //------------------------------------------------------------------------------

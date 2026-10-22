@@ -492,6 +492,9 @@ enum
     VVK_BLINDS_DOOR_ACTION = 370,
     VVK_DOOR_ACTION = 371,
 
+    // Анимация положения АЗВ компрессора
+    AZV_MOTOR_COMPRESSOR_POS = 372,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

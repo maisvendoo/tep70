@@ -682,6 +682,7 @@
 		<KeyName>KEY_5</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
+		<ObjectName>AZV_Compressor</ObjectName>
 	</Control>
 
 	<!--
