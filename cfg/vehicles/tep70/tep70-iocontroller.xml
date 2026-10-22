@@ -1021,6 +1021,15 @@
 		<ObjectName>tumbler_locomotives_count</ObjectName>
 	</Control>
 
+	<Control>
+		<ID>279</ID>
+		<Name>Рубильник АКБ</Name>
+		<Description>Рубильник аккумуляторной батареи</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>Accum_switch</ObjectName>
+	</Control>
+
 	<!--
 		Сцепки, рукава, концевые краны (общие)
 	-->

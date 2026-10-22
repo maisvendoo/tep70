@@ -561,6 +561,9 @@ private:
     /// Тумблер числа тепловозов
     TriggerControl  tumbler_loco_count;
 
+    /// Рубильник аккумуляторной батареи
+    TriggerControl  accum_switch;
+
     /// Тяговые двигатели
     std::array<TractionMotor*, NUM_MOTORS> motor = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 

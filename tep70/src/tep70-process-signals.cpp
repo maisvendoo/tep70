@@ -220,6 +220,9 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
     // Положение тумблера числа тепловозов
     analogSignal[TUMBLER_LOCO_COUNT_POS] = static_cast<float>(tumbler_loco_count.getState());
+
+    // Положение рубильника АКБ
+    analogSignal[ACCUM_SWITCH_POS] = static_cast<float>(accum_switch.getState());
 }
 
 //------------------------------------------------------------------------------

@@ -178,6 +178,9 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     // Звук тумблера числа тепловозов
     analogSignal[SOUND_TUMBLER_LOCO_COUNT] = tumbler_loco_count.getSoundSignal(Trigger::CHANGE_SOUND);
 
+    // Звук рубильника АКБ
+    analogSignal[SOUND_ACCUM_SWITCH] = accum_switch.getSoundSignal(Trigger::CHANGE_SOUND);
+
     // Мотор-компрессор
     analogSignal[SOUND_MOTOR_COMPRESSOR] = motor_compressor->getSoundSignal();
 

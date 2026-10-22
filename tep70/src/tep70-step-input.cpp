@@ -371,4 +371,8 @@ void TEP70::stepControls(double t, double dt)
     // Тумблер числа тепловозов
     shared_inputs[CTRL_TUMBLER_LOCO_COUNT].toBool()
         ? tumbler_loco_count.set() : tumbler_loco_count.reset();
+
+    // Рубильник АКБ
+    shared_inputs[CTRL_ACCUM_SWITCH].toBool()
+        ? accum_switch.set() : accum_switch.reset();
 }

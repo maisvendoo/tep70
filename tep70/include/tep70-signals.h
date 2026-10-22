@@ -586,6 +586,12 @@ enum
     // Звук тумблера числа тепловозов
     SOUND_TUMBLER_LOCO_COUNT = 442,
 
+    // Позиция рубильника АКБ
+    ACCUM_SWITCH_POS = 443,
+
+    // Звук рубильника АКБ
+    SOUND_ACCUM_SWITCH = 444,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

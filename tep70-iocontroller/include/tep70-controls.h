@@ -109,6 +109,9 @@ enum
     /// Тумблер числа тепловозов
     CTRL_TUMBLER_LOCO_COUNT       = 278,
 
+    /// Рубильник аккумуляторной батареи
+    CTRL_ACCUM_SWITCH             = 279,
+
     /// Автоведение
     CTRL_AUTOPILOT             = 170,
     CTRL_SHUNTING_MODE         = 171,
