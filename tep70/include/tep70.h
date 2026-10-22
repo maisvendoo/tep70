@@ -165,6 +165,12 @@ private:
     /// Кнопка удержания питания топливного насоса
     TriggerControl  keep_fuel_pump_button;
 
+    /// Кнопка регулировки напряжения минус
+    TriggerControl  v_minus_button;
+
+    /// Кнопка регулировки напряжения плюс
+    TriggerControl  v_plus_button;
+
     enum
     {
         /// Число кабин

@@ -207,6 +207,8 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[VVK_FOUND_GROUND_SWITCH_POS] = found_ground_switch.getPosition();
     analogSignal[VVK_GROUND_RELAY_BUTTON_POS] = static_cast<float>(ground_relay_button.getState());
     analogSignal[VVK_KEEP_FUEL_PUMP_BUTTON_POS] = static_cast<float>(keep_fuel_pump_button.getState());
+    analogSignal[VVK_V_MINUS_BUTTON_POS] = static_cast<float>(v_minus_button.getState());
+    analogSignal[VVK_V_PLUS_BUTTON_POS] = static_cast<float>(v_plus_button.getState());
 }
 
 //------------------------------------------------------------------------------

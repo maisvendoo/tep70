@@ -535,6 +535,8 @@ enum
     VVK_FOUND_GROUND_SWITCH_POS = 405,
     VVK_GROUND_RELAY_BUTTON_POS = 406,
     VVK_KEEP_FUEL_PUMP_BUTTON_POS = 407,
+    VVK_V_MINUS_BUTTON_POS        = 415,
+    VVK_V_PLUS_BUTTON_POS         = 416,
 
     // Звуки органов панели ВВК (без кнопок)
     SOUND_VVK_EDT_TUMBLER       = 408,

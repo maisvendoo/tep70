@@ -87,6 +87,8 @@ enum
     CTRL_VVK_FOUND_GROUND_SWITCH = 261,
     CTRL_VVK_GROUND_RELAY_BUTTON = 262,
     CTRL_VVK_KEEP_FUEL_PUMP_BUTTON = 263,
+    CTRL_VVK_V_MINUS_BUTTON        = 264,
+    CTRL_VVK_V_PLUS_BUTTON         = 265,
 
     /// Автоведение
     CTRL_AUTOPILOT             = 170,

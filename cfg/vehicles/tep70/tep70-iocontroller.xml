@@ -886,6 +886,24 @@
 		<ObjectName>button_keep_fuel_pump_power</ObjectName>
 	</Control>
 
+	<Control>
+		<ID>264</ID>
+		<Name>Кнопка регулировки напряжения (-)</Name>
+		<Description>Уменьшение напряжения</Description>
+		<Type>Button</Type>
+		<value>0</value>
+		<ObjectName>button_V_minus</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>265</ID>
+		<Name>Кнопка регулировки напряжения (+)</Name>
+		<Description>Увеличение напряжения</Description>
+		<Type>Button</Type>
+		<value>0</value>
+		<ObjectName>button_V_plus</ObjectName>
+	</Control>
+
 	<!--
 		Автопилот, маневровый
 	-->

@@ -347,4 +347,10 @@ void TEP70::stepControls(double t, double dt)
 
     shared_inputs[CTRL_VVK_KEEP_FUEL_PUMP_BUTTON].toBool()
         ? keep_fuel_pump_button.set() : keep_fuel_pump_button.reset();
+
+    shared_inputs[CTRL_VVK_V_MINUS_BUTTON].toBool()
+        ? v_minus_button.set() : v_minus_button.reset();
+
+    shared_inputs[CTRL_VVK_V_PLUS_BUTTON].toBool()
+        ? v_plus_button.set() : v_plus_button.reset();
 }
