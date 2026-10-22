@@ -564,6 +564,10 @@ private:
     /// Рубильник аккумуляторной батареи
     TriggerControl  accum_switch;
 
+    /// Ручки дверей кабин
+    TriggerControl  cabine1_door_handle;
+    TriggerControl  cabine2_door_handle;
+
     /// Тяговые двигатели
     std::array<TractionMotor*, NUM_MOTORS> motor = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 

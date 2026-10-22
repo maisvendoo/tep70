@@ -375,4 +375,11 @@ void TEP70::stepControls(double t, double dt)
     // Рубильник АКБ
     shared_inputs[CTRL_ACCUM_SWITCH].toBool()
         ? accum_switch.set() : accum_switch.reset();
+
+    // Ручки дверей кабин
+    shared_inputs[CTRL_CABINE1_DOOR_HANDLE].toBool()
+        ? cabine1_door_handle.set() : cabine1_door_handle.reset();
+
+    shared_inputs[CTRL_CABINE2_DOOR_HANDLE].toBool()
+        ? cabine2_door_handle.set() : cabine2_door_handle.reset();
 }

@@ -112,6 +112,10 @@ enum
     /// Рубильник аккумуляторной батареи
     CTRL_ACCUM_SWITCH             = 279,
 
+    /// Ручки дверей кабин
+    CTRL_CABINE1_DOOR_HANDLE       = 280,
+    CTRL_CABINE2_DOOR_HANDLE       = 281,
+
     /// Автоведение
     CTRL_AUTOPILOT             = 170,
     CTRL_SHUNTING_MODE         = 171,
@@ -153,7 +157,9 @@ enum
     CTRL_TUMBLER_PSS           = 232,
 
     CTRL_VVK_BLINDS_DOOR = 240,
-    CTRL_VVK_DOOR = 241
+    CTRL_VVK_DOOR = 241,
+    CTRL_CABINE1_DOOR = 242,
+    CTRL_CABINE2_DOOR = 243
 };
 
 #endif
