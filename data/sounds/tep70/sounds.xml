@@ -2252,6 +2252,162 @@
 		<LocalPosition>0.0 7.5 3.0</LocalPosition>
 	</Sound>
 
+	<!-- АЗВ буферные огни -->
+	<Sound>
+		<SignalID>386</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ цепи управления -->
+	<Sound>
+		<SignalID>387</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ освещение дизеля -->
+	<Sound>
+		<SignalID>388</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ питание ЭПК минус -->
+	<Sound>
+		<SignalID>389</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ питание ЭПК плюс -->
+	<Sound>
+		<SignalID>390</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ пожарная сигнализация -->
+	<Sound>
+		<SignalID>391</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ топливный насос -->
+	<Sound>
+		<SignalID>392</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ отопление -->
+	<Sound>
+		<SignalID>393</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ розетки 1 -->
+	<Sound>
+		<SignalID>394</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ розетки 2 -->
+	<Sound>
+		<SignalID>395</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ освещение тележек -->
+	<Sound>
+		<SignalID>396</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ освещение ВВК -->
+	<Sound>
+		<SignalID>397</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- АЗВ освещение осмотра дизеля -->
+	<Sound>
+		<SignalID>398</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
 	<!-- Мотор-компрессор -->
 	<Sound>
 		<SignalID>359</SignalID>
