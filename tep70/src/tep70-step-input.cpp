@@ -339,7 +339,7 @@ void TEP70::stepControls(double t, double dt)
     shared_inputs[CTRL_VVK_ISOLATION_CHECK].toBool()
         ? isolation_check.set() : isolation_check.reset();
 
-    found_ground_switch.setNumPositions(20);
+    found_ground_switch.setNumPositions(21);
     found_ground_switch.setPosition(shared_inputs[CTRL_VVK_FOUND_GROUND_SWITCH].value);
 
     shared_inputs[CTRL_VVK_GROUND_RELAY_BUTTON].toBool()

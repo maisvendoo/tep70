@@ -859,12 +859,12 @@
 	<Control>
 		<ID>261</ID>
 		<Name>Переключатель обнаружения заземления</Name>
-		<Description>Переключатель обнаружения заземления (20 позиций)</Description>
+		<Description>Переключатель обнаружения заземления (21 позиция)</Description>
 		<Type>Switcher</Type>
 		<value>0</value>
-		<NumPositions>20</NumPositions>
+		<NumPositions>21</NumPositions>
 		<MinValue>0</MinValue>
-		<MaxValue>19</MaxValue>
+		<MaxValue>20</MaxValue>
 		<ObjectName>switch_found_ground</ObjectName>
 	</Control>
 
