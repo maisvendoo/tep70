@@ -223,6 +223,9 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
     // Положение рубильника АКБ
     analogSignal[ACCUM_SWITCH_POS] = static_cast<float>(accum_switch.getState());
+
+    analogSignal[CABINE1_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE1_DOOR].value;
+    analogSignal[CABINE2_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE2_DOOR].value;
 }
 
 //------------------------------------------------------------------------------

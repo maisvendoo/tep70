@@ -592,6 +592,9 @@ enum
     // Звук рубильника АКБ
     SOUND_ACCUM_SWITCH = 444,
 
+    CABINE1_DOOR_ACTION = 445,
+    CABINE2_DOOR_ACTION = 446,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1
