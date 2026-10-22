@@ -204,7 +204,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[VVK_RESERVED_FUEL_PUMP_POS] = static_cast<float>(reserved_fuel_pump.getState());
     analogSignal[VVK_AUTOSTOP_TUMBLER_POS] = static_cast<float>(autostop_tumbler.getState());
     analogSignal[VVK_ISOLATION_CHECK_POS] = static_cast<float>(isolation_check.getState());
-    analogSignal[VVK_FOUND_GROUND_SWITCH_POS] = found_ground_switch.getHandlePosition();
+    analogSignal[VVK_FOUND_GROUND_SWITCH_POS] = found_ground_switch.getPosition();
     analogSignal[VVK_GROUND_RELAY_BUTTON_POS] = static_cast<float>(ground_relay_button.getState());
     analogSignal[VVK_KEEP_FUEL_PUMP_BUTTON_POS] = static_cast<float>(keep_fuel_pump_button.getState());
 }
