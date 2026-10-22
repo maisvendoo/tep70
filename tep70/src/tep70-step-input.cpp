@@ -367,4 +367,8 @@ void TEP70::stepControls(double t, double dt)
         shared_inputs[CTRL_VVK_PA1 + i].toBool()
             ? vvk_sw[i].set() : vvk_sw[i].reset();
     }
+
+    // Тумблер числа тепловозов
+    shared_inputs[CTRL_TUMBLER_LOCO_COUNT].toBool()
+        ? tumbler_loco_count.set() : tumbler_loco_count.reset();
 }

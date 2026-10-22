@@ -1012,6 +1012,15 @@
 		<ObjectName>VVK_RC2</ObjectName>
 	</Control>
 
+	<Control>
+		<ID>278</ID>
+		<Name>Число тепловозов</Name>
+		<Description>Переключатель числа тепловозов</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>tumbler_locomotives_count</ObjectName>
+	</Control>
+
 	<!--
 		Сцепки, рукава, концевые краны (общие)
 	-->

@@ -580,6 +580,12 @@ enum
     SOUND_VVK_SW_RC1 = 439,
     SOUND_VVK_SW_RC2 = 440,
 
+    // Позиция тумблера числа тепловозов
+    TUMBLER_LOCO_COUNT_POS = 441,
+
+    // Звук тумблера числа тепловозов
+    SOUND_TUMBLER_LOCO_COUNT = 442,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

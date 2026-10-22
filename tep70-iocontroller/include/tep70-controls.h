@@ -106,6 +106,9 @@ enum
     CTRL_VVK_RC1                  = 276,
     CTRL_VVK_RC2                  = 277,
 
+    /// Тумблер числа тепловозов
+    CTRL_TUMBLER_LOCO_COUNT       = 278,
+
     /// Автоведение
     CTRL_AUTOPILOT             = 170,
     CTRL_SHUNTING_MODE         = 171,
