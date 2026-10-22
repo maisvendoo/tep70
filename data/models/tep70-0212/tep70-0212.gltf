@@ -714,7 +714,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"tumb.005",
+			"name":"tumbler_manual_fuel_pumping",
 			"rotation":[
 				1,
 				0,
@@ -752,7 +752,7 @@
 		},
 		{
 			"mesh":2,
-			"name":"tumb",
+			"name":"tumbler_reserved_fuel_pump",
 			"rotation":[
 				1,
 				0,
@@ -790,7 +790,7 @@
 		},
 		{
 			"mesh":4,
-			"name":"tumb.002",
+			"name":"tumbler_shunting",
 			"rotation":[
 				1,
 				0,
@@ -828,7 +828,7 @@
 		},
 		{
 			"mesh":6,
-			"name":"tumb.006",
+			"name":"tumbler_EDT",
 			"rotation":[
 				1,
 				0,
@@ -866,7 +866,7 @@
 		},
 		{
 			"mesh":8,
-			"name":"tumb.001",
+			"name":"tumbler_autostop",
 			"rotation":[
 				1,
 				0,
@@ -6184,7 +6184,7 @@
 		},
 		{
 			"mesh":338,
-			"name":"Cab1_tumbler_PSS.001",
+			"name":"tumbler_check_isolation_resistence",
 			"rotation":[
 				-0.01883212849497795,
 				0.22639232873916626,
@@ -6259,26 +6259,6 @@
 		},
 		{
 			"mesh":342,
-			"name":"Cylinder.002",
-			"rotation":[
-				-0.4037071168422699,
-				0.5805346965789795,
-				0.40370723605155945,
-				0.5805347561836243
-			],
-			"scale":[
-				0.019096532836556435,
-				0.019096532836556435,
-				0.019096532836556435
-			],
-			"translation":[
-				0.14404188096523285,
-				0.07594408094882965,
-				0.007451630663126707
-			]
-		},
-		{
-			"mesh":343,
 			"name":"button_V_plus",
 			"translation":[
 				-8.733582035347354e-06,
@@ -6288,9 +6268,9 @@
 		},
 		{
 			"children":[
-				374
+				373
 			],
-			"mesh":344,
+			"mesh":343,
 			"name":"Cylinder.003",
 			"rotation":[
 				0.5000001192092896,
@@ -6310,8 +6290,8 @@
 			]
 		},
 		{
-			"mesh":345,
-			"name":"button_V_plus.002",
+			"mesh":344,
+			"name":"button_release_ground_relay",
 			"translation":[
 				-7.95812411524821e-06,
 				-5.6952521845232695e-06,
@@ -6320,9 +6300,9 @@
 		},
 		{
 			"children":[
-				376
+				375
 			],
-			"mesh":346,
+			"mesh":345,
 			"name":"Cylinder.004",
 			"rotation":[
 				0.5000001192092896,
@@ -6342,7 +6322,7 @@
 			]
 		},
 		{
-			"mesh":347,
+			"mesh":346,
 			"name":"Cylinder.005",
 			"rotation":[
 				0.5000001192092896,
@@ -6362,11 +6342,31 @@
 			]
 		},
 		{
+			"mesh":347,
+			"name":"switch_found_ground",
+			"rotation":[
+				-0.4037071168422699,
+				0.5805346965789795,
+				0.40370723605155945,
+				0.5805347561836243
+			],
+			"scale":[
+				0.019096532836556435,
+				0.019096532836556435,
+				0.019096532836556435
+			],
+			"translation":[
+				0.14404188096523285,
+				0.07594408094882965,
+				0.007451630663126707
+			]
+		},
+		{
 			"mesh":348,
 			"name":"AZV_heater",
 			"translation":[
-				2.4838765966705978e-05,
-				-3.1842071166465757e-06,
+				2.4838478566380218e-05,
+				-3.184805336786667e-06,
 				-0.061827126890420914
 			]
 		},
@@ -6379,15 +6379,15 @@
 			"translation":[
 				0.19658055901527405,
 				-0.07312832772731781,
-				0.001235542818903923
+				0.0031409841030836105
 			]
 		},
 		{
 			"mesh":350,
 			"name":"AZV_VVK_light",
 			"translation":[
-				0.044789716601371765,
-				0.0001871002314146608,
+				0.04478971287608147,
+				0.00018709963478613645,
 				-0.062002647668123245
 			]
 		},
@@ -6400,7 +6400,7 @@
 			"translation":[
 				-0.15024617314338684,
 				-0.07518799602985382,
-				0.001411442761309445
+				0.0033168839290738106
 			]
 		},
 		{
@@ -6408,7 +6408,7 @@
 			"name":"AZV_trolleys_light",
 			"translation":[
 				0.014789683744311333,
-				0.00018710254516918212,
+				0.00018710193398874253,
 				-0.062002651393413544
 			]
 		},
@@ -6421,7 +6421,7 @@
 			"translation":[
 				-0.14669236540794373,
 				-0.07518799602985382,
-				0.0014114432269707322
+				0.0033168846275657415
 			]
 		},
 		{
@@ -6429,7 +6429,7 @@
 			"name":"AZV_watch_disel_light",
 			"translation":[
 				-0.015235738828778267,
-				0.00018710485892370343,
+				0.00018710426229517907,
 				-0.06200265511870384
 			]
 		},
@@ -6442,15 +6442,15 @@
 			"translation":[
 				-0.14329305291175842,
 				-0.07518799602985382,
-				0.0014114438090473413
+				0.003316885093227029
 			]
 		},
 		{
 			"mesh":356,
 			"name":"AZV_disel_light",
 			"translation":[
-				-0.044261232018470764,
-				0.00018710717267822474,
+				-0.04426123574376106,
+				0.00018710657604970038,
 				-0.062001705169677734
 			]
 		},
@@ -6463,15 +6463,15 @@
 			"translation":[
 				-0.14066633582115173,
 				-0.07518799602985382,
-				0.0014114441582933068
+				0.0033168853260576725
 			]
 		},
 		{
 			"mesh":358,
 			"name":"AZV_sockets_power_2",
 			"translation":[
-				2.0010833395645022e-05,
-				0.00018781032122205943,
+				2.0010545995319262e-05,
+				0.00018780972459353507,
 				-0.06200406700372696
 			]
 		},
@@ -6484,15 +6484,15 @@
 			"translation":[
 				-0.045752134174108505,
 				-0.07312830537557602,
-				0.0012355062644928694
+				0.003140947548672557
 			]
 		},
 		{
 			"mesh":360,
 			"name":"AZV_epk_power_plus",
 			"translation":[
-				2.4779161321930587e-05,
-				-3.165401039950666e-06,
+				2.4778873921604827e-05,
+				-3.165999260090757e-06,
 				-0.0618271566927433
 			]
 		},
@@ -6504,16 +6504,16 @@
 			"name":"tep70interior.033",
 			"translation":[
 				-0.01853403076529503,
-				-0.07312830537557602,
-				0.0012355103390291333
+				-0.07312831282615662,
+				0.003140951506793499
 			]
 		},
 		{
 			"mesh":362,
 			"name":"AZV_epk_power_minus",
 			"translation":[
-				2.4779161321930587e-05,
-				-3.1677943752583815e-06,
+				2.4778873921604827e-05,
+				-3.1683925953984726e-06,
 				-0.061827152967453
 			]
 		},
@@ -6526,15 +6526,15 @@
 			"translation":[
 				0.008842144161462784,
 				-0.07312831282615662,
-				0.0012355144135653973
+				0.0031409556977450848
 			]
 		},
 		{
 			"mesh":364,
 			"name":"AZV_fire_alarm",
 			"translation":[
-				2.4600347387604415e-05,
-				-3.170139052599552e-06,
+				2.4600059987278655e-05,
+				-3.1707372727396432e-06,
 				-0.061827149242162704
 			]
 		},
@@ -6547,15 +6547,15 @@
 			"translation":[
 				0.03566185012459755,
 				-0.07312831282615662,
-				0.0012355184881016612
+				0.0031409598886966705
 			]
 		},
 		{
 			"mesh":366,
 			"name":"AZV_buffer_lights",
 			"translation":[
-				2.489837061148137e-05,
-				-3.172435071974178e-06,
+				2.4898083211155608e-05,
+				-3.173033292114269e-06,
 				-0.061827145516872406
 			]
 		},
@@ -6568,15 +6568,15 @@
 			"translation":[
 				0.061925265938043594,
 				-0.07312831282615662,
-				0.0012355224462226033
+				0.0031409638468176126
 			]
 		},
 		{
 			"mesh":368,
 			"name":"AZV_sockets_power",
 			"translation":[
-				2.4779161321930587e-05,
-				-3.174763605784392e-06,
+				2.4778873921604827e-05,
+				-3.175361825924483e-06,
 				-0.06182714179158211
 			]
 		},
@@ -6589,15 +6589,15 @@
 			"translation":[
 				0.08855978399515152,
 				-0.07312832027673721,
-				0.0012355265207588673
+				0.0031409678049385548
 			]
 		},
 		{
 			"mesh":370,
 			"name":"AZV_control_circuit",
 			"translation":[
-				2.4779161321930587e-05,
-				-3.1771569410921074e-06,
+				2.4778873921604827e-05,
+				-3.177754933858523e-06,
 				-0.06182713806629181
 			]
 		},
@@ -6610,15 +6610,15 @@
 			"translation":[
 				0.1159358099102974,
 				-0.07312832027673721,
-				0.0012355305952951312
+				0.0031409719958901405
 			]
 		},
 		{
 			"mesh":372,
 			"name":"AZV_Compressor",
 			"translation":[
-				2.4928172933869064e-05,
-				-3.1795013910596026e-06,
+				2.4927885533543304e-05,
+				-3.1800996111996938e-06,
 				-0.06182713434100151
 			]
 		},
@@ -6631,15 +6631,15 @@
 			"translation":[
 				0.14275553822517395,
 				-0.07312832027673721,
-				0.0012355346698313951
+				0.0031409759540110826
 			]
 		},
 		{
 			"mesh":374,
 			"name":"AZV_fuel_pump",
 			"translation":[
-				2.4779161321930587e-05,
-				-3.1818460684007732e-06,
+				2.4778873921604827e-05,
+				-3.1824442885408644e-06,
 				-0.06182713061571121
 			]
 		},
@@ -6652,15 +6652,15 @@
 			"translation":[
 				0.16957542300224304,
 				-0.07312832772731781,
-				0.001235538744367659
+				0.0031409799121320248
 			]
 		},
 		{
 			"children":[
 				370,
 				372,
-				373,
-				375,
+				374,
+				376,
 				377,
 				378,
 				380,
@@ -6961,7 +6961,7 @@
 		},
 		{
 			"mesh":391,
-			"name":"button_V_plus.001",
+			"name":"button_keep_fuel_pump_power",
 			"translation":[
 				9.650445463194046e-06,
 				-3.4374252209090628e-06,
@@ -17949,27 +17949,13 @@
 			]
 		},
 		{
-			"name":"Cylinder.014",
+			"name":"Cylinder.009",
 			"primitives":[
 				{
 					"attributes":{
 						"POSITION":1363,
 						"NORMAL":1364,
 						"TEXCOORD_0":1365
-					},
-					"indices":1366,
-					"material":0
-				}
-			]
-		},
-		{
-			"name":"Cylinder.009",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":1367,
-						"NORMAL":1368,
-						"TEXCOORD_0":1369
 					},
 					"indices":1358,
 					"material":0
@@ -17981,9 +17967,9 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":1370,
-						"NORMAL":1371,
-						"TEXCOORD_0":1372
+						"POSITION":1366,
+						"NORMAL":1367,
+						"TEXCOORD_0":1368
 					},
 					"indices":1362,
 					"material":0
@@ -17995,9 +17981,9 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":1373,
-						"NORMAL":1374,
-						"TEXCOORD_0":1375
+						"POSITION":1369,
+						"NORMAL":1370,
+						"TEXCOORD_0":1371
 					},
 					"indices":1358,
 					"material":0
@@ -18009,9 +17995,9 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":1376,
-						"NORMAL":1377,
-						"TEXCOORD_0":1378
+						"POSITION":1372,
+						"NORMAL":1373,
+						"TEXCOORD_0":1374
 					},
 					"indices":1362,
 					"material":0
@@ -18023,11 +18009,25 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":1379,
-						"NORMAL":1380,
-						"TEXCOORD_0":1381
+						"POSITION":1375,
+						"NORMAL":1376,
+						"TEXCOORD_0":1377
 					},
 					"indices":1362,
+					"material":0
+				}
+			]
+		},
+		{
+			"name":"Cylinder.014",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":1378,
+						"NORMAL":1379,
+						"TEXCOORD_0":1380
+					},
+					"indices":1381,
 					"material":0
 				}
 			]
@@ -34285,6 +34285,146 @@
 		{
 			"bufferView":1363,
 			"componentType":5126,
+			"count":32,
+			"max":[
+				-0.062317099422216415,
+				0.7489376068115234,
+				0.7489311099052429
+			],
+			"min":[
+				-0.06231716647744179,
+				-0.7489368915557861,
+				-0.748943567276001
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1364,
+			"componentType":5126,
+			"count":32,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1365,
+			"componentType":5126,
+			"count":32,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":1366,
+			"componentType":5126,
+			"count":256,
+			"max":[
+				0.3084181249141693,
+				0.9000005722045898,
+				0.8999948501586914
+			],
+			"min":[
+				-0.11365810036659241,
+				-0.8999996185302734,
+				-0.9000054001808167
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1367,
+			"componentType":5126,
+			"count":256,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1368,
+			"componentType":5126,
+			"count":256,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":1369,
+			"componentType":5126,
+			"count":32,
+			"max":[
+				-0.062317099422216415,
+				0.7489376068115234,
+				0.7489311099052429
+			],
+			"min":[
+				-0.06231716647744179,
+				-0.7489368915557861,
+				-0.748943567276001
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1370,
+			"componentType":5126,
+			"count":32,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1371,
+			"componentType":5126,
+			"count":32,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":1372,
+			"componentType":5126,
+			"count":256,
+			"max":[
+				0.3084181249141693,
+				0.9000005722045898,
+				0.8999948501586914
+			],
+			"min":[
+				-0.11365810036659241,
+				-0.8999996185302734,
+				-0.9000054001808167
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1373,
+			"componentType":5126,
+			"count":256,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1374,
+			"componentType":5126,
+			"count":256,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":1375,
+			"componentType":5126,
+			"count":256,
+			"max":[
+				0.3084181249141693,
+				0.9000005722045898,
+				0.8999948501586914
+			],
+			"min":[
+				-0.11365810036659241,
+				-0.8999996185302734,
+				-0.9000054001808167
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1376,
+			"componentType":5126,
+			"count":256,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1377,
+			"componentType":5126,
+			"count":256,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":1378,
+			"componentType":5126,
 			"count":223,
 			"max":[
 				0.3526197373867035,
@@ -34299,162 +34439,22 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":1364,
-			"componentType":5126,
-			"count":223,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1365,
-			"componentType":5126,
-			"count":223,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":1366,
-			"componentType":5123,
-			"count":702,
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":1367,
-			"componentType":5126,
-			"count":32,
-			"max":[
-				-0.062317099422216415,
-				0.7489376068115234,
-				0.7489311099052429
-			],
-			"min":[
-				-0.06231716647744179,
-				-0.7489368915557861,
-				-0.748943567276001
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1368,
-			"componentType":5126,
-			"count":32,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1369,
-			"componentType":5126,
-			"count":32,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":1370,
-			"componentType":5126,
-			"count":256,
-			"max":[
-				0.3084181249141693,
-				0.9000005722045898,
-				0.8999948501586914
-			],
-			"min":[
-				-0.11365810036659241,
-				-0.8999996185302734,
-				-0.9000054001808167
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1371,
-			"componentType":5126,
-			"count":256,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1372,
-			"componentType":5126,
-			"count":256,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":1373,
-			"componentType":5126,
-			"count":32,
-			"max":[
-				-0.062317099422216415,
-				0.7489376068115234,
-				0.7489311099052429
-			],
-			"min":[
-				-0.06231716647744179,
-				-0.7489368915557861,
-				-0.748943567276001
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1374,
-			"componentType":5126,
-			"count":32,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1375,
-			"componentType":5126,
-			"count":32,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":1376,
-			"componentType":5126,
-			"count":256,
-			"max":[
-				0.3084181249141693,
-				0.9000005722045898,
-				0.8999948501586914
-			],
-			"min":[
-				-0.11365810036659241,
-				-0.8999996185302734,
-				-0.9000054001808167
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1377,
-			"componentType":5126,
-			"count":256,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1378,
-			"componentType":5126,
-			"count":256,
-			"type":"VEC2"
-		},
-		{
 			"bufferView":1379,
 			"componentType":5126,
-			"count":256,
-			"max":[
-				0.3084181249141693,
-				0.9000005722045898,
-				0.8999948501586914
-			],
-			"min":[
-				-0.11365810036659241,
-				-0.8999996185302734,
-				-0.9000054001808167
-			],
+			"count":223,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1380,
 			"componentType":5126,
-			"count":256,
-			"type":"VEC3"
+			"count":223,
+			"type":"VEC2"
 		},
 		{
 			"bufferView":1381,
-			"componentType":5126,
-			"count":256,
-			"type":"VEC2"
+			"componentType":5123,
+			"count":702,
+			"type":"SCALAR"
 		},
 		{
 			"bufferView":1382,
@@ -49762,117 +49762,117 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":2676,
+			"byteLength":384,
 			"byteOffset":9619672,
 			"target":34962
 		},
 		{
 			"buffer":0,
+			"byteLength":384,
+			"byteOffset":9620056,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":256,
+			"byteOffset":9620440,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":3072,
+			"byteOffset":9620696,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":3072,
+			"byteOffset":9623768,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":2048,
+			"byteOffset":9626840,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":384,
+			"byteOffset":9628888,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":384,
+			"byteOffset":9629272,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":256,
+			"byteOffset":9629656,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":3072,
+			"byteOffset":9629912,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":3072,
+			"byteOffset":9632984,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":2048,
+			"byteOffset":9636056,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":3072,
+			"byteOffset":9638104,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":3072,
+			"byteOffset":9641176,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":2048,
+			"byteOffset":9644248,
+			"target":34962
+		},
+		{
+			"buffer":0,
 			"byteLength":2676,
-			"byteOffset":9622348,
+			"byteOffset":9646296,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":2676,
+			"byteOffset":9648972,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1784,
-			"byteOffset":9625024,
+			"byteOffset":9651648,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1404,
-			"byteOffset":9626808,
+			"byteOffset":9653432,
 			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":384,
-			"byteOffset":9628212,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":384,
-			"byteOffset":9628596,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":256,
-			"byteOffset":9628980,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":3072,
-			"byteOffset":9629236,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":3072,
-			"byteOffset":9632308,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":2048,
-			"byteOffset":9635380,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":384,
-			"byteOffset":9637428,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":384,
-			"byteOffset":9637812,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":256,
-			"byteOffset":9638196,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":3072,
-			"byteOffset":9638452,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":3072,
-			"byteOffset":9641524,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":2048,
-			"byteOffset":9644596,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":3072,
-			"byteOffset":9646644,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":3072,
-			"byteOffset":9649716,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":2048,
-			"byteOffset":9652788,
-			"target":34962
 		},
 		{
 			"buffer":0,
