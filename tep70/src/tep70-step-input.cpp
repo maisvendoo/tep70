@@ -353,4 +353,11 @@ void TEP70::stepControls(double t, double dt)
 
     shared_inputs[CTRL_VVK_V_PLUS_BUTTON].toBool()
         ? v_plus_button.set() : v_plus_button.reset();
+
+    // Тумблеры ОМ
+    for (size_t i = 0; i < NUM_MOTORS; ++i)
+    {
+        shared_inputs[CTRL_TUMBLER_OM1 + i].toBool()
+            ? tumbler_om[i].set() : tumbler_om[i].reset();
+    }
 }

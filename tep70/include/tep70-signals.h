@@ -548,6 +548,22 @@ enum
     VVK_V_MINUS_BUTTON_POS        = 415,
     VVK_V_PLUS_BUTTON_POS         = 416,
 
+    // Позиции тумблеров ОМ
+    TUMBLER_OM1_POS = 417,
+    TUMBLER_OM2_POS = 418,
+    TUMBLER_OM3_POS = 419,
+    TUMBLER_OM4_POS = 420,
+    TUMBLER_OM5_POS = 421,
+    TUMBLER_OM6_POS = 422,
+
+    // Звуки тумблеров ОМ
+    SOUND_TUMBLER_OM1 = 423,
+    SOUND_TUMBLER_OM2 = 424,
+    SOUND_TUMBLER_OM3 = 425,
+    SOUND_TUMBLER_OM4 = 426,
+    SOUND_TUMBLER_OM5 = 427,
+    SOUND_TUMBLER_OM6 = 428,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

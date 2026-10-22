@@ -90,6 +90,14 @@ enum
     CTRL_VVK_V_MINUS_BUTTON        = 264,
     CTRL_VVK_V_PLUS_BUTTON         = 265,
 
+    /// Тумблеры отключателей ТЭД (ОМ)
+    CTRL_TUMBLER_OM1              = 266,
+    CTRL_TUMBLER_OM2              = 267,
+    CTRL_TUMBLER_OM3              = 268,
+    CTRL_TUMBLER_OM4              = 269,
+    CTRL_TUMBLER_OM5              = 270,
+    CTRL_TUMBLER_OM6              = 271,
+
     /// Автоведение
     CTRL_AUTOPILOT             = 170,
     CTRL_SHUNTING_MODE         = 171,

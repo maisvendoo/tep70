@@ -167,6 +167,10 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[SOUND_VVK_ISOLATION_CHECK] = isolation_check.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_VVK_FOUND_GROUND_SWITCH] = found_ground_switch.getSoundSignal();
 
+    // Звуки тумблеров ОМ
+    for (size_t i = 0; i < NUM_MOTORS; ++i)
+        analogSignal[SOUND_TUMBLER_OM1 + i] = tumbler_om[i].getSoundSignal(Trigger::CHANGE_SOUND);
+
     // Мотор-компрессор
     analogSignal[SOUND_MOTOR_COMPRESSOR] = motor_compressor->getSoundSignal();
 

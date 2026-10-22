@@ -209,6 +209,10 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[VVK_KEEP_FUEL_PUMP_BUTTON_POS] = static_cast<float>(keep_fuel_pump_button.getState());
     analogSignal[VVK_V_MINUS_BUTTON_POS] = static_cast<float>(v_minus_button.getState());
     analogSignal[VVK_V_PLUS_BUTTON_POS] = static_cast<float>(v_plus_button.getState());
+
+    // Положения тумблеров ОМ
+    for (size_t i = 0; i < NUM_MOTORS; ++i)
+        analogSignal[TUMBLER_OM1_POS + i] = static_cast<float>(tumbler_om[i].getState());
 }
 
 //------------------------------------------------------------------------------

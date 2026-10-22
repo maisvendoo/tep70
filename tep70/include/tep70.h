@@ -551,6 +551,9 @@ private:
         NUM_MOTORS = 6
     };
 
+    /// Тумблеры отключателей тяговых двигателей (ОМ1-ОМ6)
+    TriggerControl  tumbler_om[NUM_MOTORS];
+
     /// Тяговые двигатели
     std::array<TractionMotor*, NUM_MOTORS> motor = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 
