@@ -62,6 +62,21 @@ enum
     /// Shared (машинное отделение)
     CTRL_AZV_MOTOR_COMPRESSOR  = 160,
 
+    /// АЗВ ВВК (общие)
+    CTRL_AZV_BUFFER_LIGHTS     = 242,
+    CTRL_AZV_CONTROL_CIRCUIT   = 243,
+    CTRL_AZV_DISEL_LIGHT       = 244,
+    CTRL_AZV_EPK_POWER_MINUS   = 245,
+    CTRL_AZV_EPK_POWER_PLUS    = 246,
+    CTRL_AZV_FIRE_ALARM        = 247,
+    CTRL_AZV_FUEL_PUMP_VVK     = 248,
+    CTRL_AZV_HEATER            = 249,
+    CTRL_AZV_SOCKETS_POWER     = 250,
+    CTRL_AZV_SOCKETS_POWER_2   = 251,
+    CTRL_AZV_TROLLEYS_LIGHT    = 252,
+    CTRL_AZV_VVK_LIGHT         = 253,
+    CTRL_AZV_WATCH_DISEL_LIGHT = 254,
+
     /// Автоведение
     CTRL_AUTOPILOT             = 170,
     CTRL_SHUNTING_MODE         = 171,

@@ -181,6 +181,21 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
     // Положение АЗВ компрессора (общий, для ВВК)
     analogSignal[AZV_MOTOR_COMPRESSOR_POS] = static_cast<float>(azv_motor_compressor.getState());
+
+    // Положения АЗВ ВВК (общие)
+    analogSignal[AZV_BUFFER_LIGHTS_POS] = static_cast<float>(azv_buffer_lights.getState());
+    analogSignal[AZV_CONTROL_CIRCUIT_POS] = static_cast<float>(azv_control_circuit.getState());
+    analogSignal[AZV_DISEL_LIGHT_POS] = static_cast<float>(azv_disel_light.getState());
+    analogSignal[AZV_EPK_POWER_MINUS_POS] = static_cast<float>(azv_epk_power_minus.getState());
+    analogSignal[AZV_EPK_POWER_PLUS_POS] = static_cast<float>(azv_epk_power_plus.getState());
+    analogSignal[AZV_FIRE_ALARM_POS] = static_cast<float>(azv_fire_alarm.getState());
+    analogSignal[AZV_FUEL_PUMP_POS] = static_cast<float>(azv_fuel_pump_vvk.getState());
+    analogSignal[AZV_HEATER_POS] = static_cast<float>(azv_heater.getState());
+    analogSignal[AZV_SOCKETS_POWER_POS] = static_cast<float>(azv_sockets_power.getState());
+    analogSignal[AZV_SOCKETS_POWER_2_POS] = static_cast<float>(azv_sockets_power_2.getState());
+    analogSignal[AZV_TROLLEYS_LIGHT_POS] = static_cast<float>(azv_trolleys_light.getState());
+    analogSignal[AZV_VVK_LIGHT_POS] = static_cast<float>(azv_vvk_light.getState());
+    analogSignal[AZV_WATCH_DISEL_LIGHT_POS] = static_cast<float>(azv_watch_disel_light.getState());
 }
 
 //------------------------------------------------------------------------------

@@ -495,6 +495,21 @@ enum
     // Анимация положения АЗВ компрессора
     AZV_MOTOR_COMPRESSOR_POS = 372,
 
+    // Анимации положения АЗВ ВВК
+    AZV_BUFFER_LIGHTS_POS     = 373,
+    AZV_CONTROL_CIRCUIT_POS   = 374,
+    AZV_DISEL_LIGHT_POS       = 375,
+    AZV_EPK_POWER_MINUS_POS   = 376,
+    AZV_EPK_POWER_PLUS_POS    = 377,
+    AZV_FIRE_ALARM_POS        = 378,
+    AZV_FUEL_PUMP_POS         = 379,
+    AZV_HEATER_POS            = 380,
+    AZV_SOCKETS_POWER_POS     = 381,
+    AZV_SOCKETS_POWER_2_POS   = 382,
+    AZV_TROLLEYS_LIGHT_POS    = 383,
+    AZV_VVK_LIGHT_POS         = 384,
+    AZV_WATCH_DISEL_LIGHT_POS = 385,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

@@ -279,4 +279,44 @@ void TEP70::stepControls(double t, double dt)
     // АЗВ "Компрессор" (общий)
     bool azv_motor_comp_on = shared_inputs[CTRL_AZV_MOTOR_COMPRESSOR].toBool();
     azv_motor_comp_on ? azv_motor_compressor.set() : azv_motor_compressor.reset();
+
+    // АЗВ ВВК (общие)
+    shared_inputs[CTRL_AZV_BUFFER_LIGHTS].toBool()
+        ? azv_buffer_lights.set() : azv_buffer_lights.reset();
+
+    shared_inputs[CTRL_AZV_CONTROL_CIRCUIT].toBool()
+        ? azv_control_circuit.set() : azv_control_circuit.reset();
+
+    shared_inputs[CTRL_AZV_DISEL_LIGHT].toBool()
+        ? azv_disel_light.set() : azv_disel_light.reset();
+
+    shared_inputs[CTRL_AZV_EPK_POWER_MINUS].toBool()
+        ? azv_epk_power_minus.set() : azv_epk_power_minus.reset();
+
+    shared_inputs[CTRL_AZV_EPK_POWER_PLUS].toBool()
+        ? azv_epk_power_plus.set() : azv_epk_power_plus.reset();
+
+    shared_inputs[CTRL_AZV_FIRE_ALARM].toBool()
+        ? azv_fire_alarm.set() : azv_fire_alarm.reset();
+
+    shared_inputs[CTRL_AZV_FUEL_PUMP_VVK].toBool()
+        ? azv_fuel_pump_vvk.set() : azv_fuel_pump_vvk.reset();
+
+    shared_inputs[CTRL_AZV_HEATER].toBool()
+        ? azv_heater.set() : azv_heater.reset();
+
+    shared_inputs[CTRL_AZV_SOCKETS_POWER].toBool()
+        ? azv_sockets_power.set() : azv_sockets_power.reset();
+
+    shared_inputs[CTRL_AZV_SOCKETS_POWER_2].toBool()
+        ? azv_sockets_power_2.set() : azv_sockets_power_2.reset();
+
+    shared_inputs[CTRL_AZV_TROLLEYS_LIGHT].toBool()
+        ? azv_trolleys_light.set() : azv_trolleys_light.reset();
+
+    shared_inputs[CTRL_AZV_VVK_LIGHT].toBool()
+        ? azv_vvk_light.set() : azv_vvk_light.reset();
+
+    shared_inputs[CTRL_AZV_WATCH_DISEL_LIGHT].toBool()
+        ? azv_watch_disel_light.set() : azv_watch_disel_light.reset();
 }

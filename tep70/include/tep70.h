@@ -98,6 +98,45 @@ private:
     /// АЗВ "Компрессор" (АВ 9)
     TriggerControl  azv_motor_compressor;
 
+    /// АЗВ "Освещение буферных огней"
+    TriggerControl  azv_buffer_lights;
+
+    /// АЗВ "Цепи управления"
+    TriggerControl  azv_control_circuit;
+
+    /// АЗВ "Освещение дизеля"
+    TriggerControl  azv_disel_light;
+
+    /// АЗВ "Питание ЭПК (-)"
+    TriggerControl  azv_epk_power_minus;
+
+    /// АЗВ "Питание ЭПК (+)"
+    TriggerControl  azv_epk_power_plus;
+
+    /// АЗВ "Пожарная сигнализация"
+    TriggerControl  azv_fire_alarm;
+
+    /// АЗВ "Топливный насос" (ВВК)
+    TriggerControl  azv_fuel_pump_vvk;
+
+    /// АЗВ "Отопление"
+    TriggerControl  azv_heater;
+
+    /// АЗВ "Розетки (1)"
+    TriggerControl  azv_sockets_power;
+
+    /// АЗВ "Розетки (2)"
+    TriggerControl  azv_sockets_power_2;
+
+    /// АЗВ "Освещение тележек"
+    TriggerControl  azv_trolleys_light;
+
+    /// АЗВ "Освещение ВВК"
+    TriggerControl  azv_vvk_light;
+
+    /// АЗВ "Освещение осмотра дизеля"
+    TriggerControl  azv_watch_disel_light;
+
     enum
     {
         /// Число кабин

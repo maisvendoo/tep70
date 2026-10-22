@@ -685,6 +685,123 @@
 		<ObjectName>AZV_Compressor</ObjectName>
 	</Control>
 
+	<Control>
+		<ID>242</ID>
+		<Name>АЗВ буферные огни</Name>
+		<Description>Включение АЗВ буферных огней</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_buffer_lights</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>243</ID>
+		<Name>АЗВ цепи управления</Name>
+		<Description>Включение АЗВ цепей управления</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_control_circuit</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>244</ID>
+		<Name>АЗВ освещение дизеля</Name>
+		<Description>Включение АЗВ освещения дизеля</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_disel_light</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>245</ID>
+		<Name>АЗВ питание ЭПК (-)</Name>
+		<Description>Включение АЗВ питания ЭПК минус</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_epk_power_minus</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>246</ID>
+		<Name>АЗВ питание ЭПК (+)</Name>
+		<Description>Включение АЗВ питания ЭПК плюс</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_epk_power_plus</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>247</ID>
+		<Name>АЗВ пожарная сигнализация</Name>
+		<Description>Включение АЗВ пожарной сигнализации</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_fire_alarm</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>248</ID>
+		<Name>АЗВ топливный насос</Name>
+		<Description>Включение АЗВ топливного насоса</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_fuel_pump</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>249</ID>
+		<Name>АЗВ отопление</Name>
+		<Description>Включение АЗВ отопления</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_heater</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>250</ID>
+		<Name>АЗВ розетки (1)</Name>
+		<Description>Включение АЗВ розеток 1</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_sockets_power</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>251</ID>
+		<Name>АЗВ розетки (2)</Name>
+		<Description>Включение АЗВ розеток 2</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_sockets_power_2</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>252</ID>
+		<Name>АЗВ освещение тележек</Name>
+		<Description>Включение АЗВ освещения тележек</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_trolleys_light</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>253</ID>
+		<Name>АЗВ освещение ВВК</Name>
+		<Description>Включение АЗВ освещения ВВК</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_VVK_light</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>254</ID>
+		<Name>АЗВ освещение осмотра дизеля</Name>
+		<Description>Включение АЗВ освещения осмотра дизеля</Description>
+		<Type>Toggle</Type>
+		<value>1</value>
+		<ObjectName>AZV_watch_disel_light</ObjectName>
+	</Control>
+
 	<!--
 		Автопилот, маневровый
 	-->
