@@ -554,6 +554,10 @@ private:
     /// Тумблеры отключателей тяговых двигателей (ОМ1-ОМ6)
     TriggerControl  tumbler_om[NUM_MOTORS];
 
+    /// Переключатели ВВК
+    enum { VVK_PA1 = 0, VVK_PA2, VVK_KB1, VVK_KB2, VVK_RC1, VVK_RC2, VVK_SW_NUM };
+    TriggerControl  vvk_sw[VVK_SW_NUM];
+
     /// Тяговые двигатели
     std::array<TractionMotor*, NUM_MOTORS> motor = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 

@@ -2564,6 +2564,78 @@
 		<LocalPosition>0.0 7.5 3.0</LocalPosition>
 	</Sound>
 
+	<!-- Переключатель ПА1 -->
+	<Sound>
+		<SignalID>435</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Переключатель ПА2 -->
+	<Sound>
+		<SignalID>436</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Переключатель КБ1 -->
+	<Sound>
+		<SignalID>437</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Переключатель КБ2 -->
+	<Sound>
+		<SignalID>438</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Разъединитель РЦ1 -->
+	<Sound>
+		<SignalID>439</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Разъединитель РЦ2 -->
+	<Sound>
+		<SignalID>440</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
 	<!-- Мотор-компрессор -->
 	<Sound>
 		<SignalID>359</SignalID>

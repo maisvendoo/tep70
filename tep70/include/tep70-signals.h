@@ -564,6 +564,22 @@ enum
     SOUND_TUMBLER_OM5 = 427,
     SOUND_TUMBLER_OM6 = 428,
 
+    // Позиции переключателей ВВК
+    VVK_SW_PA1_POS = 429,
+    VVK_SW_PA2_POS = 430,
+    VVK_SW_KB1_POS = 431,
+    VVK_SW_KB2_POS = 432,
+    VVK_SW_RC1_POS = 433,
+    VVK_SW_RC2_POS = 434,
+
+    // Звуки переключателей ВВК
+    SOUND_VVK_SW_PA1 = 435,
+    SOUND_VVK_SW_PA2 = 436,
+    SOUND_VVK_SW_KB1 = 437,
+    SOUND_VVK_SW_KB2 = 438,
+    SOUND_VVK_SW_RC1 = 439,
+    SOUND_VVK_SW_RC2 = 440,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

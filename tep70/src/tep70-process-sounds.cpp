@@ -171,6 +171,10 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     for (size_t i = 0; i < NUM_MOTORS; ++i)
         analogSignal[SOUND_TUMBLER_OM1 + i] = tumbler_om[i].getSoundSignal(Trigger::CHANGE_SOUND);
 
+    // Звуки переключателей ВВК
+    for (size_t i = 0; i < VVK_SW_NUM; ++i)
+        analogSignal[SOUND_VVK_SW_PA1 + i] = vvk_sw[i].getSoundSignal(Trigger::CHANGE_SOUND);
+
     // Мотор-компрессор
     analogSignal[SOUND_MOTOR_COMPRESSOR] = motor_compressor->getSoundSignal();
 

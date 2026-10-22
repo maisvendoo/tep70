@@ -213,6 +213,10 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     // Положения тумблеров ОМ
     for (size_t i = 0; i < NUM_MOTORS; ++i)
         analogSignal[TUMBLER_OM1_POS + i] = static_cast<float>(tumbler_om[i].getState());
+
+    // Положения переключателей ВВК
+    for (size_t i = 0; i < VVK_SW_NUM; ++i)
+        analogSignal[VVK_SW_PA1_POS + i] = static_cast<float>(vvk_sw[i].getState());
 }
 
 //------------------------------------------------------------------------------

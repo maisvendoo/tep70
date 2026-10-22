@@ -360,4 +360,11 @@ void TEP70::stepControls(double t, double dt)
         shared_inputs[CTRL_TUMBLER_OM1 + i].toBool()
             ? tumbler_om[i].set() : tumbler_om[i].reset();
     }
+
+    // Переключатели ВВК
+    for (size_t i = 0; i < VVK_SW_NUM; ++i)
+    {
+        shared_inputs[CTRL_VVK_PA1 + i].toBool()
+            ? vvk_sw[i].set() : vvk_sw[i].reset();
+    }
 }

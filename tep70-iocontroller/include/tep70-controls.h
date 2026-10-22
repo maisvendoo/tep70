@@ -98,6 +98,14 @@ enum
     CTRL_TUMBLER_OM5              = 270,
     CTRL_TUMBLER_OM6              = 271,
 
+    /// Переключатели ВВК
+    CTRL_VVK_PA1                  = 272,
+    CTRL_VVK_PA2                  = 273,
+    CTRL_VVK_KB1                  = 274,
+    CTRL_VVK_KB2                  = 275,
+    CTRL_VVK_RC1                  = 276,
+    CTRL_VVK_RC2                  = 277,
+
     /// Автоведение
     CTRL_AUTOPILOT             = 170,
     CTRL_SHUNTING_MODE         = 171,

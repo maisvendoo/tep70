@@ -949,7 +949,7 @@
 		<ObjectName>tumbler_OM5</ObjectName>
 	</Control>
 
-	<Control>
+<Control>
 		<ID>271</ID>
 		<Name>Отключатель ТЭД 6 (ОМ6)</Name>
 		<Description>Отключение тягового электродвигателя 6</Description>
@@ -958,8 +958,62 @@
 		<ObjectName>tumbler_OM6</ObjectName>
 	</Control>
 
+	<Control>
+		<ID>272</ID>
+		<Name>Переключатель ПА1</Name>
+		<Description>Переключатель ВВК ПА1</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>VVK_PA1</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>273</ID>
+		<Name>Переключатель ПА2</Name>
+		<Description>Переключатель ВВК ПА2</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>VVK_PA2</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>274</ID>
+		<Name>Переключатель КБ1</Name>
+		<Description>Переключатель кабины управления 1</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>VVK_KB1</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>275</ID>
+		<Name>Переключатель КБ2</Name>
+		<Description>Переключатель кабины управления 2</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>VVK_KB2</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>276</ID>
+		<Name>Разъединитель цепей 1 (РЦ1)</Name>
+		<Description>Разъединитель цепей 1</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>VVK_RC1</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>277</ID>
+		<Name>Разъединитель цепей 2 (РЦ2)</Name>
+		<Description>Разъединитель цепей 2</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>VVK_RC2</ObjectName>
+	</Control>
+
 	<!--
-		Автопилот, маневровый
+		Сцепки, рукава, концевые краны (общие)
 	-->
 	<Control>
 		<ID>170</ID>
