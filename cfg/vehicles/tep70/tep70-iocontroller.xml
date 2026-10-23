@@ -849,8 +849,8 @@
 
 	<Control>
 		<ID>260</ID>
-		<Name>Тумблер контроля изоляции</Name>
-		<Description>Проверка сопротивления изоляции</Description>
+		<Name>Питание цепей "Проверка изоляции"</Name>
+		<Description>Включить питание цепей проверки изоляции</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<ObjectName>tumbler_check_isolation_resistence</ObjectName>
@@ -858,8 +858,8 @@
 
 	<Control>
 		<ID>261</ID>
-		<Name>Переключатель обнаружения заземления</Name>
-		<Description>Переключатель обнаружения заземления (21 позиция)</Description>
+		<Name>Поиск "земли"</Name>
+		<Description>Переключатель обнаружения заземления</Description>
 		<Type>Switcher</Type>
 		<value>0</value>
 		<NumPositions>21</NumPositions>
@@ -870,7 +870,7 @@
 
 	<Control>
 		<ID>262</ID>
-		<Name>Кнопка возврата реле земли</Name>
+		<Name>Возврат реле земли</Name>
 		<Description>Возврат реле земли</Description>
 		<Type>Button</Type>
 		<value>0</value>
@@ -888,8 +888,8 @@
 
 	<Control>
 		<ID>264</ID>
-		<Name>Кнопка регулировки напряжения (-)</Name>
-		<Description>Уменьшение напряжения</Description>
+		<Name>"-" - корпус</Name>
+		<Description>Проверка изоляции минуса</Description>
 		<Type>Button</Type>
 		<value>0</value>
 		<ObjectName>button_V_minus</ObjectName>
@@ -897,8 +897,8 @@
 
 	<Control>
 		<ID>265</ID>
-		<Name>Кнопка регулировки напряжения (+)</Name>
-		<Description>Увеличение напряжения</Description>
+		<Name>"+" - корпус</Name>
+		<Description>Проверка изоляции минуса</Description>
 		<Type>Button</Type>
 		<value>0</value>
 		<ObjectName>button_V_plus</ObjectName>
