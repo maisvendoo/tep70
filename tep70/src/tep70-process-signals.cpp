@@ -234,7 +234,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 float TEP70::getLampState(double signal)
 {
     bool state = (azv_common_control[CAB1].getState() || azv_common_control[CAB2].getState()) &&
-                 static_cast<bool>(signal);
+                 static_cast<bool>(signal) && (Ucc > 0.01);
 
     return static_cast<float>(state);
 }

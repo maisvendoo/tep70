@@ -5,7 +5,9 @@
 //------------------------------------------------------------------------------
 void TEP70::stepControlCircuit(const double& t, const double& dt)
 {
-    Ucc = max(battery->getVoltage(), starter_generator->getVoltage() * static_cast<double>(krn->getContactState(1)));
+    double U_bat = battery->getVoltage() * static_cast<float>(accum_switch.getState());
+
+    Ucc = max(U_bat, starter_generator->getVoltage() * static_cast<double>(krn->getContactState(1)));
 
     // Расчитываем ток, потребляемый цепями управления
     Icc = kontaktor_fuel_pump->getCurrent() +
