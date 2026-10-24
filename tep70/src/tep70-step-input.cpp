@@ -234,15 +234,15 @@ void TEP70::stepControls(double t, double dt)
             control_inputs[cab_idx][CTRL_COMBINE_KRAN].value);
 
         // Тумблер отопления
-        control_inputs[cab_idx][CTRL_TUMBLER_HEATER + cab_idx].toBool()
+        control_inputs[cab_idx][CTRL_TUMBLER_HEATER].toBool()
             ? tumbler_heater[cab_idx].set() : tumbler_heater[cab_idx].reset();
 
         // АЗВ вентиляции
-        control_inputs[cab_idx][CTRL_AZV_VENT + cab_idx].toBool()
+        control_inputs[cab_idx][CTRL_AZV_VENT].toBool()
             ? azv_ventilation[cab_idx].set() : azv_ventilation[cab_idx].reset();
 
         // Тумблер освещения кабины (собственный)
-        control_inputs[cab_idx][CTRL_TUMBLER_CABINE_LIGHT + cab_idx].toBool()
+        control_inputs[cab_idx][CTRL_TUMBLER_CABINE_LIGHT].toBool()
             ? tumbler_cabine_light[cab_idx].set() : tumbler_cabine_light[cab_idx].reset();
     }
 
