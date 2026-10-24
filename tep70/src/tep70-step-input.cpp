@@ -232,6 +232,18 @@ void TEP70::stepControls(double t, double dt)
 
         brake_lock[cab_idx]->setCombineCranePosition(
             control_inputs[cab_idx][CTRL_COMBINE_KRAN].value);
+
+        // Тумблер отопления
+        control_inputs[cab_idx][CTRL_TUMBLER_HEATER + cab_idx].toBool()
+            ? tumbler_heater[cab_idx].set() : tumbler_heater[cab_idx].reset();
+
+        // АЗВ вентиляции
+        control_inputs[cab_idx][CTRL_AZV_VENT + cab_idx].toBool()
+            ? azv_ventilation[cab_idx].set() : azv_ventilation[cab_idx].reset();
+
+        // Тумблер освещения кабины (собственный)
+        control_inputs[cab_idx][CTRL_TUMBLER_CABINE_LIGHT + cab_idx].toBool()
+            ? tumbler_cabine_light[cab_idx].set() : tumbler_cabine_light[cab_idx].reset();
     }
 
     // Общие сигналы (shared)
@@ -374,29 +386,5 @@ void TEP70::stepControls(double t, double dt)
 
     // Рубильник АКБ
     shared_inputs[CTRL_ACCUM_SWITCH].toBool()
-        ? accum_switch.set() : accum_switch.reset();
-
-    // Ручки дверей кабин
-    shared_inputs[CTRL_CABINE1_DOOR_HANDLE].toBool()
-        ? cabine1_door_handle.set() : cabine1_door_handle.reset();
-
-    shared_inputs[CTRL_CABINE2_DOOR_HANDLE].toBool()
-        ? cabine2_door_handle.set() : cabine2_door_handle.reset();
-
-    for (auto cab_idx : {CAB1, CAB2})
-    {
-        uint16_t d = (SPOTLIGHT_BWD - SPOTLIGHT_FWD) * cab_idx;
-
-        // Тумблер отопления
-        control_inputs[cab_idx][CTRL_CAB1_TUMBLER_HEATER + cab_idx].toBool()
-            ? tumbler_heater[cab_idx].set() : tumbler_heater[cab_idx].reset();
-
-        // АЗВ вентиляции
-        control_inputs[cab_idx][CTRL_CAB1_AZV_VENT + cab_idx].toBool()
-            ? azv_ventilation[cab_idx].set() : azv_ventilation[cab_idx].reset();
-
-        // Тумблер освещения кабины (собственный)
-        control_inputs[cab_idx][CTRL_CAB1_TUMBLER_CABINE_LIGHT + cab_idx].toBool()
-            ? tumbler_cabine_light[cab_idx].set() : tumbler_cabine_light[cab_idx].reset();
-    }
+        ? accum_switch.set() : accum_switch.reset();       
 }

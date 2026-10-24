@@ -1348,43 +1348,29 @@
 
 	<Control>
 		<ID>282</ID>
-		<Name>Тумблер отопления кабины 1</Name>
-		<Description>Включение отопления кабины 1</Description>
+		<Name>Тумблер "Электрокалорифер"</Name>
+		<Description>Включение электрокалорифера</Description>
 		<Type>Toggle</Type>
-		<value>0</value>
-		<ObjectName>Cab1_tumbler_heater</ObjectName>
-	</Control>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_tumbler_heater</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_tumbler_heater</ObjectNameCab2>
+	</Control>	
 
 	<Control>
 		<ID>283</ID>
-		<Name>Тумблер отопления кабины 2</Name>
-		<Description>Включение отопления кабины 2</Description>
+		<Name>АЗВ вентиляции кабины</Name>
+		<Description>Включение вентиляции кабины</Description>
 		<Type>Toggle</Type>
-		<value>0</value>
-		<ObjectName>Cab2_tumbler_heater</ObjectName>
-	</Control>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_AZV_ventilation</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_AZV_ventilation</ObjectNameCab2>
+	</Control>	
 
 	<Control>
 		<ID>284</ID>
-		<Name>АЗВ вентиляции кабины 1</Name>
-		<Description>Включение вентиляции кабины 1</Description>
-		<Type>Toggle</Type>
-		<value>0</value>
-		<ObjectName>Cab1_AZV_ventilation</ObjectName>
-	</Control>
-
-	<Control>
-		<ID>285</ID>
-		<Name>АЗВ вентиляции кабины 2</Name>
-		<Description>Включение вентиляции кабины 2</Description>
-		<Type>Toggle</Type>
-		<value>0</value>
-		<ObjectName>Cab2_AZV_ventilation</ObjectName>
-	</Control>
-
-	<Control>
-		<ID>286</ID>
-		<Name>Регулятор подсветки приборов 1</Name>
+		<Name>Регулятор подсветки приборов</Name>
 		<Description>Регулировка яркости подсветки приборов кабины 1</Description>
 		<Type>Axis</Type>
 		<value1>0.0</value1>
@@ -1399,9 +1385,9 @@
 	</Control>
 
 	<Control>
-		<ID>288</ID>
-		<Name>Регулятор подсветки расписания 1</Name>
-		<Description>Регулировка яркости подсветки расписания кабины 1</Description>
+		<ID>285</ID>
+		<Name>Регулятор подсветки расписания</Name>
+		<Description>Регулировка яркости подсветки расписания кабины</Description>
 		<Type>Axis</Type>
 		<value1>0.0</value1>
 		<value2>0.0</value2>
@@ -1415,7 +1401,7 @@
 	</Control>
 
 	<Control>
-		<ID>290</ID>
+		<ID>286</ID>
 		<Name>Тумблер освещения кабины</Name>
 		<Description>Тумблер освещения кабины</Description>
 		<Type>Toggle</Type>

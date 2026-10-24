@@ -112,28 +112,6 @@ enum
     /// Рубильник аккумуляторной батареи
     CTRL_ACCUM_SWITCH             = 279,
 
-    /// Ручки дверей кабин
-    CTRL_CABINE1_DOOR_HANDLE       = 280,
-    CTRL_CABINE2_DOOR_HANDLE       = 281,
-
-    /// Тумблер отопления кабины
-    CTRL_CAB1_TUMBLER_HEATER       = 282,
-    CTRL_CAB2_TUMBLER_HEATER       = 283,
-
-    /// АЗВ вентиляции кабины
-    CTRL_CAB1_AZV_VENT             = 284,
-    CTRL_CAB2_AZV_VENT             = 285,
-
-    /// Регулятор подсветки приборов
-    CTRL_CAB1_GAUGES_LIGHT         = 286,
-
-    /// Регулятор подсветки расписания
-    CTRL_CAB1_TIMETABLE_LIGHT      = 288,
-
-    /// Тумблеры освещения кабины (собственные)
-    CTRL_CAB1_TUMBLER_CABINE_LIGHT = 290,
-    CTRL_CAB2_TUMBLER_CABINE_LIGHT = 291,
-
     /// Автоведение
     CTRL_AUTOPILOT             = 170,
     CTRL_SHUNTING_MODE         = 171,
@@ -177,7 +155,22 @@ enum
     CTRL_VVK_BLINDS_DOOR = 240,
     CTRL_VVK_DOOR = 241,
     CTRL_CABINE1_DOOR = 280,
-    CTRL_CABINE2_DOOR = 281
+    CTRL_CABINE2_DOOR = 281,
+
+    /// Тумблер отопления кабины
+    CTRL_TUMBLER_HEATER       = 282,
+
+    /// АЗВ вентиляции кабины
+    CTRL_AZV_VENT             = 283,
+
+    /// Регулятор подсветки приборов
+    CTRL_GAUGES_LIGHT         = 284,
+
+    /// Регулятор подсветки расписания
+    CTRL_TIMETABLE_LIGHT      = 285,
+
+    /// Тумблеры освещения кабины (собственные)
+    CTRL_TUMBLER_CABINE_LIGHT = 286,
 };
 
 #endif
