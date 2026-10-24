@@ -595,6 +595,30 @@ enum
     CABINE1_DOOR_ACTION = 445,
     CABINE2_DOOR_ACTION = 446,
 
+    // Позиции тумблеров отопления
+    CAB1_TUMBLER_HEATER_POS = 447,
+    CAB2_TUMBLER_HEATER_POS = 448,
+
+    // Позиции АЗВ вентиляции
+    CAB1_AZV_VENT_POS = 449,
+    CAB2_AZV_VENT_POS = 450,
+
+    // Звуки тумблеров отопления
+    SOUND_CAB1_TUMBLER_HEATER = 451,
+    SOUND_CAB2_TUMBLER_HEATER = 452,
+
+    // Звуки АЗВ вентиляции
+    SOUND_CAB1_AZV_VENT = 453,
+    SOUND_CAB2_AZV_VENT = 454,
+
+    // Позиции регуляторов подсветки приборов
+    CAB1_GAUGES_LIGHT_POS = 455,
+    CAB2_GAUGES_LIGHT_POS = 456,
+
+    // Позиции регуляторов подсветки расписания
+    CAB1_TIMETABLE_LIGHT_POS = 457,
+    CAB2_TIMETABLE_LIGHT_POS = 458,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

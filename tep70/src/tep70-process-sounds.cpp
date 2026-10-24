@@ -171,6 +171,15 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     for (size_t i = 0; i < NUM_MOTORS; ++i)
         analogSignal[SOUND_TUMBLER_OM1 + i] = tumbler_om[i].getSoundSignal(Trigger::CHANGE_SOUND);
 
+    for (auto cab_idx : {CAB1, CAB2})
+    {
+        std::uint16_t d = (SOUND_BWD_SVISTOK - SOUND_FWD_SVISTOK) * cab_idx;
+
+        analogSignal[SOUND_CAB1_TUMBLER_HEATER + d] = tumbler_heater[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+
+        analogSignal[SOUND_CAB1_AZV_VENT + d] = azv_ventilation[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+    }
+
     // Звуки переключателей ВВК
     for (size_t i = 0; i < VVK_SW_NUM; ++i)
         analogSignal[SOUND_VVK_SW_PA1 + i] = vvk_sw[i].getSoundSignal(Trigger::CHANGE_SOUND);

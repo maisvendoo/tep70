@@ -116,6 +116,22 @@ enum
     CTRL_CABINE1_DOOR_HANDLE       = 280,
     CTRL_CABINE2_DOOR_HANDLE       = 281,
 
+    /// Тумблер отопления кабины
+    CTRL_CAB1_TUMBLER_HEATER       = 282,
+    CTRL_CAB2_TUMBLER_HEATER       = 283,
+
+    /// АЗВ вентиляции кабины
+    CTRL_CAB1_AZV_VENT             = 284,
+    CTRL_CAB2_AZV_VENT             = 285,
+
+    /// Регулятор подсветки приборов
+    CTRL_CAB1_GAUGES_LIGHT         = 286,
+    CTRL_CAB2_GAUGES_LIGHT         = 287,
+
+    /// Регулятор подсветки расписания
+    CTRL_CAB1_TIMETABLE_LIGHT      = 288,
+    CTRL_CAB2_TIMETABLE_LIGHT      = 289,
+
     /// Автоведение
     CTRL_AUTOPILOT             = 170,
     CTRL_SHUNTING_MODE         = 171,

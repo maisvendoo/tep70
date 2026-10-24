@@ -382,4 +382,17 @@ void TEP70::stepControls(double t, double dt)
 
     shared_inputs[CTRL_CABINE2_DOOR_HANDLE].toBool()
         ? cabine2_door_handle.set() : cabine2_door_handle.reset();
+
+    for (auto cab_idx : {CAB1, CAB2})
+    {
+        uint16_t d = (SPOTLIGHT_BWD - SPOTLIGHT_FWD) * cab_idx;
+
+        // Тумблер отопления
+        control_inputs[cab_idx][CTRL_CAB1_TUMBLER_HEATER + cab_idx].toBool()
+            ? tumbler_heater[cab_idx].set() : tumbler_heater[cab_idx].reset();
+
+        // АЗВ вентиляции
+        control_inputs[cab_idx][CTRL_CAB1_AZV_VENT + cab_idx].toBool()
+            ? azv_ventilation[cab_idx].set() : azv_ventilation[cab_idx].reset();
+    }
 }

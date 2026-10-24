@@ -1346,4 +1346,104 @@
 		<ObjectName>Cabine2_door_handle</ObjectName>		
 	</Control>
 
+	<Control>
+		<ID>282</ID>
+		<Name>Тумблер отопления кабины 1</Name>
+		<Description>Включение отопления кабины 1</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>Cab1_tumbler_heater</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>283</ID>
+		<Name>Тумблер отопления кабины 2</Name>
+		<Description>Включение отопления кабины 2</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>Cab2_tumbler_heater</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>284</ID>
+		<Name>АЗВ вентиляции кабины 1</Name>
+		<Description>Включение вентиляции кабины 1</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>Cab1_AZV_ventilation</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>285</ID>
+		<Name>АЗВ вентиляции кабины 2</Name>
+		<Description>Включение вентиляции кабины 2</Description>
+		<Type>Toggle</Type>
+		<value>0</value>
+		<ObjectName>Cab2_AZV_ventilation</ObjectName>
+	</Control>
+
+	<Control>
+		<ID>286</ID>
+		<Name>Регулятор подсветки приборов 1</Name>
+		<Description>Регулировка яркости подсветки приборов кабины 1</Description>
+		<Type>Axis</Type>
+		<value1>0.0</value1>
+		<value2>0.0</value2>
+		<Speed>2.0</Speed>
+		<MinValue>0</MinValue>
+		<MaxValue>1</MaxValue>
+		<IncButtonName>RIGHT_BUTTON</IncButtonName>
+		<DecButtonName>LEFT_BUTTON</DecButtonName>
+		<ObjectNameCab1>Cab1_gauges_light_regulator</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_gauges_light_regulator</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>287</ID>
+		<Name>Регулятор подсветки приборов 2</Name>
+		<Description>Регулировка яркости подсветки приборов кабины 2</Description>
+		<Type>Axis</Type>
+		<value1>0.0</value1>
+		<value2>0.0</value2>
+		<Speed>2.0</Speed>
+		<MinValue>0</MinValue>
+		<MaxValue>1</MaxValue>
+		<IncButtonName>RIGHT_BUTTON</IncButtonName>
+		<DecButtonName>LEFT_BUTTON</DecButtonName>
+		<ObjectNameCab1>Cab1_gauges_light_regulator</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_gauges_light_regulator</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>288</ID>
+		<Name>Регулятор подсветки расписания 1</Name>
+		<Description>Регулировка яркости подсветки расписания кабины 1</Description>
+		<Type>Axis</Type>
+		<value1>0.0</value1>
+		<value2>0.0</value2>
+		<Speed>2.0</Speed>
+		<MinValue>0</MinValue>
+		<MaxValue>1</MaxValue>
+		<IncButtonName>RIGHT_BUTTON</IncButtonName>
+		<DecButtonName>LEFT_BUTTON</DecButtonName>
+		<ObjectNameCab1>Cab1_timetable_light_regulator</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_timetable_light_regulator</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>289</ID>
+		<Name>Регулятор подсветки расписания 2</Name>
+		<Description>Регулировка яркости подсветки расписания кабины 2</Description>
+		<Type>Axis</Type>
+		<value1>0.0</value1>
+		<value2>0.0</value2>
+		<Speed>2.0</Speed>
+		<MinValue>0</MinValue>
+		<MaxValue>1</MaxValue>
+		<IncButtonName>RIGHT_BUTTON</IncButtonName>
+		<DecButtonName>LEFT_BUTTON</DecButtonName>
+		<ObjectNameCab1>Cab1_timetable_light_regulator</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_timetable_light_regulator</ObjectNameCab2>
+	</Control>
+
 </Config>

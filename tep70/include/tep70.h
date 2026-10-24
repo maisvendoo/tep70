@@ -568,6 +568,12 @@ private:
     TriggerControl  cabine1_door_handle;
     TriggerControl  cabine2_door_handle;
 
+    /// Тумблер отопления кабины
+    TriggerControl  tumbler_heater[CABS_NUM];
+
+    /// АЗВ вентиляции кабины
+    TriggerControl  azv_ventilation[CABS_NUM];
+
     /// Тяговые двигатели
     std::array<TractionMotor*, NUM_MOTORS> motor = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 
