@@ -9,6 +9,8 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
 
     Ucc = max(U_bat, starter_generator->getVoltage() * static_cast<double>(krn->getContactState(1)));
 
+    power_level = static_cast<float>(Ucc / 110.0);
+
     // Расчитываем ток, потребляемый цепями управления
     Icc = kontaktor_fuel_pump->getCurrent() +
           electro_fuel_pump->getCurrent() +
@@ -36,7 +38,10 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
 
     battery->setChargeVoltage(starter_generator->getVoltage());
     battery->setStarterCurrent(starter_generator->getAncorCurrent());
-    battery->setLoadCurrent(Icc);
+
+    // Правим снаружи баг в батарее, стартерный ток не влияет на напряжение
+    battery->setLoadCurrent(Icc + pf(starter_generator->getAncorCurrent()));
+
     battery->step(t, dt);
 
     // Определяем состояни цепи контактора топливного насоса (КТН)

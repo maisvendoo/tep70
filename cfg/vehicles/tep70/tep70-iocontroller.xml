@@ -12,11 +12,8 @@
 		<Name>АЗВ Освещение кабины (АВ26)</Name>
 		<Description>Включение освещения кабины</Description>
 		<Type>Toggle</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<KeyName>KEY_K</KeyName>
-		<KeyModOnName>Shift</KeyModOnName>
-		<KeyModOffName>Ctrl</KeyModOffName>
+		<value1>1</value1>
+		<value2>1</value2>		
 		<ObjectNameCab1>Cab1_AZV_cabine_light</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_AZV_cabine_light</ObjectNameCab2>
 	</Control>
@@ -1407,6 +1404,9 @@
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
+		<KeyName>KEY_K</KeyName>
+		<KeyModOnName>Shift</KeyModOnName>
+		<KeyModOffName>Ctrl</KeyModOffName>
 		<ObjectNameCab1>Cab1_tumbler_cabine_light</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_cabine_light</ObjectNameCab2>
 	</Control>

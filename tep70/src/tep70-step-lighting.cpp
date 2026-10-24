@@ -6,9 +6,6 @@
 //------------------------------------------------------------------------------
 void TEP70::stepLighting(const double &t, const double &dt)
 {
-    // Уровень напряжения питания
-    float power_level = Ucc / 110.0f;
-
     for (auto cab_idx : {CAB1, CAB2})
     {
         // Включен соответствующий автомат и тумблер

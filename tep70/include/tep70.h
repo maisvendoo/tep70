@@ -741,6 +741,8 @@ private:
 
     buf_light_signals_t buf_lights_right[CABS_NUM];
 
+    float power_level = 0.0f;
+
     /// Шаг моделирования освещения
     void stepLighting(const double &t, const double &dt);
 
