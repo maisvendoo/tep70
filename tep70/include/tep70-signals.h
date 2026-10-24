@@ -619,6 +619,10 @@ enum
     CAB1_TIMETABLE_LIGHT_POS = 457,
     CAB2_TIMETABLE_LIGHT_POS = 458,
 
+    // Позиции тумблеров освещения кабины (собственная анимация)
+    CAB1_TUMBLER_CABINE_LIGHT_POS = 459,
+    CAB2_TUMBLER_CABINE_LIGHT_POS = 460,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1
