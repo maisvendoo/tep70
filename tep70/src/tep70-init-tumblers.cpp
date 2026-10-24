@@ -12,7 +12,7 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
     // в stepControls. Клавиши и мышь заданы в конфиге iocontroller.
 
     // АЗВ "Компрессор" — управление от IOController (shared), клавиша в конфиге iocontroller
-    azv_motor_compressor.setInitState(true);
+    //azv_motor_compressor.setInitState(true);
 
     for (auto cab_idx : {CAB1, CAB2})
     {

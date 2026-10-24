@@ -1373,8 +1373,8 @@
 		<Name>Регулятор подсветки приборов</Name>
 		<Description>Регулировка яркости подсветки приборов кабины 1</Description>
 		<Type>Axis</Type>
-		<value1>0.0</value1>
-		<value2>0.0</value2>
+		<value1>1.0</value1>
+		<value2>1.0</value2>
 		<Speed>2.0</Speed>
 		<MinValue>0</MinValue>
 		<MaxValue>1</MaxValue>
@@ -1389,8 +1389,8 @@
 		<Name>Регулятор подсветки расписания</Name>
 		<Description>Регулировка яркости подсветки расписания кабины</Description>
 		<Type>Axis</Type>
-		<value1>0.0</value1>
-		<value2>0.0</value2>
+		<value1>1.0</value1>
+		<value2>1.0</value2>
 		<Speed>2.0</Speed>
 		<MinValue>0</MinValue>
 		<MaxValue>1</MaxValue>
