@@ -722,6 +722,28 @@ private:
     /// Шаг моделирования прочего оборудования
     void stepOther(const double& t, const double& dt);
 
+    float cab_light_signal[CABS_NUM] = {0.0f, 0.0f};
+
+    float gauges_light_signal[CABS_NUM] = {0.0f, 0.0f};
+
+    float spotlight_signal[CABS_NUM] = {0.0f, 0.0f};
+
+    enum
+    {
+        BUF_RED,
+        BUF_WHITE,
+        NUM_BUF_LIGHTS = 2
+    };
+
+    using buf_light_signals_t = std::array<float, NUM_BUF_LIGHTS>;
+
+    buf_light_signals_t buf_lights_left[CABS_NUM];
+
+    buf_light_signals_t buf_lights_right[CABS_NUM];
+
+    /// Шаг моделирования освещения
+    void stepLighting(const double &t, const double &dt);
+
     /// Формирование состояния сигнальных ламп
     float getLampState(double signal);
 

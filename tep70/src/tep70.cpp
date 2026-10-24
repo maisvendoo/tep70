@@ -120,6 +120,8 @@ void TEP70::step(const double& t, const double& dt)
 
     stepOther(t, dt);
 
+    stepLighting(t, dt);
+
     autoStartTimer->step(t, dt);
 
     /*if (reg == nullptr)

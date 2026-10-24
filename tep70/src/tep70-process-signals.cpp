@@ -33,23 +33,18 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
         // Освещение
         // Прожектор
-        if (azv_spotlight_low[cab_idx].getState())
-        {
-            std::uint8_t intensity = 1 + azv_spotlight_high[cab_idx].getState();
-            analogSignal[SPOTLIGHT_FWD + d] = static_cast<float>(intensity) / 2.0f;
-        }
-        else
-        {
-            analogSignal[SPOTLIGHT_FWD + d] = 0.0f;
-        }
+        analogSignal[SPOTLIGHT_FWD + d] = spotlight_signal[cab_idx];
 
         // Буферные огни
-        analogSignal[BUFFERLIGHT_FWD_L_WHITE + d] = static_cast<float>(tumbler_bufferliht_L[cab_idx].isSwitched(2));
-        analogSignal[BUFFERLIGHT_FWD_L_RED + d] = static_cast<float>(tumbler_bufferliht_L[cab_idx].isSwitched(0));
-        analogSignal[BUFFERLIGHT_FWD_R_WHITE + d] = static_cast<float>(tumbler_bufferliht_R[cab_idx].isSwitched(2));
-        analogSignal[BUFFERLIGHT_FWD_R_RED + d] = static_cast<float>(tumbler_bufferliht_R[cab_idx].isSwitched(0));
-        analogSignal[CAB1_LIGHT_CABINE + d] = static_cast<float>(azv_cabine_light[cab_idx].getState());
-        analogSignal[CAB1_LIGHT_DEVICES + d] = static_cast<float>(azv_panel_light[cab_idx].getState());
+        analogSignal[BUFFERLIGHT_FWD_L_WHITE + d] = buf_lights_left[cab_idx][BUF_WHITE];
+        analogSignal[BUFFERLIGHT_FWD_L_RED + d] = buf_lights_left[cab_idx][BUF_RED];;
+        analogSignal[BUFFERLIGHT_FWD_R_WHITE + d] = buf_lights_right[cab_idx][BUF_WHITE];
+        analogSignal[BUFFERLIGHT_FWD_R_RED + d] = buf_lights_right[cab_idx][BUF_RED];
+
+        // Освещение кабины
+        analogSignal[CAB1_LIGHT_CABINE + d] = cab_light_signal[cab_idx];
+        // Освещение приборов
+        analogSignal[CAB1_LIGHT_DEVICES + d] = gauges_light_signal[cab_idx];
 
         analogSignal[CAB1_LS_WHITE + d] = safety_device[cab_idx]->getWhiteLamp();
         analogSignal[CAB1_LS_RED + d] = safety_device[cab_idx]->getRedLamp();
