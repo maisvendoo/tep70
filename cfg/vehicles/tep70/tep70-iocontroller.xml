@@ -9,7 +9,7 @@
 	-->
 	<Control>
 		<ID>100</ID>
-		<Name>Освещение кабины (АВ26)</Name>
+		<Name>АЗВ Освещение кабины (АВ26)</Name>
 		<Description>Включение освещения кабины</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
@@ -17,8 +17,8 @@
 		<KeyName>KEY_K</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
-		<ObjectNameCab1>Cab1_tumbler_cabine_light</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_tumbler_cabine_light</ObjectNameCab2>
+		<ObjectNameCab1>Cab1_AZV_cabine_light</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_AZV_cabine_light</ObjectNameCab2>
 	</Control>
 
 	<Control>
