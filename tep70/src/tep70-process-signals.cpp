@@ -235,9 +235,9 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
         analogSignal[CAB1_AZV_VENT_POS + d] = static_cast<float>(azv_ventilation[cab_idx].getState());
 
-        analogSignal[CAB1_GAUGES_LIGHT_POS + d] = control_inputs[cab_idx][CTRL_CAB1_GAUGES_LIGHT + cab_idx].value;
+        analogSignal[CAB1_GAUGES_LIGHT_POS + d] = control_inputs[cab_idx][CTRL_CAB1_GAUGES_LIGHT].value;
 
-        analogSignal[CAB1_TIMETABLE_LIGHT_POS + d] = control_inputs[cab_idx][CTRL_CAB1_TIMETABLE_LIGHT + cab_idx].value;
+        analogSignal[CAB1_TIMETABLE_LIGHT_POS + d] = control_inputs[cab_idx][CTRL_CAB1_TIMETABLE_LIGHT].value;
 
         // Тумблеры освещения кабины (собственная анимация, собственное состояние)
         analogSignal[CAB1_TUMBLER_CABINE_LIGHT_POS + d] = static_cast<float>(tumbler_cabine_light[cab_idx].getState());

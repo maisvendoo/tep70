@@ -1399,41 +1399,9 @@
 	</Control>
 
 	<Control>
-		<ID>287</ID>
-		<Name>Регулятор подсветки приборов 2</Name>
-		<Description>Регулировка яркости подсветки приборов кабины 2</Description>
-		<Type>Axis</Type>
-		<value1>0.0</value1>
-		<value2>0.0</value2>
-		<Speed>2.0</Speed>
-		<MinValue>0</MinValue>
-		<MaxValue>1</MaxValue>
-		<IncButtonName>RIGHT_BUTTON</IncButtonName>
-		<DecButtonName>LEFT_BUTTON</DecButtonName>
-		<ObjectNameCab1>Cab1_gauges_light_regulator</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_gauges_light_regulator</ObjectNameCab2>
-	</Control>
-
-	<Control>
 		<ID>288</ID>
 		<Name>Регулятор подсветки расписания 1</Name>
 		<Description>Регулировка яркости подсветки расписания кабины 1</Description>
-		<Type>Axis</Type>
-		<value1>0.0</value1>
-		<value2>0.0</value2>
-		<Speed>2.0</Speed>
-		<MinValue>0</MinValue>
-		<MaxValue>1</MaxValue>
-		<IncButtonName>RIGHT_BUTTON</IncButtonName>
-		<DecButtonName>LEFT_BUTTON</DecButtonName>
-		<ObjectNameCab1>Cab1_timetable_light_regulator</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_timetable_light_regulator</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>289</ID>
-		<Name>Регулятор подсветки расписания 2</Name>
-		<Description>Регулировка яркости подсветки расписания кабины 2</Description>
 		<Type>Axis</Type>
 		<value1>0.0</value1>
 		<value2>0.0</value2>

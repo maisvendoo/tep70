@@ -126,11 +126,9 @@ enum
 
     /// Регулятор подсветки приборов
     CTRL_CAB1_GAUGES_LIGHT         = 286,
-    CTRL_CAB2_GAUGES_LIGHT         = 287,
 
     /// Регулятор подсветки расписания
     CTRL_CAB1_TIMETABLE_LIGHT      = 288,
-    CTRL_CAB2_TIMETABLE_LIGHT      = 289,
 
     /// Тумблеры освещения кабины (собственные)
     CTRL_CAB1_TUMBLER_CABINE_LIGHT = 290,
