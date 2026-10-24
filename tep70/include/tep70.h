@@ -574,6 +574,9 @@ private:
     /// АЗВ вентиляции кабины
     TriggerControl  azv_ventilation[CABS_NUM];
 
+    /// Тумблер освещения кабины (собственный, независимо от АЗВ)
+    TriggerControl  tumbler_cabine_light[CABS_NUM];
+
     /// Тяговые двигатели
     std::array<TractionMotor*, NUM_MOTORS> motor = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 

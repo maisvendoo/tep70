@@ -2708,6 +2708,30 @@
 		<LocalPosition>0.0 7.5 3.0</LocalPosition>
 	</Sound>
 
+	<!-- Тумблер освещения кабины 1 -->
+	<Sound>
+		<SignalID>461</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер освещения кабины 2 -->
+	<Sound>
+		<SignalID>462</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 7.5 3.0</LocalPosition>
+	</Sound>
+
 	<!-- Мотор-компрессор -->
 	<Sound>
 		<SignalID>359</SignalID>

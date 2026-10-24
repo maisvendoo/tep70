@@ -623,6 +623,10 @@ enum
     CAB1_TUMBLER_CABINE_LIGHT_POS = 459,
     CAB2_TUMBLER_CABINE_LIGHT_POS = 460,
 
+    // Звуки тумблеров освещения кабины
+    SOUND_CAB1_TUMBLER_CABINE_LIGHT = 461,
+    SOUND_CAB2_TUMBLER_CABINE_LIGHT = 462,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

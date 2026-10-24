@@ -394,5 +394,9 @@ void TEP70::stepControls(double t, double dt)
         // АЗВ вентиляции
         control_inputs[cab_idx][CTRL_CAB1_AZV_VENT + cab_idx].toBool()
             ? azv_ventilation[cab_idx].set() : azv_ventilation[cab_idx].reset();
+
+        // Тумблер освещения кабины (собственный)
+        control_inputs[cab_idx][CTRL_CAB1_TUMBLER_CABINE_LIGHT + cab_idx].toBool()
+            ? tumbler_cabine_light[cab_idx].set() : tumbler_cabine_light[cab_idx].reset();
     }
 }

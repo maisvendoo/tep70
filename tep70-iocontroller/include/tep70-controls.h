@@ -132,6 +132,10 @@ enum
     CTRL_CAB1_TIMETABLE_LIGHT      = 288,
     CTRL_CAB2_TIMETABLE_LIGHT      = 289,
 
+    /// Тумблеры освещения кабины (собственные)
+    CTRL_CAB1_TUMBLER_CABINE_LIGHT = 290,
+    CTRL_CAB2_TUMBLER_CABINE_LIGHT = 291,
+
     /// Автоведение
     CTRL_AUTOPILOT             = 170,
     CTRL_SHUNTING_MODE         = 171,

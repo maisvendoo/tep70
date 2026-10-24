@@ -1446,4 +1446,15 @@
 		<ObjectNameCab2>Cab2_timetable_light_regulator</ObjectNameCab2>
 	</Control>
 
+	<Control>
+		<ID>290</ID>
+		<Name>Тумблер освещения кабины</Name>
+		<Description>Тумблер освещения кабины</Description>
+		<Type>Toggle</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_tumbler_cabine_light</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_tumbler_cabine_light</ObjectNameCab2>
+	</Control>
+
 </Config>

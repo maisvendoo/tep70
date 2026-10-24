@@ -178,6 +178,9 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[SOUND_CAB1_TUMBLER_HEATER + d] = tumbler_heater[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
 
         analogSignal[SOUND_CAB1_AZV_VENT + d] = azv_ventilation[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+
+        // Тумблер освещения кабины
+        analogSignal[SOUND_CAB1_TUMBLER_CABINE_LIGHT + d] = tumbler_cabine_light[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
     }
 
     // Звуки переключателей ВВК
