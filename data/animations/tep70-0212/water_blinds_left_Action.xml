@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+	<ModelAnimation>
+		<SignalID>465</SignalID>
+		<Duration>3</Duration>
+		<FixedSignal>1</FixedSignal>					
+	</ModelAnimation>
+</Config>

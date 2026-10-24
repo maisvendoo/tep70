@@ -96,7 +96,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
         // Циферблаты на пульте помощника
         const double U_bat = tumbler_voltage[cab_idx].getState() ? epb_converter->getOutputVoltage() : Ucc;
-        analogSignal[CAB1_STRELKA_BAT_VOLTAGE + d] = static_cast<float>(U_bat / 300.0);
+        analogSignal[CAB1_STRELKA_BAT_VOLTAGE + d] = static_cast<float>(U_bat / 150.0);
         analogSignal[CAB1_STRELKA_BAT_CURRENT + d] = static_cast<float>(battery->getChargeCurrent() / 150.0);
         analogSignal[CAB1_STRELKA_GEN_VOLTAGE + d] = static_cast<float>(trac_gen->getVoltage() / 1000.0);
         analogSignal[CAB1_STRELKA_FAILS_INDICATOR + d] = 0.0;
