@@ -60,12 +60,13 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_SIGLIGHT_EDT1 + d] = 0.0f;
         analogSignal[CAB1_SIGLIGHT_EDT2 + d] = 0.0f;
 
+        analogSignal[CAB1_SIGLIGHT_OIL_TEMP + d] = getLampState(hs_p(disel->getOilTemp() - 75.0));
+
         analogSignal[CAB1_SIGLIGHT_EPB_BRAKE + d] = static_cast<float>(epb_control->stateBrakeLamp());
         analogSignal[CAB1_SIGLIGHT_EPB_HOLD + d] = static_cast<float>(epb_control->stateHoldLamp());
         analogSignal[CAB1_SIGLIGHT_EPB_CONTROL + d] = static_cast<float>(epb_control->stateReleaseLamp());
 
         analogSignal[CAB1_SIGLIGHT_RESET_POWER + d] = 0.0f;
-        analogSignal[CAB1_SIGLIGHT_OIL_TEMP + d] = 0.0f;
         analogSignal[CAB1_SIGLIGHT_OIL_PRESS + d] = getLampState(hs_p(0.1 - disel->getOilPressure()));
         analogSignal[CAB1_SIGLIGHT_ZHAL_ET1 + d] = 0.0f;
         analogSignal[CAB1_SIGLIGHT_ZHAL_ET2 + d] = 0.0f;
@@ -89,8 +90,8 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_PRESSURE_BP + d] = static_cast<float>(brakepipe->getPressure() / 1.6);
         analogSignal[CAB1_PRESSURE_ER + d] = static_cast<float>(brake_crane[cab_idx]->getERpressure() / 1.0);
 
-        analogSignal[CAB1_STRELKA_WATER_TEMP + d] = 0.0;
-        analogSignal[CAB1_STRELKA_OIL_TEMP + d] = 0.0;
+        analogSignal[CAB1_STRELKA_WATER_TEMP + d] = static_cast<float>(disel->getWaterTemp() / 120.0);
+        analogSignal[CAB1_STRELKA_OIL_TEMP + d] = static_cast<float>(disel->getOilTemp() / 120.0);
         analogSignal[CAB1_STRELKA_OIL_PRESS + d] = static_cast<float>(disel->getOilPressure() * Physics::g / 15.0);
         analogSignal[CAB1_STRELKA_FUEL_PRESS + d] = static_cast<float>(electro_fuel_pump->getFuelPressure() * Physics::g / 15.0);
 
@@ -228,11 +229,11 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[CABINE1_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE1_DOOR].value;
     analogSignal[CABINE2_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE2_DOOR].value;
 
-    // Жалюзи вывод сигналов, заглушено пока нулями
-    analogSignal[TOP_BLINDS_ACTION] = 0.0f;
+    // Жалюзи
+    analogSignal[TOP_BLINDS_ACTION] = (vzhv->isOpened() || vzhm->isOpened()) ? 1.0f : 0.0f;
     analogSignal[EDT_BLINDS_ACTION] = 0.0f;
-    analogSignal[WATER_BLINDS_ACTION] = 0.0f;
-    analogSignal[OIL_BLINDS_ACTION] = 0.0f;
+    analogSignal[WATER_BLINDS_ACTION] = vzhv->isOpened() ? 1.0f : 0.0f;
+    analogSignal[OIL_BLINDS_ACTION] = vzhm->isOpened() ? 1.0f : 0.0f;
 }
 
 //------------------------------------------------------------------------------
