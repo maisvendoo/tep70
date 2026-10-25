@@ -23,9 +23,6 @@ void HydrostaticFanDrive::preStep(state_vector_t &Y, double t)
 {
     Q_UNUSED(t)
 
-    if (Y[0] < 0.001)
-        Y[0] = 0.0;
-
     double omega_ideal = V0_nom * Y[0] * disel_omega * gear_ratio * eta_vol;
 
     if (V_motor > 1.0e-12)
