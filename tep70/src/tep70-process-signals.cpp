@@ -226,7 +226,13 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[ACCUM_SWITCH_POS] = static_cast<float>(accum_switch.getState());
 
     analogSignal[CABINE1_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE1_DOOR].value;
-    analogSignal[CABINE2_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE2_DOOR].value;    
+    analogSignal[CABINE2_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE2_DOOR].value;
+
+    // Жалюзи вывод сигналов, заглушено пока нулями
+    analogSignal[TOP_BLINDS_ACTION] = 0.0f;
+    analogSignal[EDT_BLINDS_ACTION] = 0.0f;
+    analogSignal[WATER_BLINDS_ACTION] = 0.0f;
+    analogSignal[OIL_BLINDS_ACTION] = 0.0f;
 }
 
 //------------------------------------------------------------------------------
