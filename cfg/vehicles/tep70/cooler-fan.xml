@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+	<Device>
+		<Order>1</Order>
+		<SubStepNum>1</SubStepNum>
+		<Solver>euler</Solver>
+
+		<K_aero>0.02</K_aero>
+	</Device>
+</Config>

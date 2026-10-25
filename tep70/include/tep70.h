@@ -36,6 +36,7 @@
 #include    <tep70-autopilot-types.h>
 
 #include    <hydrostatic-fan-drive.h>
+#include    <cooler-fan.h>
 #include    <hysteresis-relay.h>
 #include    <pneumo-electro-valve.h>
 
@@ -582,10 +583,14 @@ private:
     TriggerControl  tumbler_cabine_light[CABS_NUM];
 
     // --- Охлаждение ---
-    /// Вентилятор горячего контура
+    /// Гидропривод вентилятора горячего контура
     HydrostaticFanDrive* fan_hot = nullptr;
-    /// Вентилятор холодного контура
+    /// Гидропривод вентилятора холодного контура
     HydrostaticFanDrive* fan_cold = nullptr;
+    /// Аэродинамическая нагрузка вентилятора горячего контура
+    CoolerFan* fan_hot_aero = nullptr;
+    /// Аэродинамическая нагрузка вентилятора холодного контура
+    CoolerFan* fan_cold_aero = nullptr;
     /// Вентиль жалюзи воды (ВЖВ)
     PneumoElectroValve* vzhv = nullptr;
     /// Вентиль жалюзи масла (ВЖМ)

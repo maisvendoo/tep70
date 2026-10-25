@@ -641,6 +641,10 @@ enum
     SOUND_TOP_BLINDS_OPEN = 471,
     SOUND_TOP_BLINDS_CLOSE = 472,
 
+    // Вращение вентиляторов охлаждения
+    COOLER_FAN_HOT_ROTATION = 473,
+    COOLER_FAN_COLD_ROTATION = 474,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

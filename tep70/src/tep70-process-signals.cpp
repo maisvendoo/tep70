@@ -234,6 +234,14 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[EDT_BLINDS_ACTION] = 0.0f;
     analogSignal[WATER_BLINDS_ACTION] = vzhv->isOpened() ? 1.0f : 0.0f;
     analogSignal[OIL_BLINDS_ACTION] = vzhm->isOpened() ? 1.0f : 0.0f;
+
+    // Вращение вентиляторов охлаждения
+    static double fan_hot_angle = 0.0;
+    static double fan_cold_angle = 0.0;
+    fan_hot_angle += fan_hot->getFanOmega() * dt;
+    fan_cold_angle += fan_cold->getFanOmega() * dt;
+    analogSignal[COOLER_FAN_HOT_ROTATION] = static_cast<float>(fan_hot_angle / (2.0 * Physics::PI));
+    analogSignal[COOLER_FAN_COLD_ROTATION] = static_cast<float>(fan_cold_angle / (2.0 * Physics::PI));
 }
 
 //------------------------------------------------------------------------------
