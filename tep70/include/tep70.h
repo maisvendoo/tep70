@@ -35,6 +35,10 @@
 #include    <cabine-switcher.h>
 #include    <tep70-autopilot-types.h>
 
+#include    <hydrostatic-fan-drive.h>
+#include    <hysteresis-relay.h>
+#include    <pneumo-electro-valve.h>
+
 /*!
  * \class
  * \brief Основной класс, описывающий весь тепловоз
@@ -577,6 +581,20 @@ private:
     /// Тумблер освещения кабины (собственный, независимо от АЗВ)
     TriggerControl  tumbler_cabine_light[CABS_NUM];
 
+    // --- Охлаждение ---
+    /// Вентилятор горячего контура
+    HydrostaticFanDrive* fan_hot = nullptr;
+    /// Вентилятор холодного контура
+    HydrostaticFanDrive* fan_cold = nullptr;
+    /// Вентиль жалюзи воды (ВЖВ)
+    PneumoElectroValve* vzhv = nullptr;
+    /// Вентиль жалюзи масла (ВЖМ)
+    PneumoElectroValve* vzhm = nullptr;
+    /// Термореле РТВ (жалюзи воды)
+    HysteresisRelay* rtv = nullptr;
+    /// Термореле РТМ (жалюзи масла)
+    HysteresisRelay* rtm = nullptr;
+
     /// Тяговые двигатели
     std::array<TractionMotor*, NUM_MOTORS> motor = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 
@@ -658,6 +676,9 @@ private:
     /// Инициализация прочего оборудования
     void initOther(const QString& modules_dir, const QString& custom_cfg_dir);
 
+    /// Инициализация системы охлаждения
+    void initCooler(const QString& modules_dir, const QString& custom_cfg_dir);
+
     /// Инициализация управления
     void initControl(const QString& modules_dir, const QString& custom_cfg_dir);
 
@@ -721,6 +742,9 @@ private:
 
     /// Шаг моделирования прочего оборудования
     void stepOther(const double& t, const double& dt);
+
+    /// Шаг моделирования системы охлаждения
+    void stepCooler(const double& t, const double& dt);
 
     float cab_light_signal[CABS_NUM] = {0.0f, 0.0f};
 

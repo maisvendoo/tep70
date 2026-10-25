@@ -41,6 +41,8 @@ void TEP70::initialization()
 
     initOilSystem(modules_dir, custom_cfg_dir);
 
+    initCooler(modules_dir, custom_cfg_dir);
+
     initPneumoSupply(modules_dir, custom_cfg_dir);
 
     initBrakesControl(modules_dir, custom_cfg_dir);
@@ -101,6 +103,8 @@ void TEP70::step(const double& t, const double& dt)
     stepControlCircuit(t, dt);
 
     stepFuelSystem(t, dt);
+
+    stepCooler(t, dt);
 
     stepDisel(t, dt);
 
