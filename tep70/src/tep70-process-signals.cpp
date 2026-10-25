@@ -60,7 +60,8 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_SIGLIGHT_EDT1 + d] = 0.0f;
         analogSignal[CAB1_SIGLIGHT_EDT2 + d] = 0.0f;
 
-        analogSignal[CAB1_SIGLIGHT_OIL_TEMP + d] = getLampState(hs_p(disel->getOilTemp() - 75.0));
+        analogSignal[CAB1_SIGLIGHT_OIL_TEMP + d] = getLampState(hs_p(max(disel->getWaterTemp() - disel->getWaterTempAlarm(),
+                                                                    disel->getOilTemp() - disel->getOilTempAlarm())));
 
         analogSignal[CAB1_SIGLIGHT_EPB_BRAKE + d] = static_cast<float>(epb_control->stateBrakeLamp());
         analogSignal[CAB1_SIGLIGHT_EPB_HOLD + d] = static_cast<float>(epb_control->stateHoldLamp());

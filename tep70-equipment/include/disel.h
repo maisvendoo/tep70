@@ -94,6 +94,12 @@ public:
     /// Задать температуру окружающей среды
     void setTambient(double T) { T_ambient = T; }
 
+    /// Порог перегрева воды
+    double getWaterTempAlarm() const { return water_temp_alarm; }
+
+    /// Порог перегрева масла
+    double getOilTempAlarm() const { return oil_temp_alarm; }
+
 private:
 
     enum
@@ -206,6 +212,8 @@ private:
     double heat_to_oil = 0.15;
     double heat_to_water_cold = 0.05;
     double T_ambient = 20.0;
+    double water_temp_alarm = 92.0;
+    double oil_temp_alarm = 85.0;
     double fan_hot_omega = 0.0;
     double fan_cold_omega = 0.0;
     bool blinds_water_open = false;

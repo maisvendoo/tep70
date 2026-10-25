@@ -31,7 +31,7 @@
         <C_water_hot>400.0</C_water_hot>
         <C_water_cold>300.0</C_water_cold>
         <C_oil>100.0</C_oil>
-        <k_oil_water>80.0</k_oil_water>
+        <k_oil_water>60.0</k_oil_water>
         <k_amb_water_hot>0.05</k_amb_water_hot>
         <k_amb_water_cold>0.05</k_amb_water_cold>
         <k_amb_oil>0.1</k_amb_oil>
@@ -42,5 +42,7 @@
         <heat_to_oil>0.15</heat_to_oil>
         <heat_to_water_cold>0.05</heat_to_water_cold>
         <T_ambient>20.0</T_ambient>
+        <WaterTempAlarm>92.0</WaterTempAlarm>
+        <OilTempAlarm>85.0</OilTempAlarm>
     </Thermodynamics>
 </Config>

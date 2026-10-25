@@ -235,6 +235,8 @@ void Disel::load_config(CfgReader &cfg)
     cfg.getDouble(secName, "heat_to_oil", heat_to_oil);
     cfg.getDouble(secName, "heat_to_water_cold", heat_to_water_cold);
     cfg.getDouble(secName, "T_ambient", T_ambient);
+    cfg.getDouble(secName, "WaterTempAlarm", water_temp_alarm);
+    cfg.getDouble(secName, "OilTempAlarm", oil_temp_alarm);
 }
 
 //------------------------------------------------------------------------------
