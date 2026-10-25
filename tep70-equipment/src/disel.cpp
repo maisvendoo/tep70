@@ -118,6 +118,19 @@ void Disel::preStep(state_vector_t &Y, double t)
 
     sound_states[pos_count].pitch = static_cast<float>(getShaftFreq() / n_ref);
     sound_states[pos_count].volume = static_cast<float>(Y[1] / 36.7);
+
+    // --- Термодинамика ---
+    if (Y[WATER_HOT_TEMP] < 1.0 && Y[OIL_TEMP] < 1.0)
+    {
+        Y[WATER_HOT_TEMP] = T_ambient;
+        Y[OIL_TEMP] = T_ambient;
+        Y[WATER_COLD_TEMP] = T_ambient;
+    }
+
+    double P_mech = M_d * Y[1] / 1000.0;
+    Q_thermal = P_mech * 0.65;
+
+    // Теплоотвод (рассчитывается в ode_system, где доступен Y)
 }
 
 //------------------------------------------------------------------------------
@@ -136,6 +149,51 @@ void Disel::ode_system(const state_vector_t &Y, state_vector_t &dYdt, double t)
     dYdt[1] = (M_d + ip * M_sg - ip * M_fg - M_gen - Mr) / J_shaft;
 
     dYdt[2] = delta_omega;
+
+    // --- Термодинамика ---
+
+    // Теплообмен масло ↔ холодная вода
+    double Q_oil_to_water_cold = k_oil_water * (Y[OIL_TEMP] - Y[WATER_COLD_TEMP]);
+
+    // Теплоотвод радиатора горячего контура
+    double fan_speed_ratio_hot = (fan_hot_omega > 0.5) ? cut(fan_hot_omega / 70.0, 0.0, 1.0) : 0.0;
+    Q_cool_hot = 0.0;
+    if (blinds_water_open)
+    {
+        if (fan_hot_omega > 0.5)
+            Q_cool_hot = k_fan_nom_hot * (Y[WATER_HOT_TEMP] - T_ambient) * fan_speed_ratio_hot;
+        else
+            Q_cool_hot = k_blinds_nat * (Y[WATER_HOT_TEMP] - T_ambient);
+    }
+
+    dYdt[WATER_HOT_TEMP] = (Q_thermal * heat_to_water_hot * 1000.0
+                            - k_oil_water * (Y[WATER_HOT_TEMP] - Y[OIL_TEMP]) * 1000.0
+                            - Q_cool_hot * 1000.0
+                            - k_amb_water_hot * (Y[WATER_HOT_TEMP] - T_ambient) * 1000.0)
+                           / (C_water_hot * 1000.0);
+
+    // Температура масла
+    dYdt[OIL_TEMP] = (Q_thermal * heat_to_oil * 1000.0
+                      - k_oil_water * (Y[OIL_TEMP] - Y[WATER_COLD_TEMP]) * 1000.0
+                      - k_amb_oil * (Y[OIL_TEMP] - T_ambient) * 1000.0)
+                     / (C_oil * 1000.0);
+
+    // Теплоотвод радиатора холодного контура
+    double fan_speed_ratio_cold = (fan_cold_omega > 0.5) ? cut(fan_cold_omega / 70.0, 0.0, 1.0) : 0.0;
+    Q_cool_cold = 0.0;
+    if (blinds_oil_open)
+    {
+        if (fan_cold_omega > 0.5)
+            Q_cool_cold = k_fan_nom_cold * (Y[WATER_COLD_TEMP] - T_ambient) * fan_speed_ratio_cold;
+        else
+            Q_cool_cold = k_blinds_nat * (Y[WATER_COLD_TEMP] - T_ambient);
+    }
+
+    dYdt[WATER_COLD_TEMP] = (Q_oil_to_water_cold * 1000.0
+                             + Q_thermal * heat_to_water_cold * 1000.0
+                             - Q_cool_cold * 1000.0
+                             - k_amb_water_cold * (Y[WATER_COLD_TEMP] - T_ambient) * 1000.0)
+                            / (C_water_cold * 1000.0);
 }
 
 //------------------------------------------------------------------------------
@@ -161,6 +219,22 @@ void Disel::load_config(CfgReader &cfg)
         QString param = QString("K%1").arg(i);
         cfg.getDouble(secName, param, K[i]);
     }
+
+    secName = "Thermodynamics";
+    cfg.getDouble(secName, "C_water_hot", C_water_hot);
+    cfg.getDouble(secName, "C_water_cold", C_water_cold);
+    cfg.getDouble(secName, "C_oil", C_oil);
+    cfg.getDouble(secName, "k_oil_water", k_oil_water);
+    cfg.getDouble(secName, "k_amb_water_hot", k_amb_water_hot);
+    cfg.getDouble(secName, "k_amb_water_cold", k_amb_water_cold);
+    cfg.getDouble(secName, "k_amb_oil", k_amb_oil);
+    cfg.getDouble(secName, "k_fan_nom_hot", k_fan_nom_hot);
+    cfg.getDouble(secName, "k_fan_nom_cold", k_fan_nom_cold);
+    cfg.getDouble(secName, "k_blinds_nat", k_blinds_nat);
+    cfg.getDouble(secName, "heat_to_water_hot", heat_to_water_hot);
+    cfg.getDouble(secName, "heat_to_oil", heat_to_oil);
+    cfg.getDouble(secName, "heat_to_water_cold", heat_to_water_cold);
+    cfg.getDouble(secName, "T_ambient", T_ambient);
 }
 
 //------------------------------------------------------------------------------

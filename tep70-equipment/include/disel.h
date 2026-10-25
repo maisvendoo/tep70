@@ -70,6 +70,30 @@ public:
         return sound_states[pos_idx].createSoundSignal();
     }
 
+    /// Температура воды горячего контура
+    double getWaterTemp() const { return getY(WATER_HOT_TEMP); }
+
+    /// Температура масла
+    double getOilTemp() const { return getY(OIL_TEMP); }
+
+    /// Температура воды холодного контура
+    double getWaterColdTemp() const { return getY(WATER_COLD_TEMP); }
+
+    /// Задать частоту вращения вентилятора горячего контура
+    void setFanHotOmega(double omega) { fan_hot_omega = omega; }
+
+    /// Задать частоту вращения вентилятора холодного контура
+    void setFanColdOmega(double omega) { fan_cold_omega = omega; }
+
+    /// Задать состояние жалюзи воды (ВЖВ)
+    void setWaterBlindsState(bool open) { blinds_water_open = open; }
+
+    /// Задать состояние жалюзи масла (ВЖМ)
+    void setOilBlindsState(bool open) { blinds_oil_open = open; }
+
+    /// Задать температуру окружающей среды
+    void setTambient(double T) { T_ambient = T; }
+
 private:
 
     enum
@@ -81,6 +105,15 @@ private:
 
         /// Угловая скорость вращения вала
         SHAFT_OMEGA = 1,
+
+        /// Температура воды горячего контура
+        WATER_HOT_TEMP = 3,
+
+        /// Температура масла
+        OIL_TEMP = 4,
+
+        /// Температура воды холодного контура (охлаждение масла + наддув)
+        WATER_COLD_TEMP = 5,
     };
 
     /// Условный объем маслянного русла
@@ -154,6 +187,31 @@ private:
 
     /// Уровень топлива в баке
     double fuel_level;
+
+    /// Тепловая мощность, кВт (рассчитывается в preStep)
+    double Q_thermal = 0.0;
+
+    // --- Термодинамика ---
+    double C_water_hot = 400.0;
+    double C_water_cold = 300.0;
+    double C_oil = 100.0;
+    double k_oil_water = 20.0;
+    double k_amb_water_hot = 0.05;
+    double k_amb_water_cold = 0.05;
+    double k_amb_oil = 0.1;
+    double k_fan_nom_hot = 6.0;
+    double k_fan_nom_cold = 5.0;
+    double k_blinds_nat = 0.3;
+    double heat_to_water_hot = 0.75;
+    double heat_to_oil = 0.15;
+    double heat_to_water_cold = 0.05;
+    double T_ambient = 20.0;
+    double fan_hot_omega = 0.0;
+    double fan_cold_omega = 0.0;
+    bool blinds_water_open = false;
+    bool blinds_oil_open = false;
+    double Q_cool_hot = 0.0;
+    double Q_cool_cold = 0.0;
 
     enum
     {

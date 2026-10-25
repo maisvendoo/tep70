@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
     <Device>
-        <Order>4</Order>
+        <Order>6</Order>
         <SubStepNum>1</SubStepNum>
         <Solver>euler</Solver>
 
@@ -27,4 +27,20 @@
         <K6>2.8</K6>
 
     </Device>
+    <Thermodynamics>
+        <C_water_hot>400.0</C_water_hot>
+        <C_water_cold>300.0</C_water_cold>
+        <C_oil>100.0</C_oil>
+        <k_oil_water>20.0</k_oil_water>
+        <k_amb_water_hot>0.05</k_amb_water_hot>
+        <k_amb_water_cold>0.05</k_amb_water_cold>
+        <k_amb_oil>0.1</k_amb_oil>
+        <k_fan_nom_hot>6.0</k_fan_nom_hot>
+        <k_fan_nom_cold>5.0</k_fan_nom_cold>
+        <k_blinds_nat>0.3</k_blinds_nat>
+        <heat_to_water_hot>0.75</heat_to_water_hot>
+        <heat_to_oil>0.15</heat_to_oil>
+        <heat_to_water_cold>0.05</heat_to_water_cold>
+        <T_ambient>20.0</T_ambient>
+    </Thermodynamics>
 </Config>
