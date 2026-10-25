@@ -600,6 +600,11 @@ private:
     /// Термореле РТМ (жалюзи масла)
     HysteresisRelay* rtm = nullptr;
 
+    /// Термореле вентилятора горячего контура
+    HysteresisRelay* rtv_fan = nullptr;
+    /// Термореле вентилятора холодного контура
+    HysteresisRelay* rtm_fan = nullptr;
+
     /// Состояние жалюзи для анимации
     bool water_blinds_open = false;
     bool oil_blinds_open = false;

@@ -8,11 +8,6 @@
         <V0_nom>1.25e-5</V0_nom>
         <V_motor>8.0e-6</V_motor>
         <eta_vol>0.9</eta_vol>
-        <gamma_min>0.05</gamma_min>
-        <gamma_max>1.0</gamma_max>
-        <T_min>70.0</T_min>
-        <T_max>92.0</T_max>
-        <hysteresis>3.0</hysteresis>
         <tau>15.0</tau>
         <gear_ratio>1.05</gear_ratio>
         <K_hyd>100.0</K_hyd>

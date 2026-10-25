@@ -5,8 +5,20 @@
 //------------------------------------------------------------------------------
 void TEP70::stepCooler(const double& t, const double& dt)
 {
+    double T_min = 70.0;
+    double T_max = 92.0;
+    double gamma_min = 0.05;
+    double gamma_max = 1.0;
+
     // 1. Гидропривод горячего контура
-    fan_hot->setWaterTemp(disel->getWaterTemp());
+    rtv_fan->setValue(disel->getWaterTemp());
+    double gamma_hot = gamma_min;
+    if (rtv_fan->getState())
+        gamma_hot = cut(gamma_min + (gamma_max - gamma_min) *
+                        (disel->getWaterTemp() - T_min) / (T_max - T_min),
+                        gamma_min, gamma_max);
+
+    fan_hot->setSwashPlate(gamma_hot);
     fan_hot->setDiselOmega(disel->getOmega());
     fan_hot->setFanOmega(fan_hot_aero->getFanOmega());
     fan_hot->step(t, dt);
@@ -16,7 +28,14 @@ void TEP70::stepCooler(const double& t, const double& dt)
     fan_hot_aero->step(t, dt);
 
     // 3. Гидропривод холодного контура
-    fan_cold->setWaterTemp(disel->getWaterColdTemp());
+    rtm_fan->setValue(disel->getWaterColdTemp());
+    double gamma_cold = gamma_min;
+    if (rtm_fan->getState())
+        gamma_cold = cut(gamma_min + (gamma_max - gamma_min) *
+                         (disel->getWaterColdTemp() - T_min) / (T_max - T_min),
+                         gamma_min, gamma_max);
+
+    fan_cold->setSwashPlate(gamma_cold);
     fan_cold->setDiselOmega(disel->getOmega());
     fan_cold->setFanOmega(fan_cold_aero->getFanOmega());
     fan_cold->step(t, dt);
@@ -29,7 +48,7 @@ void TEP70::stepCooler(const double& t, const double& dt)
     disel->setFanHotOmega(fan_hot_aero->getFanOmega());
     disel->setFanColdOmega(fan_cold_aero->getFanOmega());
 
-    // 6. Термореле
+    // 6. Термореле жалюзи
     rtv->setValue(disel->getWaterTemp());
     rtm->setValue(disel->getOilTemp());
 
@@ -40,11 +59,11 @@ void TEP70::stepCooler(const double& t, const double& dt)
     bool vzhv_auto = rtv->getState();
     bool vzhv_on = false;
 
-    if (water_pos == 0)               // Ручное / Закрыть
+    if (water_pos == 0)
         vzhv_on = true;
-    else if (water_pos == 1)          // Выключено (цепь разорвана)
+    else if (water_pos == 1)
         vzhv_on = false;
-    else if (water_pos == 2)          // Авто
+    else if (water_pos == 2)
         vzhv_on = vzhv_auto;
 
     vzhv->setVoltage(Ucc * static_cast<double>(vzhv_on));
@@ -56,11 +75,11 @@ void TEP70::stepCooler(const double& t, const double& dt)
     bool vzhm_auto = rtm->getState();
     bool vzhm_on = false;
 
-    if (oil_pos == 0)                 // Ручное / Открыть
+    if (oil_pos == 0)
         vzhm_on = true;
-    else if (oil_pos == 1)            // Выключено (цепь разорвана)
+    else if (oil_pos == 1)
         vzhm_on = false;
-    else if (oil_pos == 2)            // Авто
+    else if (oil_pos == 2)
         vzhm_on = vzhm_auto;
 
     vzhm->setVoltage(Ucc * static_cast<double>(vzhm_on));
