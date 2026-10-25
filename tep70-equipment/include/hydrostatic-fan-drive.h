@@ -15,12 +15,18 @@ public:
 
     void setDiselOmega(double omega) { disel_omega = omega; }
 
-    double getFanOmega() const;
+    /// Задать момент сопротивления от вентилятора
+    void setLoadTorque(double M) { M_load = M; }
+
+    /// Получить крутящий момент на валу гидромотора
+    double getDriveTorque() const { return M_drive; }
 
 private:
 
     double T_water = 20.0;
     double disel_omega = 0.0;
+    double M_load = 0.0;
+    double M_drive = 0.0;
 
     double V0_nom = 1.0e-6;
     double V_motor = 1.0e-6;
@@ -34,6 +40,9 @@ private:
     double gear_ratio = 1.05;
 
     double gamma_target = 0.0;
+
+    /// Номинальное давление в гидросистеме, Па
+    double p_nom = 1.0e7;
 
     void preStep(state_vector_t &Y, double t);
 

@@ -13,6 +13,12 @@ void TEP70::initCooler(const QString &modules_dir, const QString &custom_cfg_dir
     fan_cold = new HydrostaticFanDrive();
     fan_cold->read_config("hydrostatic-fan-drive", custom_cfg_dir);
 
+    fan_hot_aero = new CoolerFan();
+    fan_hot_aero->read_config("cooler-fan", custom_cfg_dir);
+
+    fan_cold_aero = new CoolerFan();
+    fan_cold_aero->read_config("cooler-fan", custom_cfg_dir);
+
     vzhv = new PneumoElectroValve();
     vzhv->read_config("pneumo-electro-valve", custom_cfg_dir);
 

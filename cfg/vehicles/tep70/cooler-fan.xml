@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
 	<Device>
-		<Order>1</Order>
+		<Order>2</Order>
 		<SubStepNum>1</SubStepNum>
 		<Solver>euler</Solver>
 
 		<K_aero>0.02</K_aero>
+		<J_fan>5.0</J_fan>
 	</Device>
 </Config>

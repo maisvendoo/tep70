@@ -1,17 +1,24 @@
 #include    "hydrostatic-fan-drive.h"
 
-#include    <QDebug>
-
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 HydrostaticFanDrive::HydrostaticFanDrive(QObject *parent) : Device(parent)
 {
 
 }
 
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 HydrostaticFanDrive::~HydrostaticFanDrive()
 {
 
 }
 
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 void HydrostaticFanDrive::preStep(state_vector_t &Y, double t)
 {
     Q_UNUSED(t)
@@ -32,8 +39,25 @@ void HydrostaticFanDrive::preStep(state_vector_t &Y, double t)
         gamma_target = gamma_min + (gamma_max - gamma_min) *
                                     (T_water - T_min) / (T_max - T_min);
     }
+
+    double gamma = Y[0];
+    double Q_pump = V0_nom * gamma * disel_omega * gear_ratio;
+    double Q_real = Q_pump * eta_vol;
+
+    double omega_motor = 0.0;
+    if (V_motor > 1.0e-12)
+        omega_motor = Q_real / V_motor;
+
+    double p = p_nom * gamma;
+    if (omega_motor > 1.0)
+        p += M_load * omega_motor / (V_motor * 1.0e6);
+
+    M_drive = p * V_motor / (2.0 * Physics::PI);
 }
 
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 void HydrostaticFanDrive::ode_system(const state_vector_t &Y, state_vector_t &dYdt, double t)
 {
     Q_UNUSED(t)
@@ -42,6 +66,9 @@ void HydrostaticFanDrive::ode_system(const state_vector_t &Y, state_vector_t &dY
     dYdt[0] = (gamma_target - gamma) / tau;
 }
 
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 void HydrostaticFanDrive::load_config(CfgReader &cfg)
 {
     QString secName = "Device";
@@ -56,16 +83,5 @@ void HydrostaticFanDrive::load_config(CfgReader &cfg)
     cfg.getDouble(secName, "hysteresis", hysteresis);
     cfg.getDouble(secName, "tau", tau);
     cfg.getDouble(secName, "gear_ratio", gear_ratio);
-}
-
-double HydrostaticFanDrive::getFanOmega() const
-{
-    double gamma = getY(0);
-    double Q_pump = V0_nom * gamma * disel_omega * gear_ratio;
-    double Q_real = Q_pump * eta_vol;
-
-    if (V_motor > 1.0e-12)
-        return Q_real / V_motor;
-
-    return 0.0;
+    cfg.getDouble(secName, "p_nom", p_nom);
 }
