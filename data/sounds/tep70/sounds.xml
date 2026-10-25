@@ -2828,4 +2828,76 @@
 		<LocalPosition>0.0 -8.0 0.0</LocalPosition>
 	</Sound>
 
+	<!-- Жалюзи воды — открытие -->
+	<Sound>
+		<SignalID>467</SignalID>
+		<Filename>blinds_opened.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 6.16 2.64</LocalPosition>
+	</Sound>
+
+	<!-- Жалюзи воды — закрытие -->
+	<Sound>
+		<SignalID>468</SignalID>
+		<Filename>blinds_closed.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 6.16 2.64</LocalPosition>
+	</Sound>
+
+	<!-- Жалюзи масла — открытие -->
+	<Sound>
+		<SignalID>469</SignalID>
+		<Filename>blinds_opened.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 6.16 2.64</LocalPosition>
+	</Sound>
+
+	<!-- Жалюзи масла — закрытие -->
+	<Sound>
+		<SignalID>470</SignalID>
+		<Filename>blinds_closed.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 6.16 2.64</LocalPosition>
+	</Sound>
+
+	<!-- Верхние жалюзи — открытие -->
+	<Sound>
+		<SignalID>471</SignalID>
+		<Filename>blinds_opened.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 6.16 4.14</LocalPosition>
+	</Sound>
+
+	<!-- Верхние жалюзи — закрытие -->
+	<Sound>
+		<SignalID>472</SignalID>
+		<Filename>blinds_closed.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 6.16 4.14</LocalPosition>
+	</Sound>
+
 </Config>
