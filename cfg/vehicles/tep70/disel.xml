@@ -35,8 +35,8 @@
         <k_amb_water_hot>0.05</k_amb_water_hot>
         <k_amb_water_cold>0.05</k_amb_water_cold>
         <k_amb_oil>0.1</k_amb_oil>
-        <k_fan_nom_hot>6.0</k_fan_nom_hot>
-        <k_fan_nom_cold>5.0</k_fan_nom_cold>
+        <k_fan_nom_hot>12.0</k_fan_nom_hot>
+        <k_fan_nom_cold>10.0</k_fan_nom_cold>
         <k_blinds_nat>0.3</k_blinds_nat>
         <heat_to_water_hot>0.75</heat_to_water_hot>
         <heat_to_oil>0.15</heat_to_oil>

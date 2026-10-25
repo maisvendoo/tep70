@@ -11,6 +11,6 @@
         <tau>15.0</tau>
         <gear_ratio>1.05</gear_ratio>
         <K_hyd>100.0</K_hyd>
-        <p_relief>2.0e7</p_relief>
+        <p_relief>4.5e7</p_relief>
     </Device>
 </Config>

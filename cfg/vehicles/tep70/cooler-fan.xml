@@ -5,7 +5,7 @@
 		<SubStepNum>1</SubStepNum>
 		<Solver>euler</Solver>
 
-		<K_aero>0.02</K_aero>
+		<K_aero>0.008</K_aero>
 		<J_fan>5.0</J_fan>
 	</Device>
 </Config>
