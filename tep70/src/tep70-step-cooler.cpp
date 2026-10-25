@@ -8,7 +8,7 @@ void TEP70::stepCooler(const double& t, const double& dt)
     // 1. Гидропривод горячего контура
     fan_hot->setWaterTemp(disel->getWaterTemp());
     fan_hot->setDiselOmega(disel->getOmega());
-    fan_hot->setLoadTorque(fan_hot_aero->getResistTorque());
+    fan_hot->setFanOmega(fan_hot_aero->getFanOmega());
     fan_hot->step(t, dt);
 
     // 2. Вентилятор горячего контура
@@ -18,7 +18,7 @@ void TEP70::stepCooler(const double& t, const double& dt)
     // 3. Гидропривод холодного контура
     fan_cold->setWaterTemp(disel->getWaterColdTemp());
     fan_cold->setDiselOmega(disel->getOmega());
-    fan_cold->setLoadTorque(fan_cold_aero->getResistTorque());
+    fan_cold->setFanOmega(fan_cold_aero->getFanOmega());
     fan_cold->step(t, dt);
 
     // 4. Вентилятор холодного контура
@@ -40,12 +40,12 @@ void TEP70::stepCooler(const double& t, const double& dt)
     bool vzhv_auto = rtv->getState();
     bool vzhv_on = false;
 
-    if (water_pos == 0)
-        vzhv_on = false;
-    else if (water_pos == 1)
-        vzhv_on = vzhv_auto;
-    else if (water_pos == 2)
+    if (water_pos == 0)               // Ручное / Закрыть
         vzhv_on = true;
+    else if (water_pos == 1)          // Выключено (цепь разорвана)
+        vzhv_on = false;
+    else if (water_pos == 2)          // Авто
+        vzhv_on = vzhv_auto;
 
     vzhv->setVoltage(Ucc * static_cast<double>(vzhv_on));
     vzhv->step(t, dt);
@@ -56,17 +56,19 @@ void TEP70::stepCooler(const double& t, const double& dt)
     bool vzhm_auto = rtm->getState();
     bool vzhm_on = false;
 
-    if (oil_pos == 0)
-        vzhm_on = false;
-    else if (oil_pos == 1)
-        vzhm_on = vzhm_auto;
-    else if (oil_pos == 2)
+    if (oil_pos == 0)                 // Ручное / Открыть
         vzhm_on = true;
+    else if (oil_pos == 1)            // Выключено (цепь разорвана)
+        vzhm_on = false;
+    else if (oil_pos == 2)            // Авто
+        vzhm_on = vzhm_auto;
 
     vzhm->setVoltage(Ucc * static_cast<double>(vzhm_on));
     vzhm->step(t, dt);
 
     // 9. Передаём состояние жалюзи в дизель
-    disel->setWaterBlindsState(vzhv->isOpened());
-    disel->setOilBlindsState(vzhm->isOpened());
+    water_blinds_open = vzhv_on && vzhv->isOpened();
+    oil_blinds_open = vzhm_on && vzhm->isOpened();
+    disel->setWaterBlindsState(water_blinds_open);
+    disel->setOilBlindsState(oil_blinds_open);
 }

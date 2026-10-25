@@ -3,6 +3,6 @@
 	<ModelAnimation>
 		<SignalID>465</SignalID>
 		<Duration>3</Duration>
-		<FixedSignal>1</FixedSignal>					
+							
 	</ModelAnimation>
 </Config>

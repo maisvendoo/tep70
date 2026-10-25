@@ -21,9 +21,11 @@ void TEP70::initCooler(const QString &modules_dir, const QString &custom_cfg_dir
 
     vzhv = new PneumoElectroValve();
     vzhv->read_config("pneumo-electro-valve", custom_cfg_dir);
+    vzhv->setVoltage(0.0);
 
     vzhm = new PneumoElectroValve();
     vzhm->read_config("pneumo-electro-valve", custom_cfg_dir);
+    vzhm->setVoltage(0.0);
 
     rtv = new HysteresisRelay(63.0, 68.0, false);
     rtm = new HysteresisRelay(60.0, 65.0, false);

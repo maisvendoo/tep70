@@ -15,5 +15,7 @@
         <hysteresis>3.0</hysteresis>
         <tau>15.0</tau>
         <gear_ratio>1.05</gear_ratio>
+        <K_hyd>100.0</K_hyd>
+        <p_relief>2.0e7</p_relief>
     </Device>
 </Config>

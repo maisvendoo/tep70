@@ -600,6 +600,10 @@ private:
     /// Термореле РТМ (жалюзи масла)
     HysteresisRelay* rtm = nullptr;
 
+    /// Состояние жалюзи для анимации
+    bool water_blinds_open = false;
+    bool oil_blinds_open = false;
+
     /// Тяговые двигатели
     std::array<TractionMotor*, NUM_MOTORS> motor = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 

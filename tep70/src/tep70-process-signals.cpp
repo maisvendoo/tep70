@@ -230,10 +230,10 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[CABINE2_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE2_DOOR].value;
 
     // Жалюзи
-    analogSignal[TOP_BLINDS_ACTION] = (vzhv->isOpened() || vzhm->isOpened()) ? 1.0f : 0.0f;
+    analogSignal[TOP_BLINDS_ACTION] = (water_blinds_open || oil_blinds_open) ? 1.0f : 0.0f;
     analogSignal[EDT_BLINDS_ACTION] = 0.0f;
-    analogSignal[WATER_BLINDS_ACTION] = vzhv->isOpened() ? 1.0f : 0.0f;
-    analogSignal[OIL_BLINDS_ACTION] = vzhm->isOpened() ? 1.0f : 0.0f;
+    analogSignal[WATER_BLINDS_ACTION] = water_blinds_open ? 1.0f : 0.0f;
+    analogSignal[OIL_BLINDS_ACTION] = oil_blinds_open ? 1.0f : 0.0f;
 
     // Вращение вентиляторов охлаждения
     analogSignal[COOLER_FAN_HOT_ROTATION] = static_cast<float>(fan_hot_aero->getAngle() / (2.0 * Physics::PI));

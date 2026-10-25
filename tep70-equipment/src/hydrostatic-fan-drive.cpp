@@ -23,7 +23,7 @@ void HydrostaticFanDrive::preStep(state_vector_t &Y, double t)
 {
     Q_UNUSED(t)
 
-    if (Y[0] < 1.0)
+    if (Y[0] < 0.001)
         Y[0] = 0.0;
 
     if (T_water >= T_max)
@@ -41,18 +41,12 @@ void HydrostaticFanDrive::preStep(state_vector_t &Y, double t)
     }
 
     double gamma = Y[0];
-    double Q_pump = V0_nom * gamma * disel_omega * gear_ratio;
-    double Q_real = Q_pump * eta_vol;
-
-    double omega_motor = 0.0;
+    double omega_ideal = V0_nom * gamma * disel_omega * gear_ratio * eta_vol;
     if (V_motor > 1.0e-12)
-        omega_motor = Q_real / V_motor;
+        omega_ideal /= V_motor;
 
-    double p = p_nom * gamma;
-    if (omega_motor > 1.0)
-        p += M_load * omega_motor / (V_motor * 1.0e6);
-
-    M_drive = p * V_motor / (2.0 * Physics::PI);
+    double M_max = p_relief * V_motor / (2.0 * Physics::PI);
+    M_drive = cut(K_hyd * (omega_ideal - fan_omega), -M_max, M_max);
 }
 
 //------------------------------------------------------------------------------
@@ -83,5 +77,6 @@ void HydrostaticFanDrive::load_config(CfgReader &cfg)
     cfg.getDouble(secName, "hysteresis", hysteresis);
     cfg.getDouble(secName, "tau", tau);
     cfg.getDouble(secName, "gear_ratio", gear_ratio);
-    cfg.getDouble(secName, "p_nom", p_nom);
+    cfg.getDouble(secName, "K_hyd", K_hyd);
+    cfg.getDouble(secName, "p_relief", p_relief);
 }
