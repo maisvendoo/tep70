@@ -295,7 +295,7 @@ private:
     SwitcherControl brake_force_switch[CABS_NUM];
 
     /// Переключатель-блокировка рабочей кабины
-    CabineSwitcher* cabine_switcher = nullptr;
+    //CabineSwitcher* cabine_switcher = nullptr;
 
     /// Контроллер машиниста
     ControllerKM2202*   km[CABS_NUM] = {nullptr, nullptr};
@@ -602,10 +602,10 @@ private:
         KB2_CONTACT_CAB1_K5,
         KB2_CONTACT_CAB1_K7,
 
-        KB2_CONTACT_CAB1_K9,
-        KB2_CONTACT_CAB1_K11,
-        KB2_CONTACT_CAB1_K13,
-        KB2_CONTACT_CAB1_K15,
+        KB2_CONTACT_CAB2_K9,
+        KB2_CONTACT_CAB2_K11,
+        KB2_CONTACT_CAB2_K13,
+        KB2_CONTACT_CAB2_K15,
 
         KB2_NUM_CONTACTS
     };
