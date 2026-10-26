@@ -20,10 +20,22 @@ void TEP70::stepControls(double t, double dt)
 
     // Переключатель кабины — от сигналов IOController
     if (control_inputs[CAB1][CTRL_CABINE_1].toBool() || control_inputs[CAB2][CTRL_CABINE_1].toBool())
-        cabine_switcher->setCabineIndex(CAB1);
-    else if (control_inputs[CAB1][CTRL_CABINE_2].toBool() || control_inputs[CAB2][CTRL_CABINE_2].toBool())
-        cabine_switcher->setCabineIndex(CAB2);
-    cabine_switcher->step(t, dt);
+    {
+        vvk_sw[VVK_KB1].reset();
+        vvk_sw[VVK_KB2].reset();
+
+        initClientInputSignal(CABS_NUM, VVK_KB1, 0.0f);
+        initClientInputSignal(CABS_NUM, VVK_KB2, 0.0f);
+    }
+
+    if (control_inputs[CAB1][CTRL_CABINE_2].toBool() || control_inputs[CAB2][CTRL_CABINE_2].toBool())
+    {
+        vvk_sw[VVK_KB1].set();
+        vvk_sw[VVK_KB2].set();
+
+        initClientInputSignal(CABS_NUM, VVK_KB1, 1.0f);
+        initClientInputSignal(CABS_NUM, VVK_KB2, 1.0f);
+    }
 
     // Песочница — состояние задаётся из control_inputs в stepOther()
     // после sand_system->step(), управление клавишами снято.
@@ -378,6 +390,8 @@ void TEP70::stepControls(double t, double dt)
     {
         shared_inputs[CTRL_VVK_PA1 + i].toBool()
             ? vvk_sw[i].set() : vvk_sw[i].reset();
+
+        vvk_sw[i].step(t, dt);
     }
 
     // Тумблер числа тепловозов

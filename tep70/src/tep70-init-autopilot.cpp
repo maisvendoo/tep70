@@ -98,22 +98,12 @@ void TEP70::OnAutopilot()
 {
     Vehicle::OnAutopilot();
 
-    // Делаем автозапуск
-    if (km[CAB1]->isReversHandle())
-    {
-        cabine_switcher->setCabineIndex(CAB1);
-        initAutostartProgram(CAB1);
-        //autopilot_switcher[CAB1].set();
-    }
+    int cabi_idx = checkActiveCabine();
 
-    if (km[CAB2]->isReversHandle())
+    if (initAutostartProgram(cabi_idx))
     {
-        cabine_switcher->setCabineIndex(CAB2);
-        initAutostartProgram(CAB2);
-        //autopilot_switcher[CAB2].set();
+        autoStartTimer->start();
     }
-
-    autoStartTimer->start();
 }
 
 //------------------------------------------------------------------------------

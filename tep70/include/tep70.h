@@ -32,7 +32,6 @@
 #include    <reversor.h>
 #include    <brake-switcher.h>
 #include    <alsn-ukbm.h>
-#include    <cabine-switcher.h>
 #include    <tep70-autopilot-types.h>
 
 #include    <hydrostatic-fan-drive.h>
@@ -292,10 +291,7 @@ private:
     TriggerControl rb[CABS_NUM][NUM_RB];
 
     /// Переключатель тормозного усилия
-    SwitcherControl brake_force_switch[CABS_NUM];
-
-    /// Переключатель-блокировка рабочей кабины
-    //CabineSwitcher* cabine_switcher = nullptr;
+    SwitcherControl brake_force_switch[CABS_NUM];    
 
     /// Контроллер машиниста
     ControllerKM2202*   km[CABS_NUM] = {nullptr, nullptr};
@@ -878,6 +874,9 @@ private:
     tep70_feedback_t *auto_feedback[CABS_NUM];
 
     double charge_press = 0.0;
+
+    /// Проверка активной кабины
+    int checkActiveCabine();
 
     bool initAutostartProgram(int cab_autostart_request);
 

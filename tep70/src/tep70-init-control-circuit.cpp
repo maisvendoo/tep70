@@ -16,7 +16,7 @@ void TEP70::initControlCircuit(const QString &modules_dir, const QString &custom
     }
 
     // Пока оставляю, но потом уберу
-    cabine_switcher = new CabineSwitcher();
+    //cabine_switcher = new CabineSwitcher();
 
     // Переключатель КБ1
     KB1_switch = new LogicRelay(KB1_NUM_CONTACTS);

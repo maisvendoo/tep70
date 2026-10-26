@@ -12,20 +12,20 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     bool is_KMT_ON1 = brake_crane[CAB1]->getPositionName() != "VI";
     bool is_KMT_ON2 = brake_crane[CAB2]->getPositionName() != "VI";
 
-    // Цепь реле РУ9 - контроль сбора тяги от ЭПК (В будущем добавить другие блокировки)    
-    bool is_RU9_ON1 = cabine_switcher->isCabine1() && is_KMT_ON1 && (!epk[CAB1]->getEmergencyBrakeContact());
-    bool is_RU9_ON2 = cabine_switcher->isCabine2() && is_KMT_ON2 && (!epk[CAB2]->getEmergencyBrakeContact());
+    // Цепь реле РУ9 - контроль сбора тяги от ЭПК (В будущем добавить другие блокировки)
+    bool is_RU9_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K8) && is_KMT_ON1 && (!epk[CAB1]->getEmergencyBrakeContact());
+    bool is_RU9_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K16) && is_KMT_ON2 && (!epk[CAB2]->getEmergencyBrakeContact());
 
     ru9->setVoltage(Ucc * static_cast<double>(is_RU9_ON1 || is_RU9_ON2));
     ru9->step(t, dt);
 
     // Состояние провода 819
-    bool is_819_ON1 = cabine_switcher->isCabine1() &&
+    bool is_819_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
                       km[CAB1]->isNoZero() &&
                       brake_lock[CAB1]->isStateOn() &&
                       epk[CAB1]->isKeyOn() && azv_upr_tepl[CAB1].getState();
 
-    bool is_819_ON2 = cabine_switcher->isCabine2() &&
+    bool is_819_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) &&
                       km[CAB2]->isNoZero() &&
                       brake_lock[CAB2]->isStateOn() &&
                       epk[CAB2]->isKeyOn() && azv_upr_tepl[CAB2].getState();
@@ -110,14 +110,18 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     field_reg->setOmega(disel->getOmega());
     field_reg->setGenVoltage(trac_gen->getVoltage());
     field_reg->setGenCurrent(I_gen);
-    field_reg->setKMPosition(cabine_switcher->isCabine1() * km[CAB1]->getPositionNumber() +
-                             cabine_switcher->isCabine2() * km[CAB2]->getPositionNumber()); // ???????
+
+    // Имитируем переключение питания с КМ по кабинам, в цепях, связанных с регулировкой мощности
+    int km_pos = static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) * km[CAB1]->getPositionNumber()) +
+                 static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) * km[CAB2]->getPositionNumber());
+
+    field_reg->setKMPosition(km_pos);
     field_reg->step(t, dt);
 
     // Цепь реле РУ1
     bool is_RU1_on = is_819_ON &&
-                     km[CAB1]->is12orMore() && cabine_switcher->isCabine1() &&
-                     km[CAB2]->is12orMore() && cabine_switcher->isCabine2();
+                     km[CAB1]->is12orMore() && KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
+                     km[CAB2]->is12orMore() && KB1_switch->getContactState(KB1_CONTACT_CAB2_K14);
 
     ru1->setVoltage(Ucc * static_cast<double>(is_RU1_on));
     ru1->step(t, dt);
@@ -128,17 +132,17 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     if (I_gen >= 1.0)
         k_field = trac_gen->getVoltage() / I_gen;
 
-    bool is_OP1_manual = ((tumbler_field_weak1[CAB1].getPosition() == 0) && cabine_switcher->isCabine1()) ||
-                         ((tumbler_field_weak1[CAB2].getPosition() == 0) && cabine_switcher->isCabine2());
+    bool is_OP1_manual = ((tumbler_field_weak1[CAB1].getPosition() == 0) && KB1_switch->getContactState(KB1_CONTACT_CAB1_K6)) ||
+                         ((tumbler_field_weak1[CAB2].getPosition() == 0) && KB1_switch->getContactState(KB1_CONTACT_CAB2_K14));
 
-    bool is_OP1_auto =   ((tumbler_field_weak1[CAB1].getPosition() == 2) && cabine_switcher->isCabine1()) ||
-                         ((tumbler_field_weak1[CAB2].getPosition() == 2) && cabine_switcher->isCabine2());
+    bool is_OP1_auto =   ((tumbler_field_weak1[CAB1].getPosition() == 2) && KB1_switch->getContactState(KB1_CONTACT_CAB1_K6)) ||
+                         ((tumbler_field_weak1[CAB2].getPosition() == 2) && KB1_switch->getContactState(KB1_CONTACT_CAB2_K14));
 
-    bool is_OP2_manual = ((tumbler_field_weak2[CAB1].getPosition() == 0) && cabine_switcher->isCabine1()) ||
-                         ((tumbler_field_weak2[CAB2].getPosition() == 0) && cabine_switcher->isCabine2());
+    bool is_OP2_manual = ((tumbler_field_weak2[CAB1].getPosition() == 0) && KB1_switch->getContactState(KB1_CONTACT_CAB1_K6)) ||
+                         ((tumbler_field_weak2[CAB2].getPosition() == 0) && KB1_switch->getContactState(KB1_CONTACT_CAB2_K14));
 
-    bool is_OP2_auto =   ((tumbler_field_weak2[CAB1].getPosition() == 2) && cabine_switcher->isCabine1()) ||
-                         ((tumbler_field_weak2[CAB2].getPosition() == 2) && cabine_switcher->isCabine2());
+    bool is_OP2_auto =   ((tumbler_field_weak2[CAB1].getPosition() == 2) && KB1_switch->getContactState(KB1_CONTACT_CAB1_K6)) ||
+                         ((tumbler_field_weak2[CAB2].getPosition() == 2) && KB1_switch->getContactState(KB1_CONTACT_CAB2_K14));
 
     rp1->setActive(is_OP1_auto);
     rp1->setLocked(ksh1_delay->getContactState(0));

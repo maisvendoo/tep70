@@ -4,19 +4,35 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
+int TEP70::checkActiveCabine()
+{
+    // Вторая кабина у нас, если оба КБ в положение ПУ2
+    if (vvk_sw[VVK_KB1].getState() && vvk_sw[VVK_KB2].getState())
+    {
+        return CAB2;
+    }
+
+    // Первая кабина у нас, если оба КБ в положение ПУ1
+    if (!vvk_sw[VVK_KB1].getState() && !vvk_sw[VVK_KB2].getState())
+    {
+        return CAB1;
+    }
+
+    // Иначе при попытке автозапуска будет фиаско, и пробовать не стоит
+    return -1;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 bool TEP70::initAutostartProgram(int cab_autostart_request)
 {
     if (autoStartTimer->isStarted())
         return false;
 
+    // Выходим, если вместо номера кабины пришла какая-то херня
     if ((cab_autostart_request != CAB1) && (cab_autostart_request != CAB2))
-        return false;
-
-    bool is_requested_cab_active = (cab_autostart_request == CAB1) ? cabine_switcher->isCabine1()
-                                                                   : cabine_switcher->isCabine2();
-
-    if (!is_requested_cab_active)
-        return false;
+        return false;    
 
     if (km[(cab_autostart_request == CAB1) ? CAB2 : CAB1]->isReversHandle())
         return false;
@@ -152,14 +168,9 @@ bool TEP70::initAutostopProgram(int cab_autostop_request)
     if (autoStartTimer->isStarted())
         return false;
 
+    // Выходим, если вместо номера кабины пришла какая-то херня
     if ((cab_autostop_request != CAB1) && (cab_autostop_request != CAB2))
-        return false;
-
-    bool is_requested_cab_active = (cab_autostop_request == CAB1) ? cabine_switcher->isCabine1()
-                                                                  : cabine_switcher->isCabine2();
-
-    if (!is_requested_cab_active)
-        return false;
+        return false;    
 
     autostart_cab = cab_autostop_request;
     autostart_mode = AS_MODE_STOP;
