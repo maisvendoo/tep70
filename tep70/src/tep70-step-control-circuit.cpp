@@ -112,7 +112,7 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
     bool is_RDM4_on = static_cast<bool>(hs_p(disel->getOilPressure() - 0.05));
 
 
-    bool is_MV6_on = is_AB4_CAB1_on &&
+    bool is_MV6_on = (is_AB4_CAB1_on || is_AB4_CAB2_on) &&
                      tumbler_disel_stop[CAB1].getState() &&
                      tumbler_disel_stop[CAB2].getState() &&
                     (ru8->getContactState(1) || is_RDM4_on);
