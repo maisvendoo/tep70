@@ -126,6 +126,8 @@ void TEP70::step(const double& t, const double& dt)
 
     stepLighting(t, dt);
 
+    stepControlLamps(t, dt);
+
     autoStartTimer->step(t, dt);
 
     /*if (reg == nullptr)

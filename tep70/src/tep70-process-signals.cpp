@@ -57,21 +57,20 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_SIGLIGHT_PSS + d] = safety_device[cab_idx]->getStatePSS();
 
         // Сигнальные лампы на пульте машиниста
-        analogSignal[CAB1_SIGLIGHT_EDT1 + d] = 0.0f;
-        analogSignal[CAB1_SIGLIGHT_EDT2 + d] = 0.0f;
+        analogSignal[CAB1_SIGLIGHT_EDT1 + d] = control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_1];
+        analogSignal[CAB1_SIGLIGHT_EDT2 + d] = control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_2];
 
-        analogSignal[CAB1_SIGLIGHT_OIL_TEMP + d] = getLampState(hs_p(max(disel->getWaterTemp() - disel->getWaterTempAlarm(),
-                                                                    disel->getOilTemp() - disel->getOilTempAlarm())));
+        analogSignal[CAB1_SIGLIGHT_OIL_TEMP + d] = control_lamps[cab_idx][LAMP_WATER_OIL_TEMP];
 
         analogSignal[CAB1_SIGLIGHT_EPB_BRAKE + d] = static_cast<float>(epb_control->stateBrakeLamp());
         analogSignal[CAB1_SIGLIGHT_EPB_HOLD + d] = static_cast<float>(epb_control->stateHoldLamp());
         analogSignal[CAB1_SIGLIGHT_EPB_CONTROL + d] = static_cast<float>(epb_control->stateReleaseLamp());
 
-        analogSignal[CAB1_SIGLIGHT_RESET_POWER + d] = 0.0f;
-        analogSignal[CAB1_SIGLIGHT_OIL_PRESS + d] = getLampState(hs_p(0.1 - disel->getOilPressure()));
+        analogSignal[CAB1_SIGLIGHT_RESET_POWER + d] = control_lamps[cab_idx][LAMP_POWER_RESET];
+        analogSignal[CAB1_SIGLIGHT_OIL_PRESS + d] = control_lamps[cab_idx][LAMP_OIL_PRESSURE];
         analogSignal[CAB1_SIGLIGHT_ZHAL_ET1 + d] = 0.0f;
         analogSignal[CAB1_SIGLIGHT_ZHAL_ET2 + d] = 0.0f;
-        analogSignal[CAB1_SIGLIGHT_NO_BATTERY_CHARGE + d] = getLampState(hs_p(100.0 - starter_generator->getVoltage()));
+        analogSignal[CAB1_SIGLIGHT_NO_BATTERY_CHARGE + d] = control_lamps[cab_idx][LAMP_BATTARY_CHARGE];
 
         // Сигнальные лампы на пульте помощника
         analogSignal[CAB1_SIGLIGHT_RES_FUELPUMP + d] = 0.0f;
@@ -239,15 +238,4 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     // Вращение вентиляторов охлаждения
     analogSignal[COOLER_FAN_HOT_ROTATION] = static_cast<float>(fan_hot_aero->getAngle() / (2.0 * Physics::PI));
     analogSignal[COOLER_FAN_COLD_ROTATION] = static_cast<float>(fan_cold_aero->getAngle() / (2.0 * Physics::PI));
-}
-
-//------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------
-float TEP70::getLampState(double signal)
-{
-    bool state = (azv_common_control[CAB1].getState() || azv_common_control[CAB2].getState()) &&
-                 static_cast<bool>(signal);
-
-    return static_cast<float>(state * power_level);
 }

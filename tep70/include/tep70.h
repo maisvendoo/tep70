@@ -827,8 +827,26 @@ private:
     /// Шаг моделирования освещения
     void stepLighting(const double &t, const double &dt);
 
+    enum
+    {
+        LAMP_BATTARY_CHARGE,
+        LAMP_OIL_PRESSURE,
+        LAMP_WATER_OIL_TEMP,
+        LAMP_POWER_RESET,
+        LAMP_EDT_BLINDS_OPEN_1,
+        LAMP_EDT_BLINDS_OPEN_2,
+        NUM_LAMPS
+    };
+
+    using control_lamps_t = std::array<float, NUM_LAMPS>;
+
+    control_lamps_t control_lamps[CABS_NUM];
+
+    /// Симуляция контрольных ламп, с учетом питания и блокировок
+    void stepControlLamps(const double &t, const double &dt);
+
     /// Формирование состояния сигнальных ламп
-    float getLampState(double signal);
+    float getLampState(int cab_idx, double signal);
 
     void load_brakes_config(QString path);
 
