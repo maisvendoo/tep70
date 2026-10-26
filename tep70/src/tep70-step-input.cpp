@@ -24,8 +24,8 @@ void TEP70::stepControls(double t, double dt)
         vvk_sw[VVK_KB1].reset();
         vvk_sw[VVK_KB2].reset();
 
-        initClientInputSignal(CABS_NUM, VVK_KB1, 0.0f);
-        initClientInputSignal(CABS_NUM, VVK_KB2, 0.0f);
+        initClientInputSignal(CABS_NUM, CTRL_VVK_KB1, 0.0f);
+        initClientInputSignal(CABS_NUM, CTRL_VVK_KB2, 0.0f);
     }
 
     if (control_inputs[CAB1][CTRL_CABINE_2].toBool() || control_inputs[CAB2][CTRL_CABINE_2].toBool())
@@ -33,8 +33,8 @@ void TEP70::stepControls(double t, double dt)
         vvk_sw[VVK_KB1].set();
         vvk_sw[VVK_KB2].set();
 
-        initClientInputSignal(CABS_NUM, VVK_KB1, 1.0f);
-        initClientInputSignal(CABS_NUM, VVK_KB2, 1.0f);
+        initClientInputSignal(CABS_NUM, CTRL_VVK_KB1, 1.0f);
+        initClientInputSignal(CABS_NUM, CTRL_VVK_KB2, 1.0f);
     }
 
     // Песочница — состояние задаётся из control_inputs в stepOther()
