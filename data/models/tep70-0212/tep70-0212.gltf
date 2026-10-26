@@ -16475,7 +16475,7 @@
 					"specularFactor":0
 				}
 			},
-			"name":"cab_lamp",
+			"name":"kresla",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":27
@@ -27942,7 +27942,7 @@
 						"TEXCOORD_0":2241
 					},
 					"indices":2242,
-					"material":45
+					"material":20
 				}
 			]
 		},
