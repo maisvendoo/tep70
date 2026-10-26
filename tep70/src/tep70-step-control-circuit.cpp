@@ -44,6 +44,10 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
 
     battery->step(t, dt);
 
+    // Переключатель КБ1
+    KB1_switch->setState(vvk_sw[VVK_KB1].getState());
+    KB1_switch->step(t, dt);
+
     // Определяем состояни цепи контактора топливного насоса (КТН)
     bool is_AB4_on = azv_fuel_pump[CAB1].getState()  ||
                      azv_fuel_pump[CAB2].getState();

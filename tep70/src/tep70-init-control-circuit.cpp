@@ -15,7 +15,19 @@ void TEP70::initControlCircuit(const QString &modules_dir, const QString &custom
         km[i]->read_config("km-2202", custom_cfg_dir);
     }
 
+    // Пока оставляю, но потом уберу
     cabine_switcher = new CabineSwitcher();
+
+    // Переключатель КБ1
+    KB1_switch = new LogicRelay(KB1_NUM_CONTACTS);
+    KB1_switch->setInitContactState(KB1_CONTACT_CAB1_K2_AB4, true);
+    KB1_switch->setInitContactState(KB1_CONTACT_CAB1_K4_AB2, true);
+    KB1_switch->setInitContactState(KB1_CONTACT_CAB1_K6, true);
+    KB1_switch->setInitContactState(KB1_CONTACT_CAB1_K8, true);
+    KB1_switch->setInitContactState(KB1_CONTACT_CAB2_K10_AB4, false);
+    KB1_switch->setInitContactState(KB1_CONTACT_CAB2_K12_AB2, false);
+    KB1_switch->setInitContactState(KB1_CONTACT_CAB2_K14, false);
+    KB1_switch->setInitContactState(KB1_CONTACT_CAB2_K16, false);
 
     battery = new Battery();
     battery->read_config("battery", custom_cfg_dir);

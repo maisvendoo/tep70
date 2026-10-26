@@ -39,6 +39,7 @@
 #include    <cooler-fan.h>
 #include    <hysteresis-relay.h>
 #include    <pneumo-electro-valve.h>
+#include    <logic-relay.h>
 
 /*!
  * \class
@@ -560,8 +561,36 @@ private:
     TriggerControl  tumbler_om[NUM_MOTORS];
 
     /// Переключатели ВВК
-    enum { VVK_PA1 = 0, VVK_PA2, VVK_KB1, VVK_KB2, VVK_RC1, VVK_RC2, VVK_SW_NUM };
+    enum
+    {
+        VVK_PA1 = 0,
+        VVK_PA2,
+        VVK_KB1,
+        VVK_KB2,
+        VVK_RC1,
+        VVK_RC2,
+        VVK_SW_NUM
+    };
+
     TriggerControl  vvk_sw[VVK_SW_NUM];
+
+    /// Контактные группы КБ1
+    LogicRelay *KB1_switch = nullptr;
+
+    enum
+    {
+        KB1_CONTACT_CAB1_K2_AB4,
+        KB1_CONTACT_CAB1_K4_AB2,
+        KB1_CONTACT_CAB1_K6,
+        KB1_CONTACT_CAB1_K8,
+
+        KB1_CONTACT_CAB2_K10_AB4,
+        KB1_CONTACT_CAB2_K12_AB2,
+        KB1_CONTACT_CAB2_K14,
+        KB1_CONTACT_CAB2_K16,
+
+        KB1_NUM_CONTACTS
+    };
 
     /// Тумблер числа тепловозов
     TriggerControl  tumbler_loco_count;
