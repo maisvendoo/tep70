@@ -16486,30 +16486,6 @@
 		},
 		{
 			"doubleSided":true,
-			"emissiveFactor":[
-				1,
-				1,
-				1
-			],
-			"emissiveTexture":{
-				"index":28
-			},
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
-			"name":"control_lamps",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":29
-				},
-				"metallicFactor":0,
-				"roughnessFactor":0.8999999761581421
-			}
-		},
-		{
-			"doubleSided":true,
 			"extensions":{
 				"KHR_materials_specular":{
 					"specularFactor":0
@@ -16518,7 +16494,7 @@
 			"name":"stenyzad.m.onetex.037",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":30
+					"index":28
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16534,7 +16510,7 @@
 			"name":"st1.m.onetex.039",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":31
+					"index":29
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16550,7 +16526,7 @@
 			"name":"stakabbok.m.onetex.037",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":32
+					"index":30
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16566,7 +16542,7 @@
 			"name":"maniiuki.m.onetex.035",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":33
+					"index":31
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16587,7 +16563,7 @@
 			"name":"steklajj.m.onetex.039",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":34
+					"index":32
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16601,7 +16577,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":35
+				"index":33
 			},
 			"extensions":{
 				"KHR_materials_specular":{
@@ -16611,7 +16587,7 @@
 			"name":"EPT_lamps",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":36
+					"index":34
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16621,14 +16597,14 @@
 			"doubleSided":true,
 			"name":"Material #617",
 			"normalTexture":{
-				"index":37
+				"index":35
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":38
+					"index":36
 				},
 				"metallicRoughnessTexture":{
-					"index":39
+					"index":37
 				}
 			}
 		},
@@ -16642,7 +16618,7 @@
 			"name":"pffgghhtult.m.onetex.059",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":40
+					"index":38
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16658,7 +16634,7 @@
 			"name":"pffgghhtult.m.onetex.091",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":41
+					"index":39
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16678,7 +16654,7 @@
 			"name":"bilvkranyiblok.m.onetex.009",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":42
+					"index":40
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16698,7 +16674,7 @@
 			"name":"kran395-ruk",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":43
+					"index":41
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16712,7 +16688,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":44
+				"index":42
 			},
 			"extensions":{
 				"KHR_materials_specular":{
@@ -16722,7 +16698,7 @@
 			"name":"cab_lamp_2",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":45
+					"index":43
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16731,17 +16707,17 @@
 		{
 			"name":"PSS.001",
 			"normalTexture":{
-				"index":46
+				"index":44
 			},
 			"occlusionTexture":{
-				"index":47
+				"index":45
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":48
+					"index":46
 				},
 				"metallicRoughnessTexture":{
-					"index":47
+					"index":45
 				}
 			}
 		},
@@ -16752,33 +16728,33 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":49
+				"index":47
 			},
 			"name":"PSS_lamp",
 			"normalTexture":{
-				"index":50
+				"index":48
 			},
 			"occlusionTexture":{
-				"index":51
+				"index":49
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":52
+					"index":50
 				},
 				"metallicRoughnessTexture":{
-					"index":51
+					"index":49
 				}
 			}
 		},
 		{
 			"doubleSided":true,
 			"emissiveTexture":{
-				"index":53
+				"index":51
 			},
 			"name":"Material_SKOR_emission.001",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":54
+					"index":52
 				}
 			}
 		},
@@ -16787,7 +16763,7 @@
 			"name":"Material_SKOR.001",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":55
+					"index":53
 				}
 			}
 		},
@@ -16796,7 +16772,7 @@
 			"name":"Material_Skor_SL2m",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":56
+					"index":54
 				}
 			}
 		},
@@ -16806,7 +16782,7 @@
 			"name":"Material_pult.001",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":57
+					"index":55
 				}
 			}
 		},
@@ -16820,7 +16796,7 @@
 			"name":"manorbeha.m.onetex.009",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":58
+					"index":56
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16836,7 +16812,7 @@
 			"name":"manorbeha.m.onetex.011",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":59
+					"index":57
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16852,7 +16828,7 @@
 			"name":"manorbeha.m.onetex.010",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":60
+					"index":58
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16872,7 +16848,7 @@
 			"name":"bilvkranyiblok.m.onetex.011",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":61
+					"index":59
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.8999999761581421
@@ -16881,7 +16857,7 @@
 		{
 			"doubleSided":true,
 			"emissiveTexture":{
-				"index":62
+				"index":60
 			},
 			"extensions":{
 				"KHR_materials_specular":{
@@ -16889,6 +16865,28 @@
 				}
 			},
 			"name":"main_gauges",
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":61
+				}
+			}
+		},
+		{
+			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				1,
+				1
+			],
+			"emissiveTexture":{
+				"index":62
+			},
+			"extensions":{
+				"KHR_materials_specular":{
+					"specularFactor":0
+				}
+			},
+			"name":"pom_gauges",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":63
@@ -16910,11 +16908,13 @@
 					"specularFactor":0
 				}
 			},
-			"name":"pom_gauges",
+			"name":"control_lamps",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":65
-				}
+				},
+				"metallicFactor":0,
+				"roughnessFactor":0.8999999761581421
 			}
 		},
 		{
@@ -19935,7 +19935,7 @@
 						"TEXCOORD_0":234
 					},
 					"indices":235,
-					"material":21
+					"material":20
 				},
 				{
 					"attributes":{
@@ -19944,7 +19944,7 @@
 						"TEXCOORD_0":238
 					},
 					"indices":239,
-					"material":22
+					"material":21
 				},
 				{
 					"attributes":{
@@ -19962,7 +19962,7 @@
 						"TEXCOORD_0":246
 					},
 					"indices":247,
-					"material":23
+					"material":22
 				},
 				{
 					"attributes":{
@@ -19971,7 +19971,7 @@
 						"TEXCOORD_0":250
 					},
 					"indices":251,
-					"material":24
+					"material":23
 				},
 				{
 					"attributes":{
@@ -19980,7 +19980,7 @@
 						"TEXCOORD_0":254
 					},
 					"indices":255,
-					"material":25
+					"material":24
 				},
 				{
 					"attributes":{
@@ -19989,7 +19989,7 @@
 						"TEXCOORD_0":258
 					},
 					"indices":259,
-					"material":26
+					"material":25
 				}
 			]
 		},
@@ -20003,7 +20003,7 @@
 						"TEXCOORD_0":262
 					},
 					"indices":263,
-					"material":27
+					"material":26
 				}
 			]
 		},
@@ -20045,7 +20045,7 @@
 						"TEXCOORD_0":274
 					},
 					"indices":195,
-					"material":28
+					"material":27
 				}
 			]
 		},
@@ -20059,7 +20059,7 @@
 						"TEXCOORD_0":277
 					},
 					"indices":278,
-					"material":29
+					"material":28
 				}
 			]
 		},
@@ -20073,7 +20073,7 @@
 						"TEXCOORD_0":281
 					},
 					"indices":282,
-					"material":30
+					"material":29
 				}
 			]
 		},
@@ -20115,7 +20115,7 @@
 						"TEXCOORD_0":293
 					},
 					"indices":294,
-					"material":31
+					"material":30
 				}
 			]
 		},
@@ -20129,7 +20129,7 @@
 						"TEXCOORD_0":297
 					},
 					"indices":298,
-					"material":32
+					"material":31
 				}
 			]
 		},
@@ -20143,7 +20143,7 @@
 						"TEXCOORD_0":301
 					},
 					"indices":302,
-					"material":33
+					"material":32
 				}
 			]
 		},
@@ -20157,7 +20157,7 @@
 						"TEXCOORD_0":305
 					},
 					"indices":302,
-					"material":33
+					"material":32
 				}
 			]
 		},
@@ -20171,7 +20171,7 @@
 						"TEXCOORD_0":308
 					},
 					"indices":309,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -20185,7 +20185,7 @@
 						"TEXCOORD_0":312
 					},
 					"indices":313,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -20199,7 +20199,7 @@
 						"TEXCOORD_0":316
 					},
 					"indices":317,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -20213,7 +20213,7 @@
 						"TEXCOORD_0":320
 					},
 					"indices":321,
-					"material":35
+					"material":34
 				}
 			]
 		},
@@ -20227,7 +20227,7 @@
 						"TEXCOORD_0":324
 					},
 					"indices":325,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -20241,7 +20241,7 @@
 						"TEXCOORD_0":328
 					},
 					"indices":329,
-					"material":36
+					"material":35
 				}
 			]
 		},
@@ -20257,7 +20257,7 @@
 						"COLOR_1":334
 					},
 					"indices":335,
-					"material":37
+					"material":36
 				}
 			]
 		},
@@ -20273,7 +20273,7 @@
 						"COLOR_1":340
 					},
 					"indices":341,
-					"material":37
+					"material":36
 				}
 			]
 		},
@@ -20287,7 +20287,7 @@
 						"TEXCOORD_0":344
 					},
 					"indices":345,
-					"material":37
+					"material":36
 				}
 			]
 		},
@@ -20301,7 +20301,7 @@
 						"TEXCOORD_0":348
 					},
 					"indices":349,
-					"material":38
+					"material":37
 				}
 			]
 		},
@@ -20315,7 +20315,7 @@
 						"TEXCOORD_0":352
 					},
 					"indices":353,
-					"material":37
+					"material":36
 				}
 			]
 		},
@@ -20329,7 +20329,7 @@
 						"TEXCOORD_0":356
 					},
 					"indices":357,
-					"material":39
+					"material":38
 				}
 			]
 		},
@@ -20343,7 +20343,7 @@
 						"TEXCOORD_0":360
 					},
 					"indices":361,
-					"material":40
+					"material":39
 				}
 			]
 		},
@@ -20357,7 +20357,7 @@
 						"TEXCOORD_0":364
 					},
 					"indices":361,
-					"material":41
+					"material":40
 				}
 			]
 		},
@@ -20371,7 +20371,7 @@
 						"TEXCOORD_0":367
 					},
 					"indices":361,
-					"material":42
+					"material":41
 				}
 			]
 		},
@@ -20399,7 +20399,7 @@
 						"TEXCOORD_0":374
 					},
 					"indices":375,
-					"material":43
+					"material":42
 				}
 			]
 		},
@@ -20413,7 +20413,7 @@
 						"TEXCOORD_0":378
 					},
 					"indices":379,
-					"material":44
+					"material":43
 				}
 			]
 		},
@@ -20427,7 +20427,7 @@
 						"TEXCOORD_0":382
 					},
 					"indices":383,
-					"material":45
+					"material":44
 				}
 			]
 		},
@@ -20441,7 +20441,7 @@
 						"TEXCOORD_0":386
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -20483,7 +20483,7 @@
 						"TEXCOORD_0":395
 					},
 					"indices":263,
-					"material":27
+					"material":26
 				}
 			]
 		},
@@ -20497,7 +20497,7 @@
 						"TEXCOORD_0":398
 					},
 					"indices":263,
-					"material":27
+					"material":26
 				}
 			]
 		},
@@ -20511,7 +20511,7 @@
 						"TEXCOORD_0":401
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -20525,7 +20525,7 @@
 						"TEXCOORD_0":404
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -20539,7 +20539,7 @@
 						"TEXCOORD_0":407
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -20553,7 +20553,7 @@
 						"TEXCOORD_0":410
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -20567,7 +20567,7 @@
 						"TEXCOORD_0":413
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -20581,7 +20581,7 @@
 						"TEXCOORD_0":416
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -20595,7 +20595,7 @@
 						"TEXCOORD_0":419
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -20609,7 +20609,7 @@
 						"TEXCOORD_0":422
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -20623,7 +20623,7 @@
 						"TEXCOORD_0":425
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -21313,7 +21313,7 @@
 						"TEXCOORD_0":603
 					},
 					"indices":604,
-					"material":25
+					"material":24
 				}
 			]
 		},
@@ -21737,7 +21737,7 @@
 						"TEXCOORD_0":704
 					},
 					"indices":298,
-					"material":32
+					"material":31
 				}
 			]
 		},
@@ -21751,7 +21751,7 @@
 						"TEXCOORD_0":707
 					},
 					"indices":302,
-					"material":33
+					"material":32
 				}
 			]
 		},
@@ -21765,7 +21765,7 @@
 						"TEXCOORD_0":710
 					},
 					"indices":302,
-					"material":33
+					"material":32
 				}
 			]
 		},
@@ -21779,7 +21779,7 @@
 						"TEXCOORD_0":713
 					},
 					"indices":309,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -21793,7 +21793,7 @@
 						"TEXCOORD_0":716
 					},
 					"indices":321,
-					"material":35
+					"material":34
 				}
 			]
 		},
@@ -21807,7 +21807,7 @@
 						"TEXCOORD_0":719
 					},
 					"indices":720,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -21821,7 +21821,7 @@
 						"TEXCOORD_0":723
 					},
 					"indices":724,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -22021,7 +22021,7 @@
 						"TEXCOORD_0":771
 					},
 					"indices":772,
-					"material":44
+					"material":43
 				}
 			]
 		},
@@ -22035,7 +22035,7 @@
 						"TEXCOORD_0":775
 					},
 					"indices":383,
-					"material":45
+					"material":44
 				}
 			]
 		},
@@ -22049,7 +22049,7 @@
 						"TEXCOORD_0":778
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22091,7 +22091,7 @@
 						"TEXCOORD_0":787
 					},
 					"indices":263,
-					"material":27
+					"material":26
 				}
 			]
 		},
@@ -22105,7 +22105,7 @@
 						"TEXCOORD_0":790
 					},
 					"indices":263,
-					"material":27
+					"material":26
 				}
 			]
 		},
@@ -22119,7 +22119,7 @@
 						"TEXCOORD_0":793
 					},
 					"indices":263,
-					"material":27
+					"material":26
 				}
 			]
 		},
@@ -22133,7 +22133,7 @@
 						"TEXCOORD_0":796
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22147,7 +22147,7 @@
 						"TEXCOORD_0":799
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22161,7 +22161,7 @@
 						"TEXCOORD_0":802
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22175,7 +22175,7 @@
 						"TEXCOORD_0":805
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22189,7 +22189,7 @@
 						"TEXCOORD_0":808
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22203,7 +22203,7 @@
 						"TEXCOORD_0":811
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22217,7 +22217,7 @@
 						"TEXCOORD_0":814
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22231,7 +22231,7 @@
 						"TEXCOORD_0":817
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22245,7 +22245,7 @@
 						"TEXCOORD_0":820
 					},
 					"indices":263,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -22441,7 +22441,7 @@
 						"TEXCOORD_0":866
 					},
 					"indices":429,
-					"material":25
+					"material":24
 				}
 			]
 		},
@@ -25223,7 +25223,7 @@
 						"TEXCOORD_0":1564
 					},
 					"indices":1565,
-					"material":22
+					"material":21
 				},
 				{
 					"attributes":{
@@ -25232,7 +25232,7 @@
 						"TEXCOORD_0":1568
 					},
 					"indices":1569,
-					"material":23
+					"material":22
 				}
 			]
 		},
@@ -25246,7 +25246,7 @@
 						"TEXCOORD_0":1572
 					},
 					"indices":1573,
-					"material":24
+					"material":23
 				}
 			]
 		},
@@ -25269,7 +25269,7 @@
 						"TEXCOORD_0":1580
 					},
 					"indices":1581,
-					"material":21
+					"material":45
 				},
 				{
 					"attributes":{
@@ -25278,7 +25278,7 @@
 						"TEXCOORD_0":1584
 					},
 					"indices":1585,
-					"material":22
+					"material":21
 				},
 				{
 					"attributes":{
@@ -25287,7 +25287,7 @@
 						"TEXCOORD_0":1588
 					},
 					"indices":1589,
-					"material":23
+					"material":22
 				}
 			]
 		},
@@ -25416,7 +25416,7 @@
 						"TEXCOORD_0":1627
 					},
 					"indices":1628,
-					"material":23
+					"material":22
 				}
 			]
 		},
@@ -25780,7 +25780,7 @@
 						"TEXCOORD_0":1718
 					},
 					"indices":313,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -25794,7 +25794,7 @@
 						"TEXCOORD_0":1721
 					},
 					"indices":1722,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -26326,7 +26326,7 @@
 						"TEXCOORD_0":1849
 					},
 					"indices":313,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -26340,7 +26340,7 @@
 						"TEXCOORD_0":1852
 					},
 					"indices":1722,
-					"material":34
+					"material":33
 				}
 			]
 		},
@@ -27942,7 +27942,7 @@
 						"TEXCOORD_0":2241
 					},
 					"indices":2242,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -27956,7 +27956,7 @@
 						"TEXCOORD_0":2245
 					},
 					"indices":2242,
-					"material":21
+					"material":45
 				}
 			]
 		},
@@ -27970,7 +27970,7 @@
 						"TEXCOORD_0":2248
 					},
 					"indices":2249,
-					"material":23
+					"material":22
 				}
 			]
 		},
@@ -27998,7 +27998,7 @@
 						"TEXCOORD_0":2256
 					},
 					"indices":2249,
-					"material":23
+					"material":22
 				}
 			]
 		},
@@ -28417,14 +28417,6 @@
 		},
 		{
 			"sampler":0,
-			"source":24
-		},
-		{
-			"sampler":0,
-			"source":25
-		},
-		{
-			"sampler":0,
 			"source":12
 		},
 		{
@@ -28453,6 +28445,14 @@
 		},
 		{
 			"sampler":0,
+			"source":24
+		},
+		{
+			"sampler":0,
+			"source":25
+		},
+		{
+			"sampler":0,
 			"source":26
 		},
 		{
@@ -28469,6 +28469,26 @@
 		},
 		{
 			"sampler":0,
+			"source":26
+		},
+		{
+			"sampler":0,
+			"source":27
+		},
+		{
+			"sampler":0,
+			"source":28
+		},
+		{
+			"sampler":0,
+			"source":30
+		},
+		{
+			"sampler":0,
+			"source":30
+		},
+		{
+			"sampler":0,
 			"source":30
 		},
 		{
@@ -28477,47 +28497,19 @@
 		},
 		{
 			"sampler":0,
-			"source":28
-		},
-		{
-			"sampler":0,
-			"source":29
-		},
-		{
-			"sampler":0,
-			"source":30
-		},
-		{
-			"sampler":0,
 			"source":32
 		},
 		{
 			"sampler":0,
-			"source":32
+			"source":18
 		},
 		{
 			"sampler":0,
-			"source":32
+			"source":18
 		},
 		{
 			"sampler":0,
-			"source":33
-		},
-		{
-			"sampler":0,
-			"source":34
-		},
-		{
-			"sampler":0,
-			"source":20
-		},
-		{
-			"sampler":0,
-			"source":20
-		},
-		{
-			"sampler":0,
-			"source":20
+			"source":18
 		},
 		{
 			"sampler":0,
@@ -28525,11 +28517,19 @@
 		},
 		{
 			"sampler":0,
-			"source":35
+			"source":33
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
+		},
+		{
+			"sampler":0,
+			"source":34
+		},
+		{
+			"sampler":0,
+			"source":35
 		},
 		{
 			"sampler":0,
@@ -28541,43 +28541,43 @@
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
@@ -28673,15 +28673,15 @@
 		},
 		{
 			"sampler":0,
+			"source":17
+		},
+		{
+			"sampler":0,
+			"source":18
+		},
+		{
+			"sampler":0,
 			"source":19
-		},
-		{
-			"sampler":0,
-			"source":20
-		},
-		{
-			"sampler":0,
-			"source":21
 		},
 		{
 			"sampler":0,
@@ -28761,7 +28761,19 @@
 		},
 		{
 			"sampler":0,
-			"source":32
+			"source":30
+		},
+		{
+			"sampler":0,
+			"source":30
+		},
+		{
+			"sampler":0,
+			"source":30
+		},
+		{
+			"sampler":0,
+			"source":31
 		},
 		{
 			"sampler":0,
@@ -28769,27 +28781,15 @@
 		},
 		{
 			"sampler":0,
-			"source":32
+			"source":18
 		},
 		{
 			"sampler":0,
-			"source":33
+			"source":18
 		},
 		{
 			"sampler":0,
-			"source":34
-		},
-		{
-			"sampler":0,
-			"source":20
-		},
-		{
-			"sampler":0,
-			"source":20
-		},
-		{
-			"sampler":0,
-			"source":20
+			"source":18
 		},
 		{
 			"sampler":0,
@@ -28797,35 +28797,35 @@
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
@@ -28913,15 +28913,15 @@
 		},
 		{
 			"sampler":0,
-			"source":19
+			"source":17
 		},
 		{
 			"sampler":0,
-			"source":23
+			"source":21
 		},
 		{
 			"sampler":0,
-			"source":19
+			"source":17
 		},
 		{
 			"sampler":0,
@@ -28929,7 +28929,7 @@
 		},
 		{
 			"sampler":0,
-			"source":23
+			"source":21
 		},
 		{
 			"sampler":0,
@@ -29041,7 +29041,7 @@
 		},
 		{
 			"sampler":0,
-			"source":37
+			"source":35
 		},
 		{
 			"sampler":0,
@@ -29061,7 +29061,7 @@
 		},
 		{
 			"sampler":0,
-			"source":22
+			"source":20
 		},
 		{
 			"sampler":0,
@@ -29141,7 +29141,11 @@
 		},
 		{
 			"sampler":0,
-			"source":21
+			"source":19
+		},
+		{
+			"sampler":0,
+			"source":17
 		},
 		{
 			"sampler":0,
@@ -29149,11 +29153,7 @@
 		},
 		{
 			"sampler":0,
-			"source":21
-		},
-		{
-			"sampler":0,
-			"source":19
+			"source":17
 		},
 		{
 			"sampler":0,
@@ -29255,16 +29255,6 @@
 			"uri":"textures/und.jpg.jpg"
 		},
 		{
-			"mimeType":"image/png",
-			"name":"control_lamps_emis",
-			"uri":"textures/control_lamps_emis.png"
-		},
-		{
-			"mimeType":"image/jpeg",
-			"name":"unb",
-			"uri":"textures/unb.jpg"
-		},
-		{
 			"mimeType":"image/jpeg",
 			"name":"stz_kb2.jpg",
 			"uri":"textures/stz_kb2.jpg.jpg"
@@ -29358,6 +29348,16 @@
 			"mimeType":"image/png",
 			"name":"pom_gauges_2",
 			"uri":"textures/pom_gauges_2.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"control_lamps_emis",
+			"uri":"textures/control_lamps_emis.png"
+		},
+		{
+			"mimeType":"image/jpeg",
+			"name":"unb",
+			"uri":"textures/unb.jpg"
 		},
 		{
 			"mimeType":"image/png",
