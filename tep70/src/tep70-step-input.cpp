@@ -213,7 +213,7 @@ void TEP70::stepControls(double t, double dt)
             int revers_pos = control_inputs[cab_idx][CTRL_REVERS_POSITION].value;
             km[cab_idx]->setReversHandlePos(revers_pos);
 
-            int main_pos = control_inputs[cab_idx][CTRL_KM_MAIN_POSITION].value;
+            int main_pos = static_cast<int>(control_inputs[cab_idx][CTRL_KM_MAIN_POSITION].value);
             km[cab_idx]->setPosition(main_pos);
 
             // Тормозные краны
@@ -222,6 +222,13 @@ void TEP70::stepControls(double t, double dt)
 
             double kvt_pos = control_inputs[cab_idx][CTRL_KVT_254].value;
             loco_crane[cab_idx]->setHandlePosition(kvt_pos);
+
+            initClientInputSignal(cab_idx, CTRL_REVERS_INSERTION,
+                                  km[cab_idx]->isReversHandle() ? 1.0f : 0.0f);
+            initClientInputSignal(cab_idx, CTRL_REVERS_POSITION,
+                                  km[cab_idx]->getReversHandlePos());
+            initClientInputSignal(cab_idx, CTRL_KM_MAIN_POSITION,
+                                  km[cab_idx]->getPositionNumber());
         }
         else
         {
