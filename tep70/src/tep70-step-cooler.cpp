@@ -63,42 +63,35 @@ void TEP70::stepCooler(const double& t, const double& dt)
     rtv->setValue(disel->getWaterTemp());
     rtm->setValue(disel->getOilTemp());
 
-    // Управление ВЖВ (жалюзи воды)
-    int active_cab = cabine_switcher->isCabine2() ? CAB2 : CAB1;
-    int water_pos = tumbler_water_zaluzi[active_cab].getPosition();
+    // Цепи управления жалюзи горячего контура
+    bool is_vzhv_CAB1_ON = (tumbler_water_zaluzi[CAB1].getPosition() == 0) ||
+                           ((tumbler_water_zaluzi[CAB1].getPosition() == 2) && rtv->getState());
 
-    bool vzhv_auto = rtv->getState();
-    bool vzhv_on = false;
+    bool is_vzhv_CAB2_ON = (tumbler_water_zaluzi[CAB2].getPosition() == 0) ||
+                           ((tumbler_water_zaluzi[CAB2].getPosition() == 2) && rtv->getState());
 
-    if (water_pos == 0)
-        vzhv_on = true;
-    else if (water_pos == 1)
-        vzhv_on = false;
-    else if (water_pos == 2)
-        vzhv_on = vzhv_auto;
+    bool is_vzhv_ON = (is_vzhv_CAB1_ON && KB1_switch->getContactState(KB1_CONTACT_CAB1_K6)) ||
+                      (is_vzhv_CAB2_ON && KB1_switch->getContactState(KB1_CONTACT_CAB2_K14));
 
-    vzhv->setVoltage(Ucc * static_cast<double>(vzhv_on));
+    vzhv->setVoltage(Ucc * static_cast<double>(is_vzhv_ON));
     vzhv->step(t, dt);
 
-    // Управление ВЖМ (жалюзи масла)
-    int oil_pos = tumbler_oil_zaluzi[active_cab].getPosition();
+    // Управление холодного контура
+    bool is_vzhm_CAB1_ON = (tumbler_oil_zaluzi[CAB1].getPosition() == 0) ||
+                           ((tumbler_oil_zaluzi[CAB1].getPosition() == 2) && rtm->getState());
 
-    bool vzhm_auto = rtm->getState();
-    bool vzhm_on = false;
+    bool is_vzhm_CAB2_ON = (tumbler_oil_zaluzi[CAB2].getPosition() == 0) ||
+                           ((tumbler_oil_zaluzi[CAB2].getPosition() == 2) && rtm->getState());
 
-    if (oil_pos == 0)
-        vzhm_on = true;
-    else if (oil_pos == 1)
-        vzhm_on = false;
-    else if (oil_pos == 2)
-        vzhm_on = vzhm_auto;
+    bool is_vzhm_ON = (is_vzhm_CAB1_ON && KB1_switch->getContactState(KB1_CONTACT_CAB1_K6)) ||
+                      (is_vzhm_CAB2_ON && KB1_switch->getContactState(KB1_CONTACT_CAB2_K14));
 
-    vzhm->setVoltage(Ucc * static_cast<double>(vzhm_on));
+    vzhm->setVoltage(Ucc * static_cast<double>(is_vzhm_ON));
     vzhm->step(t, dt);
 
     // Передаём состояние жалюзи в дизель
-    water_blinds_open = vzhv_on && vzhv->isOpened();
-    oil_blinds_open = vzhm_on && vzhm->isOpened();
+    water_blinds_open = is_vzhv_ON && vzhv->isOpened();
+    oil_blinds_open = is_vzhm_ON && vzhm->isOpened();
     disel->setWaterBlindsState(water_blinds_open);
     disel->setOilBlindsState(oil_blinds_open);
 }

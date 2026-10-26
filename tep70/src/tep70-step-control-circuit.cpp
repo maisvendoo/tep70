@@ -48,11 +48,20 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
     KB1_switch->setState(vvk_sw[VVK_KB1].getState());
     KB1_switch->step(t, dt);
 
-    // Определяем состояни цепи контактора топливного насоса (КТН)
-    bool is_AB4_on = azv_fuel_pump[CAB1].getState()  ||
-                     azv_fuel_pump[CAB2].getState();
+    // Переключатель КБ2
+    KB2_switch->setState(vvk_sw[VVK_KB2].getState());
+    KB2_switch->step(t, dt);
 
-    bool is_KTH_on = is_AB4_on &&
+    // Определяем состояни цепи контактора топливного насоса (КТН)
+
+    // Питание от автомата АВ4 в кабине 1
+    bool is_AB4_CAB1_on = KB1_switch->getContactState(KB1_CONTACT_CAB1_K2_AB4) && azv_fuel_pump[CAB1].getState();
+
+    // Питание от автомата АВ4 в кабине 2
+    bool is_AB4_CAB2_on = KB1_switch->getContactState(KB1_CONTACT_CAB2_K10_AB4) && azv_fuel_pump[CAB2].getState();
+
+
+    bool is_KTH_on = (is_AB4_CAB1_on || is_AB4_CAB2_on) &&
                      tumbler_disel_stop[CAB1].getState() &&
                      tumbler_disel_stop[CAB2].getState() &&
                      ru6->getContactState(1);
@@ -60,9 +69,13 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
     kontaktor_fuel_pump->setVoltage(Ucc * static_cast<double>(is_KTH_on));
     kontaktor_fuel_pump->step(t, dt);
 
+    // Питание от автомата АВ2
+    bool is_AB2_CAB1_on = KB1_switch->getContactState(KB1_CONTACT_CAB1_K4_AB2) && azv_common_control[CAB1].getState();
+    bool is_AB2_CAB2_on = KB1_switch->getContactState(KB1_CONTACT_CAB2_K12_AB2) && azv_common_control[CAB2].getState();
+
     // Состояние цепи кнопки "Пуск дизеля"
-    bool is_1017 = (cabine_switcher->isCabine1() && azv_common_control[CAB1].getState() && km[CAB1]->isZero()) ||
-                   (cabine_switcher->isCabine2() && azv_common_control[CAB2].getState() && km[CAB2]->isZero());
+    bool is_1017 = (is_AB2_CAB1_on && KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) && km[CAB1]->isZero()) ||
+                   (is_AB2_CAB2_on && KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) && km[CAB2]->isZero());
 
     bool is_diser_start_ON = button_disel_start[CAB1].getState() || button_disel_start[CAB2].getState();
 
@@ -99,7 +112,7 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
     bool is_RDM4_on = static_cast<bool>(hs_p(disel->getOilPressure() - 0.05));
 
 
-    bool is_MV6_on = is_AB4_on &&
+    bool is_MV6_on = is_AB4_CAB1_on &&
                      tumbler_disel_stop[CAB1].getState() &&
                      tumbler_disel_stop[CAB2].getState() &&
                     (ru8->getContactState(1) || is_RDM4_on);
@@ -139,8 +152,8 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
     vtn->setVoltage(Ucc * static_cast<double>(is_VTN_on));
     vtn->step(t, dt);
 
-    bool is_RU4_on = (cabine_switcher->isCabine1() && km[CAB1]->isMoreFirst()) ||
-                     (cabine_switcher->isCabine2() && km[CAB2]->isMoreFirst());
+    bool is_RU4_on = (KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) && km[CAB1]->isMoreFirst()) ||
+                     (KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) && km[CAB2]->isMoreFirst());
 
     ru4->setVoltage(Ucc * static_cast<double>(is_RU4_on));
     ru4->step(t, dt);
