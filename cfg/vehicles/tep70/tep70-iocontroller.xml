@@ -880,6 +880,7 @@
 		<Description>Удержание питания топливного насоса</Description>
 		<Type>Button</Type>
 		<value>0</value>
+		<KeyName>KEY_0</KeyName>
 		<ObjectName>button_keep_fuel_pump_power</ObjectName>
 	</Control>
 

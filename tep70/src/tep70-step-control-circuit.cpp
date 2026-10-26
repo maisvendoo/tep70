@@ -54,11 +54,13 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
 
     // Определяем состояни цепи контактора топливного насоса (КТН)
 
-    // Питание от автомата АВ4 в кабине 1
-    bool is_AB4_CAB1_on = KB1_switch->getContactState(KB1_CONTACT_CAB1_K2_AB4) && azv_fuel_pump[CAB1].getState();
+    // Питание от автомата АВ4 в кабине 1 (с учетом шунтировки от Кн4)
+    bool is_AB4_CAB1_on = (KB1_switch->getContactState(KB1_CONTACT_CAB1_K2_AB4) || keep_fuel_pump_button.getState())
+                          && azv_fuel_pump[CAB1].getState();
 
-    // Питание от автомата АВ4 в кабине 2
-    bool is_AB4_CAB2_on = KB1_switch->getContactState(KB1_CONTACT_CAB2_K10_AB4) && azv_fuel_pump[CAB2].getState();
+    // Питание от автомата АВ4 в кабине 2 (с учетом шунтировки от Кн4)
+    bool is_AB4_CAB2_on = (KB1_switch->getContactState(KB1_CONTACT_CAB2_K10_AB4) || keep_fuel_pump_button.getState())
+                          && azv_fuel_pump[CAB2].getState();
 
 
     bool is_KTH_on = (is_AB4_CAB1_on || is_AB4_CAB2_on) &&
