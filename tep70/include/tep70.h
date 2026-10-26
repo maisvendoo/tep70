@@ -592,6 +592,24 @@ private:
         KB1_NUM_CONTACTS
     };
 
+    /// Контактные группы КБ2
+    LogicRelay *KB2_switch = nullptr;
+
+    enum
+    {
+        KB2_CONTACT_CAB1_K1,
+        KB2_CONTACT_CAB1_K3,
+        KB2_CONTACT_CAB1_K5,
+        KB2_CONTACT_CAB1_K7,
+
+        KB2_CONTACT_CAB1_K9,
+        KB2_CONTACT_CAB1_K11,
+        KB2_CONTACT_CAB1_K13,
+        KB2_CONTACT_CAB1_K15,
+
+        KB2_NUM_CONTACTS
+    };
+
     /// Тумблер числа тепловозов
     TriggerControl  tumbler_loco_count;
 

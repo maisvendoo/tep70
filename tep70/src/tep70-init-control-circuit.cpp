@@ -29,6 +29,18 @@ void TEP70::initControlCircuit(const QString &modules_dir, const QString &custom
     KB1_switch->setInitContactState(KB1_CONTACT_CAB2_K14, false);
     KB1_switch->setInitContactState(KB1_CONTACT_CAB2_K16, false);
 
+    // Переключатель КБ2
+    KB2_switch = new LogicRelay(KB2_NUM_CONTACTS);
+    KB2_switch->setInitContactState(KB2_CONTACT_CAB1_K1, true);
+    KB2_switch->setInitContactState(KB2_CONTACT_CAB1_K3, true);
+    KB2_switch->setInitContactState(KB2_CONTACT_CAB1_K5, true);
+    KB2_switch->setInitContactState(KB2_CONTACT_CAB1_K7, true);
+    KB2_switch->setInitContactState(KB2_CONTACT_CAB2_K9, false);
+    KB2_switch->setInitContactState(KB2_CONTACT_CAB2_K11, false);
+    KB2_switch->setInitContactState(KB2_CONTACT_CAB2_K13, false);
+    KB2_switch->setInitContactState(KB2_CONTACT_CAB2_K15, false);
+
+    // Аккумуляторная батарея
     battery = new Battery();
     battery->read_config("battery", custom_cfg_dir);
 
