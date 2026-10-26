@@ -90,7 +90,7 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
     // Состояние цепи обмотки возбуждения возбудителя
     bool is_FGF_on = kontaktor_starter->getContactState(1) ||
-                     kvv->getContactState(0);
+                     kvv->getContactState(KVV_CONTACT_MAIN);
 
     field_gen->setFieldVoltage(Ucc * static_cast<double>(is_FGF_on));
     field_gen->setLoadCurrent(trac_gen->getFieldCurrent());

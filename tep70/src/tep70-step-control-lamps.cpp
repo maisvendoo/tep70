@@ -33,6 +33,6 @@ void TEP70::stepControlLamps(const double &t, const double &dt)
         control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_1] = 0.0f;
         control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_2] = 0.0f;
 
-        control_lamps[cab_idx][LAMP_POWER_RESET] = 0.0f;
+        control_lamps[cab_idx][LAMP_POWER_RESET] = getLampState(cab_idx, kvv->getContactState(KVV_CONTACT_POWER_RESET));
     }
 }

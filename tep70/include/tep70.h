@@ -485,6 +485,13 @@ private:
     /// Контактор возбуждения возбудителя (КВВ)
     Relay*              kvv = nullptr;
 
+    enum
+    {
+        KVV_CONTACT_MAIN,
+        KVV_CONTACT_POWER_RESET,
+        NUM_KVV_CONTACTS
+    };
+
     /// Контактор возбуждения генератора (КВГ)
     Relay*              kvg = nullptr;
 

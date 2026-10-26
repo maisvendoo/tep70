@@ -12,9 +12,10 @@ void TEP70::initElectroTransmission(const QString &modules_dir, const QString &c
     // Возбудитель главного генератора
     field_gen = new FieldGenerator();
 
-    kvv = new Relay(1);
+    kvv = new Relay(NUM_KVV_CONTACTS);
     kvv->read_config("mk-6", custom_cfg_dir);
-    kvv->setInitContactState(0, false);
+    kvv->setInitContactState(KVV_CONTACT_MAIN, false);
+    kvv->setInitContactState(KVV_CONTACT_POWER_RESET, true);
 
     kvg = new Relay(3);
     kvg->read_config("mk-6", custom_cfg_dir);
