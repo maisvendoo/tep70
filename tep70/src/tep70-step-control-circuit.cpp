@@ -72,8 +72,8 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
     kontaktor_fuel_pump->step(t, dt);
 
     // Питание от автомата АВ2
-    bool is_AB2_CAB1_on = KB1_switch->getContactState(KB1_CONTACT_CAB1_K4_AB2) && azv_common_control[CAB1].getState();
-    bool is_AB2_CAB2_on = KB1_switch->getContactState(KB1_CONTACT_CAB2_K12_AB2) && azv_common_control[CAB2].getState();
+    is_AB2_CAB1_on = KB1_switch->getContactState(KB1_CONTACT_CAB1_K4_AB2) && azv_common_control[CAB1].getState();
+    is_AB2_CAB2_on = KB1_switch->getContactState(KB1_CONTACT_CAB2_K12_AB2) && azv_common_control[CAB2].getState();
 
     // Состояние цепи кнопки "Пуск дизеля"
     bool is_1017 = (is_AB2_CAB1_on && KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) && km[CAB1]->isZero()) ||

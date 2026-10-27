@@ -696,6 +696,23 @@ private:
     /// Реле РУ21 (в схеме реостатного тормоза!!!)
     Relay*              ru21 = new Relay(NUM_RU21_CONTACTS);
 
+    /// Контактор КТ (тормозной контактор)
+    Relay* kt = nullptr;
+
+    enum
+    {
+        KT_RESET_POWER,
+        KT_TRACTION_ALLOW,
+        NUM_KT_CONTACTS
+    };
+
+    bool is_AB2_CAB1_on = false;
+
+    bool is_AB2_CAB2_on = false;
+
+    bool is_Revers_Forward = false;
+
+    bool is_Revers_Backward = false;
 
     /// Чтение конфигурационного файла
     void loadConfig(QString cfg_path) override;

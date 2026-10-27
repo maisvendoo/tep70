@@ -33,6 +33,11 @@ void TEP70::stepControlLamps(const double &t, const double &dt)
         control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_1] = 0.0f;
         control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_2] = 0.0f;
 
-        control_lamps[cab_idx][LAMP_POWER_RESET] = 0.0f;//getLampState(cab_idx, kvv->getContactState(KVV_CONTACT_POWER_RESET));
+        // Питание лампы ЛС2 "Сброс нагрузки"
+        bool is_reset_power_lamp_ON = (is_Revers_Forward || is_Revers_Backward) &&
+                                      kvv->getContactState(KVV_CONTACT_POWER_RESET) &&
+                                      kt->getContactState(KT_RESET_POWER);
+
+        control_lamps[cab_idx][LAMP_POWER_RESET] = getLampState(cab_idx, static_cast<double>(is_reset_power_lamp_ON));
     }
 }
