@@ -35,6 +35,8 @@ private:
 
     ControlHandler *cabine2_switch_key[CABS_NUM] = {nullptr, nullptr};
 
+    ControlHandler *azv_fuel_pump[CABS_NUM] = {nullptr, nullptr};
+
     ControlHandler *switch_KB1 = nullptr;
 
     ControlHandler *switch_KB2 = nullptr;
@@ -47,9 +49,11 @@ private:
 
     void lockMainHandle(int cab_idx);
 
+    void switchCabineByKey(int cab_idx);
+
 private slots:
 
-    void slotOnValueChanged(const float &value);
+    void slotOnControlValueChanged(const float &value);
 };
 
 #endif

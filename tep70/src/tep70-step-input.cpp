@@ -16,29 +16,7 @@ void TEP70::stepControls(double t, double dt)
     epk[CAB1]->allowKey(!(epk[CAB2]->isKey()));
 
     km[CAB2]->allowReversHandle(!(km[CAB1]->isReversHandle()));
-    km[CAB1]->allowReversHandle(!(km[CAB2]->isReversHandle()));
-
-    // Переключатель кабины — от сигналов IOController
-    /*if (control_inputs[CAB1][CTRL_CABINE_1].toBool() || control_inputs[CAB2][CTRL_CABINE_1].toBool())
-    {
-        vvk_sw[VVK_KB1].reset();
-        vvk_sw[VVK_KB2].reset();
-
-        initClientInputSignal(CABS_NUM, CTRL_VVK_KB1, 0.0f);
-        initClientInputSignal(CABS_NUM, CTRL_VVK_KB2, 0.0f);
-    }
-
-    if (control_inputs[CAB1][CTRL_CABINE_2].toBool() || control_inputs[CAB2][CTRL_CABINE_2].toBool())
-    {
-        vvk_sw[VVK_KB1].set();
-        vvk_sw[VVK_KB2].set();
-
-        initClientInputSignal(CABS_NUM, CTRL_VVK_KB1, 1.0f);
-        initClientInputSignal(CABS_NUM, CTRL_VVK_KB2, 1.0f);
-    }*/
-
-    // Песочница — состояние задаётся из control_inputs в stepOther()
-    // после sand_system->step(), управление клавишами снято.
+    km[CAB1]->allowReversHandle(!(km[CAB2]->isReversHandle()));    
 
     // Контроллер машиниста — шаг для таймеров анимации вращения
     km[CAB1]->step(t, dt);

@@ -45,6 +45,12 @@ void TEP70IOController::init()
 
         handler = control_handlers[cab_idx].getByKey1(CTRL_CABINE_2).value();
         cabine2_switch_key[cab_idx] = handler;
+
+        handler = control_handlers[cab_idx].getByKey1(CTRL_AZV_FUEL_PUMP).value();
+        azv_fuel_pump[cab_idx] = handler;
+
+        connect(azv_fuel_pump[cab_idx], &ControlHandler::sigOnValueChanged,
+                this, &TEP70IOController::slotOnControlValueChanged);
     }
 
     switch_KB1 = control_handlers[cabs_num].getByKey1(CTRL_VVK_KB1).value();
@@ -52,7 +58,9 @@ void TEP70IOController::init()
     keep_fuel_pump_botton = control_handlers[cabs_num].getByKey1(CTRL_VVK_KEEP_FUEL_PUMP_BUTTON).value();
 
     connect(switch_KB1, &ControlHandler::sigOnValueChanged,
-            this, &TEP70IOController::slotOnValueChanged);
+            this, &TEP70IOController::slotOnControlValueChanged);
+
+
 }
 
 //------------------------------------------------------------------------------
@@ -66,6 +74,7 @@ void TEP70IOController::step(float t, float dt, const std::vector<float> *server
     {
         lockReversHandle(cab_idx);
         lockMainHandle(cab_idx);
+        switchCabineByKey(cab_idx);
     }
 }
 
@@ -107,8 +116,28 @@ void TEP70IOController::lockMainHandle(int cab_idx)
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70IOController::slotOnValueChanged(const float &value)
+void TEP70IOController::switchCabineByKey(int cab_idx)
 {
+    if (cabine1_switch_key[cab_idx]->toBool())
+    {
+        switch_KB1->setValueIfChanged(0.0f);
+        switch_KB2->setValueIfChanged(0.0f);
+    }
+
+    if (cabine2_switch_key[cab_idx]->toBool())
+    {
+        switch_KB1->setValueIfChanged(1.0f);
+        switch_KB2->setValueIfChanged(1.0f);
+    }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70IOController::slotOnControlValueChanged(const float &value)
+{
+    (void) value;
+
     // Сбрасываем удерживаемую кнопку
     keep_fuel_pump_botton->reset();
 }
