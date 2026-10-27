@@ -1315,7 +1315,9 @@
 		<Description>Открыть штору аппаратной камеры</Description>
 		<Type>Toggle</Type>
 		<value>0</value>		
-		<ObjectName>VVK_blind_door_Handle</ObjectName>		
+		<ObjectName>VVK_blind_door_Handle</ObjectName>
+		<PositionsNames>Закрыто,Открыто</PositionsNames>
+		<ActionNames>Закрыть,Открыть</ActionNames>		
 	</Control>
 
 	<Control>
@@ -1324,7 +1326,9 @@
 		<Description>Открыть дверь аппаратной камеры</Description>
 		<Type>Toggle</Type>
 		<value>0</value>		
-		<ObjectName>VVK_door_Handle</ObjectName>		
+		<ObjectName>VVK_door_Handle</ObjectName>
+		<PositionsNames>Закрыто,Открыто</PositionsNames>
+		<ActionNames>Закрыть,Открыть</ActionNames>		
 	</Control>
 
 	<Control>
@@ -1333,7 +1337,9 @@
 		<Description>Открыть дверь кабины 1</Description>
 		<Type>Toggle</Type>
 		<value>0</value>		
-		<ObjectName>Cabine1_door_handle</ObjectName>		
+		<ObjectName>Cabine1_door_handle</ObjectName>
+		<PositionsNames>Закрыто,Открыто</PositionsNames>
+		<ActionNames>Закрыть,Открыть</ActionNames>		
 	</Control>
 
 	<Control>
@@ -1342,7 +1348,9 @@
 		<Description>Открыть дверь кабины 2</Description>
 		<Type>Toggle</Type>
 		<value>0</value>		
-		<ObjectName>Cabine2_door_handle</ObjectName>		
+		<ObjectName>Cabine2_door_handle</ObjectName>
+		<PositionsNames>Закрыто,Открыто</PositionsNames>
+		<ActionNames>Закрыть,Открыть</ActionNames>		
 	</Control>
 
 	<Control>
