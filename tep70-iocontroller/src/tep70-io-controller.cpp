@@ -39,7 +39,20 @@ void TEP70IOController::init()
 
         handler = control_handlers[cab_idx].getByKey1(CTRL_KM_MAIN_POSITION).value();
         main_handle[cab_idx] = handler;
+
+        handler = control_handlers[cab_idx].getByKey1(CTRL_CABINE_1).value();
+        cabine1_switch_key[cab_idx] = handler;
+
+        handler = control_handlers[cab_idx].getByKey1(CTRL_CABINE_2).value();
+        cabine2_switch_key[cab_idx] = handler;
     }
+
+    switch_KB1 = control_handlers[cabs_num].getByKey1(CTRL_VVK_KB1).value();
+    switch_KB2 = control_handlers[cabs_num].getByKey1(CTRL_VVK_KB2).value();
+    keep_fuel_pump_botton = control_handlers[cabs_num].getByKey1(CTRL_VVK_KEEP_FUEL_PUMP_BUTTON).value();
+
+    connect(switch_KB1, &ControlHandler::sigOnValueChanged,
+            this, &TEP70IOController::slotOnValueChanged);
 }
 
 //------------------------------------------------------------------------------
@@ -89,6 +102,15 @@ void TEP70IOController::lockMainHandle(int cab_idx)
     {
         main_handle[cab_idx]->setValueIfChanged(MS_ZERO);
     }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70IOController::slotOnValueChanged(const float &value)
+{
+    // Сбрасываем удерживаемую кнопку
+    keep_fuel_pump_botton->reset();
 }
 
 GET_MODULE(TEP70IOController)

@@ -19,7 +19,7 @@ void TEP70::stepControls(double t, double dt)
     km[CAB1]->allowReversHandle(!(km[CAB2]->isReversHandle()));
 
     // Переключатель кабины — от сигналов IOController
-    if (control_inputs[CAB1][CTRL_CABINE_1].toBool() || control_inputs[CAB2][CTRL_CABINE_1].toBool())
+    /*if (control_inputs[CAB1][CTRL_CABINE_1].toBool() || control_inputs[CAB2][CTRL_CABINE_1].toBool())
     {
         vvk_sw[VVK_KB1].reset();
         vvk_sw[VVK_KB2].reset();
@@ -35,7 +35,7 @@ void TEP70::stepControls(double t, double dt)
 
         initClientInputSignal(CABS_NUM, CTRL_VVK_KB1, 1.0f);
         initClientInputSignal(CABS_NUM, CTRL_VVK_KB2, 1.0f);
-    }
+    }*/
 
     // Песочница — состояние задаётся из control_inputs в stepOther()
     // после sand_system->step(), управление клавишами снято.

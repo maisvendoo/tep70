@@ -31,11 +31,25 @@ private:
 
     ControlHandler  *main_handle[CABS_NUM] = {nullptr, nullptr};
 
+    ControlHandler *cabine1_switch_key[CABS_NUM] = {nullptr, nullptr};
+
+    ControlHandler *cabine2_switch_key[CABS_NUM] = {nullptr, nullptr};
+
+    ControlHandler *switch_KB1 = nullptr;
+
+    ControlHandler *switch_KB2 = nullptr;
+
+    ControlHandler *keep_fuel_pump_botton = nullptr;
+
     void processKeyboardInput(std::set<uint16_t> &pressed_keys) override;
 
     void lockReversHandle(int cab_idx);
 
     void lockMainHandle(int cab_idx);
+
+private slots:
+
+    void slotOnValueChanged(const float &value);
 };
 
 #endif
