@@ -32,28 +32,29 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
                       epk[CAB2]->isKeyOn() && azv_upr_tepl[CAB2].getState();
 
     // Цепь катушки реле РУ3 - контроль температуры дизеля
-    bool is_Water_overheat = disel->getWaterTemp() >= 103.0;
+    bool is_Water_overheat = disel->getWaterTemp() >= disel->getWaterTempAlarm();
 
-    bool is_Oil_overheat = disel->getOilTemp() >= 85.0;
+    bool is_Oil_overheat = disel->getOilTemp() >= disel->getOilTempAlarm();
 
     bool is_RU3_ON = (is_Revers_Forward || is_Revers_Backward) &&
                      (is_Water_overheat || is_Oil_overheat);
+
+    // Цепь блокировок тяги
+    bool is_Traction_allowed = ru9->getContactState(RU9_EPK_CTRL) && // от ЭПК
+                               ru3->getContactState(RU3_TRACTION_ALLOW) && // по температуре
+                               is_DP_closed; // по дверям ВВК
 
     ru3->setVoltage(Ucc * static_cast<double>(is_RU3_ON));
     ru3->step(t, dt);
 
     // Контроль дверей ВВК
-    bool is_DP_closed = /*(!control_inputs[CABS_NUM][CTRL_VVK_DOOR].toBool()) &&*/
-                        (!control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool());
+    is_DP_closed = (!control_inputs[CABS_NUM][CTRL_VVK_DOOR].toBool()) &&
+                   (!control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool());
 
-    bool is_819_ON = (is_819_ON1 || is_819_ON2) &&
-                     ru9->getContactState(RU9_EPK_CTRL) &&
-                     ru3->getContactState(RU3_TRACTION_ALLOW) &&
-                     is_DP_closed;
-
+    is_819_ON = is_819_ON1 || is_819_ON2;
 
     // Состояние цепи поездных контакторов
-    bool is_KP_on = is_819_ON && brake_switcher->isTraction();
+    bool is_KP_on = is_819_ON && brake_switcher->isTraction() && is_Traction_allowed;
 
     tracForce = 0;
 
@@ -113,7 +114,7 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     ru4->step(t, dt);
 
     // Состояние цепи контактора возбуждения генератора
-    bool is_KVG_on = is_819_ON && is_KP1_KP6_on && (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVV_POWER));
+    bool is_KVG_on = is_Traction_allowed && is_KP1_KP6_on && (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVV_POWER));
 
     kvg->setVoltage(Ucc * static_cast<double>(is_KVG_on));
     kvg->step(t, dt);

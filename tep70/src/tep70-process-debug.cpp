@@ -1,4 +1,5 @@
 #include    "tep70.h"
+#include    "tep70-controls.h"
 
 //------------------------------------------------------------------------------
 //
@@ -215,11 +216,13 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
         DebugMsg += auto_mode;
     }
 
-    DebugMsg += QString("\nFan1:%1 rpm|M1:%2 Nm|γ:%3|Fan2:%4 rpm|M2:%5 Nm|γ:%6|")
+    DebugMsg += QString("\nFan1:%1 rpm|M1:%2 Nm|γ:%3|Fan2:%4 rpm|M2:%5 Nm|γ:%6|Штора ВВК:%7|Блокировка ВВК:%8|Провод 819:%9")
                     .arg(fan_hot_aero->getFanOmega() * 30.0 / Physics::PI, 5, 'f', 1)
                     .arg(fan_hot->getDriveTorque(), 5, 'f', 1)
                     .arg(fan_hot->getY(0), 5, 'f', 3)
                     .arg(fan_cold_aero->getFanOmega() * 30.0 / Physics::PI, 5, 'f', 1)
                     .arg(fan_cold->getDriveTorque(), 5, 'f', 1)
-                    .arg(fan_cold->getY(0), 5, 'f', 3);
+                    .arg(fan_cold->getY(0), 5, 'f', 3)
+                    .arg(control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool())
+                    .arg(is_DP_closed).arg(is_819_ON);
 }

@@ -212,7 +212,7 @@ private:
     double heat_to_oil = 0.15;
     double heat_to_water_cold = 0.05;
     double T_ambient = 20.0;
-    double water_temp_alarm = 92.0;
+    double water_temp_alarm = 103.0;
     double oil_temp_alarm = 85.0;
     double fan_hot_omega = 0.0;
     double fan_cold_omega = 0.0;

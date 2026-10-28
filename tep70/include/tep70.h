@@ -933,6 +933,10 @@ private:
 
     double charge_press = 0.0;
 
+    bool is_DP_closed = false;
+
+    bool is_819_ON = false;
+
     /// Проверка активной кабины
     int checkActiveCabine();
 
