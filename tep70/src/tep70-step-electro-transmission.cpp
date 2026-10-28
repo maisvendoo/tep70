@@ -1,4 +1,5 @@
 #include    "tep70.h"
+#include    "tep70-controls.h"
 
 //------------------------------------------------------------------------------
 //
@@ -30,8 +31,25 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
                       brake_lock[CAB2]->isStateOn() &&
                       epk[CAB2]->isKeyOn() && azv_upr_tepl[CAB2].getState();
 
+    // Цепь катушки реле РУ3 - контроль температуры дизеля
+    bool is_Water_overheat = disel->getWaterTemp() >= 103.0;
+
+    bool is_Oil_overheat = disel->getOilTemp() >= 85.0;
+
+    bool is_RU3_ON = (is_Revers_Forward || is_Revers_Backward) &&
+                     (is_Water_overheat || is_Oil_overheat);
+
+    ru3->setVoltage(Ucc * static_cast<double>(is_RU3_ON));
+    ru3->step(t, dt);
+
+    // Контроль дверей ВВК
+    bool is_DP_closed = /*(!control_inputs[CABS_NUM][CTRL_VVK_DOOR].toBool()) &&*/
+                        (!control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool());
+
     bool is_819_ON = (is_819_ON1 || is_819_ON2) &&
-                     ru9->getContactState(RU9_EPK_CTRL);
+                     ru9->getContactState(RU9_EPK_CTRL) &&
+                     ru3->getContactState(RU3_TRACTION_ALLOW) &&
+                     is_DP_closed;
 
 
     // Состояние цепи поездных контакторов
@@ -77,17 +95,35 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
     is_KP1_KP7_off = is_KP1_KP7_off && kp[6]->getContactState(1);
 
-    // Состояние цепи контактора возбуждения возбудителя
-    bool is_KVV_on = is_819_ON && is_KP1_KP6_on;
+    // Цепь РУ4 - сбор тяги на 1-й позиции контроллера.
+    // Катушка реле получает питание через блокировки от КМ на любой его позиции,
+    // кроме первой. Своими нормально замкнутым контактов оно шунтирует контакт
+    // самопитания КВВ, позволяя собрать схему тяги ТОЛЬКО на первой позиии
+    bool is_RU4_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
+                      azv_upr_tepl[CAB1].getState() &&
+                      km[CAB1]->isMoreFirst();
 
-    kvv->setVoltage(Ucc * static_cast<double>(is_KVV_on));
-    kvv->step(t, dt);
+    bool is_RU4_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) &&
+                      azv_upr_tepl[CAB2].getState() &&
+                      km[CAB2]->isMoreFirst();
+
+    bool is_RU4_ON = is_RU4_ON1 || is_RU4_ON2;
+
+    ru4->setVoltage(Ucc * static_cast<double>(is_RU4_ON));
+    ru4->step(t, dt);
 
     // Состояние цепи контактора возбуждения генератора
-    bool is_KVG_on = is_819_ON && is_KP1_KP6_on;
+    bool is_KVG_on = is_819_ON && is_KP1_KP6_on && (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVV_POWER));
 
     kvg->setVoltage(Ucc * static_cast<double>(is_KVG_on));
     kvg->step(t, dt);
+
+    // Состояние цепи контактора возбуждения возбудителя. Катушка питается от той же
+    // цепи что и КВГ, через диод
+    bool is_KVV_on = is_KVG_on;
+
+    kvv->setVoltage(Ucc * static_cast<double>(is_KVV_on));
+    kvv->step(t, dt);    
 
     // Состояние цепи обмотки возбуждения возбудителя
     bool is_FGF_on = kontaktor_starter->getContactState(1) ||

@@ -356,6 +356,12 @@ private:
     /// Реле РУ4
     Relay*              ru4 = nullptr;
 
+    enum
+    {
+        RU4_KVV_POWER,
+        NUM_RU4_CONTACTS
+    };
+
     /// Реле времени РВ4
     TimeRelay*          rv4 = nullptr;
 
@@ -489,6 +495,7 @@ private:
     {
         KVV_CONTACT_MAIN,
         KVV_CONTACT_POWER_RESET,
+        KVV_SELF_POWER,
         NUM_KVV_CONTACTS
     };
 
@@ -714,9 +721,18 @@ private:
 
     bool is_Revers_Backward = false;
 
+    /// Реле контроля температуры
+    Relay *ru3 = nullptr;
+
+    enum
+    {
+        RU3_TRACTION_ALLOW,
+        RU3_TEMP_LAMP,
+        NUM_RU3_CONTACTS
+    };
+
     /// Чтение конфигурационного файла
     void loadConfig(QString cfg_path) override;
-
 
     /// Инициализация всех систем тепловоза
     void initialization() override;

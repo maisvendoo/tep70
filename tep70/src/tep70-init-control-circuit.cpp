@@ -102,9 +102,9 @@ void TEP70::initControlCircuit(const QString &modules_dir, const QString &custom
     vtn->read_config("rpu-3m", custom_cfg_dir);
     vtn->setInitContactState(0, true);
 
-    ru4 = new Relay(1);
+    ru4 = new Relay(NUM_RU4_CONTACTS);
     ru4->read_config("rpu-3m", custom_cfg_dir);
-    ru4->setInitContactState(0, true);
+    ru4->setInitContactState(RU4_KVV_POWER, true);
 
     ru15 = new Relay(3);
     ru15->read_config("rpu-3m", custom_cfg_dir);
@@ -130,4 +130,9 @@ void TEP70::initControlCircuit(const QString &modules_dir, const QString &custom
     krn->setInitContactState(3, true);
     krn->setInitContactState(4, false);
     krn->setInitContactState(5, false);
+
+    ru3 = new Relay(NUM_RU3_CONTACTS);
+    ru3->read_config("mk-6", custom_cfg_dir);
+    ru3->setInitContactState(RU3_TRACTION_ALLOW, true);
+    ru3->setInitContactState(RU3_TEMP_LAMP, false);
 }

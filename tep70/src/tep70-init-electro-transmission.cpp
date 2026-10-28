@@ -16,6 +16,7 @@ void TEP70::initElectroTransmission(const QString &modules_dir, const QString &c
     kvv->read_config("mk-6", custom_cfg_dir);
     kvv->setInitContactState(KVV_CONTACT_MAIN, false);
     kvv->setInitContactState(KVV_CONTACT_POWER_RESET, true);
+    kvv->setInitContactState(KVV_SELF_POWER, false);
 
     kvg = new Relay(3);
     kvg->read_config("mk-6", custom_cfg_dir);
@@ -98,5 +99,5 @@ void TEP70::initElectroTransmission(const QString &modules_dir, const QString &c
     kt = new Relay(NUM_KT_CONTACTS);
     kt->read_config("mk-6", custom_cfg_dir);
     kt->setInitContactState(KT_RESET_POWER, true);
-    kt->setInitContactState(KT_TRACTION_ALLOW, true);
+    kt->setInitContactState(KT_TRACTION_ALLOW, true);    
 }

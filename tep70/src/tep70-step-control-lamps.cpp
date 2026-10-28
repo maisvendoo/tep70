@@ -27,8 +27,7 @@ void TEP70::stepControlLamps(const double &t, const double &dt)
         control_lamps[cab_idx][LAMP_BATTARY_CHARGE] = getLampState(cab_idx, hs_p(100.0 - starter_generator->getVoltage()));
         control_lamps[cab_idx][LAMP_OIL_PRESSURE] = getLampState(cab_idx, hs_p(0.1 - disel->getOilPressure()));
 
-        double temp_state = hs_p(max(disel->getWaterTemp() - disel->getWaterTempAlarm(), disel->getOilTemp() - disel->getOilTempAlarm()));
-        control_lamps[cab_idx][LAMP_WATER_OIL_TEMP] = getLampState(cab_idx, temp_state);
+        control_lamps[cab_idx][LAMP_WATER_OIL_TEMP] = getLampState(cab_idx, static_cast<double>(ru3->getContactState(RU3_TEMP_LAMP)));
 
         control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_1] = 0.0f;
         control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_2] = 0.0f;
