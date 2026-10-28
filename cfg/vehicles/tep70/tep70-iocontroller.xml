@@ -363,7 +363,7 @@
 
 	<!-- ТУМБЛЕРЫ ПУЛЬТА -->
 	<Control>
-		<ID>290</ID>
+		<ID>294</ID>
 		<Name>Питание приборов</Name>
 		<Description>Вкл/выкл питания пультовых приборов</Description>
 		<Type>Toggle</Type>
@@ -374,7 +374,7 @@
 	</Control>
 
 	<Control>
-		<ID>291</ID>
+		<ID>295</ID>
 		<Name>Радио КВ</Name>
 		<Description>Вкл/выкл радиостанции КВ</Description>
 		<Type>Toggle</Type>
@@ -385,7 +385,7 @@
 	</Control>
 
 	<Control>
-		<ID>292</ID>
+		<ID>296</ID>
 		<Name>Радио УКВ</Name>
 		<Description>Вкл/выкл радиостанции УКВ</Description>
 		<Type>Toggle</Type>
@@ -396,7 +396,7 @@
 	</Control>
 
 	<Control>
-		<ID>293</ID>
+		<ID>297</ID>
 		<Name>Частота АЛСН</Name>
 		<Description>Переключатель частот АЛСН</Description>
 		<Type>Toggle</Type>
