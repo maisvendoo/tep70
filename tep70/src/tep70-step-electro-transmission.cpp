@@ -30,8 +30,9 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
                       brake_lock[CAB2]->isStateOn() &&
                       epk[CAB2]->isKeyOn() && azv_upr_tepl[CAB2].getState();
 
-    bool is_819_ON = ru9->getContactState(RU9_EPK_CTRL) &&
-                     (is_819_ON1 || is_819_ON2);
+    bool is_819_ON = (is_819_ON1 || is_819_ON2) &&
+                     ru9->getContactState(RU9_EPK_CTRL);
+
 
     // Состояние цепи поездных контакторов
     bool is_KP_on = is_819_ON && brake_switcher->isTraction();
@@ -175,10 +176,10 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
 
     // Цепь вентиля реверсора вперед
-    bool is_Revers_Forward = is_819_ON && (km[CAB1]->isForward() || km[CAB2]->isBackward());
+    is_Revers_Forward = is_819_ON && (km[CAB1]->isForward() || km[CAB2]->isBackward());
 
     // Цепь вентиля реверсора назад
-    bool is_Revers_Backward = is_819_ON && (km[CAB1]->isBackward() || km[CAB2]->isForward());
+    is_Revers_Backward = is_819_ON && (km[CAB1]->isBackward() || km[CAB2]->isForward());
 
     reversor->setForwardValveState(is_Revers_Forward);
     reversor->setBackwardValveState(is_Revers_Backward);
@@ -187,6 +188,10 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     // Цепь реле РУ21
     ru21->setVoltage(0);
     ru21->step(t, dt);
+
+    // Цепь тормозного контактора
+    kt->setVoltage(0);
+    kt->step(t, dt);
 
     // Цепь вентиля "Тяга" тормозного переключателя
     bool is_TRAC_on = is_819_ON &&
