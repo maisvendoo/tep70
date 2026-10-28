@@ -1145,6 +1145,98 @@
 		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
 	</Sound>
 
+	<!-- Тумблер Питание приборов -->
+	<Sound>
+		<SignalID>483</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 9.67 2.87</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>484</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер Радио КВ -->
+	<Sound>
+		<SignalID>485</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 9.67 2.87</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>486</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер Радио УКВ -->
+	<Sound>
+		<SignalID>487</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 9.67 2.87</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>488</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
+	</Sound>
+
+	<!-- Тумблер Частота АЛСН -->
+	<Sound>
+		<SignalID>489</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 9.67 2.87</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>490</SignalID>
+		<Filename>tumbler.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
+	</Sound>
+
 	<!-- Ключ ЭПК вставить -->
 	<Sound>
 		<SignalID>293</SignalID>

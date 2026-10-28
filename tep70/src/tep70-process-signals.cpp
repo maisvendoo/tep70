@@ -110,7 +110,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_IS_REVERS_HANDLE + d] = static_cast<float>(km[cab_idx]->isReversHandle());
         analogSignal[CAB1_KM_REVERSOR_POS + d] = static_cast<float>(km[cab_idx]->getReversHandlePos());
         analogSignal[CAB1_KM_SHTURVAL_POS + d] = km[cab_idx]->getMainShaftPos();
-        analogSignal[CAB1_BRAKE_FORCE_SWITCH + d] = brake_force_switch[cab_idx].getHandlePosition();
+        analogSignal[CAB1_BRAKE_FORCE_SWITCH + d] = brake_force_switch[cab_idx].getPosition();
 
         // Приборы управления тормозами
         analogSignal[CAB1_AUTOSTOP_IS_KEY + d] = static_cast<float>(epk[cab_idx]->isKey());
@@ -152,6 +152,12 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
         // Тумблер ПСС — декоративный, анимация от состояния контрола
         analogSignal[CAB1_TUMBLER_PSS + d] = static_cast<float>(tumbler_pss[cab_idx].getState());
+
+        // Тумблеры пульта
+        analogSignal[CAB1_TUMBLER_GAUGES_POWER + cab_idx] = static_cast<float>(tumbler_gauges_power[cab_idx].getState());
+        analogSignal[CAB1_TUMBLER_RADIO_KV + cab_idx] = static_cast<float>(tumbler_radio_kv[cab_idx].getState());
+        analogSignal[CAB1_TUMBLER_RADIO_UKV + cab_idx] = static_cast<float>(tumbler_radio_ukv[cab_idx].getState());
+        analogSignal[CAB1_TUMBLER_ALSN_FREQ + cab_idx] = static_cast<float>(tumbler_alsn_freq[cab_idx].getState());
 
         // Кнопки на панели машиниста
         analogSignal[CAB1_BUTTON_DISEL_START + d] = static_cast<float>(button_disel_start[cab_idx].getState());

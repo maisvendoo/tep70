@@ -76,6 +76,12 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[(cab_idx == CAB1) ? CAB1_SOUND_TUMBLER_PSS : CAB2_SOUND_TUMBLER_PSS] =
             tumbler_pss[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
 
+        // Тумблеры пульта
+        analogSignal[SOUND_CAB1_TUMBLER_GAUGES_POWER + cab_idx] = tumbler_gauges_power[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[SOUND_CAB1_TUMBLER_RADIO_KV + cab_idx] = tumbler_radio_kv[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[SOUND_CAB1_TUMBLER_RADIO_UKV + cab_idx] = tumbler_radio_ukv[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[SOUND_CAB1_TUMBLER_ALSN_FREQ + cab_idx] = tumbler_alsn_freq[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+
         // ЭПК
         analogSignal[CAB1_SOUND_EPK_INSERT_KEY + d] = epk[cab_idx]->getSoundSignal(AutoTrainStop::KEY_INSERTED);
         analogSignal[CAB1_SOUND_EPK_KEY_ON + d] = epk[cab_idx]->getSoundSignal(AutoTrainStop::KEY_STATE_ON);

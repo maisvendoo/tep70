@@ -279,6 +279,12 @@ private:
     /// Тумблер ПСС (декоративный, не влияет на схему)
     TriggerControl  tumbler_pss[CABS_NUM];
 
+    /// Тумблеры пульта
+    TriggerControl  tumbler_gauges_power[CABS_NUM];
+    TriggerControl  tumbler_radio_kv[CABS_NUM];
+    TriggerControl  tumbler_radio_ukv[CABS_NUM];
+    TriggerControl  tumbler_alsn_freq[CABS_NUM];
+
     enum
     {
         NUM_RB = 3,

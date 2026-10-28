@@ -77,6 +77,12 @@ enum
     CTRL_AZV_VVK_LIGHT         = 253,
     CTRL_AZV_WATCH_DISEL_LIGHT = 254,
 
+    /// Тумблеры пульта
+    CTRL_TUMBLER_GAUGES_POWER = 290,
+    CTRL_TUMBLER_RADIO_KV     = 291,
+    CTRL_TUMBLER_RADIO_UKV    = 292,
+    CTRL_TUMBLER_ALSN_FREQ    = 293,
+
     /// Органы панели ВВК
     CTRL_VVK_EDT_TUMBLER       = 255,
     CTRL_VVK_SHUNTING_TUMBLER  = 256,

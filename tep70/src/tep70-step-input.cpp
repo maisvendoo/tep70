@@ -129,6 +129,19 @@ void TEP70::stepControls(double t, double dt)
         control_inputs[cab_idx][CTRL_TUMBLER_PSS].toBool()
             ? tumbler_pss[cab_idx].set() : tumbler_pss[cab_idx].reset();
 
+        // Тумблеры пульта
+        control_inputs[cab_idx][CTRL_TUMBLER_GAUGES_POWER].toBool()
+            ? tumbler_gauges_power[cab_idx].set() : tumbler_gauges_power[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_TUMBLER_RADIO_KV].toBool()
+            ? tumbler_radio_kv[cab_idx].set() : tumbler_radio_kv[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_TUMBLER_RADIO_UKV].toBool()
+            ? tumbler_radio_ukv[cab_idx].set() : tumbler_radio_ukv[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_TUMBLER_ALSN_FREQ].toBool()
+            ? tumbler_alsn_freq[cab_idx].set() : tumbler_alsn_freq[cab_idx].reset();
+
         // Кнопки
         control_inputs[cab_idx][CTRL_BUTTON_DISEL_START].toBool()
             ? button_disel_start[cab_idx].set() : button_disel_start[cab_idx].reset();
