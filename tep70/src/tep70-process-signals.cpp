@@ -159,6 +159,10 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_TUMBLER_RADIO_UKV + cab_idx] = static_cast<float>(tumbler_radio_ukv[cab_idx].getState());
         analogSignal[CAB1_TUMBLER_ALSN_FREQ + cab_idx] = static_cast<float>(tumbler_alsn_freq[cab_idx].getState());
 
+        // Кнопки пульта
+        analogSignal[CAB1_BUTTON_MANEUVER + cab_idx] = static_cast<float>(button_maneuver[cab_idx].getState());
+        analogSignal[CAB1_BUTTON_SVISTOK_MANEUVER + cab_idx] = static_cast<float>(button_svistok_maneuver[cab_idx].getState());
+
         // Кнопки на панели машиниста
         analogSignal[CAB1_BUTTON_DISEL_START + d] = static_cast<float>(button_disel_start[cab_idx].getState());
         analogSignal[CAB1_BUTTON_BRAKE_RELEASE + d] = static_cast<float>(button_brake_release[cab_idx].getState());

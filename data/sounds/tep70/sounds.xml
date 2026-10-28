@@ -2992,4 +2992,50 @@
 		<LocalPosition>0.0 6.16 4.14</LocalPosition>
 	</Sound>
 
+	<!-- Кнопка Маневровая -->
+	<Sound>
+		<SignalID>495</SignalID>
+		<Filename>button.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 9.67 2.87</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>496</SignalID>
+		<Filename>button.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
+	</Sound>
+
+	<!-- Кнопка Свисток маневровый -->
+	<Sound>
+		<SignalID>497</SignalID>
+		<Filename>button.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 9.67 2.87</LocalPosition>
+	</Sound>
+
+	<Sound>
+		<SignalID>498</SignalID>
+		<Filename>button.wav</Filename>
+		<InitVolume>0.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
+	</Sound>
+
 </Config>

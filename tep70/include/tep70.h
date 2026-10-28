@@ -285,6 +285,10 @@ private:
     TriggerControl  tumbler_radio_ukv[CABS_NUM];
     TriggerControl  tumbler_alsn_freq[CABS_NUM];
 
+    /// Кнопки пульта
+    TriggerControl  button_maneuver[CABS_NUM];
+    TriggerControl  button_svistok_maneuver[CABS_NUM];
+
     enum
     {
         NUM_RB = 3,

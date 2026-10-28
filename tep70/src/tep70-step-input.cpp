@@ -142,6 +142,13 @@ void TEP70::stepControls(double t, double dt)
         control_inputs[cab_idx][CTRL_TUMBLER_ALSN_FREQ].toBool()
             ? tumbler_alsn_freq[cab_idx].set() : tumbler_alsn_freq[cab_idx].reset();
 
+        // Кнопки пульта
+        control_inputs[cab_idx][CTRL_BUTTON_MANEUVER].toBool()
+            ? button_maneuver[cab_idx].set() : button_maneuver[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_BUTTON_SVISTOK_MANEUVER].toBool()
+            ? button_svistok_maneuver[cab_idx].set() : button_svistok_maneuver[cab_idx].reset();
+
         // Кнопки
         control_inputs[cab_idx][CTRL_BUTTON_DISEL_START].toBool()
             ? button_disel_start[cab_idx].set() : button_disel_start[cab_idx].reset();
