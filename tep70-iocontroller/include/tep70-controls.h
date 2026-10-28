@@ -75,13 +75,7 @@ enum
     CTRL_AZV_SOCKETS_POWER_2   = 251,
     CTRL_AZV_TROLLEYS_LIGHT    = 252,
     CTRL_AZV_VVK_LIGHT         = 253,
-    CTRL_AZV_WATCH_DISEL_LIGHT = 254,
-
-    /// Тумблеры пульта
-    CTRL_TUMBLER_GAUGES_POWER = 294,
-    CTRL_TUMBLER_RADIO_KV     = 295,
-    CTRL_TUMBLER_RADIO_UKV    = 296,
-    CTRL_TUMBLER_ALSN_FREQ    = 297,
+    CTRL_AZV_WATCH_DISEL_LIGHT = 254,    
 
     /// Органы панели ВВК
     CTRL_VVK_EDT_TUMBLER       = 255,
@@ -177,6 +171,12 @@ enum
 
     /// Тумблеры освещения кабины (собственные)
     CTRL_TUMBLER_CABINE_LIGHT = 286,
+
+    /// Тумблеры пульта
+    CTRL_TUMBLER_GAUGES_POWER = 287,
+    CTRL_TUMBLER_RADIO_KV     = 288,
+    CTRL_TUMBLER_RADIO_UKV    = 289,
+    CTRL_TUMBLER_ALSN_FREQ    = 290
 };
 
 #endif

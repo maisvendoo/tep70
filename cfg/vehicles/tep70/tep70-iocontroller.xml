@@ -359,52 +359,7 @@
 		<value2>0</value2>
 		<ObjectNameCab1>Cab1_tumbler_PSS</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_PSS</ObjectNameCab2>
-	</Control>
-
-	<!-- ТУМБЛЕРЫ ПУЛЬТА -->
-	<Control>
-		<ID>294</ID>
-		<Name>Питание приборов</Name>
-		<Description>Вкл/выкл питания пультовых приборов</Description>
-		<Type>Toggle</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_tumbler_gauges_power</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_tumbler_gauges_power</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>295</ID>
-		<Name>Радио КВ</Name>
-		<Description>Вкл/выкл радиостанции КВ</Description>
-		<Type>Toggle</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_tumbler_radio_KV</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_tumbler_radio_KV</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>296</ID>
-		<Name>Радио УКВ</Name>
-		<Description>Вкл/выкл радиостанции УКВ</Description>
-		<Type>Toggle</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_tumbler_radio_UKV</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_tumbler_radio_UKV</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>297</ID>
-		<Name>Частота АЛСН</Name>
-		<Description>Переключатель частот АЛСН</Description>
-		<Type>Toggle</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_tumbler_ALSN_freq</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_tumbler_ALSN_freq</ObjectNameCab2>
-	</Control>
+	</Control>	
 
 	<!--
 		Кнопки
@@ -1466,6 +1421,51 @@
 		<KeyModOffName>Ctrl</KeyModOffName>
 		<ObjectNameCab1>Cab1_tumbler_cabine_light</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_cabine_light</ObjectNameCab2>
+	</Control>
+
+	<!-- ТУМБЛЕРЫ ПУЛЬТА -->
+	<Control>
+		<ID>287</ID>
+		<Name>Питание приборов</Name>
+		<Description>Вкл/выкл питания пультовых приборов</Description>
+		<Type>Toggle</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_tumbler_gauges_power</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_tumbler_gauges_power</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>288</ID>
+		<Name>Радио КВ</Name>
+		<Description>Вкл/выкл радиостанции КВ</Description>
+		<Type>Toggle</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_tumbler_radio_KV</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_tumbler_radio_KV</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>289</ID>
+		<Name>Радио УКВ</Name>
+		<Description>Вкл/выкл радиостанции УКВ</Description>
+		<Type>Toggle</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_tumbler_radio_UKV</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_tumbler_radio_UKV</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>290</ID>
+		<Name>Частота АЛСН</Name>
+		<Description>Переключатель частот АЛСН</Description>
+		<Type>Toggle</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_tumbler_ALSN_freq</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_tumbler_ALSN_freq</ObjectNameCab2>
 	</Control>
 
 </Config>
