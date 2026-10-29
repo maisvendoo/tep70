@@ -150,9 +150,19 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     field_reg->setGenCurrent(I_gen);
 
     // Имитируем переключение питания с КМ по кабинам, в цепях, связанных с регулировкой мощности
-    int km_pos = static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) * km[CAB1]->getPositionNumber()) +
-                 static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) * km[CAB2]->getPositionNumber()) +
-                 cut(static_cast<int>(button_maneuver[CAB1].getState()) + static_cast<int>(button_maneuver[CAB2].getState()), 0, 1);
+
+    int km_pos = 0;
+
+    if (button_maneuver[CAB1].getState() || button_maneuver[CAB2].getState())
+    {
+        // При нажатой кнопке "Маневр" мощность не выше 1-й позиции
+        km_pos = static_cast<int>(km[CAB1]->isZero() || km[CAB2]->isZero());
+    }
+    else
+    {
+        km_pos = static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) * km[CAB1]->getPositionNumber()) +
+                 static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) * km[CAB2]->getPositionNumber());
+    }
 
     field_reg->setKMPosition(km_pos);
     field_reg->step(t, dt);
