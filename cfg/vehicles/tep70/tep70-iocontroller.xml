@@ -359,8 +359,108 @@
 		<value2>0</value2>
 		<ObjectNameCab1>Cab1_tumbler_PSS</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_PSS</ObjectNameCab2>
+</Control>
+
+	<!-- КНОПКИ ПУЛЬТА -->
+	<Control>
+		<ID>291</ID>
+		<Name>Маневровая</Name>
+		<Description>Кнопка маневрового режима</Description>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_button_maneuver</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_maneuver</ObjectNameCab2>
 	</Control>
-		
+
+	<Control>
+		<ID>292</ID>
+		<Name>Свисток маневровый</Name>
+		<Description>Кнопка маневрового свистка</Description>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_button_svistok_maneuver</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_svistok_maneuver</ObjectNameCab2>
+	</Control>
+
+	<!-- КНОПКИ ПУЛЬТА (НОВЫЕ) -->
+	<Control>
+		<ID>293</ID>
+		<Name>Вызов помощника</Name>
+		<Description>Вызов помощника машиниста</Description>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_button_call_driver_assistant</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_call_driver_assistant</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>294</ID>
+		<Name>Проверка ЭДТ</Name>
+		<Description>Проверка тормоза ЭДТ</Description>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_button_check_EDT</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_check_EDT</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>295</ID>
+		<Name>Проверка пожарной</Name>
+		<Description>Проверка пожарной сигнализации</Description>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_button_check_fire_alarm</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_check_fire_alarm</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>296</ID>
+		<Name>Поиск неисправностей</Name>
+		<Description>Кнопка поиска неисправностей</Description>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_button_find_troubles</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_find_troubles</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>297</ID>
+		<Name>Сброс защит</Name>
+		<Description>Сброс/установка защит</Description>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_reset_set_protections</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_reset_set_protections</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>298</ID>
+		<Name>Пустая 1</Name>
+		<Description>Пустая кнопка 1</Description>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_button_empty1</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_empty1</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>299</ID>
+		<Name>Пустая 2</Name>
+		<Description>Пустая кнопка 2</Description>
+		<Type>Button</Type>
+		<value1>0</value1>
+		<value2>0</value2>
+		<ObjectNameCab1>Cab1_button_empty2</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_empty2</ObjectNameCab2>
+	</Control>
 
 	<!--
 		Кнопки (существующие)
@@ -1467,107 +1567,6 @@
 		<value2>0</value2>
 		<ObjectNameCab1>Cab1_tumbler_ALSN_freq</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_ALSN_freq</ObjectNameCab2>
-	</Control>
-
-	<!-- КНОПКИ ПУЛЬТА -->
-	<Control>
-		<ID>291</ID>
-		<Name>Маневровая</Name>
-		<Description>Кнопка маневрового режима</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_maneuver</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_maneuver</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>292</ID>
-		<Name>Свисток маневровый</Name>
-		<Description>Кнопка маневрового свистка</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_svistok_maneuver</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_svistok_maneuver</ObjectNameCab2>
-	</Control>
-
-	<!-- КНОПКИ ПУЛЬТА (НОВЫЕ) -->
-	<Control>
-		<ID>293</ID>
-		<Name>Вызов помощника</Name>
-		<Description>Вызов помощника машиниста</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_call_driver_assistant</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_call_driver_assistant</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>294</ID>
-		<Name>Проверка ЭДТ</Name>
-		<Description>Проверка тормоза ЭДТ</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_check_EDB</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_check_EDB</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>295</ID>
-		<Name>Проверка пожарной</Name>
-		<Description>Проверка пожарной сигнализации</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_check_Fire_Alarm</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_check_Fire_Alarm</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>296</ID>
-		<Name>Поиск неисправностей</Name>
-		<Description>Кнопка поиска неисправностей</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_find_troubles</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_find_troubles</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>297</ID>
-		<Name>Сброс защит</Name>
-		<Description>Сброс/установка защит</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_reset_set_protections</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_reset_set_protections</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>298</ID>
-		<Name>Пустая 1</Name>
-		<Description>Пустая кнопка 1</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_Empty1</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_Empty1</ObjectNameCab2>
-	</Control>
-
-	<Control>
-		<ID>299</ID>
-		<Name>Пустая 2</Name>
-		<Description>Пустая кнопка 2</Description>
-		<Type>Button</Type>
-		<value1>0</value1>
-		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_Empty2</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_Empty2</ObjectNameCab2>		
 	</Control>
 
 </Config>

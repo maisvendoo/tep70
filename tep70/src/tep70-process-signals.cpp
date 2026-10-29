@@ -170,7 +170,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_BUTTON_FIND_TROUBLES + cab_idx] = static_cast<float>(button_find_troubles[cab_idx].getState());
         analogSignal[CAB1_RESET_SET_PROTECTIONS + cab_idx] = static_cast<float>(reset_set_protections[cab_idx].getState());
         analogSignal[CAB1_BUTTON_EMPTY1 + cab_idx] = static_cast<float>(button_empty1[cab_idx].getState());
-        //analogSignal[CAB1_BUTTON_EMPTY2 + cab_idx] = 1.0f;//static_cast<float>(button_empty2[cab_idx].getState());
+        analogSignal[CAB1_BUTTON_EMPTY2 + cab_idx] = static_cast<float>(button_empty2[cab_idx].getState());
 
         // Кнопки на панели машиниста
         analogSignal[CAB1_BUTTON_DISEL_START + d] = static_cast<float>(button_disel_start[cab_idx].getState());
@@ -194,9 +194,6 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_TIMETABLE_LIGHT_POS + cab_idx] = control_inputs[cab_idx][CTRL_TIMETABLE_LIGHT].value;
         analogSignal[CAB1_TUMBLER_CABINE_LIGHT_POS + cab_idx] = static_cast<float>(tumbler_cabine_light[cab_idx].getState());
     }
-
-    analogSignal[CAB1_BUTTON_EMPTY2] = static_cast<float>(button_empty2[CAB1].getState());
-    analogSignal[CAB2_BUTTON_EMPTY2] = static_cast<float>(button_empty2[CAB2].getState());
 
     // Анимации двери и шторы ВВК. Нет смысла пока делать схемный элемент,
     // напрямую транслируем положение контрола в сигнал анимации

@@ -46,10 +46,5 @@ void TEP70::initControl(const QString &modules_dir, const QString &custom_cfg_di
         // Переключатель тормозного усилия
         brake_force_switch[cab_idx].setNumPositions(12);
         brake_force_switch[cab_idx].setInitPosition(0);
-
-        // Диагностика: принудительный сброс кнопок
-        button_check_edt[cab_idx].reset();
-        button_check_fire_alarm[cab_idx].reset();
-        button_empty2[cab_idx].reset();
     }
 }
