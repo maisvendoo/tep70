@@ -225,4 +225,6 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                     .arg(fan_cold->getY(0), 5, 'f', 3)
                     .arg(control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool())
                     .arg(is_DP_closed).arg(is_819_ON).arg(is_KP_on).arg(is_KVG_on).arg(is_KVV_on);
+
+    DebugMsg += QString("|Кн. Пустая 2:%1").arg(control_inputs[CAB1][CTRL_BUTTON_EMPTY2].toBool());
 }
