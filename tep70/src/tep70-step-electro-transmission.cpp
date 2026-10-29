@@ -22,12 +22,12 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
     // Состояние провода 819
     bool is_819_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
-                      km[CAB1]->isNoZero() &&
+                      (km[CAB1]->isNoZero() || button_maneuver[CAB1].getState()) &&
                       brake_lock[CAB1]->isStateOn() &&
                       epk[CAB1]->isKeyOn() && azv_upr_tepl[CAB1].getState();
 
     bool is_819_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) &&
-                      km[CAB2]->isNoZero() &&
+                      (km[CAB2]->isNoZero() || button_maneuver[CAB2].getState()) &&
                       brake_lock[CAB2]->isStateOn() &&
                       epk[CAB2]->isKeyOn() && azv_upr_tepl[CAB2].getState();
 
@@ -51,10 +51,10 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     is_DP_closed = (!control_inputs[CABS_NUM][CTRL_VVK_DOOR].toBool()) &&
                    (!control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool());
 
-    is_819_ON = is_819_ON1 || is_819_ON2;
+    is_819_ON = is_819_ON1 || is_819_ON2;    
 
     // Состояние цепи поездных контакторов
-    bool is_KP_on = is_819_ON && brake_switcher->isTraction() && is_Traction_allowed;
+    is_KP_on = is_819_ON && brake_switcher->isTraction() && is_Traction_allowed;
 
     tracForce = 0;
 
@@ -114,14 +114,14 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     ru4->step(t, dt);
 
     // Состояние цепи контактора возбуждения генератора
-    bool is_KVG_on = is_Traction_allowed && is_KP1_KP6_on && (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVV_POWER));
+    is_KVG_on = is_Traction_allowed && is_KP1_KP6_on && (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVV_POWER));
 
     kvg->setVoltage(Ucc * static_cast<double>(is_KVG_on));
     kvg->step(t, dt);
 
     // Состояние цепи контактора возбуждения возбудителя. Катушка питается от той же
     // цепи что и КВГ, через диод
-    bool is_KVV_on = is_KVG_on;
+    is_KVV_on = is_KVG_on;
 
     kvv->setVoltage(Ucc * static_cast<double>(is_KVV_on));
     kvv->step(t, dt);    
@@ -151,7 +151,8 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
     // Имитируем переключение питания с КМ по кабинам, в цепях, связанных с регулировкой мощности
     int km_pos = static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) * km[CAB1]->getPositionNumber()) +
-                 static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) * km[CAB2]->getPositionNumber());
+                 static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) * km[CAB2]->getPositionNumber()) +
+                 cut(static_cast<int>(button_maneuver[CAB1].getState()) + static_cast<int>(button_maneuver[CAB2].getState()), 0, 1);
 
     field_reg->setKMPosition(km_pos);
     field_reg->step(t, dt);

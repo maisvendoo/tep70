@@ -216,7 +216,7 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
         DebugMsg += auto_mode;
     }
 
-    DebugMsg += QString("\nFan1:%1 rpm|M1:%2 Nm|γ:%3|Fan2:%4 rpm|M2:%5 Nm|γ:%6|Штора ВВК:%7|Блокировка ВВК:%8|Провод 819:%9")
+    DebugMsg += QString("\nFan1:%1 rpm|M1:%2 Nm|γ:%3|Fan2:%4 rpm|M2:%5 Nm|γ:%6|Штора ВВК:%7|Блокировка ВВК:%8|Провод 819:%9|КП1-КП6:%10|КВГ:%11|КВВ:%12")
                     .arg(fan_hot_aero->getFanOmega() * 30.0 / Physics::PI, 5, 'f', 1)
                     .arg(fan_hot->getDriveTorque(), 5, 'f', 1)
                     .arg(fan_hot->getY(0), 5, 'f', 3)
@@ -224,5 +224,5 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                     .arg(fan_cold->getDriveTorque(), 5, 'f', 1)
                     .arg(fan_cold->getY(0), 5, 'f', 3)
                     .arg(control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool())
-                    .arg(is_DP_closed).arg(is_819_ON);
+                    .arg(is_DP_closed).arg(is_819_ON).arg(is_KP_on).arg(is_KVG_on).arg(is_KVV_on);
 }

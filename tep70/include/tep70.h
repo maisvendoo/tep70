@@ -947,6 +947,12 @@ private:
 
     bool is_819_ON = false;
 
+    bool is_KP_on = false;
+
+    bool is_KVG_on = false;
+
+    bool is_KVV_on = false;
+
     /// Проверка активной кабины
     int checkActiveCabine();
 

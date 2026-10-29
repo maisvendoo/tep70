@@ -7,10 +7,22 @@ void TEP70::stepOther(const double& t, const double& dt)
 {
     horn->setFLpressure(main_reservoir->getPressure());
     horn->step(t, dt);
-    horn->setSvistokOn(button_svistok[CAB1].getState() || button_svistok[CAB2].getState() ||
-                       button_svistok_pom[CAB1].getState() || button_svistok_pom[CAB2].getState());
-    horn->setTifonOn(button_tifon[CAB1].getState() || button_tifon[CAB2].getState() ||
-                     button_tifon_pom[CAB1].getState() || button_tifon_pom[CAB2].getState());
+
+    bool is_svistok = button_svistok[CAB1].getState() ||
+                      button_svistok[CAB2].getState() ||
+                      button_svistok_pom[CAB1].getState() ||
+                      button_svistok_pom[CAB2].getState() ||
+                      button_svistok_maneuver[CAB1].getState() ||
+                      button_svistok_maneuver[CAB2].getState();
+
+    horn->setSvistokOn(is_svistok);
+
+    bool is_tifon = button_tifon[CAB1].getState() ||
+                    button_tifon[CAB2].getState() ||
+                    button_tifon_pom[CAB1].getState() ||
+                    button_tifon_pom[CAB2].getState();
+
+    horn->setTifonOn(is_tifon);
 
     // Система подачи песка
     sand_system->setFLpressure(main_reservoir->getPressure());
