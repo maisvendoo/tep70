@@ -289,6 +289,15 @@ private:
     TriggerControl  button_maneuver[CABS_NUM];
     TriggerControl  button_svistok_maneuver[CABS_NUM];
 
+    /// Кнопки новые
+    TriggerControl  button_call_driver_assistant[CABS_NUM];
+    TriggerControl  button_check_edt[CABS_NUM];
+    TriggerControl  button_check_fire_alarm[CABS_NUM];
+    TriggerControl  button_find_troubles[CABS_NUM];
+    TriggerControl  reset_set_protections[CABS_NUM];
+    TriggerControl  button_empty1[CABS_NUM];
+    TriggerControl  button_empty2[CABS_NUM];
+
     enum
     {
         NUM_RB = 3,

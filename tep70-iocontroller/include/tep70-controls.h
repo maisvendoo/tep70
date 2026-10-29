@@ -180,7 +180,16 @@ enum
 
     /// Кнопки пульта
     CTRL_BUTTON_MANEUVER          = 291,
-    CTRL_BUTTON_SVISTOK_MANEUVER  = 292
+    CTRL_BUTTON_SVISTOK_MANEUVER  = 292,
+
+    /// Кнопки новые
+    CTRL_BUTTON_CALL_DRIVER_ASSISTANT = 293,
+    CTRL_BUTTON_CHECK_EDT             = 294,
+    CTRL_BUTTON_CHECK_FIRE_ALARM      = 295,
+    CTRL_BUTTON_FIND_TROUBLES         = 296,
+    CTRL_RESET_SET_PROTECTIONS        = 297,
+    CTRL_BUTTON_EMPTY1                = 298,
+    CTRL_BUTTON_EMPTY2                = 299
 };
 
 #endif

@@ -149,6 +149,28 @@ void TEP70::stepControls(double t, double dt)
         control_inputs[cab_idx][CTRL_BUTTON_SVISTOK_MANEUVER].toBool()
             ? button_svistok_maneuver[cab_idx].set() : button_svistok_maneuver[cab_idx].reset();
 
+        // Кнопки новые
+        control_inputs[cab_idx][CTRL_BUTTON_CALL_DRIVER_ASSISTANT].toBool()
+            ? button_call_driver_assistant[cab_idx].set() : button_call_driver_assistant[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_BUTTON_CHECK_EDT].toBool()
+            ? button_check_edt[cab_idx].set() : button_check_edt[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_BUTTON_CHECK_FIRE_ALARM].toBool()
+            ? button_check_fire_alarm[cab_idx].set() : button_check_fire_alarm[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_BUTTON_FIND_TROUBLES].toBool()
+            ? button_find_troubles[cab_idx].set() : button_find_troubles[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_RESET_SET_PROTECTIONS].toBool()
+            ? reset_set_protections[cab_idx].set() : reset_set_protections[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_BUTTON_EMPTY1].toBool()
+            ? button_empty1[cab_idx].set() : button_empty1[cab_idx].reset();
+
+        control_inputs[cab_idx][CTRL_BUTTON_EMPTY2].toBool()
+            ? button_empty2[cab_idx].set() : button_empty2[cab_idx].reset();
+
         // Кнопки
         control_inputs[cab_idx][CTRL_BUTTON_DISEL_START].toBool()
             ? button_disel_start[cab_idx].set() : button_disel_start[cab_idx].reset();

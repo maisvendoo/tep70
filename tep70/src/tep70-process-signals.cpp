@@ -163,6 +163,15 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_BUTTON_MANEUVER + cab_idx] = static_cast<float>(button_maneuver[cab_idx].getState());
         analogSignal[CAB1_BUTTON_SVISTOK_MANEUVER + cab_idx] = static_cast<float>(button_svistok_maneuver[cab_idx].getState());
 
+        // Кнопки новые
+        analogSignal[CAB1_BUTTON_CALL_DRIVER_ASSISTANT + cab_idx] = static_cast<float>(button_call_driver_assistant[cab_idx].getState());
+        analogSignal[CAB1_BUTTON_CHECK_EDT + cab_idx] = static_cast<float>(button_check_edt[cab_idx].getState());
+        analogSignal[CAB1_BUTTON_CHECK_FIRE_ALARM + cab_idx] = static_cast<float>(button_check_fire_alarm[cab_idx].getState());
+        analogSignal[CAB1_BUTTON_FIND_TROUBLES + cab_idx] = static_cast<float>(button_find_troubles[cab_idx].getState());
+        analogSignal[CAB1_RESET_SET_PROTECTIONS + cab_idx] = static_cast<float>(reset_set_protections[cab_idx].getState());
+        analogSignal[CAB1_BUTTON_EMPTY1 + cab_idx] = static_cast<float>(button_empty1[cab_idx].getState());
+        analogSignal[CAB1_BUTTON_EMPTY2 + cab_idx] = static_cast<float>(button_empty2[cab_idx].getState());
+
         // Кнопки на панели машиниста
         analogSignal[CAB1_BUTTON_DISEL_START + d] = static_cast<float>(button_disel_start[cab_idx].getState());
         analogSignal[CAB1_BUTTON_BRAKE_RELEASE + d] = static_cast<float>(button_brake_release[cab_idx].getState());
