@@ -183,14 +183,12 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
 
     for (auto cab_idx : {CAB1, CAB2})
     {
-        std::uint16_t d = (SOUND_BWD_SVISTOK - SOUND_FWD_SVISTOK) * cab_idx;
+        analogSignal[SOUND_CAB1_TUMBLER_HEATER + cab_idx] = tumbler_heater[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
 
-        analogSignal[SOUND_CAB1_TUMBLER_HEATER + d] = tumbler_heater[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
-
-        analogSignal[SOUND_CAB1_AZV_VENT + d] = azv_ventilation[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[SOUND_CAB1_AZV_VENT + cab_idx] = azv_ventilation[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
 
         // Тумблер освещения кабины
-        analogSignal[SOUND_CAB1_TUMBLER_CABINE_LIGHT + d] = tumbler_cabine_light[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
+        analogSignal[SOUND_CAB1_TUMBLER_CABINE_LIGHT + cab_idx] = tumbler_cabine_light[cab_idx].getSoundSignal(Trigger::CHANGE_SOUND);
     }
 
     // Звуки переключателей ВВК
