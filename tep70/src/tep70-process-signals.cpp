@@ -90,10 +90,10 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_PRESSURE_BP + d] = static_cast<float>(brakepipe->getPressure() / 1.6);
         analogSignal[CAB1_PRESSURE_ER + d] = static_cast<float>(brake_crane[cab_idx]->getERpressure() / 1.0);
 
-        analogSignal[CAB1_STRELKA_WATER_TEMP + d] = static_cast<float>(disel->getWaterTemp() / 120.0);
-        analogSignal[CAB1_STRELKA_OIL_TEMP + d] = static_cast<float>(disel->getOilTemp() / 120.0);
-        analogSignal[CAB1_STRELKA_OIL_PRESS + d] = static_cast<float>(disel->getOilPressure() * Physics::g / 15.0);
-        analogSignal[CAB1_STRELKA_FUEL_PRESS + d] = static_cast<float>(electro_fuel_pump->getFuelPressure() * Physics::g / 15.0);
+        analogSignal[CAB1_STRELKA_WATER_TEMP + d] = static_cast<float>(disel->getWaterTemp() / 120.0) * water_temp_gauge_power[cab_idx];
+        analogSignal[CAB1_STRELKA_OIL_TEMP + d] = static_cast<float>(disel->getOilTemp() / 120.0) * oil_temp_gauge_power[cab_idx];
+        analogSignal[CAB1_STRELKA_OIL_PRESS + d] = static_cast<float>(disel->getOilPressure() * Physics::g / 15.0)  * oil_press_gauge_power[cab_idx];
+        analogSignal[CAB1_STRELKA_FUEL_PRESS + d] = static_cast<float>(electro_fuel_pump->getFuelPressure() * Physics::g / 15.0) * fuel_press_gauge_power[cab_idx];
 
         // Циферблаты на пульте помощника
         const double U_bat = tumbler_voltage[cab_idx].getState() ? epb_converter->getOutputVoltage() : Ucc;
@@ -218,7 +218,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[AZV_FUEL_PUMP_POS] = static_cast<float>(azv_fuel_pump_vvk.getState());
     analogSignal[AZV_HEATER_POS] = static_cast<float>(azv_heater.getState());
     analogSignal[AZV_SOCKETS_POWER_POS] = static_cast<float>(azv_sockets_power.getState());
-    analogSignal[AZV_SOCKETS_POWER_2_POS] = static_cast<float>(azv_sockets_power_2.getState());
+    analogSignal[AZV_SOCKETS_POWER_2_POS] = static_cast<float>(azv_gauges_power.getState());
     analogSignal[AZV_TROLLEYS_LIGHT_POS] = static_cast<float>(azv_trolleys_light.getState());
     analogSignal[AZV_VVK_LIGHT_POS] = static_cast<float>(azv_vvk_light.getState());
     analogSignal[AZV_WATCH_DISEL_LIGHT_POS] = static_cast<float>(azv_watch_disel_light.getState());

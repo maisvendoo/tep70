@@ -131,7 +131,7 @@ private:
     TriggerControl  azv_sockets_power;
 
     /// АЗВ "Розетки (2)"
-    TriggerControl  azv_sockets_power_2;
+    TriggerControl  azv_gauges_power;
 
     /// АЗВ "Освещение тележек"
     TriggerControl  azv_trolleys_light;
@@ -749,6 +749,16 @@ private:
         RU3_TEMP_LAMP,
         NUM_RU3_CONTACTS
     };
+
+    float water_temp_gauge_power[CABS_NUM] = { 0.0f };
+
+    float oil_temp_gauge_power[CABS_NUM] = { 0.0f };
+
+    float fuel_press_gauge_power[CABS_NUM] = { 0.0f };
+
+    float oil_press_gauge_power[CABS_NUM] = { 0.0f };
+
+    void stepGaugesPower(double t, double dt);
 
     /// Чтение конфигурационного файла
     void loadConfig(QString cfg_path) override;

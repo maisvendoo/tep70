@@ -163,7 +163,7 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[SOUND_AZV_FUEL_PUMP_VVK] = azv_fuel_pump_vvk.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_AZV_HEATER] = azv_heater.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_AZV_SOCKETS_POWER] = azv_sockets_power.getSoundSignal(Trigger::CHANGE_SOUND);
-    analogSignal[SOUND_AZV_SOCKETS_POWER_2] = azv_sockets_power_2.getSoundSignal(Trigger::CHANGE_SOUND);
+    analogSignal[SOUND_AZV_SOCKETS_POWER_2] = azv_gauges_power.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_AZV_TROLLEYS_LIGHT] = azv_trolleys_light.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_AZV_VVK_LIGHT] = azv_vvk_light.getSoundSignal(Trigger::CHANGE_SOUND);
     analogSignal[SOUND_AZV_WATCH_DISEL_LIGHT] = azv_watch_disel_light.getSoundSignal(Trigger::CHANGE_SOUND);

@@ -859,7 +859,7 @@
 
 	<Control>
 		<ID>250</ID>
-		<Name>АЗВ розетки (1)</Name>
+		<Name>АЗВ питание розеток</Name>
 		<Description>Включение АЗВ розеток 1</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
@@ -868,11 +868,11 @@
 
 	<Control>
 		<ID>251</ID>
-		<Name>АЗВ розетки (2)</Name>
-		<Description>Включение АЗВ розеток 2</Description>
+		<Name>АЗВ питание прибров</Name>
+		<Description>Включение преобразователя 110/27 питания термометров и манометров</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
-		<ObjectName>AZV_sockets_power_2</ObjectName>
+		<ObjectName>AZV_gauges_power</ObjectName>
 	</Control>
 
 	<Control>

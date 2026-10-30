@@ -360,7 +360,7 @@ void TEP70::stepControls(double t, double dt)
         ? azv_sockets_power.set() : azv_sockets_power.reset();
 
     shared_inputs[CTRL_AZV_SOCKETS_POWER_2].toBool()
-        ? azv_sockets_power_2.set() : azv_sockets_power_2.reset();
+        ? azv_gauges_power.set() : azv_gauges_power.reset();
 
     shared_inputs[CTRL_AZV_TROLLEYS_LIGHT].toBool()
         ? azv_trolleys_light.set() : azv_trolleys_light.reset();
