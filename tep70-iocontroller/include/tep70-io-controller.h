@@ -27,6 +27,8 @@ private:
         CABS_NUM
     };
 
+    ControlHandler *revers_handle_holder[CABS_NUM] = {nullptr, nullptr};
+
     ControlHandler  *revers_handle[CABS_NUM] = {nullptr, nullptr};
 
     ControlHandler  *main_handle[CABS_NUM] = {nullptr, nullptr};

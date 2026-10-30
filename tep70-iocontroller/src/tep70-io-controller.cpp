@@ -34,6 +34,9 @@ void TEP70IOController::init()
     {
         ControlHandler* handler;
 
+        handler = control_handlers[cab_idx].getByKey1(CTRL_REVERS_INSERTION).value();
+        revers_handle_holder[cab_idx] = handler;
+
         handler = control_handlers[cab_idx].getByKey1(CTRL_REVERS_POSITION).value();
         revers_handle[cab_idx] = handler;
 
@@ -91,6 +94,14 @@ void TEP70IOController::processKeyboardInput(std::set<uint16_t> &pressed_keys)
 //------------------------------------------------------------------------------
 void TEP70IOController::lockReversHandle(int cab_idx)
 {
+    bool is_handle_inserted = static_cast<bool>(revers_handle_holder[cab_idx]->getSignalValue());
+
+    if (!is_handle_inserted)
+    {
+        revers_handle[cab_idx]->setValueIfChanged(RS_ZERO);
+        return;
+    }
+
     int main_pos = main_handle[cab_idx]->getSignalValue();
 
     if (main_pos != MS_ZERO)

@@ -92,6 +92,7 @@ void ControllerKM2202::setReversHandlePos(int8_t pos)
     {
         // При снятой реверсивке всегда в нуле
         rs_position = RS_ZERO;
+        return;
     }
 
     if (rs_position == pos)

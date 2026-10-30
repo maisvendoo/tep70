@@ -607,7 +607,11 @@
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
 		<ObjectNameCab1>Cab1_revers_holder</ObjectNameCab1>
+		<AnimationNameCab1>Cab1_KM_reversor</AnimationNameCab1>
 		<ObjectNameCab2>Cab2_revers_holder</ObjectNameCab2>
+		<AnimationNameCab2>Cab2_KM_reversor</AnimationNameCab2>
+		<PositionsNames>Извлечена,Вставлена</PositionsNames>
+		<ActionNames>Извлечь,Вставить</ActionNames>
 	</Control>
 
 	<Control>
