@@ -355,8 +355,8 @@
 		<Name>Тумблер ПСС</Name>
 		<Description>Тумблер сигнализации ПСС (декоративный)</Description>
 		<Type>Toggle</Type>
-		<value1>0</value1>
-		<value2>0</value2>
+		<value1>1</value1>
+		<value2>1</value2>
 		<ObjectNameCab1>Cab1_tumbler_PSS</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_tumbler_PSS</ObjectNameCab2>
 </Control>
