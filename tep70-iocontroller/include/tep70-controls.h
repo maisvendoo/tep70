@@ -189,7 +189,13 @@ enum
     CTRL_BUTTON_FIND_TROUBLES         = 296,
     CTRL_RESET_SET_PROTECTIONS        = 297,
     CTRL_BUTTON_EMPTY1                = 298,
-    CTRL_BUTTON_EMPTY2                = 299
+    CTRL_BUTTON_EMPTY2                = 299,
+
+    /// Регулятор стеклоочистителя машиниста
+    CTRL_WIPER_REGULATOR          = 300,
+
+    /// Регулятор стеклоочистителя помощника
+    CTRL_WIPER_REGULATOR_POM      = 301
 };
 
 #endif

@@ -1569,4 +1569,36 @@
 		<ObjectNameCab2>Cab2_tumbler_ALSN_freq</ObjectNameCab2>
 	</Control>
 
+	<Control>
+		<ID>300</ID>
+		<Name>Регулятор стеклоочистителя машиниста</Name>
+		<Description>Регулировка скорости стеклоочистителя со стороны машиниста</Description>
+		<Type>Axis</Type>
+		<value1>0.0</value1>
+		<value2>0.0</value2>
+		<Speed>2.0</Speed>
+		<MinValue>0</MinValue>
+		<MaxValue>1</MaxValue>
+		<IncButtonName>RIGHT_BUTTON</IncButtonName>
+		<DecButtonName>LEFT_BUTTON</DecButtonName>
+		<ObjectNameCab1>Cab1_wiper_regulator</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_wiper_regulator</ObjectNameCab2>
+	</Control>
+
+	<Control>
+		<ID>301</ID>
+		<Name>Регулятор стеклоочистителя помощника</Name>
+		<Description>Регулировка скорости стеклоочистителя со стороны помощника</Description>
+		<Type>Axis</Type>
+		<value1>0.0</value1>
+		<value2>0.0</value2>
+		<Speed>2.0</Speed>
+		<MinValue>0</MinValue>
+		<MaxValue>1</MaxValue>
+		<IncButtonName>RIGHT_BUTTON</IncButtonName>
+		<DecButtonName>LEFT_BUTTON</DecButtonName>
+		<ObjectNameCab1>Cab1_wiper_regulator_pom</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_wiper_regulator_pom</ObjectNameCab2>
+	</Control>
+
 </Config>

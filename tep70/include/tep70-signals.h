@@ -693,6 +693,14 @@ enum
     CAB1_BUTTON_EMPTY2 = 511,
     CAB2_BUTTON_EMPTY2 = 512,
 
+    // Положение регулятора стеклоочистителя машиниста
+    CAB1_WIPER_REGULATOR_POS = 513,
+    CAB2_WIPER_REGULATOR_POS = 514,
+
+    // Положение регулятора стеклоочистителя помощника
+    CAB1_WIPER_REGULATOR_POM_POS = 515,
+    CAB2_WIPER_REGULATOR_POM_POS = 516,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1
