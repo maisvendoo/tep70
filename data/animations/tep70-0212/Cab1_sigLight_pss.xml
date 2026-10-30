@@ -3,7 +3,7 @@
 	<MaterialAnimation>
 		<SignalID>20</SignalID>
 		<Duration>10.0</Duration>
-		<EmissionColor>1.0 1.0 1.0</EmissionColor>
+		<EmissionColor>0.39 0.38 0.31</EmissionColor>
 	</MaterialAnimation>
 
 	<KeyPoint>
@@ -13,7 +13,7 @@
 
 	<KeyPoint>
 		<Param>1.0</Param>
-		<Value>1.0</Value>
+		<Value>0.5</Value>
 	</KeyPoint>
 
 </Config>
