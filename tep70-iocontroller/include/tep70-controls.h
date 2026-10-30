@@ -195,7 +195,10 @@ enum
     CTRL_WIPER_REGULATOR          = 300,
 
     /// Регулятор стеклоочистителя помощника
-    CTRL_WIPER_REGULATOR_POM      = 301
+    CTRL_WIPER_REGULATOR_POM      = 301,
+
+    /// Маховик ручного тормоза (общий)
+    CTRL_HANDBRAKE                = 302
 };
 
 #endif

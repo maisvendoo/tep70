@@ -701,6 +701,9 @@ enum
     CAB1_WIPER_REGULATOR_POM_POS = 515,
     CAB2_WIPER_REGULATOR_POM_POS = 516,
 
+    // Положение маховика ручного тормоза
+    HANDBRAKE_POS = 517,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

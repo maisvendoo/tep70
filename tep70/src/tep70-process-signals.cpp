@@ -202,6 +202,9 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[VVK_BLINDS_DOOR_ACTION] = control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].value;
     analogSignal[VVK_DOOR_ACTION] = control_inputs[CABS_NUM][CTRL_VVK_DOOR].value;
 
+    // Положение маховика ручного тормоза (общий)
+    analogSignal[HANDBRAKE_POS] = control_inputs[CABS_NUM][CTRL_HANDBRAKE].value;
+
     // Положение АЗВ компрессора (общий, для ВВК)
     analogSignal[AZV_MOTOR_COMPRESSOR_POS] = static_cast<float>(azv_motor_compressor.getState());
 
