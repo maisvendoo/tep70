@@ -606,10 +606,13 @@
 		<KeyName>KEY_W</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
+		
 		<ObjectNameCab1>Cab1_revers_holder</ObjectNameCab1>
 		<AnimationNameCab1>Cab1_KM_reversor</AnimationNameCab1>
+		
 		<ObjectNameCab2>Cab2_revers_holder</ObjectNameCab2>
 		<AnimationNameCab2>Cab2_KM_reversor</AnimationNameCab2>
+		
 		<PositionsNames>Извлечена,Вставлена</PositionsNames>
 		<ActionNames>Извлечь,Вставить</ActionNames>
 	</Control>
@@ -665,9 +668,16 @@
 		<value2>0</value2>
 		<KeyName>KEY_N</KeyName>
 		<KeyModOnName>Alt</KeyModOnName>
-		<KeyModOffName>Alt</KeyModOffName>		
+		<KeyModOffName>Alt</KeyModOffName>
+
 		<ObjectNameCab1>Cab1_EPK_key_holder</ObjectNameCab1>
+		<AnimationNameCab1>Cab1_EPK_key</AnimationNameCab1>
+
 		<ObjectNameCab2>Cab2_EPK_key_holder</ObjectNameCab2>
+		<AnimationNameCab2>Cab2_EPK_key</AnimationNameCab2>
+
+		<PositionsNames>Извлечен,Вставлен</PositionsNames>
+		<ActionNames>Извлечь,Вставить</ActionNames>
 	</Control>
 
 	<Control>
@@ -697,8 +707,15 @@
 		<KeyName>KEY_BackSpace</KeyName>
 		<KeyModOnName>Alt</KeyModOnName>
 		<KeyModOffName>Alt</KeyModOffName>
+
 		<ObjectNameCab1>Cab1_Bl_367_holder</ObjectNameCab1>
+		<AnimationNameCab1>Cab1_ruk_367</AnimationNameCab1>
+		
 		<ObjectNameCab2>Cab2_Bl_367_holder</ObjectNameCab2>
+		<AnimationNameCab2>Cab2_ruk_367</AnimationNameCab2>
+
+		<PositionsNames>Извлечена,Вставлена</PositionsNames>
+		<ActionNames>Извлечь,Вставить</ActionNames>
 	</Control>
 
 <Control>
