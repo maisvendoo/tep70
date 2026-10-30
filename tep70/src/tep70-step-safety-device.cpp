@@ -23,6 +23,17 @@ void TEP70::stepSafetyDevices(const double& t, const double& dt)
     speed_meter[CAB2]->setOmega(wheel_omega[5]);
     speed_meter[CAB2]->step(t, dt);
 
+    bool is_EPK_power[CABS_NUM] = {false, false};
+
+    // Цепь питания ЭПК
+    bool is_EPKs_common_power = azv_epk_power_plus.getState() && azv_epk_power_minus.getState();
+
+    is_EPK_power[CAB1] = is_EPKs_common_power &&
+                         KB2_switch->getContactState(KB2_CONTACT_CAB1_K7);
+
+    is_EPK_power[CAB2] = is_EPKs_common_power &&
+                         KB2_switch->getContactState(KB2_CONTACT_CAB2_K15);
+
     for (size_t cab_idx : {CAB1, CAB2})
     {
         // УКБМ
@@ -37,7 +48,7 @@ void TEP70::stepSafetyDevices(const double& t, const double& dt)
         // Электропневматический клапан автостопа
         epk[cab_idx]->setFLpressure(main_reservoir->getPressure());
         epk[cab_idx]->setBPpressure(brakepipe->getPressure());
-        epk[cab_idx]->setPowered(safety_device[cab_idx]->getEPKstate());
+        epk[cab_idx]->setPowered(safety_device[cab_idx]->getEPKstate() && is_EPK_power[cab_idx]);
         epk[cab_idx]->step(t, dt);
     }
 }
