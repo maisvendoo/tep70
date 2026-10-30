@@ -403,8 +403,8 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_check_EDT</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_check_EDT</ObjectNameCab2>
+		<ObjectNameCab1>Cab1_button_check_EDB</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_check_EDB</ObjectNameCab2>
 	</Control>
 
 	<Control>
@@ -414,8 +414,8 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_check_fire_alarm</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_check_fire_alarm</ObjectNameCab2>
+		<ObjectNameCab1>Cab1_button_check_Fire_Alarm</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_check_Fire_Alarm</ObjectNameCab2>
 	</Control>
 
 	<Control>
@@ -447,8 +447,8 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_empty1</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_empty1</ObjectNameCab2>
+		<ObjectNameCab1>Cab1_button_Empty1</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_Empty1</ObjectNameCab2>
 	</Control>
 
 	<Control>
@@ -458,8 +458,8 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<ObjectNameCab1>Cab1_button_empty2</ObjectNameCab1>
-		<ObjectNameCab2>Cab2_button_empty2</ObjectNameCab2>
+		<ObjectNameCab1>Cab1_button_Empty2</ObjectNameCab1>
+		<ObjectNameCab2>Cab2_button_Empty2</ObjectNameCab2>
 	</Control>
 
 	<!--
