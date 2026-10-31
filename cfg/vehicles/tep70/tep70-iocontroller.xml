@@ -1032,7 +1032,7 @@
 		<Name>Отключатель ТЭД 1 (ОМ1)</Name>
 		<Description>Отключение тягового электродвигателя 1</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>tumbler_OM1</ObjectName>
 	</Control>
 
@@ -1041,7 +1041,7 @@
 		<Name>Отключатель ТЭД 2 (ОМ2)</Name>
 		<Description>Отключение тягового электродвигателя 2</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>tumbler_OM2</ObjectName>
 	</Control>
 
@@ -1050,7 +1050,7 @@
 		<Name>Отключатель ТЭД 3 (ОМ3)</Name>
 		<Description>Отключение тягового электродвигателя 3</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>tumbler_OM3</ObjectName>
 	</Control>
 
@@ -1059,7 +1059,7 @@
 		<Name>Отключатель ТЭД 4 (ОМ4)</Name>
 		<Description>Отключение тягового электродвигателя 4</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>tumbler_OM4</ObjectName>
 	</Control>
 
@@ -1068,7 +1068,7 @@
 		<Name>Отключатель ТЭД 5 (ОМ5)</Name>
 		<Description>Отключение тягового электродвигателя 5</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>tumbler_OM5</ObjectName>
 	</Control>
 
@@ -1077,7 +1077,7 @@
 		<Name>Отключатель ТЭД 6 (ОМ6)</Name>
 		<Description>Отключение тягового электродвигателя 6</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>tumbler_OM6</ObjectName>
 	</Control>
 

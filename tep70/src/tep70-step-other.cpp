@@ -15,14 +15,14 @@ void TEP70::stepOther(const double& t, const double& dt)
                       button_svistok_maneuver[CAB1].getState() ||
                       button_svistok_maneuver[CAB2].getState();
 
-    horn->setSvistokOn(is_svistok);
+    horn->setSvistokOn(is_svistok && azv_control_circuit.getState());
 
     bool is_tifon = button_tifon[CAB1].getState() ||
                     button_tifon[CAB2].getState() ||
                     button_tifon_pom[CAB1].getState() ||
                     button_tifon_pom[CAB2].getState();
 
-    horn->setTifonOn(is_tifon);
+    horn->setTifonOn(is_tifon && azv_control_circuit.getState());
 
     // Система подачи песка
     sand_system->setFLpressure(main_reservoir->getPressure());
