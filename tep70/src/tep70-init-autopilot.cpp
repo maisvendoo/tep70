@@ -71,7 +71,7 @@ void TEP70::prepareCabineForAutopilot(int my_cab_idx, int other_cab_idx)
     // В нашей кабине
 
     // включаем ЭПТ
-    if (!epb_control->stateReleaseLamp())
+    if (!epb_control[my_cab_idx]->stateReleaseLamp())
     {
         azv_ept_power[my_cab_idx].set();
         azv_ept_on[my_cab_idx].set();

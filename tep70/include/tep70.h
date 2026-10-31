@@ -499,10 +499,10 @@ private:
     PneumoHose*         hose_bc_bwd = nullptr;
 
     /// Источник питания ЭПТ
-    EPBConverter*       epb_converter = nullptr;
+    EPBConverter*       epb_converter[CABS_NUM] = {nullptr, nullptr};
 
     /// Блок управления двухпроводного ЭПТ
-    EPBControl*         epb_control = nullptr;
+    EPBControl*         epb_control[CABS_NUM] = {nullptr, nullptr};
 
     /// Возбудитель главного генератора
     FieldGenerator*     field_gen = nullptr;

@@ -62,9 +62,9 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
         analogSignal[CAB1_SIGLIGHT_OIL_TEMP + d] = control_lamps[cab_idx][LAMP_WATER_OIL_TEMP];
 
-        analogSignal[CAB1_SIGLIGHT_EPB_BRAKE + d] = static_cast<float>(epb_control->stateBrakeLamp());
-        analogSignal[CAB1_SIGLIGHT_EPB_HOLD + d] = static_cast<float>(epb_control->stateHoldLamp());
-        analogSignal[CAB1_SIGLIGHT_EPB_CONTROL + d] = static_cast<float>(epb_control->stateReleaseLamp());
+        analogSignal[CAB1_SIGLIGHT_EPB_BRAKE + d] = static_cast<float>(epb_control[cab_idx]->stateBrakeLamp());
+        analogSignal[CAB1_SIGLIGHT_EPB_HOLD + d] = static_cast<float>(epb_control[cab_idx]->stateHoldLamp());
+        analogSignal[CAB1_SIGLIGHT_EPB_CONTROL + d] = static_cast<float>(epb_control[cab_idx]->stateReleaseLamp());
 
         analogSignal[CAB1_SIGLIGHT_RESET_POWER + d] = control_lamps[cab_idx][LAMP_POWER_RESET];
         analogSignal[CAB1_SIGLIGHT_OIL_PRESS + d] = control_lamps[cab_idx][LAMP_OIL_PRESSURE];
@@ -96,7 +96,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_STRELKA_FUEL_PRESS + d] = static_cast<float>(electro_fuel_pump->getFuelPressure() * Physics::g / 15.0) * fuel_press_gauge_power[cab_idx];
 
         // Циферблаты на пульте помощника
-        const double U_bat = tumbler_voltage[cab_idx].getState() ? epb_converter->getOutputVoltage() : Ucc;
+        const double U_bat = tumbler_voltage[cab_idx].getState() ? epb_converter[cab_idx]->getOutputVoltage() : Ucc;
         analogSignal[CAB1_STRELKA_BAT_VOLTAGE + d] = static_cast<float>(U_bat / 150.0);
         analogSignal[CAB1_STRELKA_BAT_CURRENT + d] = static_cast<float>(battery->getChargeCurrent() / 150.0);
         analogSignal[CAB1_STRELKA_GEN_VOLTAGE + d] = static_cast<float>(trac_gen->getVoltage() / 1000.0);

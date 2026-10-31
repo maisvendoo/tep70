@@ -14,25 +14,33 @@ void TEP70::stepEPB(const double& t, const double& dt)
     epb_work_curr += hose_bp_fwd->getCurrent(0);
     epb_work_curr += hose_bp_bwd->getCurrent(0);
 
-    // Преобразователь напряжения для ЭПТ
-    bool is_epb_power = azv_ept_power[CAB1].getState() || azv_ept_power[CAB2].getState();
-    epb_converter->setInputVoltage(Ucc * static_cast<double>(is_epb_power));
-    epb_converter->setOutputCurrent(epb_work_curr);
-    epb_converter->step(t, dt);
+    bool is_KB2_on[CABS_NUM] = {false, false};
+    is_KB2_on[CAB1] = KB2_switch->getContactState(KB2_CONTACT_CAB1_K5);
+    is_KB2_on[CAB2] = KB2_switch->getContactState(KB2_CONTACT_CAB2_K13);
 
-    // Контроллер двухпроводного ЭПТ
-    bool cab1_on = brake_lock[CAB1]->isStateOn() && azv_ept_on[CAB1].getState();
-    bool cab2_on = brake_lock[CAB2]->isStateOn() && azv_ept_on[CAB2].getState();
-    epb_control->setInputVoltage(epb_converter->getOutputVoltage()
-                                 * static_cast<double>(cab1_on || cab2_on) );
-    epb_control->setHoldState((cab1_on && brake_crane[CAB1]->isHold()) ||
-                              (cab2_on && brake_crane[CAB2]->isHold()));
-    epb_control->setBrakeState((cab1_on && brake_crane[CAB1]->isBrake()) ||
-                               (cab2_on && brake_crane[CAB2]->isBrake()));
-    epb_control->setControlVoltage(hose_bp_fwd->getVoltage(1) + hose_bp_bwd->getVoltage(1));
-    epb_control->step(t, dt);
-    double epb_work_U = epb_control->getWorkVoltage();
-    double epb_work_f = epb_control->getWorkFrequency();
+    for (auto cab_idx : {CAB1, CAB2})
+    {
+        // Преобразователь напряжения для ЭПТ
+        bool is_epb_power = azv_ept_power[cab_idx].getState();
+        epb_converter[cab_idx]->setInputVoltage(Ucc * static_cast<double>(is_epb_power));
+        epb_converter[cab_idx]->setOutputCurrent(epb_work_curr);
+        epb_converter[cab_idx]->step(t, dt);
+
+        // Контроллер двухпроводного ЭПТ
+        bool cab_on = is_KB2_on[cab_idx] && brake_lock[cab_idx]->isStateOn() && azv_ept_on[cab_idx].getState();
+
+        epb_control[cab_idx]->setInputVoltage(epb_converter[cab_idx]->getOutputVoltage() * static_cast<double>(cab_on));
+
+        epb_control[cab_idx]->setHoldState(cab_on && brake_crane[cab_idx]->isHold());
+
+        epb_control[cab_idx]->setBrakeState(cab_on && brake_crane[cab_idx]->isBrake());
+
+        epb_control[cab_idx]->setControlVoltage(hose_bp_fwd->getVoltage(1) + hose_bp_bwd->getVoltage(1));
+        epb_control[cab_idx]->step(t, dt);
+    }
+
+    double epb_work_U = epb_control[CAB1]->getWorkVoltage() + epb_control[CAB2]->getWorkVoltage();
+    double epb_work_f = epb_control[CAB1]->getWorkFrequency() + epb_control[CAB2]->getWorkFrequency();
 
     // Управление электровоздухораспределителем: отключается кнопкой "Отпуск тормозов",
     // а иначе задаём управляющий сигнал из контроллера или рабочей линии ЭПТ
