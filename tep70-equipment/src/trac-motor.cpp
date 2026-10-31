@@ -17,6 +17,8 @@ TractionMotor::TractionMotor(QObject *parent) : Device(parent)
   , mode(1)
   , omega(0.0)
   , In(0.0)
+  , Imax(1500.0)
+  , is_crashed(false)
   , E(0.0)
 {
 
@@ -52,6 +54,18 @@ void TractionMotor::load_eff_coeff(QString file_name)
 void TractionMotor::preStep(state_vector_t &Y, double t)
 {
     Q_UNUSED(t)
+
+    if (abs(Y[0]) >= Imax)
+    {
+        is_crashed = true;
+    }
+
+    if (is_crashed)
+    {
+        Y[0] = Y[1] = 0;
+        M = 0;
+        return;
+    }
 
     switch (mode)
     {
@@ -90,15 +104,19 @@ void TractionMotor::ode_system(const state_vector_t &Y,
 {
     Q_UNUSED(t)
 
+    if (is_crashed)
+    {
+        dYdt[0] = dYdt[1] = 0;
+        return;
+    }
+
     switch (mode)
     {
     case 1:
         {
-            E = cPhi(beta * Y[0] * revers_state) * omega;
-
             double R = Ra + beta * (Rf + Rd);
 
-            dYdt[0] = (Ua - Y[0] * R - E) / Ta / Ra;
+            dYdt[0] = (Ua - Y[0] * R -  cPhi(beta * Y[0] * revers_state) * omega) / Ta / Ra;
 
             dYdt[1] = 0;
 

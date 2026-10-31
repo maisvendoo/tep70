@@ -81,6 +81,10 @@ private:
     /// Ток нагрузки в генератором режиме
     double  In;
 
+    double Imax;
+
+    bool is_crashed;
+
     double  E;
 
     /// Характеристика намагничивания

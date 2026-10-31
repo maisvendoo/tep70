@@ -66,7 +66,7 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
     for (size_t i = 0; i < motor.size(); ++i)
     {
-        kp[i]->setVoltage(Ucc * static_cast<double>(is_KP_on) * static_cast<double>(!tumbler_om[i].getState()));
+        kp[i]->setVoltage(Ucc * static_cast<double>(is_KP_on) * static_cast<double>(tumbler_om[i].getState()));
         kp[i]->step(t, dt);
 
         motor[i]->setAncorVoltage(trac_gen->getVoltage() * static_cast<double>(kp[i]->getContactState(0)));
@@ -91,7 +91,7 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
         I_gen += motor[i]->getAncorCurrent() * static_cast<double>(kp[i]->getContactState(0));
 
         is_KP1_KP7_off = is_KP1_KP7_off && kp[i]->getContactState(1);
-        is_KP1_KP6_on = is_KP1_KP6_on && (kp[i]->getContactState(2) || tumbler_om[i].getState());
+        is_KP1_KP6_on = is_KP1_KP6_on && (kp[i]->getContactState(2) || (!tumbler_om[i].getState()));
     }
 
     is_KP1_KP7_off = is_KP1_KP7_off && kp[6]->getContactState(1);
