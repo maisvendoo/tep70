@@ -154,6 +154,7 @@ void TractionMotor::load_config(CfgReader &cfg)
     cfg.getDouble(secName, "Rd", Rd);
     cfg.getDouble(secName, "Ta", Ta);
     cfg.getDouble(secName, "Tf", Tf);
+    cfg.getDouble(secName, "Imax", Imax);
 }
 
 //------------------------------------------------------------------------------

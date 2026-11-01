@@ -14,8 +14,11 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     bool is_KMT_ON2 = brake_crane[CAB2]->getPositionName() != "VI";
 
     // Цепь реле РУ9 - контроль сбора тяги от ЭПК (В будущем добавить другие блокировки)
-    bool is_RU9_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K8) && is_KMT_ON1 && (!epk[CAB1]->getEmergencyBrakeContact());
-    bool is_RU9_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K16) && is_KMT_ON2 && (!epk[CAB2]->getEmergencyBrakeContact());
+    bool is_RU9_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K8) &&
+                      ( (is_KMT_ON1 && (!epk[CAB1]->getEmergencyBrakeContact())) || shunting_tumbler.getState());
+
+    bool is_RU9_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K16) &&
+                      ( (is_KMT_ON2 && (!epk[CAB2]->getEmergencyBrakeContact())) || shunting_tumbler.getState());
 
     ru9->setVoltage(Ucc * static_cast<double>(is_RU9_ON1 || is_RU9_ON2));
     ru9->step(t, dt);
@@ -24,12 +27,14 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     bool is_819_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
                       (km[CAB1]->isNoZero() || button_maneuver[CAB1].getState()) &&
                       brake_lock[CAB1]->isStateOn() &&
-                      epk[CAB1]->isKeyOn() && azv_upr_tepl[CAB1].getState();
+                      (epk[CAB1]->isKeyOn() || shunting_tumbler.getState()) &&
+                      azv_upr_tepl[CAB1].getState();
 
     bool is_819_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) &&
                       (km[CAB2]->isNoZero() || button_maneuver[CAB2].getState()) &&
                       brake_lock[CAB2]->isStateOn() &&
-                      epk[CAB2]->isKeyOn() && azv_upr_tepl[CAB2].getState();
+                      (epk[CAB2]->isKeyOn() || shunting_tumbler.getState()) &&
+                      azv_upr_tepl[CAB2].getState();
 
     // Цепь катушки реле РУ3 - контроль температуры дизеля
     bool is_Water_overheat = disel->getWaterTemp() >= disel->getWaterTempAlarm();

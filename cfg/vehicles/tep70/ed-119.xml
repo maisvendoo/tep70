@@ -10,6 +10,6 @@
         <Rd>0.0065</Rd>
         <Ta>0.5</Ta>
         <Tf>0.5</Tf>
-
+        <Imax>1500.0</Imax>
     </Device>
 </Config>
