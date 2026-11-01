@@ -101,7 +101,7 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
                           ru6->getContactState(3) &&
                           ru15->getContactState(2);
 
-    // Цепь ручно прокачки масла от тумблера в аппаратной камере
+    // Цепь ручной прокачки масла от тумблера в аппаратной камере
     bool is_KMN_manual_on = is_1017 &&
                             ru42->getContactState(2) &&
                             ru15->getContactState(3) && manual_fuel_pumping.getState();
