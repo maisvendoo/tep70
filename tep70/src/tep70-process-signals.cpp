@@ -73,7 +73,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_SIGLIGHT_NO_BATTERY_CHARGE + d] = control_lamps[cab_idx][LAMP_BATTARY_CHARGE];
 
         // Сигнальные лампы на пульте помощника
-        analogSignal[CAB1_SIGLIGHT_RES_FUELPUMP + d] = 0.0f;
+        analogSignal[CAB1_SIGLIGHT_RES_FUELPUMP + d] = control_lamps[cab_idx][LAMP_RESERVED_FUEL_PUMP];
         analogSignal[CAB1_SIGLIGHT_FIRE_L + d] = 0.0f;
         analogSignal[CAB1_SIGLIGHT_FIRE_R + d] = 0.0f;
         analogSignal[CAB1_SIGLIGHT_BRAKE_RESISTORS + d] = 0.0f;

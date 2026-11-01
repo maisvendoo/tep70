@@ -66,7 +66,7 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
     bool is_KTH_on = (is_AB4_CAB1_on || is_AB4_CAB2_on) &&
                      tumbler_disel_stop[CAB1].getState() &&
                      tumbler_disel_stop[CAB2].getState() &&
-                     ru6->getContactState(1);
+                     (ru6->getContactState(1) || reserved_fuel_pump.getState());
 
     kontaktor_fuel_pump->setVoltage(Ucc * static_cast<double>(is_KTH_on));
     kontaktor_fuel_pump->step(t, dt);

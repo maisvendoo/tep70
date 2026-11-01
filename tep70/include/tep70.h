@@ -907,6 +907,7 @@ private:
         LAMP_POWER_RESET,
         LAMP_EDT_BLINDS_OPEN_1,
         LAMP_EDT_BLINDS_OPEN_2,
+        LAMP_RESERVED_FUEL_PUMP,
         NUM_LAMPS
     };
 
