@@ -934,11 +934,11 @@
 
 	<Control>
 		<ID>256</ID>
-		<Name>Тумблер шунтировки</Name>
-		<Description>Включение шунтировки</Description>
+		<Name>Шунтировка ЭПКА</Name>
+		<Description>Исключает контакты ЭПК автостопа из цепей блокировки тяги</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
-		<ObjectName>tumbler_shunting</ObjectName>
+		<ObjectName>tumbler_shunting_EPK</ObjectName>
 	</Control>
 
 	<Control>
@@ -962,7 +962,7 @@
 	<Control>
 		<ID>259</ID>
 		<Name>Тумблер автостоп</Name>
-		<Description>Включение тумблера автостопа</Description>
+		<Description>Резервное питание автостопа от АКБ</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<ObjectName>tumbler_autostop</ObjectName>
