@@ -5,7 +5,7 @@
 //------------------------------------------------------------------------------
 void TEP70::stepControlCircuit(const double& t, const double& dt)
 {
-    double U_bat = battery->getVoltage() * static_cast<float>(accum_switch.getState());
+    U_bat = battery->getVoltage() * static_cast<float>(accum_switch.getState());
 
     Ucc = max(U_bat, starter_generator->getVoltage() * static_cast<double>(krn->getContactState(1)));
 

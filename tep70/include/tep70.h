@@ -536,6 +536,9 @@ private:
     /// Скоростемер
     SL2M*               speed_meter[CABS_NUM] = {nullptr, nullptr};
 
+    /// Напряжение аккумулятороной батареи
+    double U_bat = 0.0;
+
     /// Напряжение цепей управления
     double  Ucc = 0.0;
 

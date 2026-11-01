@@ -26,7 +26,9 @@ void TEP70::stepSafetyDevices(const double& t, const double& dt)
     // Цепь питания ЭПК
 
     // Общее питание ЭПК и приборов безопасности
-    bool is_EPKs_common_power = azv_epk_power_plus.getState() && azv_epk_power_minus.getState();
+    bool is_EPKs_converter = (Ucc > 0.1) && azv_epk_power_plus.getState() && azv_epk_power_minus.getState();
+
+    bool is_EPKs_common_power = is_EPKs_converter || (autostop_tumbler.getState() && (U_bat > 0.1) );
 
     bool is_EPK_power[CABS_NUM] = {false, false};
 
