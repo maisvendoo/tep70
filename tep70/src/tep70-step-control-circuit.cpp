@@ -101,7 +101,12 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
                           ru6->getContactState(3) &&
                           ru15->getContactState(2);
 
-    kontaktor_oil_pump->setVoltage(Ucc * static_cast<double>(is_KMH_on_start || is_KMN_on_stop));
+    // Цепь ручно прокачки масла от тумблера в аппаратной камере
+    bool is_KMN_manual_on = is_1017 &&
+                            ru42->getContactState(2) &&
+                            ru15->getContactState(3) && manual_fuel_pumping.getState();
+
+    kontaktor_oil_pump->setVoltage(Ucc * static_cast<double>(is_KMH_on_start || is_KMN_on_stop || is_KMN_manual_on));
     kontaktor_oil_pump->step(t, dt);
 
     // Состояние цепи реле времени РВ3 (задает время предпусковой прокачки)
