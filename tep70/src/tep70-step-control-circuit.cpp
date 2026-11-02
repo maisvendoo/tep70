@@ -157,13 +157,7 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
                      kvg->getContactState(1);
 
     vtn->setVoltage(Ucc * static_cast<double>(is_VTN_on));
-    vtn->step(t, dt);
-
-    /*bool is_RU4_on = (KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) && km[CAB1]->isMoreFirst()) ||
-                     (KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) && km[CAB2]->isMoreFirst());
-
-    ru4->setVoltage(Ucc * static_cast<double>(is_RU4_on));
-    ru4->step(t, dt);*/
+    vtn->step(t, dt);    
 
     ru42->setVoltage(Ucc * static_cast<double>(is_RU6_on));
     ru42->step(t, dt);
