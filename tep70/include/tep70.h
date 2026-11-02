@@ -739,6 +739,10 @@ private:
 
     bool is_AB2_CAB2_on = false;
 
+    bool is_AB4_CAB1_on = false;
+
+    bool is_AB4_CAB2_on = false;
+
     bool is_Revers_Forward = false;
 
     bool is_Revers_Backward = false;

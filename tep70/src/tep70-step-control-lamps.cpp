@@ -39,7 +39,9 @@ void TEP70::stepControlLamps(const double &t, const double &dt)
 
         control_lamps[cab_idx][LAMP_POWER_RESET] = getLampState(cab_idx, static_cast<double>(is_reset_power_lamp_ON));
 
-        bool is_reserved_fuel_pump_lamp_ON = reserved_fuel_pump.getState();
+        bool is_reserved_fuel_pump_lamp_ON = (is_AB4_CAB1_on || is_AB4_CAB2_on) &&
+                                             tumbler_disel_stop[CAB1].getState() &&
+                                             tumbler_disel_stop[CAB2].getState() && reserved_fuel_pump.getState();
 
         control_lamps[cab_idx][LAMP_RESERVED_FUEL_PUMP] = getLampState(cab_idx, static_cast<double>(is_reserved_fuel_pump_lamp_ON));
     }

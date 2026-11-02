@@ -817,7 +817,7 @@
 
 	<Control>
 		<ID>243</ID>
-		<Name>АЗВ цепи управления</Name>
+		<Name>АЗВ вспомогательные цепи</Name>
 		<Description>Включение АЗВ цепей управления</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
@@ -889,7 +889,7 @@
 
 	<Control>
 		<ID>251</ID>
-		<Name>АЗВ питание прибров</Name>
+		<Name>АЗВ питание прибров (АВ 14)</Name>
 		<Description>Включение преобразователя 110/27 питания термометров и манометров</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
@@ -925,7 +925,7 @@
 
 	<Control>
 		<ID>255</ID>
-		<Name>Тумблер ЭДТ</Name>
+		<Name>Электродинамический тормоз</Name>
 		<Description>Включение электродинамического тормоза</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
@@ -943,11 +943,11 @@
 
 	<Control>
 		<ID>257</ID>
-		<Name>Тумблер ручной подкачки масла</Name>
+		<Name>Ручная подкачка масла (Тб 3)</Name>
 		<Description>Включение ручной подкачки масла в обход схемы пуска дизеля</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
-		<ObjectName>tumbler_manual_fuel_pumping</ObjectName>
+		<ObjectName>tumbler_manual_oil_pumping</ObjectName>
 	</Control>
 
 	<Control>
@@ -961,7 +961,7 @@
 
 	<Control>
 		<ID>259</ID>
-		<Name>Тумблер автостоп</Name>
+		<Name>Автостоп</Name>
 		<Description>Резервное питание автостопа от АКБ</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
@@ -970,8 +970,8 @@
 
 	<Control>
 		<ID>260</ID>
-		<Name>Питание цепей "Проверка изоляции"</Name>
-		<Description>Включить питание цепей проверки изоляции</Description>
+		<Name>Питание прибора "Проверка изоляции"</Name>
+		<Description>Включить питание прибора проверки изоляции</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<ObjectName>tumbler_check_isolation_resistence</ObjectName>
@@ -992,7 +992,7 @@
 	<Control>
 		<ID>262</ID>
 		<Name>Возврат реле земли</Name>
-		<Description>Возврат реле земли</Description>
+		<Description>Возврат реле земли РМ2</Description>
 		<Type>Button</Type>
 		<value>0</value>
 		<ObjectName>button_release_ground_relay</ObjectName>
@@ -1000,7 +1000,7 @@
 
 	<Control>
 		<ID>263</ID>
-		<Name>Кнопка удержания топливного насоса</Name>
+		<Name>Кнопка удержания топливного насоса (Кн 4)</Name>
 		<Description>Удержание питания топливного насоса</Description>
 		<Type>Button</Type>
 		<value>0</value>
@@ -1012,7 +1012,7 @@
 	<Control>
 		<ID>264</ID>
 		<Name>"-" - корпус</Name>
-		<Description>Проверка изоляции минуса</Description>
+		<Description>Проверка изоляции минуса цепей управления</Description>
 		<Type>Button</Type>
 		<value>0</value>
 		<ObjectName>button_V_minus</ObjectName>
@@ -1021,7 +1021,7 @@
 	<Control>
 		<ID>265</ID>
 		<Name>"+" - корпус</Name>
-		<Description>Проверка изоляции минуса</Description>
+		<Description>Проверка изоляции плюса цепей управления</Description>
 		<Type>Button</Type>
 		<value>0</value>
 		<ObjectName>button_V_plus</ObjectName>
@@ -1548,8 +1548,8 @@
 	<!-- ТУМБЛЕРЫ ПУЛЬТА -->
 	<Control>
 		<ID>287</ID>
-		<Name>Питание приборов</Name>
-		<Description>Вкл/выкл питания пультовых приборов</Description>
+		<Name>Манометры, термометры (Тб 21)</Name>
+		<Description>Вкл/выкл питания манометров и термометров воды, масла и топлива</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>
