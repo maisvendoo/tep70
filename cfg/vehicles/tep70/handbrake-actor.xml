@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <Device>
+        <K_force>1.333</K_force>
+        <Gap>0.25</Gap>
+    </Device>
+</Config>

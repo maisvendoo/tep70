@@ -37,7 +37,9 @@ private:
     double J_fan = 5.0;
 
     void preStep(state_vector_t &Y, double t) override;
+
     void ode_system(const state_vector_t &Y, state_vector_t &dYdt, double t) override;
+
     void load_config(CfgReader &cfg) override;
 };
 

@@ -1,4 +1,5 @@
 #include    "tep70.h"
+#include    "tep70-controls.h"
 
 //------------------------------------------------------------------------
 //
@@ -45,6 +46,7 @@ void TEP70::stepBrakesEquipment(const double& t, const double& dt)
     brake_mech[TROLLEY_FWD]->setAngularVelocity(0, wheel_omega[0]);
     brake_mech[TROLLEY_FWD]->setAngularVelocity(1, wheel_omega[1]);
     brake_mech[TROLLEY_FWD]->setAngularVelocity(2, wheel_omega[2]);
+    brake_mech[TROLLEY_FWD]->setHandBrakeForceLevel(handbrake_actor->getForceLevel());
     brake_mech[TROLLEY_FWD]->step(t, dt);
 
     // Задняя тележка управляется от реле давления 304
@@ -52,6 +54,7 @@ void TEP70::stepBrakesEquipment(const double& t, const double& dt)
     brake_mech[TROLLEY_BWD]->setAngularVelocity(0, wheel_omega[3]);
     brake_mech[TROLLEY_BWD]->setAngularVelocity(1, wheel_omega[4]);
     brake_mech[TROLLEY_BWD]->setAngularVelocity(2, wheel_omega[5]);
+    brake_mech[TROLLEY_BWD]->setHandBrakeForceLevel(handbrake_actor->getForceLevel());
     brake_mech[TROLLEY_BWD]->step(t, dt);
 
     Q_r[1] = brake_mech[TROLLEY_FWD]->getBrakeTorque(0);
@@ -79,4 +82,7 @@ void TEP70::stepBrakesEquipment(const double& t, const double& dt)
     hose_bp_bwd->setCoord(train_coord - dir * (length / 2.0 - anglecock_bp_bwd->getShiftCoord()));
     hose_bp_bwd->setShiftSide(anglecock_bp_bwd->getShiftSide());
     hose_bp_bwd->step(t, dt);
+
+    handbrake_actor->setShaftAngle(control_inputs[CABS_NUM][CTRL_HANDBRAKE].value);
+    handbrake_actor->step(t, dt);
 }

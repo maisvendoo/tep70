@@ -39,6 +39,7 @@
 #include    <hysteresis-relay.h>
 #include    <pneumo-electro-valve.h>
 #include    <logic-relay.h>
+#include    <handbrake-actor.h>
 
 /*!
  * \class
@@ -979,6 +980,8 @@ private:
     bool is_KVG_on = false;
 
     bool is_KVV_on = false;
+
+    HandbrakeActor *handbrake_actor = nullptr;
 
     /// Проверка активной кабины
     int checkActiveCabine();
