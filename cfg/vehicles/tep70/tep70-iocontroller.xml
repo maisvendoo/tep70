@@ -943,8 +943,8 @@
 
 	<Control>
 		<ID>257</ID>
-		<Name>Тумблер ручной подкачки топлива</Name>
-		<Description>Включение ручной подкачки топлива</Description>
+		<Name>Тумблер ручной подкачки масла</Name>
+		<Description>Включение ручной подкачки масла в обход схемы пуска дизеля</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<ObjectName>tumbler_manual_fuel_pumping</ObjectName>
@@ -952,8 +952,8 @@
 
 	<Control>
 		<ID>258</ID>
-		<Name>Тумблер резервного топливного насоса</Name>
-		<Description>Включение резервного топливного насоса</Description>
+		<Name>Резарвный топливный насос (Тб 5)</Name>
+		<Description>Шунтирование размыкающих контактор РУ6 в цепи контактора топливного насоса</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
 		<ObjectName>tumbler_reserved_fuel_pump</ObjectName>
