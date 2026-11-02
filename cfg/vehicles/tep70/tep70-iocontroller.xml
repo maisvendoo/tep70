@@ -862,8 +862,8 @@
 
 	<Control>
 		<ID>248</ID>
-		<Name>АЗВ топливный насос</Name>
-		<Description>Включение АЗВ топливного насоса</Description>
+		<Name>АЗВ топливный насос АВ11</Name>
+		<Description>АЗВ силовой цепи топливного насоса</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
 		<ObjectName>AZV_fuel_pump</ObjectName>

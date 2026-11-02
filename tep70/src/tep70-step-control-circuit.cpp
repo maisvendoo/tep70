@@ -68,7 +68,7 @@ void TEP70::stepControlCircuit(const double& t, const double& dt)
                      tumbler_disel_stop[CAB2].getState() &&
                      (ru6->getContactState(1) || reserved_fuel_pump.getState());
 
-    kontaktor_fuel_pump->setVoltage(Ucc * static_cast<double>(is_KTH_on));
+    kontaktor_fuel_pump->setVoltage(Ucc * static_cast<double>(is_KTH_on && azv_fuel_pump_vvk.getState()));
     kontaktor_fuel_pump->step(t, dt);
 
     // Питание от автомата АВ2
