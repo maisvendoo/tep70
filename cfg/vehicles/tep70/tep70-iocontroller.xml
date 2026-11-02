@@ -808,8 +808,8 @@
 
 	<Control>
 		<ID>242</ID>
-		<Name>АЗВ буферные огни</Name>
-		<Description>Включение АЗВ буферных огней</Description>
+		<Name>АЗВ буферные фонари (АВ 27)</Name>
+		<Description>Включение АЗВ буферных фонарей</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
 		<ObjectName>AZV_buffer_lights</ObjectName>
@@ -818,7 +818,7 @@
 	<Control>
 		<ID>243</ID>
 		<Name>АЗВ вспомогательные цепи</Name>
-		<Description>Включение АЗВ цепей управления</Description>
+		<Description>Включение АЗВ вспомогательных цепей (тифоны и т.п.)</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
 		<ObjectName>AZV_control_circuit</ObjectName>
@@ -826,8 +826,8 @@
 
 	<Control>
 		<ID>244</ID>
-		<Name>АЗВ освещение дизеля</Name>
-		<Description>Включение АЗВ освещения дизеля</Description>
+		<Name>АЗВ Освещение дизельного помещения (АВ 29)</Name>
+		<Description>Включение АЗВ освещения дизельного помещения</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
 		<ObjectName>AZV_disel_light</ObjectName>
@@ -862,7 +862,7 @@
 
 	<Control>
 		<ID>248</ID>
-		<Name>АЗВ топливный насос АВ11</Name>
+		<Name>АЗВ топливный насос (АВ 11)</Name>
 		<Description>АЗВ силовой цепи топливного насоса</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
@@ -871,8 +871,8 @@
 
 	<Control>
 		<ID>249</ID>
-		<Name>АЗВ отопление</Name>
-		<Description>Включение АЗВ отопления</Description>
+		<Name>АЗВ Калорифер (АВ 10)</Name>
+		<Description>Включение АЗВ калорифера</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
 		<ObjectName>AZV_heater</ObjectName>
@@ -880,8 +880,8 @@
 
 	<Control>
 		<ID>250</ID>
-		<Name>АЗВ питание розеток</Name>
-		<Description>Включение АЗВ розеток 1</Description>
+		<Name>АЗВ питание розеток (АВ 31)</Name>
+		<Description>Включение АЗВ розеток</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
 		<ObjectName>AZV_sockets_power</ObjectName>
@@ -898,7 +898,7 @@
 
 	<Control>
 		<ID>252</ID>
-		<Name>АЗВ освещение тележек</Name>
+		<Name>АЗВ Освещение подкузовное (АВ 32)</Name>
 		<Description>Включение АЗВ освещения тележек</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
@@ -907,7 +907,7 @@
 
 	<Control>
 		<ID>253</ID>
-		<Name>АЗВ освещение ВВК</Name>
+		<Name>АЗВ Освещение ВВК (АВ 28)</Name>
 		<Description>Включение АЗВ освещения ВВК</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
@@ -916,8 +916,8 @@
 
 	<Control>
 		<ID>254</ID>
-		<Name>АЗВ освещение осмотра дизеля</Name>
-		<Description>Включение АЗВ освещения осмотра дизеля</Description>
+		<Name>АЗВ Дежурное освещение дизельного помещения (АВ 30)</Name>
+		<Description>Включение дежурного освещения дизельного помещения</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
 		<ObjectName>AZV_watch_disel_light</ObjectName>
@@ -925,7 +925,7 @@
 
 	<Control>
 		<ID>255</ID>
-		<Name>Электродинамический тормоз</Name>
+		<Name>Электродинамический тормоз (Тб 62)</Name>
 		<Description>Включение электродинамического тормоза</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
@@ -934,7 +934,7 @@
 
 	<Control>
 		<ID>256</ID>
-		<Name>Шунтировка ЭПКА</Name>
+		<Name>Шунтировка ЭПКА (Тб 67)</Name>
 		<Description>Исключает контакты ЭПК автостопа из цепей блокировки тяги</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
@@ -961,7 +961,7 @@
 
 	<Control>
 		<ID>259</ID>
-		<Name>Автостоп</Name>
+		<Name>Автостоп (Тб 61)</Name>
 		<Description>Резервное питание автостопа от АКБ</Description>
 		<Type>Toggle</Type>
 		<value>0</value>
@@ -1146,7 +1146,7 @@
 
 	<Control>
 		<ID>279</ID>
-		<Name>Рубильник АКБ</Name>
+		<Name>Рубильник АКБ (ВкБ)</Name>
 		<Description>Рубильник аккумуляторной батареи</Description>
 		<Type>Toggle</Type>
 		<value>1</value>
@@ -1490,7 +1490,7 @@
 
 	<Control>
 		<ID>283</ID>
-		<Name>АЗВ вентиляции кабины</Name>
+		<Name>АЗВ вентиляции кабины (АВ 12)</Name>
 		<Description>Включение вентиляции кабины</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
