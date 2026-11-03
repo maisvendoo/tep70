@@ -886,6 +886,8 @@ private:
 
     float spotlight_signal[CABS_NUM] = {0.0f, 0.0f};
 
+    float trolley_light_signal = 0.0f;
+
     enum
     {
         BUF_RED,

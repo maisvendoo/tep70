@@ -704,6 +704,9 @@ enum
     // Положение маховика ручного тормоза
     HANDBRAKE_POS = 517,
 
+    // Освещение тележек
+    TROLLEY_LIGHT = 518,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

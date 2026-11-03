@@ -259,6 +259,8 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[WATER_BLINDS_ACTION] = water_blinds_open ? 1.0f : 0.0f;
     analogSignal[OIL_BLINDS_ACTION] = oil_blinds_open ? 1.0f : 0.0f;
 
+    analogSignal[TROLLEY_LIGHT] = trolley_light_signal;
+
     // Вращение вентиляторов охлаждения
     analogSignal[COOLER_FAN_HOT_ROTATION] = static_cast<float>(fan_hot_aero->getAngle() / (2.0 * Physics::PI));
     analogSignal[COOLER_FAN_COLD_ROTATION] = static_cast<float>(fan_cold_aero->getAngle() / (2.0 * Physics::PI));

@@ -37,5 +37,9 @@ void TEP70::stepLighting(const double &t, const double &dt)
         float intensity = (1.0f + static_cast<float>(azv_spotlight_high[cab_idx].getState())) * static_cast<float>(azv_spotlight_low[cab_idx].getState());
 
         spotlight_signal[cab_idx] = intensity * power_level / 2.0f;
+
+        bool is_trolley_light_ON = azv_trolleys_light.getState();
+
+        trolley_light_signal = static_cast<float>(is_trolley_light_ON) * power_level;
     }
 }

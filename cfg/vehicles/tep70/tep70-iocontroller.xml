@@ -829,7 +829,7 @@
 		<Name>АЗВ Освещение дизельного помещения (АВ 29)</Name>
 		<Description>Включение АЗВ освещения дизельного помещения</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>AZV_disel_light</ObjectName>
 	</Control>
 
@@ -901,7 +901,7 @@
 		<Name>АЗВ Освещение подкузовное (АВ 32)</Name>
 		<Description>Включение АЗВ освещения тележек</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>AZV_trolleys_light</ObjectName>
 	</Control>
 
@@ -910,7 +910,7 @@
 		<Name>АЗВ Освещение ВВК (АВ 28)</Name>
 		<Description>Включение АЗВ освещения ВВК</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>AZV_VVK_light</ObjectName>
 	</Control>
 
@@ -919,7 +919,7 @@
 		<Name>АЗВ Дежурное освещение дизельного помещения (АВ 30)</Name>
 		<Description>Включение дежурного освещения дизельного помещения</Description>
 		<Type>Toggle</Type>
-		<value>1</value>
+		<value>0</value>
 		<ObjectName>AZV_watch_disel_light</ObjectName>
 	</Control>
 
