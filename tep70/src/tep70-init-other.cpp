@@ -16,4 +16,7 @@ void TEP70::initOther(const QString &modules_dir, const QString &custom_cfg_dir)
     sand_system->read_config("sanding-system");
     sand_system->setSandMassMax(payload_mass);
     sand_system->setSandLevel(payload_coeff);
+
+    EDB_blinds_actor = new BlindsActor;
+    EDB_blinds_actor->read_config("edb-blinds-actor", custom_cfg_dir);
 }

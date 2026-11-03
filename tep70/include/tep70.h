@@ -40,6 +40,7 @@
 #include    <pneumo-electro-valve.h>
 #include    <logic-relay.h>
 #include    <handbrake-actor.h>
+#include    <blinds-actor.h>
 
 /*!
  * \class
@@ -879,6 +880,12 @@ private:
 
     /// Шаг моделирования системы охлаждения
     void stepCooler(const double& t, const double& dt);
+
+    /// Шаг моделирования цепей ЭДТ
+    void stepElectroDymanicBrake(const double &t, const double &dt);
+
+    /// Привод жалюзи ЭДТ
+    BlindsActor *EDB_blinds_actor = nullptr;
 
     float cab_light_signal[CABS_NUM] = {0.0f, 0.0f};
 
