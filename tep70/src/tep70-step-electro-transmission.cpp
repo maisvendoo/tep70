@@ -148,7 +148,7 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     trac_gen->setOmega(disel->getOmega());
     trac_gen->step(t, dt);
 
-    field_reg->setActive(kvg->getContactState(2));
+    field_reg->setActive(kvg->getContactState(2) && ru24->getContactState(RU24_FIELD_REG_ON));
     field_reg->setFGVoltage(field_gen->getVoltage());
     field_reg->setOmega(disel->getOmega());
     field_reg->setGenVoltage(trac_gen->getVoltage());
@@ -242,9 +242,7 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     ru21->setVoltage(0);
     ru21->step(t, dt);
 
-    // Цепь тормозного контактора
-    kt->setVoltage(0);
-    kt->step(t, dt);
+
 
     // Цепь вентиля "Тяга" тормозного переключателя
     bool is_TRAC_on = is_819_ON &&

@@ -898,6 +898,60 @@ private:
         NUM_RU37_CONTACTS
     };
 
+    /// Реле РУ26
+    Relay *ru26 = nullptr;
+
+    enum
+    {
+        RU26_FOR_RU25_ON,
+        NUM_RU26_CONTACTS
+    };
+
+    /// Реле РУ27
+    Relay *ru27 = nullptr;
+
+    enum
+    {
+        RU27_FOR_RU24_ON,
+        NUM_RU27_CONTACTS
+    };
+
+    /// Реле РУ24
+    Relay *ru24 = nullptr;
+
+    enum
+    {
+        RU24_FIELD_REG_ON,
+        RU24_FOR_RU25_ON,
+        NUM_RU24_CONTACTS
+    };
+
+    /// Реле РУ20
+    Relay *ru20 = nullptr;
+
+    enum
+    {
+        RU20_FOR_RU25_ON,
+        NUM_RU20_CONTACTS
+    };
+
+    /// Реле РУ23
+    Relay *ru23 = nullptr;
+
+    enum
+    {
+        RU23_FOR_RU25_ON,
+        NUM_RU23_CONTACTS
+    };
+
+    /// Реле РУ25
+    Relay *ru25 = nullptr;
+
+    enum
+    {
+        NUM_RU25_CONTACTS
+    };
+
     float cab_light_signal[CABS_NUM] = {0.0f, 0.0f};
 
     float gauges_light_signal[CABS_NUM] = {0.0f, 0.0f};

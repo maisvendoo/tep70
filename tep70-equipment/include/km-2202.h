@@ -66,8 +66,14 @@ public:
     /// Контакт позиций выше 12
     bool is12orMore() const {return ms_position >= 12; }
 
+    /// Контакты в положении "Подготовка ЭДТ" (П)
+    bool isPrepareEDB() const {return ms_position == MS_EDB_PREPARE; }
+
+    /// Контакты в зоне тормозных позиций
+    bool isEDB() const { return ms_position <= MS_EDB_PREPARE; }
+
     /// Получить заданную частоту вращения коленчатого вала дизеля
-    double getRefFreq() const { return n_ref[ms_position]; }
+    double getRefFreq() const { return n_ref[pf(ms_position)]; }
 
     enum
     {
