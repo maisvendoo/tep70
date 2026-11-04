@@ -905,6 +905,7 @@ private:
     enum
     {
         RU26_FOR_RU25_ON,
+        RU26_FOR_KT_ON,
         NUM_RU26_CONTACTS
     };
 

@@ -928,7 +928,7 @@
 		<Name>Электродинамический тормоз (Тб 62)</Name>
 		<Description>Включение электродинамического тормоза</Description>
 		<Type>Toggle</Type>
-		<value>0</value>
+		<value>1</value>
 		<ObjectName>tumbler_EDT</ObjectName>
 	</Control>
 

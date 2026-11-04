@@ -61,8 +61,8 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     ru24->setVoltage(Ucc * static_cast<double>(is_RU24_ON));
     ru24->step(t, dt);
 
-    // Цепь тормозного контактора: провод 1315
-    bool is_KT_ON = is_1315_ON;
+    // Цепь тормозного контактора: провод 1315, контакты реле РУ26
+    bool is_KT_ON = is_1315_ON && ru26->getContactState(RU26_FOR_KT_ON);
 
     kt->setVoltage(Ucc * static_cast<double>(is_KT_ON));
     kt->step(t, dt);
