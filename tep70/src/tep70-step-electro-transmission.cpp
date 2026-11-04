@@ -119,7 +119,10 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     ru4->step(t, dt);
 
     // Состояние цепи контактора возбуждения генератора
-    is_KVG_on = is_Traction_allowed && is_KP1_KP6_on && (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVV_POWER));
+    is_KVG_on = is_Traction_allowed && is_KP1_KP6_on &&
+                (kvv->getContactState(KVV_SELF_POWER) ||
+                 ru4->getContactState(RU4_KVG_POWER) ||
+                 ru25->getContactState(RU25_KVG_POWER));
 
     kvg->setVoltage(Ucc * static_cast<double>(is_KVG_on));
     kvg->step(t, dt);
@@ -236,20 +239,19 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
     reversor->setForwardValveState(is_Revers_Forward);
     reversor->setBackwardValveState(is_Revers_Backward);
-    reversor->step(t, dt);
-
-    // Цепь реле РУ21
-    ru21->setVoltage(0);
-    ru21->step(t, dt);
-
-
+    reversor->step(t, dt);    
 
     // Цепь вентиля "Тяга" тормозного переключателя
     bool is_TRAC_on = is_819_ON &&
-                      (is_KP1_KP7_off || (brake_switcher->isTraction() && ru21->getContactState(RU21_TRAC_ON)));
+                      ((is_KP1_KP7_off && ru21->getContactState(RU21_TRAC_ON)) ||
+                       (brake_switcher->isTraction() && ru21->getContactState(RU21_TRAC_ON)));
 
+    // Цепь вентиля "Торможение" тормозного переключателя
+    bool is_BRAKE_on = is_819_ON &&
+                       ((is_KP1_KP7_off && ru21->getContactState(RU21_BRAKE_ON)) ||
+                        (brake_switcher->isBrake() && ru21->getContactState(RU21_BRAKE_ON)));
 
-    brake_switcher->setTracValeState(is_TRAC_on);
-    brake_switcher->setBrakeValveState(false);
+    brake_switcher->setTracValeState(is_TRAC_on && kt->getContactState(KT_TRACTION_ALLOW));
+    brake_switcher->setBrakeValveState(is_BRAKE_on);
     brake_switcher->step(t, dt);
 }

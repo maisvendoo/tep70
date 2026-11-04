@@ -91,13 +91,5 @@ void TEP70::initElectroTransmission(const QString &modules_dir, const QString &c
     ksh1_delay->setInitContactState(0, true);
 
     ru9->read_config("mk-6", custom_cfg_dir);
-    ru9->setInitContactState(RU9_EPK_CTRL, false);
-
-    ru21->read_config("mk-6", custom_cfg_dir);
-    ru21->setInitContactState(RU21_TRAC_ON, true);
-
-    kt = new Relay(NUM_KT_CONTACTS);
-    kt->read_config("mk-6", custom_cfg_dir);
-    kt->setInitContactState(KT_RESET_POWER, true);
-    kt->setInitContactState(KT_TRACTION_ALLOW, true);    
+    ru9->setInitContactState(RU9_EPK_CTRL, false);           
 }

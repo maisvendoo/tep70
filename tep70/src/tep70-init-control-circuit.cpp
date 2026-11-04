@@ -105,7 +105,7 @@ void TEP70::initControlCircuit(const QString &modules_dir, const QString &custom
 
     ru4 = new Relay(NUM_RU4_CONTACTS);
     ru4->read_config("rpu-3m", custom_cfg_dir);
-    ru4->setInitContactState(RU4_KVV_POWER, true);
+    ru4->setInitContactState(RU4_KVG_POWER, true);
 
     ru15 = new Relay(4);
     ru15->read_config("rpu-3m", custom_cfg_dir);

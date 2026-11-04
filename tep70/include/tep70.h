@@ -379,7 +379,7 @@ private:
 
     enum
     {
-        RU4_KVV_POWER,
+        RU4_KVG_POWER,
         NUM_RU4_CONTACTS
     };
 
@@ -720,8 +720,9 @@ private:
 
     enum
     {
-        NUM_RU21_CONTACTS = 1,
-        RU21_TRAC_ON = 0
+        RU21_TRAC_ON,
+        RU21_BRAKE_ON,
+        NUM_RU21_CONTACTS
     };
 
     /// Реле РУ21 (в схеме реостатного тормоза!!!)
@@ -949,6 +950,8 @@ private:
 
     enum
     {
+        RU25_KVG_POWER,
+        RU25_FOR_RU21_ON,
         NUM_RU25_CONTACTS
     };
 
