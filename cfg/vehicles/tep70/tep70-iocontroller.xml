@@ -641,8 +641,8 @@
 		<Type>Switcher</Type>
 		<value1>0</value1>
 		<value2>0</value2>
-		<NumPositions>16</NumPositions>
-		<MinValue>0</MinValue>
+		<NumPositions>24</NumPositions>
+		<MinValue>-8</MinValue>
 		<MaxValue>15</MaxValue>
 		<KeyNameInc>KEY_A</KeyNameInc>		
 		<KeyNameDec>KEY_D</KeyNameDec>

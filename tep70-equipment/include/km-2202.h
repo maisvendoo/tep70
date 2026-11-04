@@ -89,6 +89,14 @@ private:
 
     enum : std::int8_t
     {
+        MS_EDB_0kmh = -8,
+        MS_EDB_20kmh = -7,
+        MS_EDB_30kmh = -6,
+        MS_EDB_40kmh = -5,
+        MS_EDB_60kmh = -4,
+        MS_EDB_80kmh = -3,
+        MS_EDB_100kmh = -2,
+        MS_EDB_PREPARE = -1,
         MS_ZERO = 0,
         MS_MAX_POSITION = 15
     };

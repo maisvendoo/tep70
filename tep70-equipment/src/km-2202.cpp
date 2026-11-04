@@ -126,7 +126,7 @@ void ControllerKM2202::setPosition(std::int8_t pos)
     }
     else
     {
-        pos = std::clamp(pos, static_cast<std::int8_t>(MS_ZERO), static_cast<std::int8_t>(MS_MAX_POSITION));
+        pos = std::clamp(pos, static_cast<std::int8_t>(MS_EDB_0kmh), static_cast<std::int8_t>(MS_MAX_POSITION));
     }
 
 
@@ -146,7 +146,7 @@ void ControllerKM2202::setPosition(std::int8_t pos)
 //------------------------------------------------------------------------------
 float ControllerKM2202::getMainShaftPos() const
 {
-    return static_cast<float>(ms_position) / MS_MAX_POSITION;
+    return static_cast<float>(ms_position);
 }
 
 //------------------------------------------------------------------------------
