@@ -68,7 +68,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
         analogSignal[CAB1_SIGLIGHT_RESET_POWER + d] = control_lamps[cab_idx][LAMP_POWER_RESET];
         analogSignal[CAB1_SIGLIGHT_OIL_PRESS + d] = control_lamps[cab_idx][LAMP_OIL_PRESSURE];
-        analogSignal[CAB1_SIGLIGHT_ZHAL_ET1 + d] = 0.0f;
+        analogSignal[CAB1_SIGLIGHT_ZHAL_ET1 + d] = control_lamps[cab_idx][LAMP_EDB_BLINDS_OPEN];
         analogSignal[CAB1_SIGLIGHT_ZHAL_ET2 + d] = 0.0f;
         analogSignal[CAB1_SIGLIGHT_NO_BATTERY_CHARGE + d] = control_lamps[cab_idx][LAMP_BATTARY_CHARGE];
 
@@ -255,7 +255,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
     // Жалюзи
     analogSignal[TOP_BLINDS_ACTION] = (water_blinds_open || oil_blinds_open) ? 1.0f : 0.0f;
-    analogSignal[EDT_BLINDS_ACTION] = 0.0f;
+    analogSignal[EDT_BLINDS_ACTION] = EDB_blinds_actor->getState();
     analogSignal[WATER_BLINDS_ACTION] = water_blinds_open ? 1.0f : 0.0f;
     analogSignal[OIL_BLINDS_ACTION] = oil_blinds_open ? 1.0f : 0.0f;
 

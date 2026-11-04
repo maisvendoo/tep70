@@ -817,6 +817,8 @@ private:
     /// Инициализация управления
     void initControl(const QString& modules_dir, const QString& custom_cfg_dir);
 
+    /// Инициализация аппаратов цепей ЭДТ
+    void initElectrodynamicBrake(const QString& modules_dir, const QString& custom_cfg_dir);
 
     /// Процесс симуляции
     void process(const simulator_time_t& t, const double& dt) override;    
@@ -887,6 +889,15 @@ private:
     /// Привод жалюзи ЭДТ
     BlindsActor *EDB_blinds_actor = nullptr;
 
+    /// Реле РУ37
+    Relay *ru37 = nullptr;
+
+    enum
+    {
+        RU37_EDB_BLINGS_LAMP,
+        NUM_RU37_CONTACTS
+    };
+
     float cab_light_signal[CABS_NUM] = {0.0f, 0.0f};
 
     float gauges_light_signal[CABS_NUM] = {0.0f, 0.0f};
@@ -922,6 +933,7 @@ private:
         LAMP_EDT_BLINDS_OPEN_1,
         LAMP_EDT_BLINDS_OPEN_2,
         LAMP_RESERVED_FUEL_PUMP,
+        LAMP_EDB_BLINDS_OPEN,
         NUM_LAMPS
     };
 

@@ -44,5 +44,9 @@ void TEP70::stepControlLamps(const double &t, const double &dt)
                                              tumbler_disel_stop[CAB2].getState() && reserved_fuel_pump.getState();
 
         control_lamps[cab_idx][LAMP_RESERVED_FUEL_PUMP] = getLampState(cab_idx, static_cast<double>(is_reserved_fuel_pump_lamp_ON));
+
+        bool is_edb_blinds_open = ru37->getContactState(RU37_EDB_BLINGS_LAMP);
+
+        control_lamps[cab_idx][LAMP_EDB_BLINDS_OPEN] = getLampState(cab_idx, static_cast<double>(is_edb_blinds_open));
     }
 }

@@ -58,6 +58,8 @@ void TEP70::initialization()
     initOther(modules_dir, custom_cfg_dir);
 
     initControl(modules_dir, custom_cfg_dir);
+
+    initElectrodynamicBrake(modules_dir, custom_cfg_dir);
 /*
     reg = new Registrator(0.1);
     reg->setFileName("tep70-char");

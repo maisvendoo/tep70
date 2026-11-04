@@ -24,6 +24,11 @@ public:
         this->is_open = is_open;
     }
 
+    float getState() const
+    {
+        return static_cast<float>(getY(0));
+    }
+
 private:
 
     /// Максимальный темп открытия и закрытия створок
