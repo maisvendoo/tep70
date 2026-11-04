@@ -5,4 +5,15 @@
 		<Duration>10.0</Duration>
 		<EmissionColor>1.0 0.8 0.4</EmissionColor>
 	</MaterialAnimation>
+
+	<KeyPoint>
+		<Param>0.0</Param>
+		<Value>0.3</Value>
+	</KeyPoint>	
+
+	<KeyPoint>
+		<Param>1.0</Param>
+		<Value>0.5</Value>
+	</KeyPoint>
+
 </Config>
