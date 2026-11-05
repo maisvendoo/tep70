@@ -58,7 +58,7 @@ public:
     bool isZero() const { return ms_position == MS_ZERO; }
 
     /// Контакт всех ненулявых позиций
-    bool isNoZero() const { return ms_position != MS_ZERO; }
+    bool isNoZero() const { return ms_position > MS_ZERO; }
 
     /// Контакт позиций выше 1-й
     bool isMoreFirst() const {return ms_position > 1; }

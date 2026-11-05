@@ -915,6 +915,7 @@ private:
     enum
     {
         RU27_FOR_RU24_ON,
+        RU27_TRACTION_ALLOW,
         NUM_RU27_CONTACTS
     };
 
@@ -954,6 +955,15 @@ private:
         RU25_KVG_POWER,
         RU25_FOR_RU21_ON,
         NUM_RU25_CONTACTS
+    };
+
+    /// Реле времени РВ2
+    TimeRelay *rv2 = nullptr;
+
+    enum
+    {
+        RV2_KP_ON_OFF,
+        NUM_RV2_CONTACTS
     };
 
     float cab_light_signal[CABS_NUM] = {0.0f, 0.0f};

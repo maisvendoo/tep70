@@ -14,27 +14,41 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     bool is_KMT_ON2 = brake_crane[CAB2]->getPositionName() != "VI";
 
     // Цепь реле РУ9 - контроль сбора тяги от ЭПК (В будущем добавить другие блокировки)
-    bool is_RU9_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K8) &&
+    bool is_RU9_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
                       ( (is_KMT_ON1 && (!epk[CAB1]->getEmergencyBrakeContact())) || shunting_tumbler.getState());
 
-    bool is_RU9_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K16) &&
+    bool is_RU9_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) &&
                       ( (is_KMT_ON2 && (!epk[CAB2]->getEmergencyBrakeContact())) || shunting_tumbler.getState());
 
     ru9->setVoltage(Ucc * static_cast<double>(is_RU9_ON1 || is_RU9_ON2));
     ru9->step(t, dt);
 
-    // Состояние провода 819
-    bool is_819_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
+    // Цепь провода 708: КБ1, контакт 33 КМ (поз >= 1) и параллельные контакты кнопки "Маневр",
+    // АЗВ "Управление тепловозом", контакты УБТ, ключ ЭПК и параллельные контакты
+    // тублера "Шунтировка ЭПКА"
+    bool is_708_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
                       (km[CAB1]->isNoZero() || button_maneuver[CAB1].getState()) &&
-                      brake_lock[CAB1]->isStateOn() &&
-                      (epk[CAB1]->isKeyOn() || shunting_tumbler.getState()) &&
-                      azv_upr_tepl[CAB1].getState();
+                      azv_upr_tepl[CAB1].getState() &&
+                      (epk[CAB1]->isKey() || shunting_tumbler.getState()) &&
+                      brake_lock[CAB1]->isStateOn();
 
-    bool is_819_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) &&
-                      (km[CAB2]->isNoZero() || button_maneuver[CAB2].getState()) &&
-                      brake_lock[CAB2]->isStateOn() &&
-                      (epk[CAB2]->isKeyOn() || shunting_tumbler.getState()) &&
-                      azv_upr_tepl[CAB2].getState();
+    bool is_708_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) &&
+                      (km[CAB2]->isNoZero() || button_maneuver[CAB1].getState()) &&
+                      azv_upr_tepl[CAB2].getState() &&
+                      (epk[CAB2]->isKey() || shunting_tumbler.getState()) &&
+                      brake_lock[CAB2]->isStateOn();
+
+    bool is_708_ON = is_708_ON1 || is_708_ON2;
+
+    // Цепь провода 709: Провод 708, контакты замыкающие РУ9
+    bool is_709_ON = is_708_ON && ru9->getContactState(RU9_EPK_CTRL);
+
+    // Цепь провода 727: провод 709,
+    // контакты замыкающие РУ9, контакты реверсора вперед или назад.
+    bool is_727_ON = is_709_ON && (is_Revers_Forward || is_Revers_Backward);
+
+    // Состояние провода 819: на одной клемме с проводом 709
+    is_819_ON = is_709_ON;
 
     // Цепь катушки реле РУ3 - контроль температуры дизеля
     bool is_Water_overheat = disel->getWaterTemp() >= disel->getWaterTempAlarm();
@@ -44,10 +58,16 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     bool is_RU3_ON = (is_Revers_Forward || is_Revers_Backward) &&
                      (is_Water_overheat || is_Oil_overheat);
 
-    // Цепь блокировок тяги
-    bool is_Traction_allowed = ru9->getContactState(RU9_EPK_CTRL) && // от ЭПК
-                               ru3->getContactState(RU3_TRACTION_ALLOW) && // по температуре
-                               is_DP_closed; // по дверям ВВК
+    // Цепь провода 777: провод 727, контакт "Тяга" тормозного переключателя,
+    // размыкающий контакт тормозного контактора КТ, размыкающий контакт РУ27,
+    // размыкающий контакт РУ3, концевики дверей ВВК, параллельные контаты КВВ, РУ4, РУ25
+    bool is_777_ON = is_727_ON &&
+                     brake_switcher->isTraction() &&
+                     kt->getContactState(KT_TRACTION_ALLOW) &&
+                     ru27->getContactState(RU27_TRACTION_ALLOW) &&
+                     ru3->getContactState(RU3_TRACTION_ALLOW) &&
+                     is_DP_closed &&
+                     (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVG_POWER) || ru25->getContactState(RU25_KVG_POWER));
 
     ru3->setVoltage(Ucc * static_cast<double>(is_RU3_ON));
     ru3->step(t, dt);
@@ -56,10 +76,17 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     is_DP_closed = (!control_inputs[CABS_NUM][CTRL_VVK_DOOR].toBool()) &&
                    (!control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool());
 
-    is_819_ON = is_819_ON1 || is_819_ON2;    
+    // Цепь реле времени РВ2: провод 777
+    // Данное реле отключает КП с выдержкой времени 0,8 с, чтобы успели
+    // отключиться контакторы КВВ и КВГ, и не загорелась дуга на силовых контактах КП
+    rv2->setControlVoltage(Ucc * static_cast<double>(is_777_ON));
+    rv2->step(t, dt);
 
-    // Состояние цепи поездных контакторов
-    is_KP_on = is_819_ON && brake_switcher->isTraction() && is_Traction_allowed;
+    // Цепь провода 800: плюс от автоматов АВ4 "Топливный насос"
+    bool is_800_ON = is_AB4_CAB1_on || is_AB4_CAB2_on;
+
+    // Состояние цепи поездных контакторов (КП): плюс от автоматов АВ4, замыкающие контакты РВ2
+    is_KP_on = is_800_ON && rv2->getContactState(RV2_KP_ON_OFF);
 
     tracForce = 0;
 
@@ -119,10 +146,7 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     ru4->step(t, dt);
 
     // Состояние цепи контактора возбуждения генератора
-    is_KVG_on = is_Traction_allowed && is_KP1_KP6_on &&
-                (kvv->getContactState(KVV_SELF_POWER) ||
-                 ru4->getContactState(RU4_KVG_POWER) ||
-                 ru25->getContactState(RU25_KVG_POWER));
+    is_KVG_on = is_777_ON && is_KP1_KP6_on;
 
     kvg->setVoltage(Ucc * static_cast<double>(is_KVG_on));
     kvg->step(t, dt);
@@ -158,18 +182,26 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     field_reg->setGenCurrent(I_gen);
 
     // Имитируем переключение питания с КМ по кабинам, в цепях, связанных с регулировкой мощности
+    int km_pos_ref = static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) * pf(km[CAB1]->getPositionNumber())) +
+                     static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) * pf(km[CAB2]->getPositionNumber()));
 
     int km_pos = 0;
 
     if (button_maneuver[CAB1].getState() || button_maneuver[CAB2].getState())
     {
         // При нажатой кнопке "Маневр" мощность не выше 1-й позиции
-        km_pos = static_cast<int>(km[CAB1]->isZero() && km[CAB2]->isZero());
+        if (km[CAB1]->isZero() && km[CAB2]->isZero())
+        {
+            km_pos = 1;
+        }
+        else
+        {
+            km_pos = km_pos_ref;
+        }
     }
     else
     {
-        km_pos = static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) * pf(km[CAB1]->getPositionNumber())) +
-                 static_cast<double>(KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) * pf(km[CAB2]->getPositionNumber()));
+        km_pos = km_pos_ref;
     }
 
     field_reg->setKMPosition(km_pos);

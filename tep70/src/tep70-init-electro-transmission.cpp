@@ -91,5 +91,10 @@ void TEP70::initElectroTransmission(const QString &modules_dir, const QString &c
     ksh1_delay->setInitContactState(0, true);
 
     ru9->read_config("mk-6", custom_cfg_dir);
-    ru9->setInitContactState(RU9_EPK_CTRL, false);           
+    ru9->setInitContactState(RU9_EPK_CTRL, false);
+
+    rv2 = new TimeRelay(NUM_RV2_CONTACTS);
+    rv2->read_config("rpu-3m", custom_cfg_dir);
+    rv2->setTimeoutOff(0.8);
+    rv2->setInitContactState(RV2_KP_ON_OFF, false);
 }
