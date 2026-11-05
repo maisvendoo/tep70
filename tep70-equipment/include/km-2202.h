@@ -13,6 +13,48 @@
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
+enum : std::int8_t
+{
+    MS_EDB_0kmh,
+    MS_EDB_20kmh,
+    MS_EDB_30kmh,
+    MS_EDB_40kmh,
+    MS_EDB_60kmh,
+    MS_EDB_80kmh,
+    MS_EDB_100kmh,
+    MS_EDB_PREPARE,
+    MS_POS_0,
+    MS_POS_1,
+    MS_POS_2,
+    MS_POS_3,
+    MS_POS_4,
+    MS_POS_5,
+    MS_POS_6,
+    MS_POS_7,
+    MS_POS_8,
+    MS_POS_9,
+    MS_POS_10,
+    MS_POS_11,
+    MS_POS_12,
+    MS_POS_13,
+    MS_POS_14,
+    MS_POS_15,
+    NUM_KM_POSITIONS
+};
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+enum : std::int8_t
+{
+    RS_FORWARD = 1,
+    RS_ZERO = 0,
+    RS_BACKWARD = -1
+};
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 class ControllerKM2202 : public Device
 {
 public:
@@ -49,22 +91,22 @@ public:
     void setPosition(std::int8_t pos);
 
     /// Вернуть текущую позицию штурвала
-    std::int8_t getPositionNumber() const { return ms_position; }
+    std::int8_t getPositionNumber() const { return pf(ms_position - MS_POS_0); }
 
     /// Вернуть положение главного вала
     float getMainShaftPos() const;
 
     /// Контакт нулевой позиции
-    bool isZero() const { return ms_position == MS_ZERO; }
+    bool isZero() const { return ms_position == MS_POS_0; }
 
     /// Контакт всех ненулявых позиций
-    bool isNoZero() const { return ms_position > MS_ZERO; }
+    bool isNoZero() const { return ms_position > MS_POS_0; }
 
     /// Контакт позиций выше 1-й
-    bool isMoreFirst() const {return ms_position > 1; }
+    bool isMoreFirst() const {return ms_position > MS_POS_1; }
 
     /// Контакт позиций выше 12
-    bool is12orMore() const {return ms_position >= 12; }
+    bool is12orMore() const {return ms_position >= MS_POS_12; }
 
     /// Контакты в положении "Подготовка ЭДТ" (П)
     bool isPrepareEDB() const {return ms_position == MS_EDB_PREPARE; }
@@ -73,7 +115,7 @@ public:
     bool isEDB() const { return ms_position <= MS_EDB_PREPARE; }
 
     /// Получить заданную частоту вращения коленчатого вала дизеля
-    double getRefFreq() const { return n_ref[pf(ms_position)]; }
+    double getRefFreq() const { return n_ref[getPositionNumber()]; }
 
     enum
     {
@@ -91,28 +133,27 @@ public:
     /// Сигнал состояния звука
     float getSoundSignal(size_t idx = REVERS_SHAFT) const override;
 
-private:
+private:    
 
-    enum : std::int8_t
+    enum
     {
-        MS_EDB_0kmh = -8,
-        MS_EDB_20kmh = -7,
-        MS_EDB_30kmh = -6,
-        MS_EDB_40kmh = -5,
-        MS_EDB_60kmh = -4,
-        MS_EDB_80kmh = -3,
-        MS_EDB_100kmh = -2,
-        MS_EDB_PREPARE = -1,
-        MS_ZERO = 0,
-        MS_MAX_POSITION = 15
+        KM_33,
+        KM_34,
+        KM_35,
+        KM_22,
+        KM_38,
+        KM_24,
+        KM_37,
+        KM_36,
+        KM_23,
+        KM_20,
+        KM_21,
+        NUM_KM_CONTACTS
     };
 
-    enum : std::int8_t
-    {
-        RS_FORWARD = 1,
-        RS_ZERO = 0,
-        RS_BACKWARD = -1
-    };
+    using ms_contact_t = std::array<bool, NUM_KM_POSITIONS>;
+
+    ms_contact_t ms_contacts[NUM_KM_CONTACTS];
 
     double  ms_delay = 0.2;
 
@@ -134,7 +175,7 @@ private:
     std::int8_t rs_dir = 0;
 
     /// Положение главного вала
-    std::int8_t ms_position = MS_ZERO;
+    std::int8_t ms_position = MS_POS_0;
 
     /// Направление вращения главного вала
     std::int8_t ms_dir = 0;

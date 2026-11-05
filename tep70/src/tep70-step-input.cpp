@@ -248,7 +248,7 @@ void TEP70::stepControls(double t, double dt)
             initClientInputSignal(cab_idx, CTRL_REVERS_POSITION,
                                   km[cab_idx]->getReversHandlePos());
             initClientInputSignal(cab_idx, CTRL_KM_MAIN_POSITION,
-                                  km[cab_idx]->getPositionNumber());
+                                  km[cab_idx]->getMainShaftPos());
         }
         else
         {

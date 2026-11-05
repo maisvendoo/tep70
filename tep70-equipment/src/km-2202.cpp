@@ -12,6 +12,147 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     revers_shaft_timer.firstProcess(true);
     connect(&revers_shaft_timer, &Timer::process,
             this, &ControllerKM2202::slotRotateReversShaft);
+
+    for (auto &ms_contact : ms_contacts)
+    {
+        std::fill(ms_contact.begin(), ms_contact.end(), true);
+    }
+
+    ms_contacts[KM_33][MS_POS_0] = false;
+    ms_contacts[KM_33][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_33][MS_EDB_100kmh] = false;
+    ms_contacts[KM_33][MS_EDB_80kmh] = false;
+    ms_contacts[KM_33][MS_EDB_60kmh] = false;
+    ms_contacts[KM_33][MS_EDB_40kmh] = false;
+    ms_contacts[KM_33][MS_EDB_30kmh] = false;
+    ms_contacts[KM_33][MS_EDB_20kmh] = false;
+    ms_contacts[KM_33][MS_EDB_0kmh] = false;
+
+    ms_contacts[KM_34][MS_POS_0] = false;
+    ms_contacts[KM_34][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_34][MS_EDB_100kmh] = false;
+    ms_contacts[KM_34][MS_EDB_80kmh] = false;
+    ms_contacts[KM_34][MS_EDB_60kmh] = false;
+    ms_contacts[KM_34][MS_EDB_40kmh] = false;
+    ms_contacts[KM_34][MS_EDB_30kmh] = false;
+    ms_contacts[KM_34][MS_EDB_20kmh] = false;
+    ms_contacts[KM_34][MS_EDB_0kmh] = false;
+
+    ms_contacts[KM_35][MS_POS_0] = false;
+    ms_contacts[KM_35][MS_POS_1] = false;
+    ms_contacts[KM_35][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_35][MS_EDB_100kmh] = false;
+    ms_contacts[KM_35][MS_EDB_80kmh] = false;
+    ms_contacts[KM_35][MS_EDB_60kmh] = false;
+    ms_contacts[KM_35][MS_EDB_40kmh] = false;
+    ms_contacts[KM_35][MS_EDB_30kmh] = false;
+    ms_contacts[KM_35][MS_EDB_20kmh] = false;
+    ms_contacts[KM_35][MS_EDB_0kmh] = false;
+
+    ms_contacts[KM_22][MS_POS_0] = false;
+    ms_contacts[KM_22][MS_POS_1] = false;
+    ms_contacts[KM_22][MS_POS_2] = false;
+    ms_contacts[KM_22][MS_POS_3] = false;
+    ms_contacts[KM_22][MS_POS_4] = false;
+    ms_contacts[KM_22][MS_POS_5] = false;
+    ms_contacts[KM_22][MS_POS_6] = false;
+    ms_contacts[KM_22][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_22][MS_EDB_100kmh] = false;
+    ms_contacts[KM_22][MS_EDB_80kmh] = false;
+    ms_contacts[KM_22][MS_EDB_60kmh] = false;
+    ms_contacts[KM_22][MS_EDB_40kmh] = false;
+    ms_contacts[KM_22][MS_EDB_30kmh] = false;
+    ms_contacts[KM_22][MS_EDB_20kmh] = false;
+    ms_contacts[KM_22][MS_EDB_0kmh] = false;
+
+    ms_contacts[KM_38][MS_POS_0] = false;
+    ms_contacts[KM_38][MS_POS_1] = false;
+    ms_contacts[KM_38][MS_POS_2] = false;
+    ms_contacts[KM_38][MS_POS_3] = false;
+    ms_contacts[KM_38][MS_POS_4] = false;
+    ms_contacts[KM_38][MS_POS_5] = false;
+    ms_contacts[KM_38][MS_POS_6] = false;
+    ms_contacts[KM_38][MS_POS_7] = false;
+    ms_contacts[KM_38][MS_POS_8] = false;
+    ms_contacts[KM_38][MS_POS_9] = false;
+    ms_contacts[KM_38][MS_POS_10] = false;
+    ms_contacts[KM_38][MS_POS_11] = false;
+    ms_contacts[KM_38][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_38][MS_EDB_100kmh] = false;
+    ms_contacts[KM_38][MS_EDB_80kmh] = false;
+    ms_contacts[KM_38][MS_EDB_60kmh] = false;
+    ms_contacts[KM_38][MS_EDB_40kmh] = false;
+    ms_contacts[KM_38][MS_EDB_30kmh] = false;
+    ms_contacts[KM_38][MS_EDB_20kmh] = false;
+    ms_contacts[KM_38][MS_EDB_0kmh] = false;
+
+    ms_contacts[KM_24][MS_POS_0] = false;
+    ms_contacts[KM_24][MS_POS_1] = false;
+    ms_contacts[KM_24][MS_POS_4] = false;
+    ms_contacts[KM_24][MS_POS_5] = false;
+    ms_contacts[KM_24][MS_POS_8] = false;
+    ms_contacts[KM_24][MS_POS_9] = false;
+    ms_contacts[KM_24][MS_POS_12] = false;
+    ms_contacts[KM_24][MS_POS_13] = false;
+    ms_contacts[KM_24][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_24][MS_EDB_100kmh] = false;
+    ms_contacts[KM_24][MS_EDB_40kmh] = false;
+    ms_contacts[KM_24][MS_EDB_30kmh] = false;
+
+    ms_contacts[KM_37][MS_POS_0] = false;
+    ms_contacts[KM_37][MS_POS_1] = false;
+    ms_contacts[KM_37][MS_POS_2] = false;
+    ms_contacts[KM_37][MS_POS_3] = false;
+    ms_contacts[KM_37][MS_POS_8] = false;
+    ms_contacts[KM_37][MS_POS_9] = false;
+    ms_contacts[KM_37][MS_POS_10] = false;
+    ms_contacts[KM_37][MS_POS_11] = false;
+    ms_contacts[KM_37][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_37][MS_EDB_100kmh] = false;
+    ms_contacts[KM_37][MS_EDB_80kmh] = false;
+    ms_contacts[KM_37][MS_EDB_60kmh] = false;
+
+    ms_contacts[KM_36][MS_POS_0] = false;
+    ms_contacts[KM_36][MS_POS_1] = false;
+    ms_contacts[KM_36][MS_POS_2] = false;
+    ms_contacts[KM_36][MS_POS_3] = false;
+    ms_contacts[KM_36][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_36][MS_EDB_100kmh] = false;
+    ms_contacts[KM_36][MS_EDB_80kmh] = false;
+    ms_contacts[KM_36][MS_EDB_60kmh] = false;
+    ms_contacts[KM_36][MS_EDB_40kmh] = false;
+    ms_contacts[KM_36][MS_EDB_30kmh] = false;
+    ms_contacts[KM_36][MS_EDB_20kmh] = false;
+    ms_contacts[KM_36][MS_EDB_0kmh] = false;
+
+    ms_contacts[KM_23][MS_POS_0] = false;
+    ms_contacts[KM_23][MS_POS_1] = false;
+    ms_contacts[KM_23][MS_POS_2] = false;
+    ms_contacts[KM_23][MS_POS_3] = false;
+    ms_contacts[KM_23][MS_POS_4] = false;
+    ms_contacts[KM_23][MS_POS_5] = false;
+    ms_contacts[KM_23][MS_POS_6] = false;
+    ms_contacts[KM_23][MS_POS_7] = false;
+    ms_contacts[KM_23][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_23][MS_EDB_100kmh] = false;
+    ms_contacts[KM_23][MS_EDB_80kmh] = false;
+    ms_contacts[KM_23][MS_EDB_60kmh] = false;
+    ms_contacts[KM_23][MS_EDB_40kmh] = false;
+    ms_contacts[KM_23][MS_EDB_30kmh] = false;
+    ms_contacts[KM_23][MS_EDB_20kmh] = false;
+    ms_contacts[KM_23][MS_EDB_0kmh] = false;
+
+    ms_contacts[KM_20][MS_POS_3] = false;
+    ms_contacts[KM_20][MS_POS_5] = false;
+    ms_contacts[KM_20][MS_POS_7] = false;
+    ms_contacts[KM_20][MS_POS_9] = false;
+    ms_contacts[KM_20][MS_POS_11] = false;
+    ms_contacts[KM_20][MS_POS_13] = false;
+    ms_contacts[KM_20][MS_POS_15] = false;
+    ms_contacts[KM_20][MS_EDB_PREPARE] = false;
+    ms_contacts[KM_20][MS_EDB_60kmh] = false;
+    ms_contacts[KM_20][MS_EDB_30kmh] = false;
+    ms_contacts[KM_20][MS_EDB_0kmh] = false;
 }
 
 //------------------------------------------------------------------------------
@@ -77,7 +218,7 @@ void ControllerKM2202::setReversHandlePos(int8_t pos)
 {
     if (isReversHandle())
     {
-        if (ms_position == MS_ZERO)
+        if (ms_position == MS_POS_0)
         {
             // Задаём новое положение реверсивной рукоятки
             pos = std::clamp(pos, static_cast<std::int8_t>(RS_BACKWARD), static_cast<std::int8_t>(RS_FORWARD));
@@ -122,11 +263,11 @@ void ControllerKM2202::setPosition(std::int8_t pos)
     if (rs_position == RS_ZERO)
     {
         // Блокировка поворота штурвала при нулевом положении реверсивки
-        pos = MS_ZERO;
+        pos = MS_POS_0;
     }
     else
     {
-        pos = std::clamp(pos, static_cast<std::int8_t>(MS_EDB_0kmh), static_cast<std::int8_t>(MS_MAX_POSITION));
+        pos = std::clamp(pos, static_cast<std::int8_t>(MS_EDB_0kmh), static_cast<std::int8_t>(MS_POS_15));
     }
 
 

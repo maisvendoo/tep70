@@ -4,16 +4,8 @@
 #include    <tep70-controls.h>
 #include    <core/get_module.h>
 #include    <switcher-handler.h>
+#include    <km-2202.h>
 
-// Константы положений реверсора и штурвала КМ-2202
-// (соответствуют одноимённым enum в km-2202.h)
-enum
-{
-    MS_ZERO = 0,
-    RS_FORWARD = 1,
-    RS_ZERO = 0,
-    RS_BACKWARD = -1
-};
 
 //------------------------------------------------------------------------------
 //
@@ -104,7 +96,7 @@ void TEP70IOController::lockReversHandle(int cab_idx)
 
     int main_pos = main_handle[cab_idx]->getSignalValue();
 
-    if (main_pos != MS_ZERO)
+    if (main_pos != MS_POS_0)
     {
         int revers_pos = revers_handle[cab_idx]->getSignalValue();
         revers_handle[cab_idx]->setValueIfChanged(revers_pos);
@@ -120,7 +112,7 @@ void TEP70IOController::lockMainHandle(int cab_idx)
 
     if (revers_pos == RS_ZERO)
     {
-        main_handle[cab_idx]->setValueIfChanged(MS_ZERO);
+        main_handle[cab_idx]->setValueIfChanged(MS_POS_0);
     }
 }
 

@@ -7,27 +7,27 @@
 	</AnalogRotation>	
 
 	<KeyPoint>
-		<Param>-8</Param>
+		<Param>0</Param>
 		<Value>-120.0</Value>
 	</KeyPoint>
 
 	<KeyPoint>
-		<Param>-2</Param>
+		<Param>6</Param>
 		<Value>-30.0</Value>
 	</KeyPoint>
 
 	<KeyPoint>
-		<Param>-1</Param>
+		<Param>7</Param>
 		<Value>-14.0</Value>
 	</KeyPoint>
 
 	<KeyPoint>
-		<Param>0</Param>
+		<Param>8</Param>
 		<Value>0.0</Value>
 	</KeyPoint>
 
 	<KeyPoint>
-		<Param>15</Param>
+		<Param>23</Param>
 		<Value>225.0</Value>
 	</KeyPoint>
 
