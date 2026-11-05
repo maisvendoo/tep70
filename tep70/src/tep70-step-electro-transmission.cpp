@@ -76,10 +76,12 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     is_DP_closed = (!control_inputs[CABS_NUM][CTRL_VVK_DOOR].toBool()) &&
                    (!control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool());
 
-    // Цепь реле времени РВ2: провод 777
+    // Цепь реле времени РВ2: в тяге - провод 777;
+    bool is_RV2_ON = is_777_ON;
+
     // Данное реле отключает КП с выдержкой времени 0,8 с, чтобы успели
     // отключиться контакторы КВВ и КВГ, и не загорелась дуга на силовых контактах КП
-    rv2->setControlVoltage(Ucc * static_cast<double>(is_777_ON));
+    rv2->setControlVoltage(Ucc * static_cast<double>(is_RV2_ON));
     rv2->step(t, dt);
 
     // Цепь провода 800: плюс от автоматов АВ4 "Топливный насос"

@@ -966,6 +966,15 @@ private:
         NUM_RV2_CONTACTS
     };
 
+    /// Реле времени РВ8
+    TimeRelay *rv8 = nullptr;
+
+    enum
+    {
+        RV8_KP7_ON_OFF,
+        NUM_RV8_CONTACTS
+    };
+
     float cab_light_signal[CABS_NUM] = {0.0f, 0.0f};
 
     float gauges_light_signal[CABS_NUM] = {0.0f, 0.0f};

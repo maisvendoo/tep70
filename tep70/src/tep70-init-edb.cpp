@@ -50,4 +50,9 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     ru21->read_config("mk-6", custom_cfg_dir);
     ru21->setInitContactState(RU21_TRAC_ON, true);
     ru21->setInitContactState(RU21_BRAKE_ON, false);
+
+    rv8 = new TimeRelay(NUM_RV8_CONTACTS);
+    rv8->read_config("rpu-3m", custom_cfg_dir);
+    rv8->setTimeoutOff(1.5);
+    rv8->setInitContactState(RV8_KP7_ON_OFF, false);
 }
