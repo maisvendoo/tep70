@@ -77,16 +77,16 @@ void Disel::setStarterTorque(double M_sg)
 //------------------------------------------------------------------------------
 double Disel::calcFreq(double reg_pos)
 {
-    double freq = neutral_freq + freq_step * reg_pos;
+    double freq = freq_neutral + freq_step * reg_pos;
 
-    if (freq < neutral_freq)
+    if (freq < freq_neutral)
     {
-        freq = freq0;
+        freq = freq_idle;
     }
 
-    if (freq > max_freq)
+    if (freq > freq_max)
     {
-        freq = max_freq;
+        freq = freq_max;
     }
 
     return freq;
@@ -242,6 +242,11 @@ void Disel::load_config(CfgReader &cfg)
         QString param = QString("K%1").arg(i);
         cfg.getDouble(secName, param, K[i]);
     }
+
+    cfg.getDouble(secName, "FreqNeutral", freq_neutral);
+    cfg.getDouble(secName, "FreqIdle", freq_idle);
+    cfg.getDouble(secName, "FreqStep", freq_step);
+    cfg.getDouble(secName, "FreqMax", freq_max);
 
     secName = "Thermodynamics";
     cfg.getDouble(secName, "C_water_hot", C_water_hot);

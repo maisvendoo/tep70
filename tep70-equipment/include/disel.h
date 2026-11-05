@@ -222,16 +222,16 @@ private:
     double reg_pos = 0;
 
     /// Частота вращения дизеля при нейтральной позиции регулятора
-    double neutral_freq = 515.0;
+    double freq_neutral = 515.0;
 
     /// Частота холостых оборотов
-    double freq0 = 350.0;
+    double freq_idle = 350.0;
 
     /// Шаг изменения частоты
     double freq_step = 35.0;
 
     /// Максимальные обороты дизеля
-    double max_freq = 1000.0;
+    double freq_max = 1000.0;
 
     /// Вычисление частоты вращения по положению регулятора
     double calcFreq(double reg_pos);
@@ -253,11 +253,13 @@ private:
 
     std::array<sound_state_t, MAX_POS + 2> sound_states;
 
-    void preStep(state_vector_t &Y, double t);
+    void preStep(state_vector_t &Y, double t) override;
 
-    void ode_system(const state_vector_t &Y, state_vector_t &dYdt, double t);
+    void ode_system(const state_vector_t &Y,
+                    state_vector_t &dYdt,
+                    double t) override;
 
-    void load_config(CfgReader &cfg);
+    void load_config(CfgReader &cfg) override;
 
     void switchDiselSound(double n_ref_prev, double n_ref);
 

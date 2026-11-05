@@ -26,7 +26,13 @@
 
         <K6>2.8</K6>
 
+        <FreqNeutral>515</FreqNeutral>
+        <FreqIdle>350</FreqIdle>
+        <FreqStep>35</FreqStep>
+        <FreqMax>1000</FreqMax>
+
     </Device>
+
     <Thermodynamics>
         <C_water_hot>400.0</C_water_hot>
         <C_water_cold>300.0</C_water_cold>
@@ -45,4 +51,5 @@
         <WaterTempAlarm>103.0</WaterTempAlarm>
         <OilTempAlarm>85.0</OilTempAlarm>
     </Thermodynamics>
+
 </Config>
