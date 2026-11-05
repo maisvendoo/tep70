@@ -975,6 +975,42 @@ private:
         NUM_RV8_CONTACTS
     };
 
+    /// Реле РУ22
+    Relay *ru22 = nullptr;
+
+    enum
+    {
+        RU22_MP1_OFF,
+        RU22_MP1_ON,
+        RU22_MP2_OFF,
+        RU22_MP3_OFF,
+        RU22_MP3_ON,
+        RU22_MP4_OFF,
+        RU22_MP4_ON,
+        NUM_RU22_CONTACTS
+    };
+
+    enum
+    {
+        MP1,
+        MP2,
+        MP3,
+        MP4,
+        NUM_MP
+    };
+
+    /// Блок-контакты управления честотой вращения дизеля
+    Relay *mp[NUM_MP] = { nullptr };
+
+    enum
+    {
+        MP_STATE,
+        NUM_MP_STATES
+    };
+
+    /// Веса блок-контактов при перемещении регулятора оборотов
+    int mp_weight[NUM_MP] = {2, 4, 8, -1};
+
     float cab_light_signal[CABS_NUM] = {0.0f, 0.0f};
 
     float gauges_light_signal[CABS_NUM] = {0.0f, 0.0f};

@@ -27,15 +27,15 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     // АЗВ "Управление тепловозом", контакты УБТ, ключ ЭПК и параллельные контакты
     // тублера "Шунтировка ЭПКА"
     bool is_708_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
-                      (km[CAB1]->isNoZero() || button_maneuver[CAB1].getState()) &&
+                      (km[CAB1]->isContact(KM_33) || button_maneuver[CAB1].getState()) &&
                       azv_upr_tepl[CAB1].getState() &&
-                      (epk[CAB1]->isKey() || shunting_tumbler.getState()) &&
+                      (epk[CAB1]->isKeyOn() || shunting_tumbler.getState()) &&
                       brake_lock[CAB1]->isStateOn();
 
     bool is_708_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) &&
-                      (km[CAB2]->isNoZero() || button_maneuver[CAB1].getState()) &&
+                      (km[CAB2]->isContact(KM_33) || button_maneuver[CAB1].getState()) &&
                       azv_upr_tepl[CAB2].getState() &&
-                      (epk[CAB2]->isKey() || shunting_tumbler.getState()) &&
+                      (epk[CAB2]->isKeyOn() || shunting_tumbler.getState()) &&
                       brake_lock[CAB2]->isStateOn();
 
     bool is_708_ON = is_708_ON1 || is_708_ON2;
@@ -136,11 +136,11 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     // самопитания КВВ, позволяя собрать схему тяги ТОЛЬКО на первой позиии
     bool is_RU4_ON1 = KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) &&
                       azv_upr_tepl[CAB1].getState() &&
-                      km[CAB1]->isMoreFirst();
+                      km[CAB1]->isContact(KM_35);
 
     bool is_RU4_ON2 = KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) &&
                       azv_upr_tepl[CAB2].getState() &&
-                      km[CAB2]->isMoreFirst();
+                      km[CAB1]->isContact(KM_35);
 
     bool is_RU4_ON = is_RU4_ON1 || is_RU4_ON2;
 

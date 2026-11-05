@@ -5,6 +5,37 @@
 //------------------------------------------------------------------------------
 void TEP70::stepDisel(const double& t, const double& dt)
 {
+    auto getWireState = [this](int km_contact) -> bool {
+
+        bool state = (KB1_switch->getContactState(KB1_CONTACT_CAB1_K6) && km[CAB1]->isContact(km_contact)) ||
+                     (KB1_switch->getContactState(KB1_CONTACT_CAB2_K14) && km[CAB2]->isContact(km_contact));
+
+        return state;
+    };
+
+    // Управление блок-контактами регулятора частоты от КМ
+    bool is_MP_ON[NUM_MP] = { false };
+
+    is_MP_ON[MP1] = getWireState(KM_24) && ru22->getContactState(RU22_MP1_OFF);
+
+    is_MP_ON[MP2] = getWireState(KM_37) && ru22->getContactState(RU22_MP2_OFF);
+
+    is_MP_ON[MP3] = getWireState(KM_23) && ru22->getContactState(RU22_MP3_OFF);
+
+    is_MP_ON[MP4] = getWireState(KM_20) && ru22->getContactState(RU22_MP4_OFF);
+
+    // Определяем положение регулятора
+    int reg_pos = 0;
+
+    for (auto i = 0; i < NUM_MP; ++i)
+    {
+        mp[i]->setVoltage(Ucc * static_cast<double>(is_MP_ON[i]));
+
+        reg_pos += static_cast<int>(mp[i]->getContactState(MP_STATE)) * mp_weight[i];
+
+        mp[i]->step(t, dt);
+    }
+
     disel->setQ_emn(electro_oil_pump->getOilFlow());
     disel->setStarterTorque(starter_generator->getTorque());
     disel->setFGTorque(field_gen->getTorque());

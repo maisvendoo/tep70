@@ -55,4 +55,14 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     rv8->read_config("rpu-3m", custom_cfg_dir);
     rv8->setTimeoutOff(1.5);
     rv8->setInitContactState(RV8_KP7_ON_OFF, false);
+
+    ru22 = new Relay(NUM_RU22_CONTACTS);
+    ru22->read_config("mk-6", custom_cfg_dir);
+    ru22->setInitContactState(RU22_MP1_OFF, true);
+    ru22->setInitContactState(RU22_MP1_ON, false);
+    ru22->setInitContactState(RU22_MP2_OFF, true);
+    ru22->setInitContactState(RU22_MP3_OFF, true);
+    ru22->setInitContactState(RU22_MP3_ON, false);
+    ru22->setInitContactState(RU22_MP4_OFF, true);
+    ru22->setInitContactState(RU22_MP4_ON, false);
 }

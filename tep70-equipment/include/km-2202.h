@@ -45,6 +45,25 @@ enum : std::int8_t
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
+enum
+{
+    KM_33,
+    KM_34,
+    KM_35,
+    KM_22,
+    KM_38,
+    KM_24,
+    KM_37,
+    KM_36,
+    KM_23,
+    KM_20,
+    KM_21,
+    NUM_KM_CONTACTS
+};
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 enum : std::int8_t
 {
     RS_FORWARD = 1,
@@ -117,6 +136,9 @@ public:
     /// Получить заданную частоту вращения коленчатого вала дизеля
     double getRefFreq() const { return n_ref[getPositionNumber()]; }
 
+    /// Получит состояние контакта
+    bool isContact(int contact) const;
+
     enum
     {
         REVERS_SHAFT,
@@ -133,23 +155,7 @@ public:
     /// Сигнал состояния звука
     float getSoundSignal(size_t idx = REVERS_SHAFT) const override;
 
-private:    
-
-    enum
-    {
-        KM_33,
-        KM_34,
-        KM_35,
-        KM_22,
-        KM_38,
-        KM_24,
-        KM_37,
-        KM_36,
-        KM_23,
-        KM_20,
-        KM_21,
-        NUM_KM_CONTACTS
-    };
+private:
 
     using ms_contact_t = std::array<bool, NUM_KM_POSITIONS>;
 

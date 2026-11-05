@@ -293,6 +293,19 @@ float ControllerKM2202::getMainShaftPos() const
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
+bool ControllerKM2202::isContact(int contact) const
+{
+    if (contact >= NUM_KM_CONTACTS)
+    {
+        return false;
+    }
+
+    return ms_contacts[contact][getMainShaftPos()];
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 sound_state_t ControllerKM2202::getSoundState(size_t idx) const
 {
     if (idx < NUM_SOUNDS)
