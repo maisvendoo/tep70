@@ -75,9 +75,32 @@ void Disel::setStarterTorque(double M_sg)
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
+double Disel::calcFreq(double reg_pos)
+{
+    double freq = neutral_freq + freq_step * reg_pos;
+
+    if (freq < neutral_freq)
+    {
+        freq = freq0;
+    }
+
+    if (freq > max_freq)
+    {
+        freq = max_freq;
+    }
+
+    return freq;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
 void Disel::preStep(state_vector_t &Y, double t)
 {
     Q_UNUSED(t)
+
+    // Заданная частота вращения определяется положением регулятора
+    setRefFreq(calcFreq(reg_pos));
 
     if (!is_fuel_ignition)
     {

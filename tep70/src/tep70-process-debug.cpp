@@ -225,4 +225,6 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                     .arg(fan_cold->getY(0), 5, 'f', 3)
                     .arg(control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool())
                     .arg(is_DP_closed).arg(is_819_ON).arg(is_KP_on).arg(is_KVG_on).arg(is_KVV_on);
+
+    DebugMsg += QString("|Частота вращения дизеля: %1 об/мин").arg(disel->getShaftFreq(), 6, 'f', 1);
 }

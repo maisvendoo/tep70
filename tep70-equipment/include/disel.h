@@ -35,14 +35,7 @@ public:
     void setVTNstate(bool state_vtn) { this->state_vtn = state_vtn; }
 
     /// Задать давление топлива перед ТНВД
-    void setFuelPressure(double fuel_pressure) { this->fuel_pressure = fuel_pressure; }
-
-    /// Задать чатоту вращения коленчатого вала
-    void setRefFreq(double n_ref)
-    {
-        this->n_ref_prev = this->n_ref;
-        this->n_ref = n_ref;
-    }
+    void setFuelPressure(double fuel_pressure) { this->fuel_pressure = fuel_pressure; }    
 
     /// Задать уровень топлива бака
     void setFuelLevel(double fuel_level)
@@ -99,6 +92,11 @@ public:
 
     /// Порог перегрева масла
     double getOilTempAlarm() const { return oil_temp_alarm; }
+
+    void setRegulatorPosition(double reg_pos)
+    {
+        this->reg_pos = reg_pos;
+    }
 
 private:
 
@@ -220,6 +218,30 @@ private:
     bool blinds_oil_open = false;
     double Q_cool_hot = 0.0;
     double Q_cool_cold = 0.0;
+
+    double reg_pos = 0;
+
+    /// Частота вращения дизеля при нейтральной позиции регулятора
+    double neutral_freq = 515.0;
+
+    /// Частота холостых оборотов
+    double freq0 = 350.0;
+
+    /// Шаг изменения частоты
+    double freq_step = 35.0;
+
+    /// Максимальные обороты дизеля
+    double max_freq = 1000.0;
+
+    /// Вычисление частоты вращения по положению регулятора
+    double calcFreq(double reg_pos);
+
+    /// Задать чатоту вращения коленчатого вала
+    void setRefFreq(double n_ref)
+    {
+        this->n_ref_prev = this->n_ref;
+        this->n_ref = n_ref;
+    }
 
     enum
     {

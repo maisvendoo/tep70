@@ -25,7 +25,7 @@ void TEP70::stepDisel(const double& t, const double& dt)
     is_MP_ON[MP4] = getWireState(KM_20) && ru22->getContactState(RU22_MP4_OFF);
 
     // Определяем положение регулятора
-    int reg_pos = 0;
+    double reg_pos = 0.0;
 
     for (auto i = 0; i < NUM_MP; ++i)
     {
@@ -43,7 +43,8 @@ void TEP70::stepDisel(const double& t, const double& dt)
     disel->setFuelPressure(electro_fuel_pump->getFuelPressure());
     disel->setMV6state(mv6->getContactState(0));
     disel->setVTNstate(vtn->getContactState(0));
-    disel->setRefFreq(max(km[CAB1]->getRefFreq(), km[CAB2]->getRefFreq())); // ??????
+    //disel->setRefFreq(max(km[CAB1]->getRefFreq(), km[CAB2]->getRefFreq())); // ??????
+    disel->setRegulatorPosition(reg_pos);
     disel->setFuelLevel(fuel_tank->getFuelLevel());
     disel->step(t, dt);
 
