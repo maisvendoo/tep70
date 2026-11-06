@@ -86,6 +86,10 @@ void TractionMotor::preStep(state_vector_t &Y, double t)
         }
     case -1:
         {
+
+            M = Y[0] * cPhi(Y[1] * revers_state) * eff_coef.getValue(qAbs(Y[0]));
+            Y[0] = is_ancor_Rb_ON * Y[0];
+
             break;
         }
 
@@ -125,6 +129,11 @@ void TractionMotor::ode_system(const state_vector_t &Y,
 
     case -1:
         {
+            double R = Ra + Rb;
+
+            dYdt[0] = is_ancor_Rb_ON * (-Y[0] * R - cPhi(Y[1] * revers_state) * omega) / Ta / Ra;
+
+            dYdt[1] = (Uf - (Rf + Rd) * Y[1]) / Tf / Rf;
 
             break;
         }
@@ -152,6 +161,7 @@ void TractionMotor::load_config(CfgReader &cfg)
     cfg.getDouble(secName, "Ra", Ra);
     cfg.getDouble(secName, "Rf", Rf);
     cfg.getDouble(secName, "Rd", Rd);
+    cfg.getDouble(secName, "Rb", Rb);
     cfg.getDouble(secName, "Ta", Ta);
     cfg.getDouble(secName, "Tf", Tf);
     cfg.getDouble(secName, "Imax", Imax);

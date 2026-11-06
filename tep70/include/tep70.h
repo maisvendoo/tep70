@@ -697,6 +697,26 @@ private:
     /// Поездные контакторы
     std::array<Relay*, NUM_MOTORS + 1> kp = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 
+    enum
+    {
+        KP1,
+        KP2,
+        KP3,
+        KP4,
+        KP5,
+        KP6,
+        KP7,
+        NUM_KP
+    };
+
+    enum
+    {
+        KP_POWER_ON,
+        KP_OFF,
+        KP_ON,
+        NUM_KP_CONTACTS
+    };
+
     /// Ограничения скорости на путевой инфраструктуре для кабины А
     SpeedMap*           speedmap_fwd = nullptr;
     /// Ограничения скорости на путевой инфраструктуре для кабины Б
@@ -1027,6 +1047,18 @@ private:
 
     /// Блок управления электрическим тормозом (БЭТ)
     ControlUnitEDB *edb_control_unit = nullptr;
+
+    /// Вспомогательный тормозной контактор КТ1
+    Relay *kt1 = nullptr;
+
+    enum
+    {
+        KT1_FOR_KP7_ON,
+        KT1_TRACTION_ALLOW,
+        NUM_KT1_CONTACTS
+    };
+
+    bool is_777_ON = false;
 
     /// Веса блок-контактов при перемещении регулятора оборотов
     double mp_weight[NUM_MP] = {2, 3.97, 7.91, -1};

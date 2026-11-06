@@ -14,9 +14,29 @@ public:
 
     ~TractionMotor();
 
-    void setAncorVoltage(double Ua) { this->Ua = Ua; }
+    void setAncorVoltage(double Ua)
+    {
+        if (mode >= 0)
+        {
+            this->Ua = Ua;
+        }
+        else
+        {
+            this->Ua = 0.0;
+        }
+    }
 
-    void setFieldVoltage(double Uf) { this->Uf = Uf; }
+    void setFieldVoltage(double Uf)
+    {
+        if (mode < 0)
+        {
+            this->Uf = Uf;
+        }
+        else
+        {
+            this->Uf = 0.0;
+        }
+    }
 
     double getAncorCurrent() const { return getY(0); }
 
@@ -24,7 +44,8 @@ public:
 
     double getTorque() const { return M; }
 
-    void setMode(bool is_motor) { this->mode = is_motor; }
+    /// Режим розбуждения: 1 - последовательное, -1 - независимое
+    void setMode(int mode) { this->mode = mode; }
 
     void setOmega(double omega) { this->omega = omega; }
 
@@ -39,6 +60,18 @@ public:
     void setFieldWeak(double beta) { this->beta = beta; }
 
     void setReversSate(int revers_state) { this->revers_state = revers_state; }
+
+    void setBrakeResistorON(bool is_KP_ON)
+    {
+        if (mode < 0)
+        {
+            is_ancor_Rb_ON = static_cast<double>(is_KP_ON);
+        }
+        else
+        {
+            is_ancor_Rb_ON = 0.0;
+        }
+    }
 
 private:
 
@@ -86,6 +119,12 @@ private:
     bool is_crashed;
 
     double  E;
+
+    /// Сопротивление индивидуального тормозного резистора в цепи якоря
+    double Rb = 0.7;
+
+    /// Замыкание цепи якоря на тормозной резистор
+    double is_ancor_Rb_ON = 0.0;
 
     /// Характеристика намагничивания
     LinearInterpolation   magnetic_char;

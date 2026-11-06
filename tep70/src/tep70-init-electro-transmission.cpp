@@ -40,11 +40,11 @@ void TEP70::initElectroTransmission(const QString &modules_dir, const QString &c
         motor[i]->load_magnetic_char(custom_cfg_dir + QDir::separator() + "ed-119.txt");
         motor[i]->load_eff_coeff(custom_cfg_dir + QDir::separator() + "ed-119-eff_coeff.txt");
 
-        kp[i] = new Relay(3);
+        kp[i] = new Relay(NUM_KP_CONTACTS);
         kp[i]->read_config("mk-6", custom_cfg_dir);
-        kp[i]->setInitContactState(0, false);
-        kp[i]->setInitContactState(1, true);
-        kp[i]->setInitContactState(2, false);
+        kp[i]->setInitContactState(KP_POWER_ON, false);
+        kp[i]->setInitContactState(KP_OFF, true);
+        kp[i]->setInitContactState(KP_ON, false);
     }
 
     kp[6] = new Relay(3);

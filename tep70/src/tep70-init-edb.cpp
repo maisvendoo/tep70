@@ -75,4 +75,9 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
 
     edb_control_unit = new ControlUnitEDB;
     edb_control_unit->read_config("edb-control-unit", custom_cfg_dir);
+
+    kt1 = new Relay(NUM_KT1_CONTACTS);
+    kt1->read_config("mk-6", custom_cfg_dir);
+    kt1->setInitContactState(KT1_FOR_KP7_ON, false);
+    kt1->setInitContactState(KT1_TRACTION_ALLOW, true);
 }

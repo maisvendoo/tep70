@@ -116,4 +116,17 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     ru32->setVoltage(Ucc * static_cast<double>(is_RU32_ON));
     ru32->step(t, dt);
+
+    // Цепь провода 810: провод 777б замыкающий контакт реле РВ8
+    bool is_810_ON = is_777_ON && rv8->getContactState(RV8_KP7_ON_OFF);
+
+    // Катушка контактора КТ1 получает питание от провода 810
+    kt1->setVoltage(Ucc * static_cast<double>(is_810_ON));
+    kt1->step(t, dt);
+
+    // Цепь катушки поездного контактора КП7: провод 810, замыкающий контакт КТ1
+    bool is_KP7_ON = is_810_ON && kt1->getContactState(KT1_FOR_KP7_ON);
+
+    kp[KP7]->setVoltage(Ucc * static_cast<double>(is_KP7_ON));
+    kp[KP7]->step(t, dt);
 }

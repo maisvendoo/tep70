@@ -78,13 +78,13 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     // размыкающий контакт тормозного контактора КТ, размыкающий контакт РУ27,
     // размыкающий контакт РУ3, концевики дверей ВВК, параллельные контаты КВВ, РУ4, РУ25
     // При ЭДТ питание получается через провод 737, в обход блокировок тяги
-    bool is_777_ON = ((is_727_ON &&
-                       brake_switcher->isTraction() &&
-                       kt->getContactState(KT_TRACTION_ALLOW) &&
-                       ru27->getContactState(RU27_TRACTION_ALLOW)) || is_737_ON) &&
-                     ru3->getContactState(RU3_TRACTION_ALLOW) &&
-                     is_DP_closed &&
-                     (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVG_POWER) || ru25->getContactState(RU25_KVG_POWER));
+    is_777_ON = ((is_727_ON &&
+                   brake_switcher->isTraction() &&
+                   kt->getContactState(KT_TRACTION_ALLOW) &&
+                   ru27->getContactState(RU27_TRACTION_ALLOW)) || is_737_ON) &&
+                 ru3->getContactState(RU3_TRACTION_ALLOW) &&
+                 is_DP_closed &&
+                 (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVG_POWER) || ru25->getContactState(RU25_KVG_POWER));
 
     ru3->setVoltage(Ucc * static_cast<double>(is_RU3_ON));
     ru3->step(t, dt);
@@ -120,7 +120,16 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
         kp[i]->setVoltage(Ucc * static_cast<double>(is_KP_on) * static_cast<double>(tumbler_om[i].getState()));
         kp[i]->step(t, dt);
 
-        motor[i]->setAncorVoltage(trac_gen->getVoltage() * static_cast<double>(kp[i]->getContactState(0)));
+        // Двигательный режим: напряжение на якорь подается с ВУ главного генератора
+        motor[i]->setAncorVoltage(trac_gen->getVoltage() * static_cast<double>(kp[i]->getContactState(KP_POWER_ON)));
+
+        // Генераторный режим: напряжение ВУ главного генератора подается на
+        // последовательно соединенные обмотки возбуждения
+        motor[i]->setFieldVoltage(trac_gen->getVoltage() * kp[KP7]->getContactState(KP_POWER_ON) / NUM_MOTORS);
+        // Якорь замыкается на индивидуальный тормозной резистор
+        motor[i]->setBrakeResistorON(kp[i]->getContactState(KP_POWER_ON));
+
+        // Угловая скорость вала она и в Африке угловая скорость вала, в любом режиме
         motor[i]->setOmega(ip * wheel_omega[i]);
 
         // Ослабление возбуждения
@@ -131,7 +140,8 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
         motor[i]->setReversSate(reversor->getSatate());
 
-        motor[i]->setMode(brake_switcher->getState() * static_cast<int>(kp[i]->getContactState(0)));
+        // Режим возбуждения: 1 - последовательное (тяга), -1 - независимое (ЭДТ)
+        motor[i]->setMode(brake_switcher->getState() * static_cast<int>(kp[i]->getContactState(KP_POWER_ON)));
 
         motor[i]->step(t, dt);
 
@@ -139,13 +149,13 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
         tracForce += Q_a[i+1] * 2 / wheel_diameter[i];
 
-        I_gen += motor[i]->getAncorCurrent() * static_cast<double>(kp[i]->getContactState(0));
+        I_gen += motor[i]->getAncorCurrent() * static_cast<double>(kp[i]->getContactState(KP_POWER_ON));
 
-        is_KP1_KP7_off = is_KP1_KP7_off && kp[i]->getContactState(1);
-        is_KP1_KP6_on = is_KP1_KP6_on && (kp[i]->getContactState(2) || (!tumbler_om[i].getState()));
+        is_KP1_KP7_off = is_KP1_KP7_off && kp[i]->getContactState(KP_OFF);
+        is_KP1_KP6_on = is_KP1_KP6_on && (kp[i]->getContactState(KP_ON) || (!tumbler_om[i].getState()));
     }
 
-    is_KP1_KP7_off = is_KP1_KP7_off && kp[6]->getContactState(1);
+    is_KP1_KP7_off = is_KP1_KP7_off && kp[KP7]->getContactState(KP_OFF);
 
     // Цепь РУ4 - сбор тяги на 1-й позиции контроллера.
     // Катушка реле получает питание через блокировки от КМ на любой его позиции,
@@ -302,7 +312,7 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
                        ((is_KP1_KP7_off && ru21->getContactState(RU21_BRAKE_ON)) ||
                         (brake_switcher->isBrake() && ru21->getContactState(RU21_BRAKE_ON)));
 
-    brake_switcher->setTracValeState(is_TRAC_on && kt->getContactState(KT_TRACTION_ALLOW));
+    brake_switcher->setTracValeState(is_TRAC_on && kt1->getContactState(KT1_TRACTION_ALLOW));
     brake_switcher->setBrakeValveState(is_BRAKE_on);
     brake_switcher->step(t, dt);
 }
