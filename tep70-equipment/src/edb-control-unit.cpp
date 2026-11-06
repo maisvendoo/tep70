@@ -21,7 +21,15 @@ ControlUnitEDB::~ControlUnitEDB()
 //------------------------------------------------------------------------------
 void ControlUnitEDB::preStep(state_vector_t &Y, double t)
 {
+    is_power = Ucc > 50.0;
 
+    if (!is_power)
+    {
+        If_ref = 0.0;
+        return;
+    }
+
+    If_ref = 1000.0;
 }
 
 //------------------------------------------------------------------------------

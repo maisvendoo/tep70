@@ -21,7 +21,12 @@ public:
 
     bool isPowered() const
     {
-        return Ucc > 50.0;
+        return is_power;
+    }
+
+    double getRefCurrent() const
+    {
+        return If_ref;
     }
 
 private:
@@ -29,6 +34,9 @@ private:
     double Ucc = 0.0;
 
     bool is_power = false;
+
+    /// Заданный ток возбуждения ТЭД
+    double If_ref = 0.0;
 
     void preStep(state_vector_t &Y, double t) override;
 

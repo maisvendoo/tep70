@@ -25,6 +25,8 @@ FieldRegulator::FieldRegulator(QObject *parent) : Device(parent)
   , u(0.0)
   , T1(0.2)
   , is_active(false)
+  , is_EDB(false)
+  , I_ref(0.0)
 {
     std::fill(K.begin(), K.end(), 0.0);
 }
@@ -75,16 +77,9 @@ void FieldRegulator::load_settings(QString file_path)
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void FieldRegulator::preStep(state_vector_t &Y, double t)
+double FieldRegulator::tractionControl(state_vector_t &Y)
 {
-    Q_UNUSED(t)
-
-    if (!is_active)
-    {
-        Y[0] = 0;
-        u = 0;
-        return;
-    }
+    double u = 0.0;
 
     // Уставки
     double I_max = reg_settings[km_pos].I_max;
@@ -133,6 +128,51 @@ void FieldRegulator::preStep(state_vector_t &Y, double t)
 
     u = cut(s1, 0.0, u_max);
 
+    return u;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+double FieldRegulator::brakeControl(state_vector_t &Y)
+{
+    double u = 0.0;
+
+    dI = I_ref - I;
+
+    Y[0] = cut(Y[0], 0.0, 1.0);
+
+    u = cut(K[6] * dI + Y[0], 0.0, 1.0);
+
+    return u;
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void FieldRegulator::preStep(state_vector_t &Y, double t)
+{
+    Q_UNUSED(t)
+
+    if (!is_active)
+    {
+        Y[0] = 0;
+        u = 0;
+        dI = 0.0;
+        dU = 0.0;
+        dP = 0.0;
+        return;
+    }
+
+    if (is_EDB)
+    {
+        u = brakeControl(Y);
+    }
+    else
+    {
+        u = tractionControl(Y);
+    }
+
     Uf = u * U_fg;
 }
 
@@ -144,9 +184,22 @@ void FieldRegulator::ode_system(const state_vector_t &Y, state_vector_t &dYdt, d
     Q_UNUSED(Y)
     Q_UNUSED(t)
 
-    dYdt[0] = K[1] * dI;
-    dYdt[1] = K[3] * dP;
-    dYdt[2] = K[5] * dU;
+    if (!is_active)
+    {
+        dYdt[0] = dYdt[1] = dYdt[2] = 0.0;
+        return;
+    }
+
+    if (is_EDB)
+    {
+        dYdt[0] = K[7] * dI;
+    }
+    else
+    {
+        dYdt[0] = K[1] * dI;
+        dYdt[1] = K[3] * dP;
+        dYdt[2] = K[5] * dU;
+    }
 }
 
 //------------------------------------------------------------------------------

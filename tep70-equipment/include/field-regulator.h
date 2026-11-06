@@ -33,6 +33,10 @@ public:
 
     void setActive(bool is_active) { this->is_active = is_active; }
 
+    void setStateEDB(bool is_EDB) { this->is_EDB = is_EDB; }
+
+    void setCurrentRefEDB(double I_ref) { this->I_ref = I_ref; }
+
 private:
 
     /// Структура для хранения уставок регулятора на определенной позиции
@@ -106,9 +110,13 @@ private:
 
     bool    is_active;
 
+    bool    is_EDB;
+
+    double  I_ref;
+
     enum
     {
-        NUM_COEFS = 6
+        NUM_COEFS = 10
     };
 
     std::array<double, NUM_COEFS>   K;
@@ -126,6 +134,12 @@ private:
     double getRefPower(double omega);
 
     reg_settings_t findPoint(double omega, reg_settings_t &next_point);
+
+    /// Регулировка возбуждения в режиме тяги
+    double tractionControl(state_vector_t &Y);
+
+    /// Регулировка возбуждение в режиме ЭДТ
+    double brakeControl(state_vector_t &Y);
 };
 
 #endif // FIELD_REGULATOR_H

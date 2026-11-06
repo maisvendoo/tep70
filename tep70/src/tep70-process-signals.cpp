@@ -81,7 +81,7 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
         // Циферблаты на пульте машиниста
         analogSignal[CAB1_STRELKA_GEN_CURRENT + d] = static_cast<float>(I_gen / 10000.0);
-        analogSignal[CAB1_STRELKA_REOSTATE_CURRENT + d] = 0.0f;
+        analogSignal[CAB1_STRELKA_REOSTATE_CURRENT + d] = (qAbs(motor[KP1]->getAncorCurrent()) / 1000.0f) * static_cast<float>(brake_switcher->isBrake());
         analogSignal[CAB1_STRELKA_REF_SPEED + d] = 0.0f;
 
         analogSignal[CAB1_PRESSURE_BC1 + d] = static_cast<float>(brake_mech[TROLLEY_FWD]->getBCpressure() / 1.0);

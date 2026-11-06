@@ -149,11 +149,17 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
         tracForce += Q_a[i+1] * 2 / wheel_diameter[i];
 
+        // В режиме тяги ток через генератор и ВУ - сумма токов, протекающих через якори ТЭД
         I_gen += motor[i]->getAncorCurrent() * static_cast<double>(kp[i]->getContactState(KP_POWER_ON));
 
         is_KP1_KP7_off = is_KP1_KP7_off && kp[i]->getContactState(KP_OFF);
         is_KP1_KP6_on = is_KP1_KP6_on && (kp[i]->getContactState(KP_ON) || (!tumbler_om[i].getState()));
     }
+
+    // В режиме ЭДТ через генератор и ВУ потребляется ток последовательно соединенных обмоток возбуждения
+    // ТЭД. Причем схема ЭДТ не соберется даже при одном неработающем ТЭД, так что учитываем ток
+    // лишь одного двигателя, например первого
+    I_gen += motor[KP1]->getFieldCurrent() * static_cast<double>(kp[KP7]->getContactState(KP_POWER_ON));
 
     is_KP1_KP7_off = is_KP1_KP7_off && kp[KP7]->getContactState(KP_OFF);
 
@@ -204,7 +210,12 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     trac_gen->setOmega(disel->getOmega());
     trac_gen->step(t, dt);
 
+    // Активация блока управления возбуждением главного генератора
     field_reg->setActive(kvg->getContactState(KVG_FIELD_REG_ON) && ru24->getContactState(RU24_FIELD_REG_ON));
+    // Признак электрического торможения
+    field_reg->setStateEDB(ru28->getContactState(RU28_FOR_LS5_ON));
+    // Ток задаваемый в режиме ЭДТ
+    field_reg->setCurrentRefEDB(edb_control_unit->getRefCurrent());
     field_reg->setFGVoltage(field_gen->getVoltage());
     field_reg->setOmega(disel->getOmega());
     field_reg->setGenVoltage(trac_gen->getVoltage());
