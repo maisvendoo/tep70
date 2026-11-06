@@ -524,6 +524,15 @@ private:
     /// Контактор возбуждения генератора (КВГ)
     Relay*              kvg = nullptr;
 
+    enum
+    {
+        KVG_TRAC_GEN_FIELD_ON,
+        KVG_VTN_OFF,
+        KVG_FIELD_REG_ON,
+        KVG_FOR_RU28_ON,
+        NUM_KVG_CONTACTS
+    };
+
     /// Главный (тяговый) генератор
     TracGenerator*      trac_gen = nullptr;
 
@@ -1079,7 +1088,18 @@ private:
     enum
     {
         RU28_FOR_RV12_OFF,
+        RU28_FOR_RU25_ON,
+        RU28_FOR_LS5_ON,
         NUM_RU28_CONTACTS
+    };
+
+    /// Реле РУ29
+    Relay *ru29 = nullptr;
+
+    enum
+    {
+        RU29_FOR_RU28_OFF,
+        NUM_RU29_CONTACTS
     };
 
     /// Веса блок-контактов при перемещении регулятора оборотов
@@ -1121,6 +1141,7 @@ private:
         LAMP_EDT_BLINDS_OPEN_2,
         LAMP_RESERVED_FUEL_PUMP,
         LAMP_EDB_BLINDS_OPEN,
+        LAMP_EDB_READY,
         NUM_LAMPS
     };
 

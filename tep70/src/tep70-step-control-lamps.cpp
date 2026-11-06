@@ -47,6 +47,12 @@ void TEP70::stepControlLamps(const double &t, const double &dt)
 
         bool is_edb_blinds_open = ru37->getContactState(RU37_EDB_BLINGS_LAMP);
 
+        // Лампа ЛС6 "Жалюзи ЭДТ открыты"
         control_lamps[cab_idx][LAMP_EDB_BLINDS_OPEN] = getLampState(cab_idx, static_cast<double>(is_edb_blinds_open));
+
+        bool is_edb_ready = ru28->getContactState(RU28_FOR_LS5_ON);
+
+        // Лампа ЛС5 "Тормоз электрический"
+        control_lamps[cab_idx][LAMP_EDB_READY] = getLampState(cab_idx, static_cast<double>(is_edb_ready));
     }
 }

@@ -197,14 +197,14 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     field_gen->step(t, dt);
 
     // Состояние цепи возбуждения главного генератора
-    bool is_TGF_on = kvg->getContactState(0);
+    bool is_TGF_on = kvg->getContactState(KVG_TRAC_GEN_FIELD_ON);
 
     trac_gen->setFieldVoltage(field_reg->getFieldVoltage() * static_cast<double>(is_TGF_on));
     trac_gen->setLoadCurrent(I_gen);
     trac_gen->setOmega(disel->getOmega());
     trac_gen->step(t, dt);
 
-    field_reg->setActive(kvg->getContactState(2) && ru24->getContactState(RU24_FIELD_REG_ON));
+    field_reg->setActive(kvg->getContactState(KVG_FIELD_REG_ON) && ru24->getContactState(RU24_FIELD_REG_ON));
     field_reg->setFGVoltage(field_gen->getVoltage());
     field_reg->setOmega(disel->getOmega());
     field_reg->setGenVoltage(trac_gen->getVoltage());

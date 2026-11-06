@@ -18,11 +18,12 @@ void TEP70::initElectroTransmission(const QString &modules_dir, const QString &c
     kvv->setInitContactState(KVV_CONTACT_POWER_RESET, true);
     kvv->setInitContactState(KVV_SELF_POWER, false);
 
-    kvg = new Relay(3);
+    kvg = new Relay(NUM_KVG_CONTACTS);
     kvg->read_config("mk-6", custom_cfg_dir);
-    kvg->setInitContactState(0, false);
-    kvg->setInitContactState(1, true);
-    kvg->setInitContactState(2, false);
+    kvg->setInitContactState(KVG_TRAC_GEN_FIELD_ON, false);
+    kvg->setInitContactState(KVG_VTN_OFF, true);
+    kvg->setInitContactState(KVG_FIELD_REG_ON, false);
+    kvg->setInitContactState(KVG_FOR_RU28_ON, false);
 
     trac_gen = new TracGenerator();
     trac_gen->read_config("trac-generator", custom_cfg_dir);

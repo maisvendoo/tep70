@@ -67,10 +67,10 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     kt->setVoltage(Ucc * static_cast<double>(is_KT_ON));
     kt->step(t, dt);
 
-    // Цепь реле РУ25: провод 1315, параллельные контакты РУ24 и РУ26, размыкающий контакт РУ23,
+    // Цепь реле РУ25: провод 1315, параллельные контакты РУ24, РУ26, РУ28, размыкающий контакт РУ23,
     // размыкающий контакт РУ20
     bool is_RU25_ON = is_1315_ON &&
-                     (ru24->getContactState(RU24_FOR_RU25_ON) || ru26->getContactState(RU26_FOR_RU25_ON)) &&
+                      (ru24->getContactState(RU24_FOR_RU25_ON) || ru26->getContactState(RU26_FOR_RU25_ON) || ru28->getContactState(RU28_FOR_RU25_ON)) &&
                      ru23->getContactState(RU23_FOR_RU25_ON) &&
                      ru20->getContactState(RU20_FOR_RU25_ON);
 
@@ -140,9 +140,19 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     rv12->setControlVoltage(Ucc * static_cast<double>(is_RV12_ON));
     rv12->step(t, dt);
 
-    // Цепь катушки реле РУ28
-    bool is_RU28_ON = false;
+    // Цепь катушки реле РУ28: плюс АКБ (!!!), замыкающие контакты КВГ,
+    // размыкающие контакты реле РУ29, замыкающий контакт КП7
+    bool is_RU28_ON = kvg->getContactState(KVG_FOR_RU28_ON) &&
+                      ru29->getContactState(RU29_FOR_RU28_OFF) &&
+                      kp[KP7]->getContactState(KP_ON);
 
-    ru28->setVoltage(Ucc * static_cast<double>(is_RU28_ON));
+    // Данное реле завершает сбор силовой цепи схемы ЭДТ
+    ru28->setVoltage(U_bat * static_cast<double>(is_RU28_ON));
     ru28->step(t, dt);
+
+    // Цепь катушки реле РУ29
+    bool is_RU29_ON = false;
+
+    ru29->setVoltage(Ucc * static_cast<double>(is_RU29_ON));
+    ru29->step(t, dt);
 }
