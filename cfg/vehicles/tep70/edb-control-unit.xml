@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
 	<Device>
-		
+		<Vmax>160.0</Vmax>
+		<If_max>800.0</If_max>
+		<Ia_max>825.0</Ia_max>
 	</Device>
 </Config>

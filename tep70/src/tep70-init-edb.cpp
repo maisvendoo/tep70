@@ -70,6 +70,10 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     ru22->setInitContactState(RU22_MP2_ON, false);
     ru22->setInitContactState(RU22_MP3_ON, false);
     ru22->setInitContactState(RU22_MP4_ON, false);
+    ru22->setInitContactState(RU22_MP1_OFF, true);
+    ru22->setInitContactState(RU22_MP2_OFF, true);
+    ru22->setInitContactState(RU22_MP3_OFF, true);
+    ru22->setInitContactState(RU22_MP4_OFF, true);
     ru22->setInitContactState(RU22_FOR_RV12_ON, false);
 
     ru32 = new Relay(NUM_RU32_CONTACTS);

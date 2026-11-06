@@ -109,6 +109,7 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     bool is_EBCU_ON = kt->getContactState(KT_EBCU_ON);
 
     edb_control_unit->setPowerVoltage(Ucc * static_cast<double>(is_EBCU_ON));
+    edb_control_unit->setCurrentVelocity(wheel_omega[KP1] * wheel_diameter[KP1] / 2.0);
     edb_control_unit->step(t, dt);
 
     // Цепь реле РУ32: контроль питания БЭТ

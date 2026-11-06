@@ -29,6 +29,11 @@ public:
         return If_ref;
     }
 
+    void setCurrentVelocity(double v)
+    {
+        Vkmh = qAbs(v) * Physics::kmh;
+    }
+
 private:
 
     double Ucc = 0.0;
@@ -37,6 +42,21 @@ private:
 
     /// Заданный ток возбуждения ТЭД
     double If_ref = 0.0;
+
+    double Vmax = 160.0;
+
+    double Ia_max = 825.0;
+
+    double If_max = 800.0;
+
+    double Vkmh = 0.0;
+
+    enum
+    {
+        NUM_COEFS = 10
+    };
+
+    std::array<double, NUM_COEFS>   K;
 
     void preStep(state_vector_t &Y, double t) override;
 

@@ -29,7 +29,7 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
         return;
     }
 
-    If_ref = 1000.0;
+
 }
 
 //------------------------------------------------------------------------------
@@ -47,5 +47,15 @@ void ControlUnitEDB::ode_system(const state_vector_t &Y,
 //------------------------------------------------------------------------------
 void ControlUnitEDB::load_config(CfgReader &cfg)
 {
+    QString secName = "Device";
 
+    cfg.getDouble(secName, "Vmax", Vmax);
+    cfg.getDouble(secName, "If_max", If_max);
+    cfg.getDouble(secName, "Ia_max", Ia_max);
+
+    for (size_t i = 0; i < K.size(); ++i)
+    {
+        QString param = QString("K%1").arg(i);
+        cfg.getDouble(secName, param, K[i]);
+    }
 }
