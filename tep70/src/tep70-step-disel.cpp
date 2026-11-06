@@ -13,16 +13,20 @@ void TEP70::stepDisel(const double& t, const double& dt)
         return state;
     };
 
+    bool is_AB2_ON = is_AB2_CAB1_on || is_AB2_CAB2_on;
+
     // Управление блок-контактами регулятора частоты от КМ
     bool is_MP_ON[NUM_MP] = { false };
 
-    is_MP_ON[MP1] = getWireState(KM_24);
+    is_MP_ON[MP1] = getWireState(KM_24) || (is_AB2_ON && ru22->getContactState(RU22_MP1_ON));
 
     is_MP_ON[MP2] = getWireState(KM_37);
 
     is_MP_ON[MP3] = getWireState(KM_23);
 
-    is_MP_ON[MP4] = getWireState(KM_20);
+    is_MP_ON[MP4] = getWireState(KM_20) ||
+                    (is_AB2_ON && ru24->getContactState(RU24_FOR_MP4_ON)) ||
+                    (is_AB2_ON && ru22->getContactState(RU22_MP4_ON));
 
     // Определяем положение регулятора
     double reg_pos = 0.0;

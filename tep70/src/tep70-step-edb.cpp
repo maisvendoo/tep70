@@ -90,8 +90,8 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     ru21->setVoltage(Ucc * static_cast<double>(is_RU21_ON));
     ru21->step(t, dt);
 
-    // Цепь реле РУ22
-    bool is_RU22_ON = false;
+    // Цепь реле РУ22: провод катушки реле РУ21, размыкающий контакт РУ24
+    bool is_RU22_ON = is_RU21_ON && ru24->getContactState(RU24_FOR_RU22_ON);
 
     ru22->setVoltage(Ucc * static_cast<double>(is_RU22_ON));
     ru22->step(t, dt);

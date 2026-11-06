@@ -28,6 +28,8 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     ru24->read_config("mk-6", custom_cfg_dir);
     ru24->setInitContactState(RU24_FIELD_REG_ON, true);
     ru24->setInitContactState(RU24_FOR_RU25_ON, false);
+    ru24->setInitContactState(RU24_FOR_RU22_ON, true);
+    ru24->setInitContactState(RU24_FOR_MP4_ON, false);
 
     ru23 = new Relay(NUM_RU23_CONTACTS);
     ru23->read_config("mk-6", custom_cfg_dir);

@@ -954,6 +954,8 @@ private:
     {
         RU24_FIELD_REG_ON,
         RU24_FOR_RU25_ON,
+        RU24_FOR_RU22_ON,
+        RU24_FOR_MP4_ON,
         NUM_RU24_CONTACTS
     };
 
