@@ -70,6 +70,7 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     ru22->setInitContactState(RU22_MP2_ON, false);
     ru22->setInitContactState(RU22_MP3_ON, false);
     ru22->setInitContactState(RU22_MP4_ON, false);
+    ru22->setInitContactState(RU22_FOR_RV12_ON, false);
 
     ru32 = new Relay(NUM_RU32_CONTACTS);
     ru32->read_config("mk-6", custom_cfg_dir);
@@ -82,4 +83,14 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     kt1->read_config("mk-6", custom_cfg_dir);
     kt1->setInitContactState(KT1_FOR_KP7_ON, false);
     kt1->setInitContactState(KT1_TRACTION_ALLOW, true);
+
+    rv12 = new TimeRelay(NUM_RV12_CONTACTS);
+    rv12->read_config("rpu-3m", custom_cfg_dir);
+    rv12->setTimeoutOn(300.0);
+    rv12->setInitContactState(RV12_MP2_ON, false);
+    rv12->setInitContactState(RV12_MP3_ON, false);
+
+    ru28 = new Relay(NUM_RU28_CONTACTS);
+    ru28->read_config("mk-6", custom_cfg_dir);
+    ru28->setInitContactState(RU28_FOR_RV12_OFF, true);
 }

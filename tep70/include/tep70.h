@@ -1014,6 +1014,7 @@ private:
         RU22_MP2_ON,
         RU22_MP3_ON,
         RU22_MP4_ON,
+        RU22_FOR_RV12_ON,
         NUM_RU22_CONTACTS
     };
 
@@ -1061,6 +1062,25 @@ private:
     };
 
     bool is_777_ON = false;
+
+    /// Реле времени РВ12 увеличения оборотов дизеля при ЭДТ
+    TimeRelay *rv12 = nullptr;
+
+    enum
+    {
+        RV12_MP2_ON,
+        RV12_MP3_ON,
+        NUM_RV12_CONTACTS
+    };
+
+    /// Реле РУ28
+    Relay *ru28 = nullptr;
+
+    enum
+    {
+        RU28_FOR_RV12_OFF,
+        NUM_RU28_CONTACTS
+    };
 
     /// Веса блок-контактов при перемещении регулятора оборотов
     double mp_weight[NUM_MP] = {2, 3.97, 7.91, -1};

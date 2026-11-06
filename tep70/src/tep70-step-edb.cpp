@@ -129,4 +129,22 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     kp[KP7]->setVoltage(Ucc * static_cast<double>(is_KP7_ON));
     kp[KP7]->step(t, dt);
+
+    // Цепь катушки РВ12: провод 1315, размыкающие контакты РУ28,
+    // замыкающие контакты РУ22
+    bool is_RV12_ON = is_1315_ON &&
+                      ru28->getContactState(RU28_FOR_RV12_OFF) &&
+                      ru22->getContactState(RU22_FOR_RV12_ON);
+
+    // Данное реле активируется при включении РУ22 на тормозных позициях КМ,
+    // и через 5 минут непрерывного ЭДТ включает блок-магниты МР1 и МР3,
+    // для увеличения оборотов дизеля, соответствующий 14 позиции
+    rv12->setControlVoltage(Ucc * static_cast<double>(is_RV12_ON));
+    rv12->step(t, dt);
+
+    // Цепь катушки реле РУ28
+    bool is_RU28_ON = false;
+
+    ru28->setVoltage(Ucc * static_cast<double>(is_RU28_ON));
+    ru28->step(t, dt);
 }
