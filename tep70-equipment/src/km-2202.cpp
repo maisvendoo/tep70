@@ -149,7 +149,6 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     ms_contacts[KM_20][MS_POS_11] = false;
     ms_contacts[KM_20][MS_POS_13] = false;
     ms_contacts[KM_20][MS_POS_15] = false;
-    ms_contacts[KM_20][MS_EDB_PREPARE] = false;
     ms_contacts[KM_20][MS_EDB_60kmh] = false;
     ms_contacts[KM_20][MS_EDB_30kmh] = false;
     ms_contacts[KM_20][MS_EDB_0kmh] = false;

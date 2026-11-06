@@ -988,12 +988,9 @@ private:
 
     enum
     {
-        RU22_MP1_OFF,
         RU22_MP1_ON,
-        RU22_MP2_OFF,
-        RU22_MP3_OFF,
+        RU22_MP2_ON,
         RU22_MP3_ON,
-        RU22_MP4_OFF,
         RU22_MP4_ON,
         NUM_RU22_CONTACTS
     };
