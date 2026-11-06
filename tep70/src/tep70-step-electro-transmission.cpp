@@ -47,6 +47,16 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     // контакты замыкающие РУ9, контакты реверсора вперед или назад.
     bool is_727_ON = is_709_ON && (is_Revers_Forward || is_Revers_Backward);
 
+    // Цепь провода 728: провод 727, замыкающий контакт "Торможение" ТП
+    is_728_ON = is_727_ON && brake_switcher->isBrake();
+
+    // Цепь провода 737: провод 728, замыкающий контакт реле РУ21,
+    // замыкающий контакт РУ32, замыкающий контакт РУ37
+    bool is_737_ON = is_728_ON &&
+                     ru21->getContactState(RU21_FOR_RV2_ON) &&
+                     ru32->getContactState(RU32_FOR_RV2_ON) &&
+                     ru37->getContactState(RU37_FOR_RV2_ON);
+
     // Состояние провода 819: на одной клемме с проводом 709
     is_819_ON = is_709_ON;
 
@@ -61,10 +71,11 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     // Цепь провода 777: провод 727, контакт "Тяга" тормозного переключателя,
     // размыкающий контакт тормозного контактора КТ, размыкающий контакт РУ27,
     // размыкающий контакт РУ3, концевики дверей ВВК, параллельные контаты КВВ, РУ4, РУ25
-    bool is_777_ON = is_727_ON &&
-                     brake_switcher->isTraction() &&
-                     kt->getContactState(KT_TRACTION_ALLOW) &&
-                     ru27->getContactState(RU27_TRACTION_ALLOW) &&
+    // При ЭДТ питание получается через провод 737, в обход блокировок тяги
+    bool is_777_ON = ((is_727_ON &&
+                       brake_switcher->isTraction() &&
+                       kt->getContactState(KT_TRACTION_ALLOW) &&
+                       ru27->getContactState(RU27_TRACTION_ALLOW)) || is_737_ON) &&
                      ru3->getContactState(RU3_TRACTION_ALLOW) &&
                      is_DP_closed &&
                      (kvv->getContactState(KVV_SELF_POWER) || ru4->getContactState(RU4_KVG_POWER) || ru25->getContactState(RU25_KVG_POWER));

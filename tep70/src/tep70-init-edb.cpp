@@ -46,10 +46,14 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     kt->read_config("mk-6", custom_cfg_dir);
     kt->setInitContactState(KT_RESET_POWER, true);
     kt->setInitContactState(KT_TRACTION_ALLOW, true);
+    kt->setInitContactState(KT_FOR_RV8_ON, false);
+    kt->setInitContactState(KT_FOR_RV10_ON, false);
 
     ru21->read_config("mk-6", custom_cfg_dir);
     ru21->setInitContactState(RU21_TRAC_ON, true);
     ru21->setInitContactState(RU21_BRAKE_ON, false);
+    ru21->setInitContactState(RU21_FOR_RV8_ON, false);
+    ru21->setInitContactState(RU21_FOR_RV2_ON, false);
 
     rv8 = new TimeRelay(NUM_RV8_CONTACTS);
     rv8->read_config("rpu-3m", custom_cfg_dir);
@@ -65,4 +69,8 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     ru22->setInitContactState(RU22_MP3_ON, false);
     ru22->setInitContactState(RU22_MP4_OFF, true);
     ru22->setInitContactState(RU22_MP4_ON, false);
+
+    ru32 = new Relay(NUM_RU32_CONTACTS);
+    ru32->read_config("mk-6", custom_cfg_dir);
+    ru32->setInitContactState(RU32_FOR_RV2_ON, false);
 }

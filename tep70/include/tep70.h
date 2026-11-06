@@ -722,6 +722,8 @@ private:
     {
         RU21_TRAC_ON,
         RU21_BRAKE_ON,
+        RU21_FOR_RV8_ON,
+        RU21_FOR_RV2_ON,
         NUM_RU21_CONTACTS
     };
 
@@ -735,6 +737,8 @@ private:
     {
         KT_RESET_POWER,
         KT_TRACTION_ALLOW,
+        KT_FOR_RV8_ON,
+        KT_FOR_RV10_ON,
         NUM_KT_CONTACTS
     };
 
@@ -896,6 +900,7 @@ private:
     enum
     {
         RU37_EDB_BLINGS_LAMP,
+        RU37_FOR_RV2_ON,
         NUM_RU37_CONTACTS
     };
 
@@ -1006,6 +1011,18 @@ private:
     {
         MP_STATE,
         NUM_MP_STATES
+    };
+
+    /// Провод 728
+    bool is_728_ON = false;
+
+    /// Реле РУ32
+    Relay *ru32 = nullptr;
+
+    enum
+    {
+        RU32_FOR_RV2_ON,
+        NUM_RU32_CONTACTS
     };
 
     /// Веса блок-контактов при перемещении регулятора оборотов

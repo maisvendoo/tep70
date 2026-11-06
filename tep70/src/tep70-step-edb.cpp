@@ -95,4 +95,13 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     ru22->setVoltage(Ucc * static_cast<double>(is_RU22_ON));
     ru22->step(t, dt);
+
+    // Цепь реле времени РВ8: провод 728, замыкающие контакты РУ21,
+    // замыкающие контакты тормозного контактора КТ
+    bool is_RV8_ON = is_728_ON &&
+                     ru21->getContactState(RU21_FOR_RV8_ON) &&
+                     kt->getContactState(KT_FOR_RV8_ON);
+
+    rv8->setControlVoltage(Ucc * static_cast<double>(is_RV8_ON));
+    rv8->step(t, dt);
 }
