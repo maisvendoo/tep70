@@ -104,4 +104,16 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     rv8->setControlVoltage(Ucc * static_cast<double>(is_RV8_ON));
     rv8->step(t, dt);
+
+    // Цепь блока управления электрическим тормозом (БЭТ)
+    bool is_EBCU_ON = kt->getContactState(KT_EBCU_ON);
+
+    edb_control_unit->setPowerVoltage(Ucc * static_cast<double>(is_EBCU_ON));
+    edb_control_unit->step(t, dt);
+
+    // Цепь реле РУ32: контроль питания БЭТ
+    bool is_RU32_ON = edb_control_unit->isPowered();
+
+    ru32->setVoltage(Ucc * static_cast<double>(is_RU32_ON));
+    ru32->step(t, dt);
 }

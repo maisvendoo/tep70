@@ -43,9 +43,15 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     // Цепь провода 709: Провод 708, контакты замыкающие РУ9
     bool is_709_ON = is_708_ON && ru9->getContactState(RU9_EPK_CTRL);
 
-    // Цепь провода 727: провод 709,
+    // Цепь провода 712: +AВ2 "Управление общее", замыкающий контакт КТ
+    bool is_712_ON = (is_AB2_CAB1_on || is_AB2_CAB2_on) && kt->getContactState(KT_712_ON);
+
+    // Цепь провода 710: от провода 709 или 712
+    bool is_710_ON = is_709_ON || is_712_ON;
+
+    // Цепь провода 727: провод 709 в тяге или провод 712 при ЭДТ,
     // контакты замыкающие РУ9, контакты реверсора вперед или назад.
-    bool is_727_ON = is_709_ON && (is_Revers_Forward || is_Revers_Backward);
+    bool is_727_ON = is_710_ON && (is_Revers_Forward || is_Revers_Backward);
 
     // Цепь провода 728: провод 727, замыкающий контакт "Торможение" ТП
     is_728_ON = is_727_ON && brake_switcher->isBrake();
@@ -57,8 +63,8 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
                      ru32->getContactState(RU32_FOR_RV2_ON) &&
                      ru37->getContactState(RU37_FOR_RV2_ON);
 
-    // Состояние провода 819: на одной клемме с проводом 709
-    is_819_ON = is_709_ON;
+    // Состояние провода 819: на одной клемме с проводом 709, 712 и 710
+    is_819_ON = is_710_ON;
 
     // Цепь катушки реле РУ3 - контроль температуры дизеля
     bool is_Water_overheat = disel->getWaterTemp() >= disel->getWaterTempAlarm();
@@ -277,10 +283,10 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
 
 
     // Цепь вентиля реверсора вперед
-    is_Revers_Forward = is_819_ON && (km[CAB1]->isForward() || km[CAB2]->isBackward());
+    is_Revers_Forward = is_710_ON && (km[CAB1]->isForward() || km[CAB2]->isBackward());
 
     // Цепь вентиля реверсора назад
-    is_Revers_Backward = is_819_ON && (km[CAB1]->isBackward() || km[CAB2]->isForward());
+    is_Revers_Backward = is_710_ON && (km[CAB1]->isBackward() || km[CAB2]->isForward());
 
     reversor->setForwardValveState(is_Revers_Forward);
     reversor->setBackwardValveState(is_Revers_Backward);

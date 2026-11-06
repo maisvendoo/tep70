@@ -41,6 +41,7 @@
 #include    <logic-relay.h>
 #include    <handbrake-actor.h>
 #include    <blinds-actor.h>
+#include    <edb-control-unit.h>
 
 /*!
  * \class
@@ -739,6 +740,8 @@ private:
         KT_TRACTION_ALLOW,
         KT_FOR_RV8_ON,
         KT_FOR_RV10_ON,
+        KT_EBCU_ON,
+        KT_712_ON,
         NUM_KT_CONTACTS
     };
 
@@ -1024,6 +1027,9 @@ private:
         RU32_FOR_RV2_ON,
         NUM_RU32_CONTACTS
     };
+
+    /// Блок управления электрическим тормозом (БЭТ)
+    ControlUnitEDB *edb_control_unit = nullptr;
 
     /// Веса блок-контактов при перемещении регулятора оборотов
     double mp_weight[NUM_MP] = {2, 3.97, 7.91, -1};
