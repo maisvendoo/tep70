@@ -130,10 +130,8 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     kp[KP7]->setVoltage(Ucc * static_cast<double>(is_KP7_ON));
     kp[KP7]->step(t, dt);
 
-    // Цепь катушки РВ12: провод 1315, размыкающие контакты РУ28,
-    // замыкающие контакты РУ22
+    // Цепь катушки РВ12: провод 1315, замыкающие контакты РУ22
     bool is_RV12_ON = is_1315_ON &&
-                      ru28->getContactState(RU28_FOR_RV12_OFF) &&
                       ru22->getContactState(RU22_FOR_RV12_ON);
 
     // Данное реле активируется при включении РУ22 на тормозных позициях КМ,
