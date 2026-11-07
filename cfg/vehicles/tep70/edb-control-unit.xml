@@ -7,6 +7,7 @@
 
 		<K0>100.0</K0>
 		<K1>0.1</K1>
-		<K2>0.01</K2>
+		<K2>0.21</K2>
+		<IntegratorLimit>20.0</IntegratorLimit>
 	</Device>
 </Config>

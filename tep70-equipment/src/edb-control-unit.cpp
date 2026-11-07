@@ -35,9 +35,9 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
 
     eps_I = (Ia_ref - Ia) / Ia_max;
 
-    Y[0] = cut(Y[0], -1.0, 0.0);
+    Y[0] = cut(Y[0], -integrator_lim, integrator_lim);
 
-    If_ref = cut(-K[1] * eps_I - Y[0], 0.0, 1.0) * If_max;
+    If_ref = cut(-K[1] * eps_I - K[2] * Y[0], 0.0, 1.0) * If_max;
 }
 
 //------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ void ControlUnitEDB::ode_system(const state_vector_t &Y,
         return;
     }
 
-    dYdt[0] = K[2] * eps_I;
+    dYdt[0] = eps_I;
 }
 
 //------------------------------------------------------------------------------
@@ -67,6 +67,7 @@ void ControlUnitEDB::load_config(CfgReader &cfg)
     cfg.getDouble(secName, "Vmax", Vmax);
     cfg.getDouble(secName, "If_max", If_max);
     cfg.getDouble(secName, "Ia_max", Ia_max);
+    cfg.getDouble(secName, "IntegratorLimit", integrator_lim);
 
     for (size_t i = 0; i < K.size(); ++i)
     {

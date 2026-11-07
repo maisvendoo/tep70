@@ -74,6 +74,8 @@ private:
 
     double eps_I = 0.0;
 
+    double integrator_lim = 1.0;
+
     enum
     {
         NUM_COEFS = 10
