@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
 	<Device>
+		<Order>2</Order>
+        <SubStepNum>4</SubStepNum>
+        <Solver>euler</Solver>
+
 		<Vmax>160.0</Vmax>
 		<If_max>800.0</If_max>
 		<Ia_max>825.0</Ia_max>
+		<Vc>115.0</Vc>
 
 		<K0>100.0</K0>
-		<K1>0.1</K1>
-		<K2>0.21</K2>
-		<IntegratorLimit>20.0</IntegratorLimit>
+		<K1>3e-4</K1>
+		<K2>5e-3</K2>
+		<K3>3e-4</K3>
+		<K4>2e-2</K4>
+		<IntegratorLimit>1.0</IntegratorLimit>
 	</Device>
 </Config>

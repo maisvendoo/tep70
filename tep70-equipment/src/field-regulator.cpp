@@ -26,7 +26,7 @@ FieldRegulator::FieldRegulator(QObject *parent) : Device(parent)
   , T1(0.2)
   , is_active(false)
   , is_EDB(false)
-  , I_ref(0.0)
+  , u_ref(0.0)
 {
     std::fill(K.begin(), K.end(), 0.0);
 }
@@ -138,11 +138,7 @@ double FieldRegulator::brakeControl(state_vector_t &Y)
 {
     double u = 0.0;
 
-    dI = I_ref - I;
-
-    Y[0] = cut(Y[0], 0.0, 1.0);
-
-    u = cut(K[6] * dI + Y[0], 0.0, 1.0);
+    u = u_ref;
 
     return u;
 }

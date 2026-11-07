@@ -26,7 +26,7 @@ public:
 
     double getRefCurrent() const
     {
-        return If_ref;
+        return u_ref;//getY(1);
     }
 
     void setCurrentVelocity(double v)
@@ -49,6 +49,8 @@ public:
         this->If = If;
     }
 
+    void step(double t, double dt) override;
+
 private:
 
     double Ucc = 0.0;
@@ -56,7 +58,7 @@ private:
     bool is_power = false;
 
     /// Заданный ток возбуждения ТЭД
-    double If_ref = 0.0;
+    double u_ref = 0.0;
 
     double Vmax = 160.0;
 
@@ -74,7 +76,14 @@ private:
 
     double eps_I = 0.0;
 
+    double eps_I_prev = 0.0;
+
+    double deps_Idt = 0.0;
+
     double integrator_lim = 1.0;
+
+    /// Скорость начала ограничения тока якоря по условиям коммутации
+    double Vc = 115.0;
 
     enum
     {

@@ -35,7 +35,7 @@ public:
 
     void setStateEDB(bool is_EDB) { this->is_EDB = is_EDB; }
 
-    void setCurrentRefEDB(double I_ref) { this->I_ref = I_ref; }
+    void setCurrentRefEDB(double I_ref) { this->u_ref = I_ref; }
 
 private:
 
@@ -112,7 +112,7 @@ private:
 
     bool    is_EDB;
 
-    double  I_ref;
+    double  u_ref;
 
     enum
     {
