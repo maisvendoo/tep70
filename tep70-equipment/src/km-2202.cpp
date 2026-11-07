@@ -20,33 +20,18 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
 
     ms_contacts[KM_33][MS_POS_0] = false;
     ms_contacts[KM_33][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_33][MS_EDB_100kmh] = false;
-    ms_contacts[KM_33][MS_EDB_80kmh] = false;
-    ms_contacts[KM_33][MS_EDB_60kmh] = false;
-    ms_contacts[KM_33][MS_EDB_40kmh] = false;
-    ms_contacts[KM_33][MS_EDB_30kmh] = false;
-    ms_contacts[KM_33][MS_EDB_20kmh] = false;
+    ms_contacts[KM_33][MS_EDB_150kmh] = false;
     ms_contacts[KM_33][MS_EDB_0kmh] = false;
 
     ms_contacts[KM_34][MS_POS_0] = false;
     ms_contacts[KM_34][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_34][MS_EDB_100kmh] = false;
-    ms_contacts[KM_34][MS_EDB_80kmh] = false;
-    ms_contacts[KM_34][MS_EDB_60kmh] = false;
-    ms_contacts[KM_34][MS_EDB_40kmh] = false;
-    ms_contacts[KM_34][MS_EDB_30kmh] = false;
-    ms_contacts[KM_34][MS_EDB_20kmh] = false;
+    ms_contacts[KM_34][MS_EDB_150kmh] = false;    
     ms_contacts[KM_34][MS_EDB_0kmh] = false;
 
     ms_contacts[KM_35][MS_POS_0] = false;
     ms_contacts[KM_35][MS_POS_1] = false;
     ms_contacts[KM_35][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_35][MS_EDB_100kmh] = false;
-    ms_contacts[KM_35][MS_EDB_80kmh] = false;
-    ms_contacts[KM_35][MS_EDB_60kmh] = false;
-    ms_contacts[KM_35][MS_EDB_40kmh] = false;
-    ms_contacts[KM_35][MS_EDB_30kmh] = false;
-    ms_contacts[KM_35][MS_EDB_20kmh] = false;
+    ms_contacts[KM_35][MS_EDB_150kmh] = false;    
     ms_contacts[KM_35][MS_EDB_0kmh] = false;
 
     ms_contacts[KM_22][MS_POS_0] = false;
@@ -57,12 +42,7 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     ms_contacts[KM_22][MS_POS_5] = false;
     ms_contacts[KM_22][MS_POS_6] = false;
     ms_contacts[KM_22][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_22][MS_EDB_100kmh] = false;
-    ms_contacts[KM_22][MS_EDB_80kmh] = false;
-    ms_contacts[KM_22][MS_EDB_60kmh] = false;
-    ms_contacts[KM_22][MS_EDB_40kmh] = false;
-    ms_contacts[KM_22][MS_EDB_30kmh] = false;
-    ms_contacts[KM_22][MS_EDB_20kmh] = false;
+    ms_contacts[KM_22][MS_EDB_150kmh] = false;    
     ms_contacts[KM_22][MS_EDB_0kmh] = false;
 
     ms_contacts[KM_38][MS_POS_0] = false;
@@ -78,12 +58,7 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     ms_contacts[KM_38][MS_POS_10] = false;
     ms_contacts[KM_38][MS_POS_11] = false;
     ms_contacts[KM_38][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_38][MS_EDB_100kmh] = false;
-    ms_contacts[KM_38][MS_EDB_80kmh] = false;
-    ms_contacts[KM_38][MS_EDB_60kmh] = false;
-    ms_contacts[KM_38][MS_EDB_40kmh] = false;
-    ms_contacts[KM_38][MS_EDB_30kmh] = false;
-    ms_contacts[KM_38][MS_EDB_20kmh] = false;
+    ms_contacts[KM_38][MS_EDB_150kmh] = false;    
     ms_contacts[KM_38][MS_EDB_0kmh] = false;
 
     ms_contacts[KM_24][MS_POS_0] = false;
@@ -95,9 +70,7 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     ms_contacts[KM_24][MS_POS_12] = false;
     ms_contacts[KM_24][MS_POS_13] = false;
     ms_contacts[KM_24][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_24][MS_EDB_100kmh] = false;
-    ms_contacts[KM_24][MS_EDB_40kmh] = false;
-    ms_contacts[KM_24][MS_EDB_30kmh] = false;
+    ms_contacts[KM_24][MS_EDB_150kmh] = false;    
 
     ms_contacts[KM_37][MS_POS_0] = false;
     ms_contacts[KM_37][MS_POS_1] = false;
@@ -108,21 +81,14 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     ms_contacts[KM_37][MS_POS_10] = false;
     ms_contacts[KM_37][MS_POS_11] = false;
     ms_contacts[KM_37][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_37][MS_EDB_100kmh] = false;
-    ms_contacts[KM_37][MS_EDB_80kmh] = false;
-    ms_contacts[KM_37][MS_EDB_60kmh] = false;
+    ms_contacts[KM_37][MS_EDB_150kmh] = false;    
 
     ms_contacts[KM_36][MS_POS_0] = false;
     ms_contacts[KM_36][MS_POS_1] = false;
     ms_contacts[KM_36][MS_POS_2] = false;
     ms_contacts[KM_36][MS_POS_3] = false;
     ms_contacts[KM_36][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_36][MS_EDB_100kmh] = false;
-    ms_contacts[KM_36][MS_EDB_80kmh] = false;
-    ms_contacts[KM_36][MS_EDB_60kmh] = false;
-    ms_contacts[KM_36][MS_EDB_40kmh] = false;
-    ms_contacts[KM_36][MS_EDB_30kmh] = false;
-    ms_contacts[KM_36][MS_EDB_20kmh] = false;
+    ms_contacts[KM_36][MS_EDB_150kmh] = false;    
     ms_contacts[KM_36][MS_EDB_0kmh] = false;
 
     ms_contacts[KM_23][MS_POS_0] = false;
@@ -134,12 +100,7 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     ms_contacts[KM_23][MS_POS_6] = false;
     ms_contacts[KM_23][MS_POS_7] = false;
     ms_contacts[KM_23][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_23][MS_EDB_100kmh] = false;
-    ms_contacts[KM_23][MS_EDB_80kmh] = false;
-    ms_contacts[KM_23][MS_EDB_60kmh] = false;
-    ms_contacts[KM_23][MS_EDB_40kmh] = false;
-    ms_contacts[KM_23][MS_EDB_30kmh] = false;
-    ms_contacts[KM_23][MS_EDB_20kmh] = false;
+    ms_contacts[KM_23][MS_EDB_150kmh] = false;    
     ms_contacts[KM_23][MS_EDB_0kmh] = false;
 
     ms_contacts[KM_20][MS_POS_3] = false;
@@ -150,8 +111,7 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     ms_contacts[KM_20][MS_POS_13] = false;
     ms_contacts[KM_20][MS_POS_15] = false;
     ms_contacts[KM_20][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_20][MS_EDB_60kmh] = false;
-    ms_contacts[KM_20][MS_EDB_30kmh] = false;
+    ms_contacts[KM_20][MS_EDB_150kmh] = false;
     ms_contacts[KM_20][MS_EDB_0kmh] = false;
 }
 

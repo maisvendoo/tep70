@@ -16,12 +16,7 @@
 enum : std::int8_t
 {
     MS_EDB_0kmh,
-    MS_EDB_20kmh,
-    MS_EDB_30kmh,
-    MS_EDB_40kmh,
-    MS_EDB_60kmh,
-    MS_EDB_80kmh,
-    MS_EDB_100kmh,
+    MS_EDB_150kmh,
     MS_EDB_PREPARE,
     MS_POS_0,
     MS_POS_1,

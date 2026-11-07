@@ -639,18 +639,18 @@
 		<Name>Штурвал КМ</Name>
 		<Description>Управление тягой. Задание оборотов вала дизеля</Description>
 		<Type>KM2202</Type>
-		<value1>8</value1>
-		<value2>8</value2>
-		<NumPositions>24</NumPositions>
+		<value1>3</value1>
+		<value2>3</value2>
+		<NumPositions>19</NumPositions>
 		<MinValue>0</MinValue>
-		<MaxValue>23</MaxValue>
+		<MaxValue>18</MaxValue>
 		<KeyNameInc>KEY_A</KeyNameInc>		
 		<KeyNameDec>KEY_D</KeyNameDec>
 
 		<!-- Настройки сброса до заданной позиции -->
 		<ResetKey>KEY_D</ResetKey>
 		<ResetModkey>Ctrl</ResetModkey>
-		<PositionForReset>8</PositionForReset>
+		<PositionForReset>3</PositionForReset>
 
 		<ObjectNameCab1>Cab1_KM_shturval</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_KM_shturval</ObjectNameCab2>
