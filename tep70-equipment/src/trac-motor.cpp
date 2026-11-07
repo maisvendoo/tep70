@@ -131,9 +131,9 @@ void TractionMotor::ode_system(const state_vector_t &Y,
         {
             double R = Ra + Rb;
 
-            dYdt[0] = is_ancor_Rb_ON * (-Y[0] * R - cPhi(Y[1] * revers_state) * omega) / Ta / Ra;
+            dYdt[0] = is_ancor_Rb_ON * (-Y[0] * R - cPhi(Y[1] * revers_state) * omega) / Ta / R;
 
-            dYdt[1] = (Uf - (Rf + Rd) * Y[1]) / Tf / Rf;
+            dYdt[1] = (Uf - (Rf + Rd) * Y[1]) / Tf / (Rf + Rd);
 
             break;
         }

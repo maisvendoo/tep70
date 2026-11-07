@@ -150,7 +150,7 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
         tracForce += Q_a[i+1] * 2 / wheel_diameter[i];
 
         // В режиме тяги ток через генератор и ВУ - сумма токов, протекающих через якори ТЭД
-        I_gen += motor[i]->getAncorCurrent() * static_cast<double>(kp[i]->getContactState(KP_POWER_ON));
+        I_gen += motor[i]->getAncorCurrent() * static_cast<double>(kp[i]->getContactState(KP_POWER_ON) && kp[KP7]->getContactState(KP_OFF));
 
         is_KP1_KP7_off = is_KP1_KP7_off && kp[i]->getContactState(KP_OFF);
         is_KP1_KP6_on = is_KP1_KP6_on && (kp[i]->getContactState(KP_ON) || (!tumbler_om[i].getState()));

@@ -34,6 +34,21 @@ public:
         Vkmh = qAbs(v) * Physics::kmh;
     }
 
+    void setRefVelocity(double v)
+    {
+        this->V_ref = v;
+    }
+
+    void setAncorCurrent(double Ia)
+    {
+        this->Ia = Ia;
+    }
+
+    void setFieldCurrent(double If)
+    {
+        this->If = If;
+    }
+
 private:
 
     double Ucc = 0.0;
@@ -50,6 +65,14 @@ private:
     double If_max = 800.0;
 
     double Vkmh = 0.0;
+
+    double V_ref = 0.0;
+
+    double Ia = 0.0;
+
+    double If = 0.0;
+
+    double eps_I = 0.0;
 
     enum
     {

@@ -161,6 +161,7 @@ void FieldRegulator::preStep(state_vector_t &Y, double t)
         dI = 0.0;
         dU = 0.0;
         dP = 0.0;
+        Uf = 0.0;
         return;
     }
 

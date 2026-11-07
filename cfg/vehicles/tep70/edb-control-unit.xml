@@ -4,5 +4,9 @@
 		<Vmax>160.0</Vmax>
 		<If_max>800.0</If_max>
 		<Ia_max>825.0</Ia_max>
+
+		<K0>100.0</K0>
+		<K1>0.1</K1>
+		<K2>0.01</K2>
 	</Device>
 </Config>
