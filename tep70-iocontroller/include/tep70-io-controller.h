@@ -20,6 +20,8 @@ public:
 
 private:
 
+    ControlHandler *create_handler(QString type, QDomNode secNode, CfgReader &cfg) override;
+
     enum
     {
         CAB1 = 0,

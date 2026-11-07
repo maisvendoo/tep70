@@ -638,7 +638,7 @@
 		<ID>145</ID>
 		<Name>Штурвал КМ</Name>
 		<Description>Управление тягой. Задание оборотов вала дизеля</Description>
-		<Type>Switcher</Type>
+		<Type>KM2202</Type>
 		<value1>8</value1>
 		<value2>8</value2>
 		<NumPositions>24</NumPositions>

@@ -5,6 +5,7 @@
 #include    <core/get_module.h>
 #include    <switcher-handler.h>
 #include    <km-2202.h>
+#include    <km-handler.h>
 
 
 //------------------------------------------------------------------------------
@@ -71,6 +72,30 @@ void TEP70IOController::step(float t, float dt, const std::vector<float> *server
         lockMainHandle(cab_idx);
         switchCabineByKey(cab_idx);
     }
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+ControlHandler *TEP70IOController::create_handler(QString type, QDomNode secNode, CfgReader &cfg)
+{
+    ControlHandler *ctrl_handler = nullptr;
+
+    if (type == "KM2202")
+    {
+        ctrl_handler = new HandlerKM2202;
+    }
+    else
+    {
+        ctrl_handler = IOController::create_handler(type, secNode, cfg);
+    }
+
+    if (ctrl_handler != nullptr)
+    {
+        ctrl_handler->load_config(cfg, secNode);
+    }
+
+    return ctrl_handler;
 }
 
 //------------------------------------------------------------------------------
