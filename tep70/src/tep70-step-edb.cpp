@@ -71,7 +71,7 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     // размыкающий контакт РУ20
     bool is_RU25_ON = is_1315_ON &&
                       (ru24->getContactState(RU24_FOR_RU25_ON) || ru26->getContactState(RU26_FOR_RU25_ON) || ru28->getContactState(RU28_FOR_RU25_ON)) &&
-                     ru23->getContactState(RU23_FOR_RU25_ON) &&
+                     ru23->getContactState(RU23_FOR_RU25_OFF) &&
                      ru20->getContactState(RU20_FOR_RU25_ON);
 
     // Данное реле:
@@ -116,13 +116,13 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     if (KB1_switch->getContactState(KB1_CONTACT_CAB1_K6))
     {
         selsin_pos = km[CAB1]->getSelsinPos();
-        force_level = static_cast<double>(brake_force_switch[CAB1].getPosition() + 1) / brake_force_switch[CAB1].getNumPositions();
+        force_level = brake_force_switch[CAB1].getPosition();
     }
 
     if (KB1_switch->getContactState(KB1_CONTACT_CAB2_K14))
     {
         selsin_pos = km[CAB2]->getSelsinPos();
-        force_level = static_cast<double>(brake_force_switch[CAB2].getPosition() + 1) / brake_force_switch[CAB2].getNumPositions();
+        force_level = brake_force_switch[CAB2].getPosition();
     }
 
     edb_control_unit->setVelocitySelsinPos(selsin_pos);
@@ -176,4 +176,28 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     ru29->setVoltage(Ucc * static_cast<double>(is_RU29_ON));
     ru29->step(t, dt);
+
+    // Цепь катушки реле РУ23: провод 1315, размыкающие контакты реле РМн1,
+    // замыкающие контакты РВ10
+    bool is_RU23_ON = is_1315_ON &&
+                      rmn1->getContactState(RMn1_FOR_RU23_OFF) &&
+                      rv10->getContactState(RV10_FOR_RU23_ON);
+
+    // Данное реле рвет цепь катушки реле РУ25, инициируя разбор схемы, если по истечении 8 секунд
+    // после сбора схемы ЭДТ ток не достиг 30% максимального (в случае успеха,
+    // срабатывает реле РМн1 и не дает РУ23 включиться)
+    ru23->getContactState(Ucc * static_cast<double>(is_RU23_ON));
+    ru23->step(t, dt);
+
+    // Цепь катушки РВ10: провод 1315, размыкающие контакты РУ24,
+    // замыкающие контакты тормозного контактора КТ
+    bool is_RV10_ON = is_1315_ON &&
+                      ru24->getContactState(RU24_FOR_RV10_OFF) &&
+                      kt->getContactState(KT_FOR_RV10_ON);
+
+    rv10->setControlVoltage(Ucc * static_cast<double>(is_RV10_ON));
+    rv10->step(t, dt);
+
+    // Цепь катушки реле времени РВ11: провод 1315, размыкающий контакт РУ24,
+    // замыкающий контакт РУ28
 }

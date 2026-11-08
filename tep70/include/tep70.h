@@ -770,7 +770,7 @@ private:
         KT_FOR_RV8_ON,
         KT_FOR_RV10_ON,
         KT_EBCU_ON,
-        KT_712_ON,
+        KT_712_ON,        
         NUM_KT_CONTACTS
     };
 
@@ -965,6 +965,8 @@ private:
         RU24_FOR_RU25_ON,
         RU24_FOR_RU22_ON,
         RU24_FOR_MP4_ON,
+        RU24_FOR_RV11_OFF,
+        RU24_FOR_RV10_OFF,
         NUM_RU24_CONTACTS
     };
 
@@ -982,7 +984,7 @@ private:
 
     enum
     {
-        RU23_FOR_RU25_ON,
+        RU23_FOR_RU25_OFF,
         NUM_RU23_CONTACTS
     };
 
@@ -1094,6 +1096,7 @@ private:
         RU28_FOR_RV12_OFF,
         RU28_FOR_RU25_ON,
         RU28_FOR_LS5_ON,
+        RU28_FOR_RV11_ON,
         NUM_RU28_CONTACTS
     };
 
@@ -1104,6 +1107,33 @@ private:
     {
         RU29_FOR_RU28_OFF,
         NUM_RU29_CONTACTS
+    };
+
+    /// Реле времени РВ11 (реле предварительного торможения)
+    TimeRelay *rv11 = nullptr;
+
+    enum
+    {
+        RV11_MIN_BRACE_FORCE,
+        NUM_RV11_CONTACTS
+    };
+
+    /// Реле времени РВ10 (контроль эффективности торможения)
+    TimeRelay *rv10 = nullptr;
+
+    enum
+    {
+        RV10_FOR_RU23_ON,
+        NUM_RV10_CONTACTS
+    };
+
+    /// Реле РМн1 (контроль минимальной величины тормозного тока)
+    Relay *rmn1 = nullptr;
+
+    enum
+    {
+        RMn1_FOR_RU23_OFF,
+        NUM_RMn1_CONTACTS
     };
 
     /// Веса блок-контактов при перемещении регулятора оборотов

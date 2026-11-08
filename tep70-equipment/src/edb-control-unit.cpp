@@ -65,9 +65,11 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
     // Величниа, пропорциональня максимальном утормозному усилию
     double b = Ia_max * If_max;
 
-    // Расчитаваем ограничение по току якоря при данном токе возбуждения,
+    // Рассчитаваем ограничение по току якоря при данном токе возбуждения,
     // для ограничения тягового усилия
-    double Ia_max_force = -force_limit_level * b / (If + ksi_I);
+    double force_level = min_force_level + force_level_step * force_limit_level;
+
+    double Ia_max_force = -force_level * b / (If + ksi_I);
 
     Ia_ref = max(Ia_ref, Ia_max_force);
 

@@ -96,6 +96,10 @@ private:
 
     double force_limit_level = 0.0;
 
+    double min_force_level = 0.22;
+
+    double force_level_step = 0.071;
+
     /// Скорость начала ограничения тока якоря по условиям коммутации
     double Vc = 115.0;
 

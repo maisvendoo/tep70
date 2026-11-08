@@ -30,10 +30,12 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     ru24->setInitContactState(RU24_FOR_RU25_ON, false);
     ru24->setInitContactState(RU24_FOR_RU22_ON, true);
     ru24->setInitContactState(RU24_FOR_MP4_ON, false);
+    ru24->setInitContactState(RU24_FOR_RV10_OFF, true);
+    ru24->setInitContactState(RU24_FOR_RV11_OFF, true);
 
     ru23 = new Relay(NUM_RU23_CONTACTS);
     ru23->read_config("mk-6", custom_cfg_dir);
-    ru23->setInitContactState(RU23_FOR_RU25_ON, true);
+    ru23->setInitContactState(RU23_FOR_RU25_OFF, true);
 
     ru20 = new Relay(NUM_RU20_CONTACTS);
     ru20->read_config("mk-6", custom_cfg_dir);
@@ -99,8 +101,23 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     ru28->setInitContactState(RU28_FOR_RV12_OFF, true);
     ru28->setInitContactState(RU28_FOR_RU25_ON, false);
     ru28->setInitContactState(RU28_FOR_LS5_ON, false);
+    ru28->setInitContactState(RU28_FOR_RV11_ON, false);
 
     ru29 = new Relay(NUM_RU29_CONTACTS);
     ru29->read_config("mk-6", custom_cfg_dir);
     ru29->setInitContactState(RU29_FOR_RU28_OFF, true);
+
+    rv11 = new TimeRelay(NUM_RV11_CONTACTS);
+    rv11->read_config("rpu-3m", custom_cfg_dir);
+    rv11->setTimeoutOn(6.0);
+    rv11->setInitContactState(RV11_MIN_BRACE_FORCE, false);
+
+    rv10 = new TimeRelay(NUM_RV10_CONTACTS);
+    rv10->setTimeoutOn(8.0);
+    rv10->read_config("rpu-3m", custom_cfg_dir);
+    rv10->setInitContactState(RV10_FOR_RU23_ON, true);
+
+    rmn1 = new Relay(NUM_RMn1_CONTACTS);
+    rmn1->read_config("mk-6", custom_cfg_dir);
+    rmn1->setInitContactState(RMn1_FOR_RU23_OFF, true);
 }
