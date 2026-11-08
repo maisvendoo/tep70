@@ -47,6 +47,9 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
         return;
     }
 
+    // Контроль тормозного тока
+    is_brake_ready = qAbs(Ia) > min_brake_current_level * Ia_max;
+
     V_ref = V_ref_max * (1.0 + velosity_selsin_pos);
 
     // Ошибка по скорости
@@ -67,7 +70,17 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
 
     // Рассчитаваем ограничение по току якоря при данном токе возбуждения,
     // для ограничения тягового усилия
-    double force_level = min_force_level + force_level_step * force_limit_level;
+    double force_level = 0;
+
+    if (is_full_brake)
+    {
+        force_level = min_force_level + force_level_step * force_limit_level;
+    }
+    else
+    {
+        // Пердварительное торможение по сигналу внешней схемы
+        force_level = force_prep_level;
+    }
 
     double Ia_max_force = -force_level * b / (If + ksi_I);
 

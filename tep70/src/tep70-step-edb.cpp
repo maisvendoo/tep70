@@ -128,6 +128,7 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     edb_control_unit->setVelocitySelsinPos(selsin_pos);
     edb_control_unit->setCurrentVelocity(wheel_omega[KP1] * wheel_diameter[KP1] / 2.0);
     edb_control_unit->setForceLimitLevel(force_level);
+    edb_control_unit->fullBrake(rv11->getContactState(RV11_FULL_BRAKE_FORCE));
     edb_control_unit->setAncorCurrent(motor[KP1]->getAncorCurrent());
     edb_control_unit->setFieldCurrent(motor[KP1]->getFieldCurrent());
     edb_control_unit->step(t, dt);
@@ -200,4 +201,14 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     // Цепь катушки реле времени РВ11: провод 1315, размыкающий контакт РУ24,
     // замыкающий контакт РУ28
+    bool is_RV11_ON = is_1315_ON &&
+                      ru24->getContactState(RU24_FOR_RV11_OFF) &&
+                      ru28->getContactState(RU28_FOR_RV11_ON);
+
+    rv11->setControlVoltage(Ucc * static_cast<double>(is_RV11_ON));
+    rv11->step(t, dt);
+
+    // Катушка реле РМн1 получает питание от БЭТ
+    rmn1->setVoltage(Ucc * static_cast<double>(edb_control_unit->isReady()));
+    rmn1->step(t, dt);
 }

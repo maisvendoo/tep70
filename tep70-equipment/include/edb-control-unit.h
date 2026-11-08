@@ -61,6 +61,16 @@ public:
         this->force_limit_level = cut(force_limit_level, 0.0, 1.0);
     }
 
+    void fullBrake(bool is_full_brake)
+    {
+        this->is_full_brake = is_full_brake;
+    }
+
+    bool isReady() const
+    {
+        return is_brake_ready;
+    }
+
 private:
 
     double Ucc = 0.0;
@@ -99,6 +109,14 @@ private:
     double min_force_level = 0.22;
 
     double force_level_step = 0.071;
+
+    double force_prep_level = 0.2;
+
+    bool is_full_brake = false;
+
+    double min_brake_current_level = 0.3;
+
+    bool is_brake_ready = false;
 
     /// Скорость начала ограничения тока якоря по условиям коммутации
     double Vc = 115.0;

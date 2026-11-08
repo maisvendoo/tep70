@@ -1114,7 +1114,7 @@ private:
 
     enum
     {
-        RV11_MIN_BRACE_FORCE,
+        RV11_FULL_BRAKE_FORCE,
         NUM_RV11_CONTACTS
     };
 

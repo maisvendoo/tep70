@@ -110,7 +110,7 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     rv11 = new TimeRelay(NUM_RV11_CONTACTS);
     rv11->read_config("rpu-3m", custom_cfg_dir);
     rv11->setTimeoutOn(6.0);
-    rv11->setInitContactState(RV11_MIN_BRACE_FORCE, false);
+    rv11->setInitContactState(RV11_FULL_BRAKE_FORCE, false);
 
     rv10 = new TimeRelay(NUM_RV10_CONTACTS);
     rv10->setTimeoutOn(8.0);
