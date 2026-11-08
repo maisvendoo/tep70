@@ -115,7 +115,7 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     rv10 = new TimeRelay(NUM_RV10_CONTACTS);
     rv10->setTimeoutOn(8.0);
     rv10->read_config("rpu-3m", custom_cfg_dir);
-    rv10->setInitContactState(RV10_FOR_RU23_ON, true);
+    rv10->setInitContactState(RV10_FOR_RU23_ON, false);
 
     rmn1 = new Relay(NUM_RMn1_CONTACTS);
     rmn1->read_config("mk-6", custom_cfg_dir);

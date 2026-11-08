@@ -982,6 +982,8 @@ private:
     /// Реле РУ23
     Relay *ru23 = nullptr;
 
+    bool is_RU23_ON = false;
+
     enum
     {
         RU23_FOR_RU25_OFF,
@@ -990,6 +992,8 @@ private:
 
     /// Реле РУ25
     Relay *ru25 = nullptr;
+
+    bool is_RU25_ON = false;
 
     enum
     {

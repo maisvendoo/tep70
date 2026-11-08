@@ -69,10 +69,13 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     // Цепь реле РУ25: провод 1315, параллельные контакты РУ24, РУ26, РУ28, размыкающий контакт РУ23,
     // размыкающий контакт РУ20
-    bool is_RU25_ON = is_1315_ON &&
-                      (ru24->getContactState(RU24_FOR_RU25_ON) || ru26->getContactState(RU26_FOR_RU25_ON) || ru28->getContactState(RU28_FOR_RU25_ON)) &&
-                     ru23->getContactState(RU23_FOR_RU25_OFF) &&
-                     ru20->getContactState(RU20_FOR_RU25_ON);
+    bool is_RU25_ON_FROM_RU24_RU26_RU28 = ru24->getContactState(RU24_FOR_RU25_ON) || ru26->getContactState(RU26_FOR_RU25_ON) || ru28->getContactState(RU28_FOR_RU25_ON);
+
+    bool is_RU23_ON_RU25 = ru23->getContactState(RU23_FOR_RU25_OFF);
+
+    bool is_RU20_ON_RU25 = ru20->getContactState(RU20_FOR_RU25_ON);
+
+    is_RU25_ON = is_1315_ON && is_RU25_ON_FROM_RU24_RU26_RU28 && is_RU23_ON_RU25 && is_RU20_ON_RU25;
 
     // Данное реле:
     // 1. Шунтирует контакт самопитания катушки КВГ параллельно контакту РУ4
@@ -180,14 +183,14 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     // Цепь катушки реле РУ23: провод 1315, размыкающие контакты реле РМн1,
     // замыкающие контакты РВ10
-    bool is_RU23_ON = is_1315_ON &&
-                      rmn1->getContactState(RMn1_FOR_RU23_OFF) &&
-                      rv10->getContactState(RV10_FOR_RU23_ON);
+    is_RU23_ON = is_1315_ON &&
+                 rmn1->getContactState(RMn1_FOR_RU23_OFF) &&
+                 rv10->getContactState(RV10_FOR_RU23_ON);
 
     // Данное реле рвет цепь катушки реле РУ25, инициируя разбор схемы, если по истечении 8 секунд
     // после сбора схемы ЭДТ ток не достиг 30% максимального (в случае успеха,
     // срабатывает реле РМн1 и не дает РУ23 включиться)
-    ru23->getContactState(Ucc * static_cast<double>(is_RU23_ON));
+    ru23->setVoltage(Ucc * static_cast<double>(is_RU23_ON));
     ru23->step(t, dt);
 
     // Цепь катушки РВ10: провод 1315, размыкающие контакты РУ24,
