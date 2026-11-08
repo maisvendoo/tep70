@@ -42,6 +42,16 @@ void HandlerKM2202::processKeyInput(const std::set<uint16_t> &pressed_keys)
         return;
     }
 
+    if (resetKey != KEY_Undefined)
+    {
+        if (getKeyState(pressed_keys, resetKey) && isKeyModifier(pressed_keys, resetModkey))
+        {
+            params[PARAM_SELSIN_POS] = 0.0f;
+            value = MS_POS_0;
+            sendControlSignal();
+        }
+    }
+
     selsin_dir = 0;
 }
 

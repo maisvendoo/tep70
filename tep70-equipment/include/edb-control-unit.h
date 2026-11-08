@@ -32,12 +32,7 @@ public:
     void setCurrentVelocity(double v)
     {
         Vkmh = qAbs(v) * Physics::kmh;
-    }
-
-    void setRefVelocity(double v)
-    {
-        this->V_ref = v;
-    }
+    }    
 
     void setAncorCurrent(double Ia)
     {
@@ -50,6 +45,16 @@ public:
     }
 
     void step(double t, double dt) override;
+
+    void setVelocitySelsinPos(float selsin_pos)
+    {
+        velosity_selsin_pos = static_cast<double>(selsin_pos);
+    }
+
+    float getRefVelocityKmh() const
+    {
+        return static_cast<float>(V_ref);
+    }
 
 private:
 
@@ -82,8 +87,13 @@ private:
 
     double integrator_lim = 1.0;
 
+    double velosity_selsin_pos = 0.0;
+
     /// Скорость начала ограничения тока якоря по условиям коммутации
     double Vc = 115.0;
+
+    /// Максимальная заданная скорость торможения
+    double V_ref_max = 150.0;
 
     enum
     {

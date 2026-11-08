@@ -39,13 +39,16 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
         u_ref = 0.0;
         Y[0] = 0.0;
         Y[1] = 0.0;
+        V_ref = 0.0;
         return;
     }
+
+    V_ref = V_ref_max * (1.0 + velosity_selsin_pos);
 
     // Ошибка по скорости
     double dv = V_ref - Vkmh;
 
-    double Ia_ref = -Ia_max;//cut(K[0] * dv, -Ia_max, 0.0);
+    double Ia_ref = cut(K[0] * dv, -Ia_max, 0.0);
 
     // Ограничение тока якоря по условиям коммутации
     const double eps_V = 0.1;
