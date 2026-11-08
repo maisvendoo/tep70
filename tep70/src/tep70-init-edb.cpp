@@ -45,6 +45,7 @@ void TEP70::initElectrodynamicBrake(const QString &modules_dir,
     ru25->read_config("mk-6", custom_cfg_dir);
     ru25->setInitContactState(RU25_KVG_POWER, false);
     ru25->setInitContactState(RU25_FOR_RU21_ON, false);
+    ru25->setInitContactState(RU25_FOR_VT1_ON, false);
 
     kt = new Relay(NUM_KT_CONTACTS);
     kt->read_config("mk-6", custom_cfg_dir);

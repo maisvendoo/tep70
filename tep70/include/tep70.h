@@ -1000,6 +1000,7 @@ private:
     {
         RU25_KVG_POWER,
         RU25_FOR_RU21_ON,
+        RU25_FOR_VT1_ON,
         NUM_RU25_CONTACTS
     };
 

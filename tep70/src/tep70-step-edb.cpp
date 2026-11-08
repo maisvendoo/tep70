@@ -214,4 +214,10 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     // Катушка реле РМн1 получает питание от БЭТ
     rmn1->setVoltage(Ucc * static_cast<double>(edb_control_unit->isReady()));
     rmn1->step(t, dt);
+
+    // Цепь вентиля ВТ1: провод 1315, контакты замыкающие РУ25
+    bool is_VT1_ON = is_1315_ON && ru25->getContactState(RU25_FOR_VT1_ON);
+
+    vt1->setVoltage(Ucc * static_cast<double>(is_VT1_ON));
+    // Шаг выполняется в томозном оборудовании!!!
 }
