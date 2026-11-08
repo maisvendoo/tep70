@@ -79,9 +79,9 @@ double Disel::calcFreq(double reg_pos)
 {
     double freq = freq_neutral + freq_step * reg_pos;
 
-    if (freq < freq_neutral)
+    if (freq < freq_neutral + freq_step)
     {
-        freq = freq_idle;
+        freq = freq_idle + freq_step * reg_pos;
     }
 
     if (freq > freq_max)

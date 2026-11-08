@@ -225,7 +225,7 @@ private:
     double freq_neutral = 515.0;
 
     /// Частота холостых оборотов
-    double freq_idle = 350.0;
+    double freq_idle = 385.0;
 
     /// Шаг изменения частоты
     double freq_step = 35.0;
