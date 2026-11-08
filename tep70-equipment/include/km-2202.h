@@ -150,11 +150,23 @@ public:
     /// Сигнал состояния звука
     float getSoundSignal(size_t idx = REVERS_SHAFT) const override;
 
+    void setSelsinPos(float selsin_pos)
+    {
+        this->selsin_pos = selsin_pos;
+    }
+
+    float getSelsinPos() const
+    {
+        return selsin_pos;
+    }
+
 private:
 
     using ms_contact_t = std::array<bool, NUM_KM_POSITIONS>;
 
     ms_contact_t ms_contacts[NUM_KM_CONTACTS];
+
+    float selsin_pos = 0.0;
 
     double  ms_delay = 0.2;
 

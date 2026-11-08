@@ -236,6 +236,8 @@ void TEP70::stepControls(double t, double dt)
             int main_pos = static_cast<int>(control_inputs[cab_idx][CTRL_KM_MAIN_POSITION].value);
             km[cab_idx]->setPosition(main_pos);
 
+            km[cab_idx]->setSelsinPos(control_inputs[cab_idx][CTRL_KM_MAIN_POSITION].params[0]);
+
             // Тормозные краны
             int krm_pos = control_inputs[cab_idx][CTRL_KRM_395].value;
             brake_crane[cab_idx]->setHandlePosition(krm_pos);

@@ -639,11 +639,13 @@
 		<Name>Штурвал КМ</Name>
 		<Description>Управление тягой. Задание оборотов вала дизеля</Description>
 		<Type>KM2202</Type>
+		<NumParams>1</NumParams>
 		<value1>3</value1>
 		<value2>3</value2>
 		<NumPositions>19</NumPositions>
 		<MinValue>0</MinValue>
 		<MaxValue>18</MaxValue>
+		<SelsinSpeed>5.0</SelsinSpeed>
 		<KeyNameInc>KEY_A</KeyNameInc>		
 		<KeyNameDec>KEY_D</KeyNameDec>
 
