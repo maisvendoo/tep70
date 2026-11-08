@@ -40,6 +40,7 @@
 #include    <pneumo-electro-valve.h>
 #include    <logic-relay.h>
 #include    <handbrake-actor.h>
+#include    <electro-pneumatic-valve.h>
 #include    <blinds-actor.h>
 #include    <edb-control-unit.h>
 
@@ -1249,6 +1250,9 @@ private:
     bool is_KVV_on = false;
 
     HandbrakeActor *handbrake_actor = nullptr;
+
+    /// Вентиль отпуска тормозов при работе ЭДТ (ВТ1)
+    ElectroPneumaticValve* vt1 = nullptr;
 
     /// Проверка активной кабины
     int checkActiveCabine();

@@ -36,6 +36,15 @@ void TEP70::stepBrakesEquipment(const double& t, const double& dt)
     electro_air_dist->setSRpressure(supply_reservoir->getPressure());
     electro_air_dist->step(t, dt);
 
+    // ВТ1 — вентиль отпуска тормозов при работе ЭДТ
+    vt1->setInputFlow(electro_air_dist->getBCflow());
+    vt1->setOutputPressure(bc_switch_valve->getPressure2());
+    vt1->setVoltage(0.0);
+    vt1->step(t, dt);
+
+    // Давление на входе ВТ1 передаём ЭВР как обратную связь
+    electro_air_dist->setBCpressure(vt1->getInputPressure());
+
     // Запасный резервуар
     supply_reservoir->setFlow(electro_air_dist->getSRflow());
     supply_reservoir->step(t, dt);

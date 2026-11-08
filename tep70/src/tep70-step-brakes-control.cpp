@@ -43,7 +43,7 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     bc_flow1 += anglecock_bc_bwd->getFlowToPipe();
 
     bc_switch_valve->setInputFlow1(bc_flow1);
-    bc_switch_valve->setInputFlow2(electro_air_dist->getBCflow());
+    bc_switch_valve->setInputFlow2(vt1->getOutputFlow());
     bc_switch_valve->setOutputPressure(bc_splitter->getInputPressure());
     bc_switch_valve->step(t, dt);
 
