@@ -58,7 +58,7 @@ public:
 
     void setForceLimitLevel(double force_limit_level)
     {
-        this->force_limit_level = cut(force_limit_level, 0.0, 1.0);
+        this->force_limit_level = force_limit_level;
     }
 
     void fullBrake(bool is_full_brake)
