@@ -582,8 +582,8 @@
 		<Name>Переключатель тормозного усилия</Name>
 		<Description>Установка тормозного усилия (12 позиций)</Description>
 		<Type>Switcher</Type>
-		<value1>0</value1>
-		<value2>0</value2>
+		<value1>7</value1>
+		<value2>7</value2>
 		<NumPositions>12</NumPositions>
 		<MinValue>0</MinValue>
 		<MaxValue>11</MaxValue>

@@ -7,13 +7,13 @@
 
 		<Vmax>160.0</Vmax>
 		<If_max>800.0</If_max>
-		<Ia_max>825.0</Ia_max>
+		<Ia_max>870.0</Ia_max>
 		<Vc>115.0</Vc>
 
 		<K0>100.0</K0>
-		<K1>3e-4</K1>
+		<K1>6e-4</K1>
 		<K2>5e-3</K2>
-		<K3>3e-4</K3>
+		<K3>6e-4</K3>
 		<K4>2e-2</K4>
 		<IntegratorLimit>1.0</IntegratorLimit>
 	</Device>

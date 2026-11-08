@@ -32,6 +32,10 @@ void ControlUnitEDB::step(double t, double dt)
 //------------------------------------------------------------------------------
 void ControlUnitEDB::preStep(state_vector_t &Y, double t)
 {
+    // Константы для защиты от деления на 0
+    const double eps_V = 0.1;
+    const double ksi_I = 0.1;
+
     is_power = Ucc > 50.0;
 
     if (!is_power)
@@ -51,11 +55,21 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
     double Ia_ref = cut(K[0] * dv, -Ia_max, 0.0);
 
     // Ограничение тока якоря по условиям коммутации
-    const double eps_V = 0.1;
 
     double Ic = -Ia_max * Vc / (Vkmh + eps_V);
 
     Ia_ref = max(Ia_ref, Ic);
+
+    // Ограничение тормозного усилия от переключателя
+
+    // Величниа, пропорциональня максимальном утормозному усилию
+    double b = Ia_max * If_max;
+
+    // Расчитаваем ограничение по току якоря при данном токе возбуждения,
+    // для ограничения тягового усилия
+    double Ia_max_force = -force_limit_level * b / (If + ksi_I);
+
+    Ia_ref = max(Ia_ref, Ia_max_force);
 
     // Ошибка по току якоря
     eps_I = Ia_ref - Ia;

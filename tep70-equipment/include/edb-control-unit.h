@@ -56,6 +56,11 @@ public:
         return static_cast<float>(V_ref);
     }
 
+    void setForceLimitLevel(double force_limit_level)
+    {
+        this->force_limit_level = cut(force_limit_level, 0.0, 1.0);
+    }
+
 private:
 
     double Ucc = 0.0;
@@ -88,6 +93,8 @@ private:
     double integrator_lim = 1.0;
 
     double velosity_selsin_pos = 0.0;
+
+    double force_limit_level = 0.0;
 
     /// Скорость начала ограничения тока якоря по условиям коммутации
     double Vc = 115.0;
