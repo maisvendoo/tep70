@@ -5,8 +5,8 @@
         <SubStepNum>1</SubStepNum>
         <Solver>euler</Solver>
 
-        <V_in>0.003</V_in>
-        <V_out>0.003</V_out>
+        <V_in>0.0001</V_in>
+        <V_out>0.0001</V_out>
 
         <K_flow>1.0e-3</K_flow>
         <K_atm>5.0e-5</K_atm>
