@@ -70,7 +70,8 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     ms_contacts[KM_24][MS_POS_12] = false;
     ms_contacts[KM_24][MS_POS_13] = false;
     ms_contacts[KM_24][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_24][MS_EDB_150kmh] = false;    
+    ms_contacts[KM_24][MS_EDB_150kmh] = false;
+    ms_contacts[KM_24][MS_EDB_0kmh] = false;
 
     ms_contacts[KM_37][MS_POS_0] = false;
     ms_contacts[KM_37][MS_POS_1] = false;
@@ -81,7 +82,8 @@ ControllerKM2202::ControllerKM2202(QObject *parent) : Device(parent)
     ms_contacts[KM_37][MS_POS_10] = false;
     ms_contacts[KM_37][MS_POS_11] = false;
     ms_contacts[KM_37][MS_EDB_PREPARE] = false;
-    ms_contacts[KM_37][MS_EDB_150kmh] = false;    
+    ms_contacts[KM_37][MS_EDB_150kmh] = false;
+    ms_contacts[KM_37][MS_EDB_0kmh] = false;
 
     ms_contacts[KM_36][MS_POS_0] = false;
     ms_contacts[KM_36][MS_POS_1] = false;
