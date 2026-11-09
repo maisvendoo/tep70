@@ -28,10 +28,6 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
         loco_crane[cab_idx]->step(t, dt);
     }
 
-    // Переключательный клапан ЗПК
-    // Первый вход клапана моделирует магистраль тормозных цилиндров
-    // Второй вход клапана моделирует резервуар стабильности (ложный ТЦ)
-    // Выход клапана подключен через тройник к повторителям давления тележек
     double bc_flow1 = 0.0;
     bc_flow1 += brake_lock[CAB1]->getBCflow();
     bc_flow1 += brake_lock[CAB2]->getBCflow();
@@ -42,11 +38,26 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     anglecock_bc_bwd->setHoseFlow(hose_bc_bwd->getFlow());
     bc_flow1 += anglecock_bc_bwd->getFlowToPipe();
 
+    // Переключательный клапан ПК4: коммутирует поток воздуха на вентиль ВТ1
+    // между ВР/ЭВР и пневматической цепью дотормаживания
+
+    // К первому входу подключен ЭВР305
+    pk4->setInputFlow1(electro_air_dist->getBCflow());
+    // Ко второму входу пока ничего не подключили!
+    pk4->setInputFlow2(0.0);
+    // Противодавление на выходе от входа ВТ1
+    pk4->setOutputPressure(vt1->getInputPressure());
+    pk4->step(t, dt);
+
     // ВТ1 — вентиль отпуска тормозов при работе ЭДТ
-    vt1->setInputFlow(electro_air_dist->getBCflow());
+    vt1->setInputFlow(pk4->getOutputFlow());
     vt1->setOutputPressure(bc_switch_valve->getPressure2());
     vt1->step(t, dt);
 
+    // Переключательный клапан ЗПК
+    // Первый вход клапана моделирует магистраль тормозных цилиндров
+    // Второй вход клапана моделирует резервуар стабильности (ложный ТЦ)
+    // Выход клапана подключен через тройник к повторителям давления тележек
     bc_switch_valve->setInputFlow1(bc_flow1);
     bc_switch_valve->setInputFlow2(vt1->getOutputFlow());
     bc_switch_valve->setOutputPressure(bc_splitter->getInputPressure());

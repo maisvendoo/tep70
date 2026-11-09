@@ -1256,6 +1256,9 @@ private:
     /// Вентиль отпуска тормозов при работе ЭДТ (ВТ1)
     ElectroPneumaticValve* vt1 = nullptr;
 
+    /// Переключательный клапан между каналом дотормаживания и ВР/ЭВР
+    SwitchingValve *pk4 = nullptr;
+
     /// Проверка активной кабины
     int checkActiveCabine();
 

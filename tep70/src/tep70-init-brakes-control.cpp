@@ -55,4 +55,12 @@ void TEP70::initBrakesControl(const QString &modules_dir, const QString &custom_
     hose_bc_bwd = new PneumoHose();
     hose_bc_bwd->read_config("pneumo-hose-BC");
     backward_connectors.push_back(hose_bc_bwd);
+
+    // Вентиль отпуска тормозов ВТ1 (нормально открытый)
+    vt1 = new ElectroPneumaticValve();
+    vt1->read_config("electro-pneumatic-valve", custom_cfg_dir);
+
+    // Переключательный клапан ПК4
+    pk4 = new SwitchingValve;
+    pk4->read_config("zpk", custom_cfg_dir);
 }

@@ -60,9 +60,5 @@ void TEP70::initBrakesEquipment(const QString &modules_dir, const QString &custo
 
     // Привод ручного тормоза
     handbrake_actor = new HandbrakeActor;
-    handbrake_actor->read_config("handbrake-actor", custom_cfg_dir);
-
-    // Вентиль отпуска тормозов ВТ1 (нормально открытый)
-    vt1 = new ElectroPneumaticValve();
-    vt1->read_config("electro-pneumatic-valve", custom_cfg_dir);
+    handbrake_actor->read_config("handbrake-actor", custom_cfg_dir);    
 }

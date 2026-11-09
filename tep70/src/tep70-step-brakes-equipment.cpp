@@ -32,7 +32,7 @@ void TEP70::stepBrakesEquipment(const double& t, const double& dt)
     // Электровоздухораспределитель
     electro_air_dist->setAirdistBCflow(air_dist->getBCflow());
     electro_air_dist->setAirdistSRflow(air_dist->getSRflow());
-    electro_air_dist->setBCpressure(vt1->getInputPressure());
+    electro_air_dist->setBCpressure(pk4->getPressure1());
     electro_air_dist->setSRpressure(supply_reservoir->getPressure());
     electro_air_dist->step(t, dt);
 
