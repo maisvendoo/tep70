@@ -42,6 +42,11 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     anglecock_bc_bwd->setHoseFlow(hose_bc_bwd->getFlow());
     bc_flow1 += anglecock_bc_bwd->getFlowToPipe();
 
+    // ВТ1 — вентиль отпуска тормозов при работе ЭДТ
+    vt1->setInputFlow(electro_air_dist->getBCflow());
+    vt1->setOutputPressure(bc_switch_valve->getPressure2());
+    vt1->step(t, dt);
+
     bc_switch_valve->setInputFlow1(bc_flow1);
     bc_switch_valve->setInputFlow2(vt1->getOutputFlow());
     bc_switch_valve->setOutputPressure(bc_splitter->getInputPressure());
