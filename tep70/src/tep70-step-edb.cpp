@@ -5,6 +5,9 @@
 //------------------------------------------------------------------------------
 void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 {
+    // Контроль давления в магистрали ВР/ЭВР, перед ПК4
+    is_RDT1_ON = pk4->getPressure1() > 0.03;
+
     // Общая цепь всей схемы реостатного тормоза
 
     // Цепь отключателей ТЭД
@@ -61,8 +64,8 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     ru24->setVoltage(Ucc * static_cast<double>(is_RU24_ON));
     ru24->step(t, dt);
 
-    // Цепь тормозного контактора: провод 1315, контакты реле РУ26
-    bool is_KT_ON = is_1315_ON && ru26->getContactState(RU26_FOR_KT_ON);
+    // Цепь тормозного контактора: провод 1315, контакты реле РУ26 или датчик РДТ1
+    bool is_KT_ON = is_1315_ON && (ru26->getContactState(RU26_FOR_KT_ON) || is_RDT1_ON);
 
     kt->setVoltage(Ucc * static_cast<double>(is_KT_ON));
     kt->step(t, dt);
@@ -75,7 +78,14 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     bool is_RU20_ON_RU25 = ru20->getContactState(RU20_FOR_RU25_ON);
 
-    is_RU25_ON = is_1315_ON && is_RU25_ON_FROM_RU24_RU26_RU28 && is_RU23_ON_RU25 && is_RU20_ON_RU25;
+    // Параллельная цепь РУ25 при торможении пневматическим тормозом: провод 1315,
+    // датчик РДТ1, размыкающие контакты РУ26 (исключается сборт такой схемы при сборе ЭДТ от КМ!!!)
+    bool is_RU25_PB_EPB_ON = is_RDT1_ON && ru26->getContactState(RU26_FOR_PB_EPB_BRAKE);
+
+    is_RU25_ON = is_1315_ON &&
+                 (is_RU25_ON_FROM_RU24_RU26_RU28 || is_RU25_PB_EPB_ON) &&
+                 is_RU23_ON_RU25 &&
+                 is_RU20_ON_RU25;
 
     // Данное реле:
     // 1. Шунтирует контакт самопитания катушки КВГ параллельно контакту РУ4
@@ -117,12 +127,14 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     float selsin_pos = 0.0f;
     double force_level = 0.0;
     bool is_stopping_brake = false;
+    bool is_KM_brake = false;
 
     if (KB1_switch->getContactState(KB1_CONTACT_CAB1_K6))
     {
         selsin_pos = km[CAB1]->getSelsinPos();
         force_level = brake_force_switch[CAB1].getPosition();
         is_stopping_brake = km[CAB1]->isContact(KM_21);
+        is_KM_brake = km[CAB1]->isEDB();
     }
 
     if (KB1_switch->getContactState(KB1_CONTACT_CAB2_K14))
@@ -130,6 +142,7 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
         selsin_pos = km[CAB2]->getSelsinPos();
         force_level = brake_force_switch[CAB2].getPosition();
         is_stopping_brake = km[CAB2]->isContact(KM_21);
+        is_KM_brake = km[CAB2]->isEDB();
     }
 
     edb_control_unit->setVelocitySelsinPos(selsin_pos);
@@ -137,6 +150,7 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     edb_control_unit->setForceLimitLevel(force_level);
     edb_control_unit->fullBrake(rv11->getContactState(RV11_FULL_BRAKE_FORCE));
     edb_control_unit->stoppingBrake(is_stopping_brake);
+    edb_control_unit->brakePositionKM(is_KM_brake);
     edb_control_unit->setAncorCurrent(motor[KP1]->getAncorCurrent());
     edb_control_unit->setFieldCurrent(motor[KP1]->getFieldCurrent());
     edb_control_unit->step(t, dt);

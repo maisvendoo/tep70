@@ -944,6 +944,7 @@ private:
     {
         RU26_FOR_RU25_ON,
         RU26_FOR_KT_ON,
+        RU26_FOR_PB_EPB_BRAKE,
         NUM_RU26_CONTACTS
     };
 
@@ -1290,7 +1291,7 @@ private:
     PneumoReducer *redc_emrg = nullptr;
 
     /// Датчик давления в импульснов маристрали ВР/ЭВР
-    bool isRDT1_ON = false;
+    bool is_RDT1_ON = false;
 
     /// Датчик давления в магистрали ТЦ
     bool is_RDT2_ON = false;

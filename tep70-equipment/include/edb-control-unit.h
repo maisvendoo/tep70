@@ -76,6 +76,11 @@ public:
         this->is_stopping_brake = is_stopping_brake;
     }
 
+    void brakePositionKM(bool is_KM_brake)
+    {
+        this->is_KM_brake = is_KM_brake;
+    }
+
 private:
 
     /// Напряжение питания блока
@@ -149,6 +154,9 @@ private:
 
     /// Скорость начала ограничения тока якоря по условиям коммутации
     double Vc = 115.0;
+
+    /// Признак тормозной позиции КМ
+    bool is_KM_brake = false;
 
     /// Максимальная заданная скорость торможения
     double V_ref_max = 150.0;

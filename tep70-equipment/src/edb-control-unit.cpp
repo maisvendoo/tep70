@@ -51,7 +51,8 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
     if (is_brake_ready)
     {
         // Контроль тормозного тока только при остановочном торможении
-        if (is_stopping_brake)
+        // или схема собрана от крана машиниста
+        if (is_stopping_brake || (!is_KM_brake))
         {
             is_brake_ready = (qAbs(Ia) > min_brake_current_level * Ia_max);
         }
@@ -62,7 +63,7 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
         is_brake_ready = qAbs(Ia) > min_brake_current_level * Ia_max;
     }
 
-    V_ref = V_ref_max * (1.0 + velosity_selsin_pos);
+    V_ref = V_ref_max * (1.0 + velosity_selsin_pos) * static_cast<double>(is_KM_brake);
 
     // Ошибка по скорости
     double dv = V_ref - Vkmh;
