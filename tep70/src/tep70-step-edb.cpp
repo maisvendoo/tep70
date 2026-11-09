@@ -84,9 +84,10 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     ru25->step(t, dt);
 
     // Цепь реле РУ21: провод 1315, контакты замыкающие реле РУ25,
-    // контакты размыкающие датчика давления РДТ2
-    is_RDT2_ON = (brake_mech[TROLLEY_FWD]->getBCpressure() <= 0.23) &&
-                 (brake_mech[TROLLEY_BWD]->getBCpressure() <= 0.23);
+    // контакты размыкающие датчика давления РДТ2 в магистрали (!!!) ТЦ,
+    // не в самих ТЦ, это разные вещи и тут подчеркивается,
+    // что выполняется контроль торможения от КВТ
+    is_RDT2_ON = bc_switch_valve->getPressure1() <= 0.23;
 
     bool is_RU21_ON = is_1315_ON && ru25->getContactState(RU25_FOR_RU21_ON) && is_RDT2_ON;
 
