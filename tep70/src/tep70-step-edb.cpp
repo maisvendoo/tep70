@@ -8,6 +8,9 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     // Контроль давления в магистрали ВР/ЭВР, перед ПК4
     is_RDT1_ON = pk4->getPressure1() > 0.03;
 
+    // Контроль давления в ТМ
+    is_RDT3_ON = brakepipe->getPressure() <= 0.3;
+
     // Общая цепь всей схемы реостатного тормоза
 
     // Цепь отключателей ТЭД
@@ -64,8 +67,9 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     ru24->setVoltage(Ucc * static_cast<double>(is_RU24_ON));
     ru24->step(t, dt);
 
-    // Цепь тормозного контактора: провод 1315, контакты реле РУ26 или датчик РДТ1
-    bool is_KT_ON = is_1315_ON && (ru26->getContactState(RU26_FOR_KT_ON) || is_RDT1_ON);
+    // Цепь тормозного контактора: провод 1315, контакты реле РУ26 или датчик РДТ1,
+    // или последовательная цепь размыкающего контакта РУ26 и датчика РДТ3
+    bool is_KT_ON = is_1315_ON && (ru26->getContactState(RU26_FOR_KT_ON) || is_RDT1_ON || (ru26->getContactState(RU26_FOR_PB_EPB_BRAKE) && is_RDT3_ON));
 
     kt->setVoltage(Ucc * static_cast<double>(is_KT_ON));
     kt->step(t, dt);
@@ -83,7 +87,7 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     bool is_RU25_PB_EPB_ON = is_RDT1_ON && ru26->getContactState(RU26_FOR_PB_EPB_BRAKE);
 
     is_RU25_ON = is_1315_ON &&
-                 (is_RU25_ON_FROM_RU24_RU26_RU28 || is_RU25_PB_EPB_ON) &&
+                 (is_RU25_ON_FROM_RU24_RU26_RU28 || is_RU25_PB_EPB_ON || ru27->getContactState(RU27_FOR_RU25_ON)) &&
                  is_RU23_ON_RU25 &&
                  is_RU20_ON_RU25;
 
@@ -151,6 +155,7 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     edb_control_unit->fullBrake(rv11->getContactState(RV11_FULL_BRAKE_FORCE));
     edb_control_unit->stoppingBrake(is_stopping_brake);
     edb_control_unit->brakePositionKM(is_KM_brake);
+    edb_control_unit->serviceBrake(ru27->getContactState(RU27_SERVICE_BRAKE));
     edb_control_unit->setAncorCurrent(motor[KP1]->getAncorCurrent());
     edb_control_unit->setFieldCurrent(motor[KP1]->getFieldCurrent());
     edb_control_unit->step(t, dt);
@@ -252,5 +257,9 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     vt3->setVoltage(Ucc * static_cast<double>(is_VT3_ON));
     // Шаг выполняется в томозном оборудовании!!!
 
-    // Сигнал датчика
+    // Цепь катушки реле РУ27 (реле экстренного торможения)
+    bool is_RU27_ON = (is_AB2_CAB1_on || is_AB2_CAB2_on) && is_RDT3_ON;
+
+    ru27->setVoltage(Ucc * static_cast<double>(is_RU27_ON));
+    ru27->step(t, dt);
 }

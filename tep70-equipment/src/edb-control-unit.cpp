@@ -63,7 +63,7 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
         is_brake_ready = qAbs(Ia) > min_brake_current_level * Ia_max;
     }
 
-    V_ref = V_ref_max * (1.0 + velosity_selsin_pos) * static_cast<double>(is_KM_brake);
+    V_ref = V_ref_max * (1.0 + velosity_selsin_pos) * static_cast<double>(is_KM_brake) * static_cast<double>(is_service_brake);
 
     // Ошибка по скорости
     double dv = V_ref - Vkmh;
@@ -87,7 +87,14 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
 
     if (is_full_brake)
     {
-        force_level = min_force_level + force_level_step * force_limit_level;
+        if (is_service_brake)
+        {
+            force_level = min_force_level + force_level_step * force_limit_level;
+        }
+        else
+        {
+            force_level = 1.0;
+        }
     }
     else
     {

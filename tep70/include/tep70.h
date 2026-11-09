@@ -955,6 +955,9 @@ private:
     {
         RU27_FOR_RU24_ON,
         RU27_TRACTION_ALLOW,
+        RU27_FOR_RU25_ON,
+        RU27_FOR_KT_ON,
+        RU27_SERVICE_BRAKE,
         NUM_RU27_CONTACTS
     };
 
@@ -1295,6 +1298,9 @@ private:
 
     /// Датчик давления в магистрали ТЦ
     bool is_RDT2_ON = false;
+
+    /// Датчик давления в тормозной магистрали (ТМ)
+    bool is_RDT3_ON = false;
 
     /// Проверка активной кабины
     int checkActiveCabine();

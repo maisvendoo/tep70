@@ -81,6 +81,11 @@ public:
         this->is_KM_brake = is_KM_brake;
     }
 
+    void serviceBrake(bool is_service_brake)
+    {
+        this->is_service_brake = is_service_brake;
+    }
+
 private:
 
     /// Напряжение питания блока
@@ -157,6 +162,9 @@ private:
 
     /// Признак тормозной позиции КМ
     bool is_KM_brake = false;
+
+    /// Признак служебного (не экстренного) торможения
+    bool is_service_brake = false;
 
     /// Максимальная заданная скорость торможения
     double V_ref_max = 150.0;
