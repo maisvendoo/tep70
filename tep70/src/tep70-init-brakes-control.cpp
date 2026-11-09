@@ -63,4 +63,11 @@ void TEP70::initBrakesControl(const QString &modules_dir, const QString &custom_
     // Переключательный клапан ПК4
     pk4 = new SwitchingValve;
     pk4->read_config("zpk", custom_cfg_dir);
+
+    // Редуктор РЕД1 на 0.6 МПа
+    redc1 = new PneumoReducer;
+    redc1->read_config("redc1", custom_cfg_dir);
+
+    rs3 = new Reservoir(0.078);
+    rs3->setLeakCoeff(3e-6);
 }

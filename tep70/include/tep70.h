@@ -1259,6 +1259,12 @@ private:
     /// Переключательный клапан между каналом дотормаживания и ВР/ЭВР
     SwitchingValve *pk4 = nullptr;
 
+    /// Редуктор РЕД1 питания цепи дотормаживания
+    PneumoReducer *redc1 = nullptr;
+
+    /// Резервуар РС3 в цепи дотормаживания
+    Reservoir *rs3 = nullptr;
+
     /// Проверка активной кабины
     int checkActiveCabine();
 

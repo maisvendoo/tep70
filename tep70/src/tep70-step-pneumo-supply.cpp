@@ -58,6 +58,9 @@ void TEP70::stepPneumoSupply(const double& t, const double& dt)
     anglecock_fl_bwd->setHoseFlow(hose_fl_bwd->getFlow());
     FL_flow += anglecock_fl_bwd->getFlowToPipe();
 
+    // Редуктор РЕД1 тоже потребляет воздух
+    FL_flow += redc1->getInputFlow();
+
     main_reservoir->setFlow(FL_flow);
     main_reservoir->step(t, dt);
 

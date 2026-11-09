@@ -38,6 +38,18 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     anglecock_bc_bwd->setHoseFlow(hose_bc_bwd->getFlow());
     bc_flow1 += anglecock_bc_bwd->getFlowToPipe();
 
+    // Редуктор РЕД1 подключен к питательной макгистрали
+    redc1->setInputPressure(main_reservoir->getPressure());
+    redc1->setOutPressure(rs3->getPressure());
+    redc1->step(t, dt);
+
+    // Резервуар РС3 подключен к редуктору РЕД1
+    double rs3_flow = 0.0;
+    rs3_flow += redc1->getOutFlow();
+
+    rs3->setFlow(rs3_flow);
+    rs3->step(t, dt);
+
     // Переключательный клапан ПК4: коммутирует поток воздуха на вентиль ВТ1
     // между ВР/ЭВР и пневматической цепью дотормаживания
 
