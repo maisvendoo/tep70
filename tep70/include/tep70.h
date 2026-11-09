@@ -1108,6 +1108,7 @@ private:
         RU28_FOR_LS5_ON,
         RU28_FOR_RV11_ON,
         RU28_FOR_VT2_OFF,
+        RU28_FOR_VT3_OFF,
         NUM_RU28_CONTACTS
     };
 
@@ -1301,6 +1302,9 @@ private:
 
     /// Датчик давления в тормозной магистрали (ТМ)
     bool is_RDT3_ON = false;
+
+    /// Еще один датчик давления ТМ в цепи вентиля ВТ3 - второй ступени тормозного нажатия
+    bool is_RDT4_ON = false;
 
     /// Проверка активной кабины
     int checkActiveCabine();

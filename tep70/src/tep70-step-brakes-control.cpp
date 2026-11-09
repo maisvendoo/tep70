@@ -88,6 +88,22 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     // Вентиль ВТ3 подключен к фиктивному редуктору 0.6/0.6
     vt3->setInputFlow(redc_emrg->getOutFlow());
     vt3->setOutputPressure(pk3->getPressure2());
+
+    // Цепь катушки вентиля ВТ3: автомат АВ2,
+    // контакты скоростимера при скорости выше 60 км/ч, датчик РДТ4,
+    // размыкающие контакты реле РУ28
+    is_RDT4_ON = brakepipe->getPressure() < 0.35;
+
+    double omega_KP = max(wheel_omega[KP1], wheel_omega[KP6]);
+
+    double Vkmh = omega_KP * wheel_diameter[KP1] * Physics::kmh / 2.0;
+
+    bool is_VT3_ON = (is_AB2_CAB1_on || is_AB2_CAB2_on) &&
+                     (Vkmh > 60.0) &&
+                     ru28->getContactState(RU28_FOR_VT3_OFF) &&
+                     is_RDT4_ON;
+
+    vt3->setVoltage(Ucc * static_cast<double>(is_VT3_ON));
     vt3->step(t, dt);
 
     // Переключательный клапан ПК3 коммутирует выходы вентилей ВТ2 и ВТ3
