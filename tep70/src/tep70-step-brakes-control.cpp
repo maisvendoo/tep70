@@ -49,10 +49,26 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     // Расход от редуктора идет через обратный клапан
     rs3_flow += pf(redc1->getOutFlow());
     // Расход воздуха в РЕД3 идет сквозной
-    rs3_flow += redc3->getInputFlow() + redc_emrg->getInputFlow();
+    rs3_flow += redc3->getInputFlow() + redc_emrg->getInputFlow() + bc_pressure_relay[TROLLEY_FWD]->getFLflow();
 
     rs3->setFlow(rs3_flow);
     rs3->step(t, dt);
+
+    // Редуктор РЕД2 подключен к питательной макгистрали
+    redc2->setInputPressure(main_reservoir->getPressure());
+    redc2->setOutPressure(rs4->getPressure());
+    redc2->step(t, dt);
+
+    // Резервуар РС4 подключен к редуктору РЕД2
+    double rs4_flow = 0.0;
+
+    // Расход от редуктора идет через обратный клапан
+    rs4_flow += pf(redc2->getOutFlow());
+    // Расход воздуха сквозной от реле давления второй тележки
+    rs4_flow += bc_pressure_relay[TROLLEY_BWD]->getFLflow();
+
+    rs4->setFlow(rs3_flow);
+    rs4->step(t, dt);
 
     // Редуктор РЕД3 подключен к РС3
     redc3->setInputPressure(rs3->getPressure());
@@ -70,7 +86,6 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     redc_emrg->step(t, dt);
 
     // Вентиль ВТ3 подключен к фиктивному редуктору 0.6/0.6
-    // Определимся с типом вентиля!!!!
     vt3->setInputFlow(redc_emrg->getOutFlow());
     vt3->setOutputPressure(pk3->getPressure2());
     vt3->step(t, dt);
@@ -113,12 +128,12 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     bc_splitter->step(t, dt);
 
     // Повторительное реле давления №304 передней тележки
-    bc_pressure_relay[TROLLEY_FWD]->setFLpressure(main_reservoir->getPressure());
+    bc_pressure_relay[TROLLEY_FWD]->setFLpressure(rs3->getPressure());
     bc_pressure_relay[TROLLEY_FWD]->setControlFlow(bc_splitter->getPipeFlow1());
     bc_pressure_relay[TROLLEY_FWD]->setPipePressure(brake_mech[TROLLEY_FWD]->getBCpressure());
     bc_pressure_relay[TROLLEY_FWD]->step(t, dt);
     // Повторительное реле давления №304 задней тележки
-    bc_pressure_relay[TROLLEY_BWD]->setFLpressure(main_reservoir->getPressure());
+    bc_pressure_relay[TROLLEY_BWD]->setFLpressure(rs4->getPressure());
     bc_pressure_relay[TROLLEY_BWD]->setControlFlow(bc_splitter->getPipeFlow2());
     bc_pressure_relay[TROLLEY_BWD]->setPipePressure(brake_mech[TROLLEY_BWD]->getBCpressure());
     bc_pressure_relay[TROLLEY_BWD]->step(t, dt);

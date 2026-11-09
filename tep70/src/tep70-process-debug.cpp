@@ -230,6 +230,7 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                     .arg(disel->getShaftFreq(), 6, 'f', 1)
                     .arg(tracForce / 1000.0, 7, 'f', 1).arg(is_RU25_ON).arg(is_RU23_ON);
 
-    DebugMsg += QString("|РС3:%1 МПа")
-                    .arg(rs3->getPressure(), 4, 'f', 2);
+    DebugMsg += QString("|РС3:%1 МПа|РС4:%2 МПа")
+                    .arg(rs3->getPressure(), 4, 'f', 2)
+                    .arg(rs4->getPressure(), 4, 'f', 2);
 }

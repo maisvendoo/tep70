@@ -88,4 +88,11 @@ void TEP70::initBrakesControl(const QString &modules_dir, const QString &custom_
     // Редуктор давления ЭТ от вентиля ВТ3. В схеме теплвоза его нет
     redc_emrg = new PneumoReducer;
     redc_emrg->read_config("redc_emrg", custom_cfg_dir);
+
+    // Редуктор РЕД2 на 0.6 МПа
+    redc2 = new PneumoReducer;
+    redc2->read_config("redc2", custom_cfg_dir);
+
+    rs4 = new Reservoir(0.078);
+    rs4->setLeakCoeff(3e-6);
 }

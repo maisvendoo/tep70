@@ -49,8 +49,8 @@ void TEP70::stepPneumoSupply(const double& t, const double& dt)
     FL_flow += brake_lock[CAB2]->getFLflow();
     FL_flow += epk[CAB1]->getFLflow();
     FL_flow += epk[CAB2]->getFLflow();
-    FL_flow += bc_pressure_relay[TROLLEY_FWD]->getFLflow();
-    FL_flow += bc_pressure_relay[TROLLEY_BWD]->getFLflow();
+    //FL_flow += bc_pressure_relay[TROLLEY_FWD]->getFLflow();
+    //FL_flow += bc_pressure_relay[TROLLEY_BWD]->getFLflow();
 
     anglecock_fl_fwd->setHoseFlow(hose_fl_fwd->getFlow());
     FL_flow += anglecock_fl_fwd->getFlowToPipe();
@@ -58,8 +58,8 @@ void TEP70::stepPneumoSupply(const double& t, const double& dt)
     anglecock_fl_bwd->setHoseFlow(hose_fl_bwd->getFlow());
     FL_flow += anglecock_fl_bwd->getFlowToPipe();
 
-    // Редуктор РЕД1 тоже потребляет воздух
-    FL_flow += redc1->getInputFlow();
+    // Редукторы РЕД1 и РЕД2 тоже потребляет воздух
+    FL_flow += redc1->getInputFlow() + redc2->getInputFlow();
 
     main_reservoir->setFlow(FL_flow);
     main_reservoir->step(t, dt);
