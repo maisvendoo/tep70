@@ -1289,6 +1289,12 @@ private:
     /// в ТЦ, при экстренном торможении вентилем ВТ3
     PneumoReducer *redc_emrg = nullptr;
 
+    /// Датчик давления в импульснов маристрали ВР/ЭВР
+    bool isRDT1_ON = false;
+
+    /// Датчик давления в магистрали ТЦ
+    bool is_RDT2_ON = false;
+
     /// Проверка активной кабины
     int checkActiveCabine();
 

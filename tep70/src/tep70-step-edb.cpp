@@ -85,8 +85,8 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     // Цепь реле РУ21: провод 1315, контакты замыкающие реле РУ25,
     // контакты размыкающие датчика давления РДТ2
-    bool is_RDT2_ON = (brake_mech[TROLLEY_FWD]->getBCpressure() <= 0.23) &&
-                      (brake_mech[TROLLEY_BWD]->getBCpressure() <= 0.23);
+    is_RDT2_ON = (brake_mech[TROLLEY_FWD]->getBCpressure() <= 0.23) &&
+                 (brake_mech[TROLLEY_BWD]->getBCpressure() <= 0.23);
 
     bool is_RU21_ON = is_1315_ON && ru25->getContactState(RU25_FOR_RU21_ON) && is_RDT2_ON;
 
@@ -236,4 +236,6 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     vt3->setVoltage(Ucc * static_cast<double>(is_VT3_ON));
     // Шаг выполняется в томозном оборудовании!!!
+
+    // Сигнал датчика
 }
