@@ -1,5 +1,5 @@
 set ADDON_NAME=tep70
-set VERSION=v4.0.5
+set VERSION=v5.0.0
 set DIR_NAME=%ADDON_NAME%-%VERSION%
 
 set PKG_DIR=..\..\package
@@ -29,7 +29,7 @@ rem Копируем ресурсы
 rem xcopy /E /Y ..\data\animations\%ADDON_NAME%-0132\*.* %PKG_DIR%\%DIR_NAME%\data\animations\%ADDON_NAME%-0132
 xcopy /E /Y ..\data\animations\%ADDON_NAME%-0212\*.* %PKG_DIR%\%DIR_NAME%\data\animations\%ADDON_NAME%-0212
 rem xcopy /E /Y ..\data\models_ktx\%ADDON_NAME%\*.* %PKG_DIR%\%DIR_NAME%\data\models\%ADDON_NAME%
-xcopy /E /Y ..\data\models\%ADDON_NAME%-0212\*.* %PKG_DIR%\%DIR_NAME%\data\models\%ADDON_NAME%-0212
+xcopy /E /Y ..\data\models_ktx\%ADDON_NAME%-0212\*.* %PKG_DIR%\%DIR_NAME%\data\models\%ADDON_NAME%-0212
 xcopy /E /Y ..\data\sounds\%ADDON_NAME%\*.* %PKG_DIR%\%DIR_NAME%\data\sounds\%ADDON_NAME%
 
 rem Копируем документацию
