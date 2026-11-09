@@ -224,4 +224,9 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     vt1->setVoltage(Ucc * static_cast<double>(is_VT1_ON));
     // Шаг выполняется в томозном оборудовании!!!
+
+    // Цепь вертиля ВТ2
+    bool is_VT2_ON = is_stopping_brake && ru28->getContactState(RU28_FOR_VT2_OFF);
+
+    vt2->setVoltage(Ucc * static_cast<double>(is_VT2_ON));
 }

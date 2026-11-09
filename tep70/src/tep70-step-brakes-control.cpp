@@ -48,9 +48,30 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
 
     // Расход от редуктора идет через обратный клапан
     rs3_flow += pf(redc1->getOutFlow());
+    // Расход воздуха в РЕД3 идет сквозной
+    rs3_flow += redc3->getInputFlow();
 
     rs3->setFlow(rs3_flow);
     rs3->step(t, dt);
+
+    // Редуктор РЕД3 подключен к РС3
+    redc3->setInputPressure(rs3->getPressure());
+    redc3->setOutPressure(vt2->getInputPressure());
+    redc3->step(t, dt);
+
+    // Вентиль ВТ2 подключен к РЕД3
+    vt2->setInputFlow(redc3->getOutFlow());
+    vt2->setOutputPressure(pk3->getPressure1());
+    vt2->step(t, dt);
+
+    // Вентиль ВТ2 подключен к РC3
+    // Определимся с типом вентиля!!!!
+
+    // Переключательный клапан ПК3 коммутирует выходы вентилей ВТ2 и ВТ3
+    pk3->setInputFlow1(vt2->getOutputFlow());
+    pk3->setInputFlow2(0.0);
+    pk3->setOutputPressure(pk4->getPressure2());
+    pk3->step(t, dt);
 
     // Переключательный клапан ПК4: коммутирует поток воздуха на вентиль ВТ1
     // между ВР/ЭВР и пневматической цепью дотормаживания
@@ -58,7 +79,7 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     // К первому входу подключен ЭВР305
     pk4->setInputFlow1(electro_air_dist->getBCflow());
     // Ко второму входу пока ничего не подключили!
-    pk4->setInputFlow2(0.0);
+    pk4->setInputFlow2(pk3->getOutputFlow());
     // Противодавление на выходе от входа ВТ1
     pk4->setOutputPressure(vt1->getInputPressure());
     pk4->step(t, dt);

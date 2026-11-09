@@ -1103,6 +1103,7 @@ private:
         RU28_FOR_RU25_ON,
         RU28_FOR_LS5_ON,
         RU28_FOR_RV11_ON,
+        RU28_FOR_VT2_OFF,
         NUM_RU28_CONTACTS
     };
 
@@ -1264,6 +1265,18 @@ private:
 
     /// Резервуар РС3 в цепи дотормаживания
     Reservoir *rs3 = nullptr;
+
+    /// Вентиль повышенного давления в ТЦ (ВТ3)
+    ElectroPneumaticValve* vt3 = nullptr;
+
+    /// Вентиль дотормаживания (ВТ2)
+    ElectroPneumaticValve* vt2 = nullptr;
+
+    /// Редуктор РЕД3 давления дотормаживания
+    PneumoReducer *redc3 = nullptr;
+
+    /// Переключательный клапан ПК3 между ВЕ3 и ВТ2
+    SwitchingValve *pk3 = nullptr;
 
     /// Проверка активной кабины
     int checkActiveCabine();

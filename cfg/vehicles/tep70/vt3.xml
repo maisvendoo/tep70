@@ -12,7 +12,7 @@
         <K_atm>6.0e-3</K_atm>
         <K_choke>6.0e-3</K_choke>
 
-        <Mode>0</Mode>
+        <Mode>1</Mode>
         <U_nom>110.0</U_nom>
         <R>170.0</R>
         <T>0.1</T>

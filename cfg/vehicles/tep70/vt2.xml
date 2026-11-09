@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <Device>
+        <Order>3</Order>
+        <SubStepNum>4</SubStepNum>
+        <Solver>euler</Solver>
+
+        <V_in>0.0005</V_in>
+        <V_out>0.0005</V_out>
+
+        <K_flow>1.0e-1</K_flow>
+        <K_atm>6.0e-2</K_atm>
+        <K_choke>6.0e-2</K_choke>
+
+        <Mode>1</Mode>
+        <U_nom>110.0</U_nom>
+        <R>170.0</R>
+        <T>0.1</T>
+        <level_off>0.6</level_off>
+        <level_on>0.7</level_on>
+
+    </Device>
+</Config>

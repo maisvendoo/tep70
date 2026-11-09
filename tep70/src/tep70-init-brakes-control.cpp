@@ -57,8 +57,8 @@ void TEP70::initBrakesControl(const QString &modules_dir, const QString &custom_
     backward_connectors.push_back(hose_bc_bwd);
 
     // Вентиль отпуска тормозов ВТ1 (нормально открытый)
-    vt1 = new ElectroPneumaticValve();
-    vt1->read_config("electro-pneumatic-valve", custom_cfg_dir);
+    vt1 = new ElectroPneumaticValve;
+    vt1->read_config("vt1", custom_cfg_dir);
 
     // Переключательный клапан ПК4
     pk4 = new SwitchingValve;
@@ -70,4 +70,18 @@ void TEP70::initBrakesControl(const QString &modules_dir, const QString &custom_
 
     rs3 = new Reservoir(0.078);
     rs3->setLeakCoeff(3e-6);
+
+    vt2 = new ElectroPneumaticValve;
+    vt2->read_config("vt2", custom_cfg_dir);
+
+    vt3 = new ElectroPneumaticValve;
+    vt3->read_config("vt3", custom_cfg_dir);
+
+    // Редуктор РЕД1 на 0.2 МПа
+    redc3 = new PneumoReducer;
+    redc3->read_config("redc3", custom_cfg_dir);
+
+    // Переключательный клапан ПК3
+    pk3 = new SwitchingValve;
+    pk3->read_config("zpk", custom_cfg_dir);
 }
