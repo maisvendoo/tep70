@@ -84,4 +84,8 @@ void TEP70::initBrakesControl(const QString &modules_dir, const QString &custom_
     // Переключательный клапан ПК3
     pk3 = new SwitchingValve;
     pk3->read_config("zpk", custom_cfg_dir);
+
+    // Редуктор давления ЭТ от вентиля ВТ3. В схеме теплвоза его нет
+    redc_emrg = new PneumoReducer;
+    redc_emrg->read_config("redc_emrg", custom_cfg_dir);
 }

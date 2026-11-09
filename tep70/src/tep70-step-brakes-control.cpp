@@ -49,7 +49,7 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     // Расход от редуктора идет через обратный клапан
     rs3_flow += pf(redc1->getOutFlow());
     // Расход воздуха в РЕД3 идет сквозной
-    rs3_flow += redc3->getInputFlow();
+    rs3_flow += redc3->getInputFlow() + redc_emrg->getInputFlow();
 
     rs3->setFlow(rs3_flow);
     rs3->step(t, dt);
@@ -64,12 +64,20 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
     vt2->setOutputPressure(pk3->getPressure1());
     vt2->step(t, dt);
 
-    // Вентиль ВТ2 подключен к РC3
+    // Фиктивный редуктор 0.6/0.6 подключен к РС3
+    redc_emrg->setInputPressure(rs3->getPressure());
+    redc_emrg->setOutPressure(vt3->getInputPressure());
+    redc_emrg->step(t, dt);
+
+    // Вентиль ВТ3 подключен к фиктивному редуктору 0.6/0.6
     // Определимся с типом вентиля!!!!
+    vt3->setInputFlow(redc_emrg->getOutFlow());
+    vt3->setOutputPressure(pk3->getPressure2());
+    vt3->step(t, dt);
 
     // Переключательный клапан ПК3 коммутирует выходы вентилей ВТ2 и ВТ3
     pk3->setInputFlow1(vt2->getOutputFlow());
-    pk3->setInputFlow2(0.0);
+    pk3->setInputFlow2(vt3->getOutputFlow());
     pk3->setOutputPressure(pk4->getPressure2());
     pk3->step(t, dt);
 
