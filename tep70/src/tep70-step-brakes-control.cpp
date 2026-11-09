@@ -45,7 +45,9 @@ void TEP70::stepBrakesControl(const double& t, const double& dt)
 
     // Резервуар РС3 подключен к редуктору РЕД1
     double rs3_flow = 0.0;
-    rs3_flow += redc1->getOutFlow();
+
+    // Расход от редуктора идет через обратный клапан
+    rs3_flow += pf(redc1->getOutFlow());
 
     rs3->setFlow(rs3_flow);
     rs3->step(t, dt);
