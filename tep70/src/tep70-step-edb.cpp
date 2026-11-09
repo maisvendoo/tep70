@@ -115,23 +115,27 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     float selsin_pos = 0.0f;
     double force_level = 0.0;
+    bool is_stopping_brake = false;
 
     if (KB1_switch->getContactState(KB1_CONTACT_CAB1_K6))
     {
         selsin_pos = km[CAB1]->getSelsinPos();
         force_level = brake_force_switch[CAB1].getPosition();
+        is_stopping_brake = km[CAB1]->isContact(KM_21);
     }
 
     if (KB1_switch->getContactState(KB1_CONTACT_CAB2_K14))
     {
         selsin_pos = km[CAB2]->getSelsinPos();
         force_level = brake_force_switch[CAB2].getPosition();
+        is_stopping_brake = km[CAB2]->isContact(KM_21);
     }
 
     edb_control_unit->setVelocitySelsinPos(selsin_pos);
     edb_control_unit->setCurrentVelocity(wheel_omega[KP1] * wheel_diameter[KP1] / 2.0);
     edb_control_unit->setForceLimitLevel(force_level);
     edb_control_unit->fullBrake(rv11->getContactState(RV11_FULL_BRAKE_FORCE));
+    edb_control_unit->stoppingBrake(is_stopping_brake);
     edb_control_unit->setAncorCurrent(motor[KP1]->getAncorCurrent());
     edb_control_unit->setFieldCurrent(motor[KP1]->getFieldCurrent());
     edb_control_unit->step(t, dt);

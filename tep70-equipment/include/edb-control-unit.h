@@ -71,52 +71,81 @@ public:
         return is_brake_ready;
     }
 
+    void stoppingBrake(bool is_stopping_brake)
+    {
+        this->is_stopping_brake = is_stopping_brake;
+    }
+
 private:
 
+    /// Напряжение питания блока
     double Ucc = 0.0;
 
+    /// Признак подачи питания
     bool is_power = false;
 
     /// Заданный ток возбуждения ТЭД
     double u_ref = 0.0;
 
+    /// Максимальная (конструкционная) скорость
     double Vmax = 160.0;
 
+    /// Пердельная уставка по току якоря
     double Ia_max = 825.0;
 
+    /// Предельная уставка по току возбуждения
     double If_max = 800.0;
 
+    /// Текущая скорость (км/ч)
     double Vkmh = 0.0;
 
+    /// Заданная скорость (км/ч)
     double V_ref = 0.0;
 
+    /// Текущий ток якоря
     double Ia = 0.0;
 
+    /// Текущий ток возбуждения
     double If = 0.0;
 
+    /// Ошибка по ттоку якоря
     double eps_I = 0.0;
 
+    /// Значение ошибки по току якоря на предыдущем шаге
     double eps_I_prev = 0.0;
 
+    /// Производная ошибки по току якоря
     double deps_Idt = 0.0;
 
+    /// Передел ограничения сигнала интегратора ошибки
     double integrator_lim = 1.0;
 
+    /// Сигнал от сельсина-задатчика скорости
     double velosity_selsin_pos = 0.0;
 
+    /// Уровень ограничения тормозного усилия
     double force_limit_level = 0.0;
 
+    /// Минимальный уровень задаваемого тормозного усилия
     double min_force_level = 0.22;
 
+    /// Шаг регулировки уровня тормозного усилия
     double force_level_step = 0.071;
 
+    /// Уровень тормозного усилия при предварительном торможении
     double force_prep_level = 0.2;
 
+    /// Признак отключения предварительного торможения
     bool is_full_brake = false;
 
+    /// Минимальный рабочий ток якоря при ЭДТ
     double min_brake_current_level = 0.3;
 
+    /// Готовность электрического тормоза
     bool is_brake_ready = false;
+
+    /// Признак остановочного торможения
+    bool is_stopping_brake = false;
 
     /// Скорость начала ограничения тока якоря по условиям коммутации
     double Vc = 115.0;

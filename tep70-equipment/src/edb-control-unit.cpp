@@ -44,11 +44,23 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
         Y[0] = 0.0;
         Y[1] = 0.0;
         V_ref = 0.0;
+        is_brake_ready = false;
         return;
     }
 
-    // Контроль тормозного тока
-    is_brake_ready = qAbs(Ia) > min_brake_current_level * Ia_max;
+    if (is_brake_ready)
+    {
+        // Контроль тормозного тока только при остановочном торможении
+        if (is_stopping_brake)
+        {
+            is_brake_ready = (qAbs(Ia) > min_brake_current_level * Ia_max);
+        }
+    }
+    else
+    {
+        // Контроль тормозного тока при сборе схемы
+        is_brake_ready = qAbs(Ia) > min_brake_current_level * Ia_max;
+    }
 
     V_ref = V_ref_max * (1.0 + velosity_selsin_pos);
 
