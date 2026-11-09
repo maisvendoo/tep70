@@ -40,26 +40,7 @@ void ElectroPneumaticValve::preStep(state_vector_t &Y, double t)
     }
 
     double P_out = Y[P_OUT];
-    double P_in  = Y[P_IN];
-
-    // Расход через открытый вентиль
-    Q_valve = 0.0;
-
-    if (is_opened)
-    {
-        Q_valve = K_flow * (P_in - P_out);
-    }
-
-    // Стравливание выходной камеры в атмосферу при закрытом вентиле
-    Q_atm = 0.0;
-
-    if (!is_opened)
-    {
-        Q_atm = K_atm * P_out;
-    }
-
-    // Расход к подключённому устройству
-    Q_out = K_choke * (P_out - P_device);
+    double P_in  = Y[P_IN];    
 }
 
 //------------------------------------------------------------------------------
@@ -69,6 +50,25 @@ void ElectroPneumaticValve::ode_system(const state_vector_t &Y,
                                         state_vector_t &dYdt, double t)
 {
     Q_UNUSED(t)
+
+    // Расход через открытый вентиль
+    Q_valve = 0.0;
+
+    if (is_opened)
+    {
+        Q_valve = K_flow * (Y[P_IN] - Y[P_OUT]);
+    }
+
+    // Стравливание выходной камеры в атмосферу при закрытом вентиле
+    Q_atm = 0.0;
+
+    if (!is_opened)
+    {
+        Q_atm = K_atm * Y[P_OUT];
+    }
+
+    // Расход к подключённому устройству
+    Q_out = K_choke * (Y[P_OUT] - P_device);
 
     // Баланс потоков для входной камеры
     dYdt[P_IN] = (Q_in - Q_valve) / V_in;

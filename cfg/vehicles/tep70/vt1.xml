@@ -8,9 +8,9 @@
         <V_in>0.0001</V_in>
         <V_out>0.0001</V_out>
 
-        <K_flow>1.0e-3</K_flow>
+        <K_flow>3.0e-2</K_flow>
         <K_atm>6.0e-3</K_atm>
-        <K_choke>6.0e-3</K_choke>
+        <K_choke>3.0e-2</K_choke>
 
         <Mode>0</Mode>
         <U_nom>110.0</U_nom>
