@@ -57,8 +57,8 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
         analogSignal[CAB1_SIGLIGHT_PSS + d] = safety_device[cab_idx]->getStatePSS() * 0.5f * (static_cast<float>(tumbler_pss[cab_idx].getState()) + 1.0f);
 
         // Сигнальные лампы на пульте машиниста
-        analogSignal[CAB1_SIGLIGHT_EDT1 + d] = control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_1];
-        analogSignal[CAB1_SIGLIGHT_EDT2 + d] = control_lamps[cab_idx][LAMP_EDT_BLINDS_OPEN_2];
+        analogSignal[CAB1_SIGLIGHT_EDT1 + d] = control_lamps[cab_idx][LAMP_EDB_READY_1];
+        analogSignal[CAB1_SIGLIGHT_EDT2 + d] = control_lamps[cab_idx][LAMP_EDB_READY_2];
 
         analogSignal[CAB1_SIGLIGHT_OIL_TEMP + d] = control_lamps[cab_idx][LAMP_WATER_OIL_TEMP];
 

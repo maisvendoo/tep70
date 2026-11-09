@@ -1181,7 +1181,8 @@ private:
         LAMP_EDT_BLINDS_OPEN_2,
         LAMP_RESERVED_FUEL_PUMP,
         LAMP_EDB_BLINDS_OPEN,
-        LAMP_EDB_READY,
+        LAMP_EDB_READY_1,
+        LAMP_EDB_READY_2,
         NUM_LAMPS
     };
 
