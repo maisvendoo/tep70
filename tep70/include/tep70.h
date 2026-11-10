@@ -1304,7 +1304,7 @@ private:
     bool is_RDT3_ON = false;
 
     /// Еще один датчик давления ТМ в цепи вентиля ВТ3 - второй ступени тормозного нажатия
-    bool is_RDT4_ON = false;
+    bool is_RDT4_ON = false;    
 
     /// Проверка активной кабины
     int checkActiveCabine();

@@ -403,6 +403,7 @@
 		<Type>Button</Type>
 		<value1>0</value1>
 		<value2>0</value2>
+		<AllowHold>1</AllowHold>
 		<ObjectNameCab1>Cab1_button_check_EDB</ObjectNameCab1>
 		<ObjectNameCab2>Cab2_button_check_EDB</ObjectNameCab2>
 	</Control>

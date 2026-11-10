@@ -65,8 +65,11 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
 
     V_ref = V_ref_max * (1.0 + velosity_selsin_pos) * static_cast<double>(is_KM_brake) * static_cast<double>(is_service_brake);
 
+    // Сигнал обратной связи по скорости
+    double V_fb = Vkmh + (V_test - Vkmh) * static_cast<double>(is_check_EDB);
+
     // Ошибка по скорости
-    double dv = V_ref - Vkmh;
+    double dv = V_ref * (1.0 - static_cast<double>(is_check_EDB)) - V_fb;
 
     double Ia_ref = cut(K[0] * dv, -Ia_max, 0.0);
 

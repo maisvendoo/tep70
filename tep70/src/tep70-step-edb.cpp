@@ -76,15 +76,20 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
 
     // Цепь реле РУ25: провод 1315, параллельные контакты РУ24, РУ28, размыкающий контакт РУ23,
     // размыкающий контакт РУ20
-    bool is_RU25_ON_FROM_RU24_RU28 = ru24->getContactState(RU24_FOR_RU25_ON) || ru28->getContactState(RU28_FOR_RU25_ON);
+    bool is_RU25_ON_FROM_RU24_RU28 = (ru24->getContactState(RU24_FOR_RU25_ON) && ru26->getContactState(RU26_FOR_RU25_ON)) ||
+                                     (ru28->getContactState(RU28_FOR_RU25_ON) && ru26->getContactState(RU26_FOR_RU25_ON));
 
-    bool is_RU23_ON_RU25 = ru23->getContactState(RU23_FOR_RU25_OFF);
+    // Состояние кнопок "Проверка ЭДТ". Включены параллельно, без зависимостей от КБ1 и КБ2
+    // Данные контакты шунтируют размыкающий контакт РУ23 в цепи катушки РУ25
+    bool is_check_EDB = button_check_edt[CAB1].getState() || button_check_edt[CAB2].getState();
+
+    bool is_RU23_ON_RU25 = ru23->getContactState(RU23_FOR_RU25_OFF) || is_check_EDB;
 
     bool is_RU20_ON_RU25 = ru20->getContactState(RU20_FOR_RU25_ON);
 
     // Параллельная цепь РУ25 при торможении пневматическим тормозом: провод 1315,
     // датчик РДТ1, размыкающие контакты РУ26 (исключается сборт такой схемы при сборе ЭДТ от КМ!!!)
-    bool is_RU25_PB_EPB_ON = is_RDT1_ON && ru26->getContactState(RU26_FOR_PB_EPB_BRAKE);
+    bool is_RU25_PB_EPB_ON = is_RDT1_ON && ru26->getContactState(RU26_FOR_PB_EPB_BRAKE);    
 
     is_RU25_ON = is_1315_ON &&
                  (is_RU25_ON_FROM_RU24_RU28 || is_RU25_PB_EPB_ON || ru27->getContactState(RU27_FOR_RU25_ON)) &&
@@ -156,6 +161,7 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     edb_control_unit->stoppingBrake(is_stopping_brake);
     edb_control_unit->brakePositionKM(is_KM_brake);
     edb_control_unit->serviceBrake(ru27->getContactState(RU27_SERVICE_BRAKE));
+    edb_control_unit->checkEDB(is_check_EDB);
     edb_control_unit->setAncorCurrent(motor[KP1]->getAncorCurrent());
     edb_control_unit->setFieldCurrent(motor[KP1]->getFieldCurrent());
     edb_control_unit->step(t, dt);

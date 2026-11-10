@@ -86,6 +86,11 @@ public:
         this->is_service_brake = is_service_brake;
     }
 
+    void checkEDB(bool is_check_EDB)
+    {
+        this->is_check_EDB = is_check_EDB;
+    }
+
 private:
 
     /// Напряжение питания блока
@@ -168,6 +173,12 @@ private:
 
     /// Максимальная заданная скорость торможения
     double V_ref_max = 150.0;
+
+    /// Cкорость, имитируемая при проверке ЭДТ
+    double V_test = 130.0;
+
+    /// Сигнал проверки ЭДТ
+    bool is_check_EDB = false;
 
     enum
     {
