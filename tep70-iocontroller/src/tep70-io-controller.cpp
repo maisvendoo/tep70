@@ -4,7 +4,6 @@
 #include    <tep70-controls.h>
 #include    <core/get_module.h>
 #include    <switcher-handler.h>
-#include    <km-2202.h>
 #include    <km-handler.h>
 
 
@@ -45,8 +44,13 @@ void TEP70IOController::init()
         handler = control_handlers[cab_idx].getByKey1(CTRL_AZV_FUEL_PUMP).value();
         azv_fuel_pump[cab_idx] = handler;
 
+        edb_check_button[cab_idx] = control_handlers[cab_idx].getByKey1(CTRL_BUTTON_CHECK_EDT).value();
+
         connect(azv_fuel_pump[cab_idx], &ControlHandler::sigOnValueChanged,
-                this, &TEP70IOController::slotOnControlValueChanged);
+                this, &TEP70IOController::slotOnFuelPumpControlValueChanged);
+
+        connect(main_handle[cab_idx], &ControlHandler::sigOnValueChanged,
+                this, &TEP70IOController::slotOnKMControlValueChanded);
     }
 
     switch_KB1 = control_handlers[cabs_num].getByKey1(CTRL_VVK_KB1).value();
@@ -54,9 +58,7 @@ void TEP70IOController::init()
     keep_fuel_pump_botton = control_handlers[cabs_num].getByKey1(CTRL_VVK_KEEP_FUEL_PUMP_BUTTON).value();
 
     connect(switch_KB1, &ControlHandler::sigOnValueChanged,
-            this, &TEP70IOController::slotOnControlValueChanged);
-
-
+            this, &TEP70IOController::slotOnFuelPumpControlValueChanged);
 }
 
 //------------------------------------------------------------------------------
@@ -162,12 +164,26 @@ void TEP70IOController::switchCabineByKey(int cab_idx)
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void TEP70IOController::slotOnControlValueChanged(const float &value)
+void TEP70IOController::slotOnFuelPumpControlValueChanged(const float &value)
 {
     (void) value;
 
     // Сбрасываем удерживаемую кнопку
     keep_fuel_pump_botton->reset();
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70IOController::slotOnKMControlValueChanded(const float &value)
+{
+    if ((km_ms_pos_prev == MS_EDB_PREPARE) && (static_cast<int>(value) == MS_POS_0))
+    {
+        edb_check_button[CAB1]->reset();
+        edb_check_button[CAB2]->reset();
+    }
+
+    km_ms_pos_prev = static_cast<int>(value);
 }
 
 GET_MODULE(TEP70IOController)

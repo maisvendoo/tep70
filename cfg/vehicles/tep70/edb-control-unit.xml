@@ -19,7 +19,7 @@
 		<K1>6e-4</K1>
 		<K2>5e-3</K2>
 		<K3>6e-4</K3>
-		<K4>2e-2</K4>
+		<K4>2.5e-2</K4>
 		<IntegratorLimit>1.0</IntegratorLimit>
 	</Device>
 </Config>

@@ -2,6 +2,7 @@
 #define     TEP70_IO_CONTROLLER_H
 
 #include    <io-controller.h>
+#include    <km-2202.h>
 
 //------------------------------------------------------------------------------
 //
@@ -47,6 +48,10 @@ private:
 
     ControlHandler *keep_fuel_pump_botton = nullptr;
 
+    ControlHandler *edb_check_button[CABS_NUM] = {nullptr, nullptr};
+
+    int km_ms_pos_prev = MS_POS_0;
+
     void processKeyboardInput(std::set<uint16_t> &pressed_keys) override;
 
     void lockReversHandle(int cab_idx);
@@ -57,7 +62,9 @@ private:
 
 private slots:
 
-    void slotOnControlValueChanged(const float &value);
+    void slotOnFuelPumpControlValueChanged(const float &value);
+
+    void slotOnKMControlValueChanded(const float &value);
 };
 
 #endif
