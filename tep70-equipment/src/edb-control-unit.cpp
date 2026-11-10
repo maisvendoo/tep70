@@ -82,7 +82,7 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
     // Ограничение тормозного усилия от переключателя
 
     // Величниа, пропорциональня максимальном утормозному усилию
-    double b = Ia_max * If_max;
+    double b = Ia_max + If_max;
 
     // Рассчитаваем ограничение по току якоря при данном токе возбуждения,
     // для ограничения тягового усилия
@@ -105,7 +105,7 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
         force_level = force_prep_level;
     }
 
-    double Ia_max_force = -force_level * b / (If + ksi_I);
+    double Ia_max_force = -pf(force_level * b - If);
 
     Ia_ref = max(Ia_ref, Ia_max_force);
 
