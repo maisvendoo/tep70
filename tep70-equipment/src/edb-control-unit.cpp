@@ -92,17 +92,19 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
     {
         if (is_service_brake)
         {
-            force_level = min_force_level + force_level_step * force_limit_level;
+            force_level = force_level_min + force_level_step * force_limit_level;
         }
         else
         {
-            force_level = 1.0;
+            force_level = force_level_max;
         }
+
+        force_level = cut(force_level, force_level_min, force_level_max);
     }
     else
     {
         // Пердварительное торможение по сигналу внешней схемы
-        force_level = force_prep_level;
+        force_level = cut(force_prep_level, 0.0, force_level_max);
     }
 
     double Ia_max_force = -pf(force_level * b - If);
@@ -159,6 +161,21 @@ void ControlUnitEDB::load_config(CfgReader &cfg)
     cfg.getDouble(secName, "Ia_max", Ia_max);
     cfg.getDouble(secName, "IntegratorLimit", integrator_lim);
     cfg.getDouble(secName, "Vc", Vc);
+
+    cfg.getDouble(secName, "ForcePrepLevel", force_prep_level);
+    cfg.getDouble(secName, "ForceLevelMin", force_level_min);
+    cfg.getDouble(secName, "ForceLevelMax", force_level_max);
+    cfg.getInt(secName, "NumForceLevels", num_force_levels);
+
+    if (num_force_levels > 1)
+    {
+        force_level_step = (force_level_max - force_level_min) / (num_force_levels - 1);
+    }
+    else
+    {
+        force_level_step = 0.0;
+        force_level_min = force_level_max;
+    }
 
     for (size_t i = 0; i < K.size(); ++i)
     {

@@ -142,7 +142,13 @@ private:
     double force_limit_level = 0.0;
 
     /// Минимальный уровень задаваемого тормозного усилия
-    double min_force_level = 0.22;
+    double force_level_min = 0.22;
+
+    /// Максимальны уровень задаваемого тормозного усилия
+    double force_level_max = 0.22;
+
+    /// Число уровней тормозного усилия
+    int num_force_levels = 12;
 
     /// Шаг регулировки уровня тормозного усилия
     double force_level_step = 0.071;
