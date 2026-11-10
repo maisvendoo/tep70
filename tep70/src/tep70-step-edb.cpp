@@ -74,9 +74,9 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     kt->setVoltage(Ucc * static_cast<double>(is_KT_ON));
     kt->step(t, dt);
 
-    // Цепь реле РУ25: провод 1315, параллельные контакты РУ24, РУ26, РУ28, размыкающий контакт РУ23,
+    // Цепь реле РУ25: провод 1315, параллельные контакты РУ24, РУ28, размыкающий контакт РУ23,
     // размыкающий контакт РУ20
-    bool is_RU25_ON_FROM_RU24_RU26_RU28 = ru24->getContactState(RU24_FOR_RU25_ON) || ru26->getContactState(RU26_FOR_RU25_ON) || ru28->getContactState(RU28_FOR_RU25_ON);
+    bool is_RU25_ON_FROM_RU24_RU28 = ru24->getContactState(RU24_FOR_RU25_ON) || ru28->getContactState(RU28_FOR_RU25_ON);
 
     bool is_RU23_ON_RU25 = ru23->getContactState(RU23_FOR_RU25_OFF);
 
@@ -87,7 +87,7 @@ void TEP70::stepElectroDymanicBrake(const double &t, const double &dt)
     bool is_RU25_PB_EPB_ON = is_RDT1_ON && ru26->getContactState(RU26_FOR_PB_EPB_BRAKE);
 
     is_RU25_ON = is_1315_ON &&
-                 (is_RU25_ON_FROM_RU24_RU26_RU28 || is_RU25_PB_EPB_ON || ru27->getContactState(RU27_FOR_RU25_ON)) &&
+                 (is_RU25_ON_FROM_RU24_RU28 || is_RU25_PB_EPB_ON || ru27->getContactState(RU27_FOR_RU25_ON)) &&
                  is_RU23_ON_RU25 &&
                  is_RU20_ON_RU25;
 
