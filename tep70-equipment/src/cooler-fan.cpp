@@ -34,7 +34,7 @@ void CoolerFan::preStep(state_vector_t &Y, double t)
             sound_state.state = 1;
         }
 
-        sound_state.volume = static_cast<float>(cut(omega / omega_nominal, 0.0, 1.0));
+        sound_state.volume = 1.0f;
         sound_state.pitch = 0.5f + 1.5f * static_cast<float>(cut(omega / omega_nominal, 0.0, 1.0));
     }
     else
@@ -45,7 +45,6 @@ void CoolerFan::preStep(state_vector_t &Y, double t)
         }
 
         sound_state.volume = 0.0f;
-        sound_state.pitch = 0.0f;
     }
 }
 

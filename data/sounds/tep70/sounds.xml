@@ -1847,7 +1847,7 @@
 	<Sound>
 		<SignalID>316</SignalID>
 		<Filename>x0.wav</Filename>
-		<InitVolume>0.5</InitVolume>
+		<InitVolume>1.0</InitVolume>
 		<MaxVolume>0.5</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
@@ -3042,24 +3042,24 @@
 	<Sound>
 		<SignalID>519</SignalID>
 		<Filename>cooler_fan.wav</Filename>
-		<InitVolume>0.5</InitVolume>
+		<InitVolume>1.0</InitVolume>
 		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 6.16 4.14</LocalPosition>
+		<LocalPosition>0.0 -4.74 4.76</LocalPosition>
 	</Sound>
 
 	<!-- Вентилятор холодильника (холодный контур) -->
 	<Sound>
 		<SignalID>520</SignalID>
 		<Filename>cooler_fan.wav</Filename>
-		<InitVolume>0.5</InitVolume>
+		<InitVolume>1.0</InitVolume>
 		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 6.16 2.64</LocalPosition>
+		<LocalPosition>0.0 -6.76 4.76</LocalPosition>
 	</Sound>
 
 </Config>
