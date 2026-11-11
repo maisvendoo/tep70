@@ -3062,4 +3062,28 @@
 		<LocalPosition>0.0 -4.74 4.76</LocalPosition>		
 	</Sound>
 
+	<!-- Жалюзи ЭДТ — открытие -->
+	<Sound>
+		<SignalID>521</SignalID>
+		<Filename>blinds_opened.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 4.0 2.0</LocalPosition>
+	</Sound>
+
+	<!-- Жалюзи ЭДТ — закрытие -->
+	<Sound>
+		<SignalID>522</SignalID>
+		<Filename>blinds_closed.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 4.0 2.0</LocalPosition>
+	</Sound>
+
 </Config>

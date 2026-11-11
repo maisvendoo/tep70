@@ -239,4 +239,11 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     // Вентиляторы холодильника
     analogSignal[SOUND_COOLER_FAN_HOT] = fan_hot_aero->getSoundSignal();
     analogSignal[SOUND_COOLER_FAN_COLD] = fan_cold_aero->getSoundSignal();
+
+    // Звуки жалюзи ЭДТ
+    static bool prev_edt = false;
+    bool curr_edt = EDB_blinds_actor->getState();
+    analogSignal[SOUND_EDT_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_edt && curr_edt);
+    analogSignal[SOUND_EDT_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_edt && !curr_edt);
+    prev_edt = curr_edt;
 }
