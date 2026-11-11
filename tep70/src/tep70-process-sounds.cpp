@@ -220,17 +220,34 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     static bool prev_water = vzhv->isOpened();
     static bool prev_oil = vzhm->isOpened();
     static bool prev_top = (vzhv->isOpened() || vzhm->isOpened());
+    static double timer_water_open = 0.0, timer_water_close = 0.0;
+    static double timer_oil_open = 0.0, timer_oil_close = 0.0;
+    static double timer_top_open = 0.0, timer_top_close = 0.0;
 
     bool curr_water = vzhv->isOpened();
     bool curr_oil = vzhm->isOpened();
     bool curr_top = (vzhv->isOpened() || vzhm->isOpened());
 
-    analogSignal[SOUND_WATER_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_water && curr_water);
-    analogSignal[SOUND_WATER_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_water && !curr_water);
-    analogSignal[SOUND_OIL_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_oil && curr_oil);
-    analogSignal[SOUND_OIL_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_oil && !curr_oil);
-    analogSignal[SOUND_TOP_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_top && curr_top);
-    analogSignal[SOUND_TOP_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_top && !curr_top);
+    if (!prev_water && curr_water) timer_water_open = 0.5;
+    if (prev_water && !curr_water) timer_water_close = 0.5;
+    if (!prev_oil && curr_oil) timer_oil_open = 0.5;
+    if (prev_oil && !curr_oil) timer_oil_close = 0.5;
+    if (!prev_top && curr_top) timer_top_open = 0.5;
+    if (prev_top && !curr_top) timer_top_close = 0.5;
+
+    timer_water_open = std::max(0.0, timer_water_open - dt);
+    timer_water_close = std::max(0.0, timer_water_close - dt);
+    timer_oil_open = std::max(0.0, timer_oil_open - dt);
+    timer_oil_close = std::max(0.0, timer_oil_close - dt);
+    timer_top_open = std::max(0.0, timer_top_open - dt);
+    timer_top_close = std::max(0.0, timer_top_close - dt);
+
+    analogSignal[SOUND_WATER_BLINDS_OPEN] = timer_water_open > 0.0 ? 100.999f : -100.999f;
+    analogSignal[SOUND_WATER_BLINDS_CLOSE] = timer_water_close > 0.0 ? 100.999f : -100.999f;
+    analogSignal[SOUND_OIL_BLINDS_OPEN] = timer_oil_open > 0.0 ? 100.999f : -100.999f;
+    analogSignal[SOUND_OIL_BLINDS_CLOSE] = timer_oil_close > 0.0 ? 100.999f : -100.999f;
+    analogSignal[SOUND_TOP_BLINDS_OPEN] = timer_top_open > 0.0 ? 100.999f : -100.999f;
+    analogSignal[SOUND_TOP_BLINDS_CLOSE] = timer_top_close > 0.0 ? 100.999f : -100.999f;
 
     prev_water = curr_water;
     prev_oil = curr_oil;
@@ -242,8 +259,16 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
 
     // Звуки жалюзи ЭДТ
     static bool prev_edt = EDB_blinds_actor->getState();
+    static double timer_edt_open = 0.0, timer_edt_close = 0.0;
     bool curr_edt = EDB_blinds_actor->getState();
-    analogSignal[SOUND_EDT_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_edt && curr_edt);
-    analogSignal[SOUND_EDT_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_edt && !curr_edt);
+
+    if (!prev_edt && curr_edt) timer_edt_open = 0.5;
+    if (prev_edt && !curr_edt) timer_edt_close = 0.5;
+
+    timer_edt_open = std::max(0.0, timer_edt_open - dt);
+    timer_edt_close = std::max(0.0, timer_edt_close - dt);
+
+    analogSignal[SOUND_EDT_BLINDS_OPEN] = timer_edt_open > 0.0 ? 100.999f : -100.999f;
+    analogSignal[SOUND_EDT_BLINDS_CLOSE] = timer_edt_close > 0.0 ? 100.999f : -100.999f;
     prev_edt = curr_edt;
 }
