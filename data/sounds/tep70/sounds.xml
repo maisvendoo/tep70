@@ -3047,7 +3047,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 -4.74 4.76</LocalPosition>
+		<LocalPosition>0.0 -6.76 4.76</LocalPosition>
 	</Sound>
 
 	<!-- Вентилятор холодильника (холодный контур) -->
@@ -3059,7 +3059,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 -6.76 4.76</LocalPosition>
+		<LocalPosition>0.0 -4.74 4.76</LocalPosition>		
 	</Sound>
 
 </Config>
