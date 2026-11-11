@@ -29,6 +29,10 @@ public:
         return static_cast<float>(getY(0));
     }
 
+    float getSoundSignal(size_t idx = 0) const override;
+
+    void step(double t, double dt) override;
+
 private:
 
     /// Максимальный темп открытия и закрытия створок
@@ -39,6 +43,12 @@ private:
 
     /// Сигнал открытия
     bool is_open = false;
+
+    /// Состояние звука
+    mutable sound_state_t sound_state_open;
+    mutable sound_state_t sound_state_close;
+    mutable double sound_timer_open = 0.0;
+    mutable double sound_timer_close = 0.0;
 
     void preStep(state_vector_t &Y, double t) override;
 
