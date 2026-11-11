@@ -258,9 +258,9 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     analogSignal[SOUND_COOLER_FAN_COLD] = fan_cold_aero->getSoundSignal();
 
     // Звуки жалюзи ЭДТ
-    static bool prev_edt = EDB_blinds_actor->getState() >= 0.95;
+    static bool prev_edt = EDB_blinds_actor->isOpened();
     static double timer_edt_open = 0.0, timer_edt_close = 0.0;
-    bool curr_edt = EDB_blinds_actor->getState() >= 0.95;
+    bool curr_edt = EDB_blinds_actor->isOpened();
 
     if (!prev_edt && curr_edt) timer_edt_open = 0.5;
     if (prev_edt && !curr_edt) timer_edt_close = 0.5;
