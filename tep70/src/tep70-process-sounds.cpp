@@ -235,4 +235,8 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     prev_water = curr_water;
     prev_oil = curr_oil;
     prev_top = curr_top;
+
+    // Вентиляторы холодильника
+    analogSignal[SOUND_COOLER_FAN_HOT] = fan_hot_aero->getSoundSignal();
+    analogSignal[SOUND_COOLER_FAN_COLD] = fan_cold_aero->getSoundSignal();
 }

@@ -707,6 +707,10 @@ enum
     // Освещение тележек
     TROLLEY_LIGHT = 518,
 
+    // Звук вентиляторов холодильника
+    SOUND_COOLER_FAN_HOT = 519,
+    SOUND_COOLER_FAN_COLD = 520,
+
     SIGNALS_NUM_TOTAL
 /*
     // Кабина 1

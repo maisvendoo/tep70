@@ -26,6 +26,9 @@ public:
     /// Момент аэродинамического сопротивления
     double getResistTorque() const;
 
+    /// Звуковой сигнал
+    float getSoundSignal(size_t idx = 0) const override;
+
 private:
 
     enum
@@ -42,6 +45,12 @@ private:
     double K_aero = 0.02;
     /// Момент инерции вентилятора
     double J_fan = 5.0;
+
+    /// Номинальная частота для нормализации высоты звука
+    double omega_nominal = 70.0;
+
+    /// Состояние звука
+    sound_state_t sound_state;
 
     void preStep(state_vector_t &Y, double t) override;
 
