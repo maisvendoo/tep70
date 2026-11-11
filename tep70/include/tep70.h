@@ -36,6 +36,7 @@
 
 #include    <hydrostatic-fan-drive.h>
 #include    <cooler-fan.h>
+#include    <blinds-actor.h>
 #include    <hysteresis-relay.h>
 #include    <pneumo-electro-valve.h>
 #include    <logic-relay.h>
@@ -685,8 +686,14 @@ private:
     CoolerFan* fan_cold_aero = nullptr;
     /// Вентиль жалюзи воды (ВЖВ)
     PneumoElectroValve* vzhv = nullptr;
-    /// Вентиль жалюзи масла (ВЖМ)
+/// Вентиль жалюзи масла (ВЖМ)
     PneumoElectroValve* vzhm = nullptr;
+
+    /// Приводы жалюзи (BlindsActor для воды, масла, верхних)
+    BlindsActor* water_blinds_actor = nullptr;
+    BlindsActor* oil_blinds_actor = nullptr;
+    BlindsActor* top_blinds_actor = nullptr;
+
     /// Термореле РТВ (жалюзи воды)
     HysteresisRelay* rtv = nullptr;
     /// Термореле РТМ (жалюзи масла)

@@ -27,6 +27,16 @@ void TEP70::initCooler(const QString &modules_dir, const QString &custom_cfg_dir
     vzhm->read_config("pneumo-electro-valve", custom_cfg_dir);
     vzhm->setVoltage(0.0);
 
+    // Приводы жалюзи на BlindsActor
+    water_blinds_actor = new BlindsActor();
+    water_blinds_actor->read_config("water-blinds-actor", custom_cfg_dir);
+
+    oil_blinds_actor = new BlindsActor();
+    oil_blinds_actor->read_config("oil-blinds-actor", custom_cfg_dir);
+
+    top_blinds_actor = new BlindsActor();
+    top_blinds_actor->read_config("top-blinds-actor", custom_cfg_dir);
+
     rtv = new HysteresisRelay(63.0, 68.0, false);
     rtm = new HysteresisRelay(60.0, 65.0, false);
 

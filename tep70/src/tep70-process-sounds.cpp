@@ -216,42 +216,13 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     // Песочница
     analogSignal[SOUND_SAND_DELIVERY] = sand_system->getSoundSignal();
 
-    // Звуки жалюзи (отслеживаем изменение состояния)
-    static bool prev_water = vzhv->isOpened();
-    static bool prev_oil = vzhm->isOpened();
-    static bool prev_top = (vzhv->isOpened() || vzhm->isOpened());
-    static double timer_water_open = 0.0, timer_water_close = 0.0;
-    static double timer_oil_open = 0.0, timer_oil_close = 0.0;
-    static double timer_top_open = 0.0, timer_top_close = 0.0;
-
-    bool curr_water = vzhv->isOpened();
-    bool curr_oil = vzhm->isOpened();
-    bool curr_top = (vzhv->isOpened() || vzhm->isOpened());
-
-    if (!prev_water && curr_water) timer_water_open = 0.5;
-    if (prev_water && !curr_water) timer_water_close = 0.5;
-    if (!prev_oil && curr_oil) timer_oil_open = 0.5;
-    if (prev_oil && !curr_oil) timer_oil_close = 0.5;
-    if (!prev_top && curr_top) timer_top_open = 0.5;
-    if (prev_top && !curr_top) timer_top_close = 0.5;
-
-    timer_water_open = std::max(0.0, timer_water_open - dt);
-    timer_water_close = std::max(0.0, timer_water_close - dt);
-    timer_oil_open = std::max(0.0, timer_oil_open - dt);
-    timer_oil_close = std::max(0.0, timer_oil_close - dt);
-    timer_top_open = std::max(0.0, timer_top_open - dt);
-    timer_top_close = std::max(0.0, timer_top_close - dt);
-
-    analogSignal[SOUND_WATER_BLINDS_OPEN] = timer_water_open > 0.0 ? 100.999f : -100.999f;
-    analogSignal[SOUND_WATER_BLINDS_CLOSE] = timer_water_close > 0.0 ? 100.999f : -100.999f;
-    analogSignal[SOUND_OIL_BLINDS_OPEN] = timer_oil_open > 0.0 ? 100.999f : -100.999f;
-    analogSignal[SOUND_OIL_BLINDS_CLOSE] = timer_oil_close > 0.0 ? 100.999f : -100.999f;
-    analogSignal[SOUND_TOP_BLINDS_OPEN] = timer_top_open > 0.0 ? 100.999f : -100.999f;
-    analogSignal[SOUND_TOP_BLINDS_CLOSE] = timer_top_close > 0.0 ? 100.999f : -100.999f;
-
-    prev_water = curr_water;
-    prev_oil = curr_oil;
-    prev_top = curr_top;
+    // Звуки жалюзи воды, масла, верхних — через BlindsActor
+    analogSignal[SOUND_WATER_BLINDS_OPEN] = water_blinds_actor->getSoundSignal(BlindsActor::OPEN_SOUND);
+    analogSignal[SOUND_WATER_BLINDS_CLOSE] = water_blinds_actor->getSoundSignal(BlindsActor::CLOSE_SOUND);
+    analogSignal[SOUND_OIL_BLINDS_OPEN] = oil_blinds_actor->getSoundSignal(BlindsActor::OPEN_SOUND);
+    analogSignal[SOUND_OIL_BLINDS_CLOSE] = oil_blinds_actor->getSoundSignal(BlindsActor::CLOSE_SOUND);
+    analogSignal[SOUND_TOP_BLINDS_OPEN] = top_blinds_actor->getSoundSignal(BlindsActor::OPEN_SOUND);
+    analogSignal[SOUND_TOP_BLINDS_CLOSE] = top_blinds_actor->getSoundSignal(BlindsActor::CLOSE_SOUND);
 
     // Вентиляторы холодильника
     analogSignal[SOUND_COOLER_FAN_HOT] = fan_hot_aero->getSoundSignal();
