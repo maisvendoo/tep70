@@ -76,8 +76,8 @@
 
 	<Control>
 		<ID>105</ID>
-		<Name>ЭДТ (АВ 7)</Name>
-		<Description>Включение электродистанционного тормоза</Description>
+		<Name>ЭДТ (АВ7)</Name>
+		<Description>Включение электродинамического тормоза</Description>
 		<Type>Toggle</Type>
 		<value1>0</value1>
 		<value2>0</value2>

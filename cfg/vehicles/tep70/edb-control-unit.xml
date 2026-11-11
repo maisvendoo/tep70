@@ -9,6 +9,7 @@
 		<If_max>800.0</If_max>
 		<Ia_max>870.0</Ia_max>
 		<Vc>115.0</Vc>
+		<Ic>545</Ic>
 
 		<ForcePrepLevel>0.29</ForcePrepLevel>
 		<ForceLevelMin>0.31</ForceLevelMin>
