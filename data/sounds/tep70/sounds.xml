@@ -606,8 +606,8 @@
 	<Sound>
 		<SignalID>249</SignalID>
 		<Filename>skorostemer.wav</Filename>
-		<InitVolume>0.2</InitVolume>
-		<MaxVolume>0.2</MaxVolume>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
