@@ -2977,7 +2977,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 6.16 4.14</LocalPosition>
+		<LocalPosition>0.0 -5.75 5.75</LocalPosition>
 	</Sound>
 
 	<!-- Верхние жалюзи — закрытие -->
@@ -2989,7 +2989,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 6.16 4.14</LocalPosition>
+		<LocalPosition>0.0 -5.75 5.75</LocalPosition>
 	</Sound>
 
 	<!-- Кнопка Маневровая -->
@@ -3071,7 +3071,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 4.0 2.0</LocalPosition>
+		<LocalPosition>0.0 -5.68 4.46</LocalPosition>
 	</Sound>
 
 	<!-- Жалюзи ЭДТ — закрытие -->
@@ -3083,7 +3083,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 4.0 2.0</LocalPosition>
+		<LocalPosition>0.0 -5.68 4.46</LocalPosition>
 	</Sound>
 
 </Config>
