@@ -21,6 +21,7 @@ public:
 
     void setState(bool is_open)
     {
+        is_open_prev = this->is_open;
         this->is_open = is_open;
     }
 
@@ -29,9 +30,17 @@ public:
         return static_cast<float>(getY(0));
     }
 
-    float getSoundSignal(size_t idx = 0) const override;
+    enum
+    {
+        OPEN_SOUND,
+        CLOSE_SOUND,
+        NUM_SOUNDS
+    };
 
-    void step(double t, double dt) override;
+    /// Состояние звука
+    sound_state_t getSoundState(size_t idx = OPEN_SOUND) const override;
+
+    float getSoundSignal(size_t idx = 0) const override;
 
 private:
 
@@ -44,11 +53,11 @@ private:
     /// Сигнал открытия
     bool is_open = false;
 
+    bool is_open_prev = false;
+
     /// Состояние звука
-    mutable sound_state_t sound_state_open;
-    mutable sound_state_t sound_state_close;
-    mutable double sound_timer_open = 0.0;
-    mutable double sound_timer_close = 0.0;
+    sound_state_t sound_state_open;
+    sound_state_t sound_state_close;
 
     void preStep(state_vector_t &Y, double t) override;
 

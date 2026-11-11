@@ -1,7 +1,5 @@
 #include    "blinds-actor.h"
 
-#include    <algorithm>
-
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
@@ -21,30 +19,19 @@ BlindsActor::~BlindsActor()
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-void BlindsActor::step(double t, double dt)
+sound_state_t BlindsActor::getSoundState(size_t idx) const
 {
-    bool prev = isOpened();
-
-    Device::step(t, dt);
-
-    bool curr = isOpened();
-
-    if (prev != curr)
+    if (idx == OPEN_SOUND)
     {
-        if (curr)
-        {
-            sound_state_open.play(true);
-            sound_timer_open = 0.5;
-        }
-        else
-        {
-            sound_state_close.play(true);
-            sound_timer_close = 0.5;
-        }
+        return sound_state_open;
     }
 
-    sound_timer_open = std::max(0.0, sound_timer_open - dt);
-    sound_timer_close = std::max(0.0, sound_timer_close - dt);
+    if (idx == CLOSE_SOUND)
+    {
+        return sound_state_close;
+    }
+
+    return sound_state_t();
 }
 
 //------------------------------------------------------------------------------
@@ -55,6 +42,20 @@ void BlindsActor::preStep(state_vector_t &Y, double t)
     Q_UNUSED(t)
 
     cur_rate = is_open ? max_rate : -max_rate;
+
+    Y[0] = cut(Y[0], 0.0, 1.0);
+
+    if (is_open != is_open_prev)
+    {
+        if (is_open)
+        {
+            sound_state_open.play(true);
+        }
+        else
+        {
+            sound_state_close.play(true);
+        }
+    }
 }
 
 //------------------------------------------------------------------------------
@@ -74,15 +75,14 @@ void BlindsActor::ode_system(const state_vector_t &Y,
 //------------------------------------------------------------------------------
 float BlindsActor::getSoundSignal(size_t idx) const
 {
-    if (idx == 0)
+    if (idx == OPEN_SOUND)
     {
-        if (sound_timer_open > 0.0)
-            return sound_state_open.createSoundSignal();
+        return sound_state_open.createSoundSignal();
     }
-    else
+
+    if (idx == CLOSE_SOUND)
     {
-        if (sound_timer_close > 0.0)
-            return sound_state_close.createSoundSignal();
+        return sound_state_close.createSoundSignal();
     }
 
     return sound_state_t().createSoundSignal();
@@ -95,5 +95,5 @@ void BlindsActor::load_config(CfgReader &cfg)
 {
     QString secName = "Device";
 
-    cfg.getDouble(secName, "max_rate", max_rate);
+    cfg.getDouble(secName, "MaxRate", max_rate);
 }
