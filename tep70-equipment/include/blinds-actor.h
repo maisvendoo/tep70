@@ -49,4 +49,4 @@ private:
     void load_config(CfgReader &cfg) override;
 };
 
-#endif
+#endif // BLINDS_ACTOR_H

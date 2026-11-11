@@ -1,9 +1,9 @@
-#include    <blinds-actor.h>
+#include    "blinds-actor.h"
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-BlindsActor::BlindsActor(QObject *parent)
+BlindsActor::BlindsActor(QObject *parent) : Device(parent)
 {
 
 }
@@ -21,18 +21,20 @@ BlindsActor::~BlindsActor()
 //------------------------------------------------------------------------------
 void BlindsActor::preStep(state_vector_t &Y, double t)
 {
-    is_open ? cur_rate = max_rate : cur_rate = -max_rate;
+    Q_UNUSED(t)
 
-    Y[0] = cut(Y[0], 0.0, 1.0);
+    cur_rate = is_open ? max_rate : -max_rate;
 }
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
 void BlindsActor::ode_system(const state_vector_t &Y,
-                             state_vector_t &dYdt,
-                             double t)
+                              state_vector_t &dYdt,
+                              double t)
 {
+    Q_UNUSED(t)
+
     dYdt[0] = cur_rate;
 }
 
@@ -43,5 +45,5 @@ void BlindsActor::load_config(CfgReader &cfg)
 {
     QString secName = "Device";
 
-    cfg.getDouble(secName, "MaxRate", max_rate);
+    cfg.getDouble(secName, "max_rate", max_rate);
 }
