@@ -3071,7 +3071,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 -5.68 4.46</LocalPosition>
+		<LocalPosition>0.0 5.68 4.46</LocalPosition>
 	</Sound>
 
 	<!-- Жалюзи ЭДТ — закрытие -->
@@ -3083,7 +3083,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 -5.68 4.46</LocalPosition>
+		<LocalPosition>0.0 5.68 4.46</LocalPosition>
 	</Sound>
 
 </Config>
