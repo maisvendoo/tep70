@@ -221,27 +221,16 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     static bool prev_oil = vzhm->isOpened();
     static bool prev_top = (vzhv->isOpened() || vzhm->isOpened());
 
-    static sound_state_t snd_water_open, snd_water_close;
-    static sound_state_t snd_oil_open, snd_oil_close;
-    static sound_state_t snd_top_open, snd_top_close;
-
     bool curr_water = vzhv->isOpened();
     bool curr_oil = vzhm->isOpened();
     bool curr_top = (vzhv->isOpened() || vzhm->isOpened());
 
-    snd_water_open.play(!prev_water && curr_water);
-    snd_water_close.play(prev_water && !curr_water);
-    snd_oil_open.play(!prev_oil && curr_oil);
-    snd_oil_close.play(prev_oil && !curr_oil);
-    snd_top_open.play(!prev_top && curr_top);
-    snd_top_close.play(prev_top && !curr_top);
-
-    analogSignal[SOUND_WATER_BLINDS_OPEN] = snd_water_open.createSoundSignal();
-    analogSignal[SOUND_WATER_BLINDS_CLOSE] = snd_water_close.createSoundSignal();
-    analogSignal[SOUND_OIL_BLINDS_OPEN] = snd_oil_open.createSoundSignal();
-    analogSignal[SOUND_OIL_BLINDS_CLOSE] = snd_oil_close.createSoundSignal();
-    analogSignal[SOUND_TOP_BLINDS_OPEN] = snd_top_open.createSoundSignal();
-    analogSignal[SOUND_TOP_BLINDS_CLOSE] = snd_top_close.createSoundSignal();
+    analogSignal[SOUND_WATER_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_water && curr_water);
+    analogSignal[SOUND_WATER_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_water && !curr_water);
+    analogSignal[SOUND_OIL_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_oil && curr_oil);
+    analogSignal[SOUND_OIL_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_oil && !curr_oil);
+    analogSignal[SOUND_TOP_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_top && curr_top);
+    analogSignal[SOUND_TOP_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_top && !curr_top);
 
     prev_water = curr_water;
     prev_oil = curr_oil;
@@ -249,18 +238,12 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
 
     // Вентиляторы холодильника
     analogSignal[SOUND_COOLER_FAN_HOT] = fan_hot_aero->getSoundSignal();
-
-    // Вентиляторы холодильника
-    analogSignal[SOUND_COOLER_FAN_HOT] = fan_hot_aero->getSoundSignal();
     analogSignal[SOUND_COOLER_FAN_COLD] = fan_cold_aero->getSoundSignal();
 
     // Звуки жалюзи ЭДТ
-    static sound_state_t snd_edt_open, snd_edt_close;
     static bool prev_edt = EDB_blinds_actor->getState();
     bool curr_edt = EDB_blinds_actor->getState();
-    snd_edt_open.play(!prev_edt && curr_edt);
-    snd_edt_close.play(prev_edt && !curr_edt);
-    analogSignal[SOUND_EDT_BLINDS_OPEN] = snd_edt_open.createSoundSignal();
-    analogSignal[SOUND_EDT_BLINDS_CLOSE] = snd_edt_close.createSoundSignal();
+    analogSignal[SOUND_EDT_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_edt && curr_edt);
+    analogSignal[SOUND_EDT_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_edt && !curr_edt);
     prev_edt = curr_edt;
 }
