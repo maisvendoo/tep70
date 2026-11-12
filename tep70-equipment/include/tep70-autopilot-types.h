@@ -34,6 +34,8 @@ public:
 
     bool is_EPB_on = false;
 
+    bool is_KVV_on = false;
+
     tep70_feedback_t() : auto_feedback_t()
     {
 

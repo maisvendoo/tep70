@@ -2,6 +2,8 @@
 
 #include    <core/get_module.h>
 
+#include    <km-2202.h>
+
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
@@ -175,11 +177,17 @@ void TEP70Autopilot::plusPos()
         return;
     }
 
+    // Не набираем позиции, пока не соберется схема тяги!
+    if (auto_control->km_pos == MS_POS_1 && (!auto_feedback->is_KVV_on))
+    {
+        return;
+    }
+
     auto_control->km_pos++;
 
-    if (auto_control->km_pos > 15)
+    if (auto_control->km_pos > MS_POS_15)
     {
-        auto_control->km_pos = 15;
+        auto_control->km_pos = MS_POS_15;
     }
 
     if (!km_delay->isStarted())
@@ -200,9 +208,9 @@ void TEP70Autopilot::minusPos()
 
     auto_control->km_pos--;
 
-    if (auto_control->km_pos < 0)
+    if (auto_control->km_pos < MS_POS_0)
     {
-        auto_control->km_pos = 0;
+        auto_control->km_pos = MS_POS_0;
     }
 
     if (!km_delay->isStarted())
@@ -222,7 +230,7 @@ void TEP70Autopilot::zeroPos()
         return;
     }
 
-    auto_control->km_pos = 0;
+    auto_control->km_pos = MS_POS_0;
 
     if (!km_delay->isStarted())
     {

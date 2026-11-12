@@ -64,7 +64,7 @@ void TEP70::stepAutopilot(double t, double dt)
     auto_feedback[cab_idx]->pEQ = brake_crane[cab_idx]->getERpressure();
     auto_feedback[cab_idx]->p_charge = charge_press;
     auto_feedback[cab_idx]->is_EPB_on = epb_control[cab_idx]->stateReleaseLamp();
-
+    auto_feedback[cab_idx]->is_KVV_on = kvv->getContactState(KVV_CONTACT_MAIN);
 
     // Принимаем сигналы обратной связи от оборудования
     autopilot[cab_idx]->setFeedback(auto_feedback[cab_idx]);

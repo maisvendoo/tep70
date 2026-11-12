@@ -41,6 +41,9 @@ private:
     /// Выдержка рукоятки КМ
     const double KM_DELAY = 2.0;
 
+    /// Признак замыкания контактора КВВ, для контроля сбора тяги
+    bool is_KVV_ON = false;
+
     /// Таймер выдержки главной рукоятки КМ в заданном
     Timer *km_delay = new Timer(KM_DELAY, false);
 

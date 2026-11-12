@@ -142,11 +142,7 @@ void ControlUnitEDB::ode_system(const state_vector_t &Y,
         return;
     }
 
-    dYdt[0] = eps_I;
-
-    double T = 1.0;
-
-    dYdt[1] = (u_ref - Y[1]) / T;
+    dYdt[0] = eps_I;    
 }
 
 //------------------------------------------------------------------------------
