@@ -606,8 +606,8 @@
 	<Sound>
 		<SignalID>249</SignalID>
 		<Filename>skorostemer.wav</Filename>
-		<InitVolume>0.2</InitVolume>
-		<MaxVolume>0.2</MaxVolume>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
 		<PlayOnStart>0</PlayOnStart>
@@ -1847,7 +1847,7 @@
 	<Sound>
 		<SignalID>316</SignalID>
 		<Filename>x0.wav</Filename>
-		<InitVolume>0.5</InitVolume>
+		<InitVolume>1.0</InitVolume>
 		<MaxVolume>0.5</MaxVolume>
 		<InitPitch>1.0</InitPitch>
 		<Loop>1</Loop>
@@ -2977,7 +2977,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 6.16 4.14</LocalPosition>
+		<LocalPosition>0.0 -5.75 5.75</LocalPosition>
 	</Sound>
 
 	<!-- Верхние жалюзи — закрытие -->
@@ -2989,7 +2989,7 @@
 		<InitPitch>1.0</InitPitch>
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
-		<LocalPosition>0.0 6.16 4.14</LocalPosition>
+		<LocalPosition>0.0 -5.75 5.75</LocalPosition>
 	</Sound>
 
 	<!-- Кнопка Маневровая -->
@@ -3036,6 +3036,54 @@
 		<Loop>0</Loop>
 		<PlayOnStart>0</PlayOnStart>
 		<LocalPosition>0.84 -9.67 2.87</LocalPosition>
+	</Sound>
+
+	<!-- Вентилятор холодильника (горячий контур) -->
+	<Sound>
+		<SignalID>519</SignalID>
+		<Filename>cooler_fan.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -6.76 4.76</LocalPosition>
+	</Sound>
+
+	<!-- Вентилятор холодильника (холодный контур) -->
+	<Sound>
+		<SignalID>520</SignalID>
+		<Filename>cooler_fan.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>1</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 -4.74 4.76</LocalPosition>		
+	</Sound>
+
+	<!-- Жалюзи ЭДТ — открытие -->
+	<Sound>
+		<SignalID>521</SignalID>
+		<Filename>blinds_opened.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 5.68 4.46</LocalPosition>
+	</Sound>
+
+	<!-- Жалюзи ЭДТ — закрытие -->
+	<Sound>
+		<SignalID>522</SignalID>
+		<Filename>blinds_closed.wav</Filename>
+		<InitVolume>1.0</InitVolume>
+		<MaxVolume>1.0</MaxVolume>
+		<InitPitch>1.0</InitPitch>
+		<Loop>0</Loop>
+		<PlayOnStart>0</PlayOnStart>
+		<LocalPosition>0.0 5.68 4.46</LocalPosition>
 	</Sound>
 
 </Config>

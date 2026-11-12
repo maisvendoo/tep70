@@ -76,6 +76,10 @@ void TEP70::stepCooler(const double& t, const double& dt)
     vzhv->setVoltage(Ucc * static_cast<double>(is_vzhv_ON));
     vzhv->step(t, dt);
 
+    // Привод жалюзи воды (BlindsActor)
+    water_blinds_actor->setState(is_vzhv_ON);
+    water_blinds_actor->step(t, dt);
+
     // Управление холодного контура
     bool is_vzhm_CAB1_ON = (tumbler_oil_zaluzi[CAB1].getPosition() == 0) ||
                            ((tumbler_oil_zaluzi[CAB1].getPosition() == 2) && rtm->getState());
@@ -89,9 +93,17 @@ void TEP70::stepCooler(const double& t, const double& dt)
     vzhm->setVoltage(Ucc * static_cast<double>(is_vzhm_ON));
     vzhm->step(t, dt);
 
+    // Привод жалюзи масла (BlindsActor)
+    oil_blinds_actor->setState(is_vzhm_ON);
+    oil_blinds_actor->step(t, dt);
+
+    // Верхние жалюзи — открываются когда открыты водяные или масляные
+    top_blinds_actor->setState(water_blinds_actor->isOpened() || oil_blinds_actor->isOpened());
+    top_blinds_actor->step(t, dt);
+
     // Передаём состояние жалюзи в дизель
-    water_blinds_open = is_vzhv_ON && vzhv->isOpened();
-    oil_blinds_open = is_vzhm_ON && vzhm->isOpened();
+    water_blinds_open = water_blinds_actor->isOpened();
+    oil_blinds_open = oil_blinds_actor->isOpened();
     disel->setWaterBlindsState(water_blinds_open);
     disel->setOilBlindsState(oil_blinds_open);
 }

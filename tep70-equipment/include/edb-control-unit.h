@@ -186,6 +186,9 @@ private:
     /// Сигнал проверки ЭДТ
     bool is_check_EDB = false;
 
+    /// Ограничение тока по условиям комутации на максимальной скорости
+    double Ic = 545.0;
+
     enum
     {
         NUM_COEFS = 10
@@ -200,6 +203,8 @@ private:
                     double t) override;
 
     void load_config(CfgReader &cfg) override;
+
+    double calcCommutationCurrentLimit(double Vkmh);
 };
 
 #endif

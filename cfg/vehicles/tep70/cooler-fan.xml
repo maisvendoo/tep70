@@ -7,5 +7,6 @@
 
 		<K_aero>0.008</K_aero>
 		<J_fan>5.0</J_fan>
+		<omega_nominal>70.0</omega_nominal>
 	</Device>
 </Config>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
     <Device>
-        <MaxRate>1.0</MaxRate>
+        <MaxRate>10.0</MaxRate>
     </Device>
 </Config>

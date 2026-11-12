@@ -216,23 +216,19 @@ void TEP70::soundsOutput(const simulator_time_t& t, const double& dt)
     // Песочница
     analogSignal[SOUND_SAND_DELIVERY] = sand_system->getSoundSignal();
 
-    // Звуки жалюзи (отслеживаем изменение состояния)
-    static bool prev_water = vzhv->isOpened();
-    static bool prev_oil = vzhm->isOpened();
-    static bool prev_top = (vzhv->isOpened() || vzhm->isOpened());
+    // Звуки жалюзи воды, масла, верхних — через BlindsActor
+    analogSignal[SOUND_WATER_BLINDS_OPEN] = water_blinds_actor->getSoundSignal(BlindsActor::OPEN_SOUND);
+    analogSignal[SOUND_WATER_BLINDS_CLOSE] = water_blinds_actor->getSoundSignal(BlindsActor::CLOSE_SOUND);
+    analogSignal[SOUND_OIL_BLINDS_OPEN] = oil_blinds_actor->getSoundSignal(BlindsActor::OPEN_SOUND);
+    analogSignal[SOUND_OIL_BLINDS_CLOSE] = oil_blinds_actor->getSoundSignal(BlindsActor::CLOSE_SOUND);
+    analogSignal[SOUND_TOP_BLINDS_OPEN] = top_blinds_actor->getSoundSignal(BlindsActor::OPEN_SOUND);
+    analogSignal[SOUND_TOP_BLINDS_CLOSE] = top_blinds_actor->getSoundSignal(BlindsActor::CLOSE_SOUND);
 
-    bool curr_water = vzhv->isOpened();
-    bool curr_oil = vzhm->isOpened();
-    bool curr_top = (vzhv->isOpened() || vzhm->isOpened());
+    // Вентиляторы холодильника
+    analogSignal[SOUND_COOLER_FAN_HOT] = fan_hot_aero->getSoundSignal();
+    analogSignal[SOUND_COOLER_FAN_COLD] = fan_cold_aero->getSoundSignal();
 
-    analogSignal[SOUND_WATER_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_water && curr_water);
-    analogSignal[SOUND_WATER_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_water && !curr_water);
-    analogSignal[SOUND_OIL_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_oil && curr_oil);
-    analogSignal[SOUND_OIL_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_oil && !curr_oil);
-    analogSignal[SOUND_TOP_BLINDS_OPEN] = sound_state_t::createSoundSignal(!prev_top && curr_top);
-    analogSignal[SOUND_TOP_BLINDS_CLOSE] = sound_state_t::createSoundSignal(prev_top && !curr_top);
-
-    prev_water = curr_water;
-    prev_oil = curr_oil;
-    prev_top = curr_top;
+    // Звуки жалюзи ЭДТ
+    analogSignal[SOUND_EDT_BLINDS_OPEN] = EDB_blinds_actor->getSoundSignal(0);
+    analogSignal[SOUND_EDT_BLINDS_CLOSE] = EDB_blinds_actor->getSoundSignal(1);
 }

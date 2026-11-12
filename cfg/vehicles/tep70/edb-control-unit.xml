@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
 	<Device>
-		<Order>2</Order>
+		<Order>1</Order>
         <SubStepNum>4</SubStepNum>
         <Solver>euler</Solver>
 
@@ -9,6 +9,7 @@
 		<If_max>800.0</If_max>
 		<Ia_max>870.0</Ia_max>
 		<Vc>115.0</Vc>
+		<Ic>545</Ic>
 
 		<ForcePrepLevel>0.29</ForcePrepLevel>
 		<ForceLevelMin>0.31</ForceLevelMin>

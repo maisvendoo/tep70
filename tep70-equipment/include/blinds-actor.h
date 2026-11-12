@@ -21,6 +21,7 @@ public:
 
     void setState(bool is_open)
     {
+        is_open_prev = this->is_open;
         this->is_open = is_open;
     }
 
@@ -28,6 +29,18 @@ public:
     {
         return static_cast<float>(getY(0));
     }
+
+    enum
+    {
+        OPEN_SOUND,
+        CLOSE_SOUND,
+        NUM_SOUNDS
+    };
+
+    /// Состояние звука
+    sound_state_t getSoundState(size_t idx = OPEN_SOUND) const override;
+
+    float getSoundSignal(size_t idx = 0) const override;
 
 private:
 
@@ -40,6 +53,12 @@ private:
     /// Сигнал открытия
     bool is_open = false;
 
+    bool is_open_prev = false;
+
+    /// Состояние звука
+    sound_state_t sound_state_open;
+    sound_state_t sound_state_close;
+
     void preStep(state_vector_t &Y, double t) override;
 
     void ode_system(const state_vector_t &Y,
@@ -49,4 +68,4 @@ private:
     void load_config(CfgReader &cfg) override;
 };
 
-#endif
+#endif // BLINDS_ACTOR_H

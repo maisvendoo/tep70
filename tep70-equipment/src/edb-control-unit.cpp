@@ -33,7 +33,6 @@ void ControlUnitEDB::step(double t, double dt)
 void ControlUnitEDB::preStep(state_vector_t &Y, double t)
 {
     // Константы для защиты от деления на 0
-    const double eps_V = 0.1;
     const double ksi_I = 0.1;
 
     is_power = Ucc > 50.0;
@@ -41,8 +40,7 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
     if (!is_power)
     {
         u_ref = 0.0;
-        Y[0] = 0.0;
-        Y[1] = 0.0;
+        Y[0] = 0.0;        
         V_ref = 0.0;
         is_brake_ready = false;
         return;
@@ -75,7 +73,7 @@ void ControlUnitEDB::preStep(state_vector_t &Y, double t)
 
     // Ограничение тока якоря по условиям коммутации
 
-    double Ic = -Ia_max * Vc / (Vkmh + eps_V);
+    double Ic = -calcCommutationCurrentLimit(Vkmh);
 
     Ia_ref = max(Ia_ref, Ic);
 
@@ -137,8 +135,7 @@ void ControlUnitEDB::ode_system(const state_vector_t &Y,
     if (!is_power)
     {
         u_ref = 0.0;
-        dYdt[0] = 0.0;
-        dYdt[1] = 0.0;
+        dYdt[0] = 0.0;        
         return;
     }
 
@@ -178,4 +175,17 @@ void ControlUnitEDB::load_config(CfgReader &cfg)
         QString param = QString("K%1").arg(i);
         cfg.getDouble(secName, param, K[i]);
     }
+}
+
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+double ControlUnitEDB::calcCommutationCurrentLimit(double Vkmh)
+{
+    const double eps_V = 0.001;
+
+    double Ia = Ia_max - (Ia_max - Ic) * (Vkmh - Vc) / (Vmax - Vc + 0.001);
+
+    return cut(Ia, 0.0, Ia_max);
 }
