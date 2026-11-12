@@ -89,7 +89,14 @@ void TEP70::slotAutostart()
         // Отжимаем уже нажатую кнопку пуска дизеля
         if (button_disel_start[autostart_cab].getState())
         {
-            button_disel_start[autostart_cab].reset();
+            if (kontaktor_oil_pump->getContactState(0))
+            {
+                button_disel_start[autostart_cab].reset();
+            }
+            else
+            {
+                return;
+            }
         }
 
         // Ожидаем полный запуск дизеля

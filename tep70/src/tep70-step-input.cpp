@@ -1,7 +1,154 @@
 #include    <tep70.h>
 #include    <tep70-controls.h>
 
-#include    <cmath>
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void TEP70::stepCommonControls(double t, double dt)
+{
+    auto &shared_inputs = control_inputs[CABS_NUM];
+
+    // Расцепные рычаги: фиксация в расцепленном положении либо аналоговое положение
+    if (shared_inputs[CTRL_OPER_ROD_FIX_FWD].toBool())
+        oper_rod_fwd->setExternalState(-1.0);
+    else
+        oper_rod_fwd->setExternalState(shared_inputs[CTRL_OPER_ROD_FWD].value);
+
+    if (shared_inputs[CTRL_OPER_ROD_FIX_BWD].toBool())
+        oper_rod_bwd->setExternalState(-1.0);
+    else
+        oper_rod_bwd->setExternalState(shared_inputs[CTRL_OPER_ROD_BWD].value);
+
+    bool ac_bc_fwd = shared_inputs[CTRL_ANGLECOCK_BC_FWD].toBool();
+    ac_bc_fwd ? anglecock_bc_fwd->open() : anglecock_bc_fwd->close();
+
+    bool ac_bc_bwd = shared_inputs[CTRL_ANGLECOCK_BC_BWD].toBool();
+    ac_bc_bwd ? anglecock_bc_bwd->open() : anglecock_bc_bwd->close();
+
+    // Концевые краны питательной магистрали
+    bool ac_fl_fwd = shared_inputs[CTRL_ANGLECOCK_FL_FWD].toBool();
+    ac_fl_fwd ? anglecock_fl_fwd->open() : anglecock_fl_fwd->close();
+
+    bool ac_fl_bwd = shared_inputs[CTRL_ANGLECOCK_FL_BWD].toBool();
+    ac_fl_bwd ? anglecock_fl_bwd->open() : anglecock_fl_bwd->close();
+
+    // Концевые краны тормозной магистрали
+    bool ac_bp_fwd = shared_inputs[CTRL_ANGLECOCK_BP_FWD].toBool();
+    ac_bp_fwd ? anglecock_bp_fwd->open() : anglecock_bp_fwd->close();
+
+    bool ac_bp_bwd = shared_inputs[CTRL_ANGLECOCK_BP_BWD].toBool();
+    ac_bp_bwd ? anglecock_bp_bwd->open() : anglecock_bp_bwd->close();
+
+    // Рукава магистралей: 0 - разъединён, 2 - соединён (1 - нейтраль)
+    hose_bc_fwd->setExternalState(shared_inputs[CTRL_HOSE_BC_FWD].toBool() ? 2 : 0);
+    hose_bc_bwd->setExternalState(shared_inputs[CTRL_HOSE_BC_BWD].toBool() ? 2 : 0);
+    hose_fl_fwd->setExternalState(shared_inputs[CTRL_HOSE_FL_FWD].toBool() ? 2 : 0);
+    hose_fl_bwd->setExternalState(shared_inputs[CTRL_HOSE_FL_BWD].toBool() ? 2 : 0);
+    hose_bp_fwd->setExternalState(shared_inputs[CTRL_HOSE_BP_FWD].toBool() ? 2 : 0);
+    hose_bp_bwd->setExternalState(shared_inputs[CTRL_HOSE_BP_BWD].toBool() ? 2 : 0);
+
+    // АЗВ "Компрессор" (общий)
+    bool azv_motor_comp_on = shared_inputs[CTRL_AZV_MOTOR_COMPRESSOR].toBool();
+    azv_motor_comp_on ? azv_motor_compressor.set() : azv_motor_compressor.reset();
+
+    // АЗВ ВВК (общие)
+    shared_inputs[CTRL_AZV_BUFFER_LIGHTS].toBool()
+        ? azv_buffer_lights.set() : azv_buffer_lights.reset();
+
+    shared_inputs[CTRL_AZV_CONTROL_CIRCUIT].toBool()
+        ? azv_control_circuit.set() : azv_control_circuit.reset();
+
+    shared_inputs[CTRL_AZV_DISEL_LIGHT].toBool()
+        ? azv_disel_light.set() : azv_disel_light.reset();
+
+    shared_inputs[CTRL_AZV_EPK_POWER_MINUS].toBool()
+        ? azv_epk_power_minus.set() : azv_epk_power_minus.reset();
+
+    shared_inputs[CTRL_AZV_EPK_POWER_PLUS].toBool()
+        ? azv_epk_power_plus.set() : azv_epk_power_plus.reset();
+
+    shared_inputs[CTRL_AZV_FIRE_ALARM].toBool()
+        ? azv_fire_alarm.set() : azv_fire_alarm.reset();
+
+    shared_inputs[CTRL_AZV_FUEL_PUMP_VVK].toBool()
+        ? azv_fuel_pump_vvk.set() : azv_fuel_pump_vvk.reset();
+
+    shared_inputs[CTRL_AZV_HEATER].toBool()
+        ? azv_heater.set() : azv_heater.reset();
+
+    shared_inputs[CTRL_AZV_SOCKETS_POWER].toBool()
+        ? azv_sockets_power.set() : azv_sockets_power.reset();
+
+    shared_inputs[CTRL_AZV_SOCKETS_POWER_2].toBool()
+        ? azv_gauges_power.set() : azv_gauges_power.reset();
+
+    shared_inputs[CTRL_AZV_TROLLEYS_LIGHT].toBool()
+        ? azv_trolleys_light.set() : azv_trolleys_light.reset();
+
+    shared_inputs[CTRL_AZV_VVK_LIGHT].toBool()
+        ? azv_vvk_light.set() : azv_vvk_light.reset();
+
+    shared_inputs[CTRL_AZV_WATCH_DISEL_LIGHT].toBool()
+        ? azv_watch_disel_light.set() : azv_watch_disel_light.reset();
+
+    // Органы панели ВВК
+    shared_inputs[CTRL_VVK_EDT_TUMBLER].toBool()
+        ? edt_tumbler.set() : edt_tumbler.reset();
+
+    shared_inputs[CTRL_VVK_SHUNTING_TUMBLER].toBool()
+        ? shunting_tumbler.set() : shunting_tumbler.reset();
+
+    shared_inputs[CTRL_VVK_MANUAL_FUEL_PUMP].toBool()
+        ? manual_fuel_pumping.set() : manual_fuel_pumping.reset();
+
+    shared_inputs[CTRL_VVK_RESERVED_FUEL_PUMP].toBool()
+        ? reserved_fuel_pump.set() : reserved_fuel_pump.reset();
+
+    shared_inputs[CTRL_VVK_AUTOSTOP_TUMBLER].toBool()
+        ? autostop_tumbler.set() : autostop_tumbler.reset();
+
+    shared_inputs[CTRL_VVK_ISOLATION_CHECK].toBool()
+        ? isolation_check.set() : isolation_check.reset();
+
+    found_ground_switch.setNumPositions(21);
+    found_ground_switch.setPosition(shared_inputs[CTRL_VVK_FOUND_GROUND_SWITCH].value);
+
+    shared_inputs[CTRL_VVK_GROUND_RELAY_BUTTON].toBool()
+        ? ground_relay_button.set() : ground_relay_button.reset();
+
+    shared_inputs[CTRL_VVK_KEEP_FUEL_PUMP_BUTTON].toBool()
+        ? keep_fuel_pump_button.set() : keep_fuel_pump_button.reset();
+
+    shared_inputs[CTRL_VVK_V_MINUS_BUTTON].toBool()
+        ? v_minus_button.set() : v_minus_button.reset();
+
+    shared_inputs[CTRL_VVK_V_PLUS_BUTTON].toBool()
+        ? v_plus_button.set() : v_plus_button.reset();
+
+    // Тумблеры ОМ
+    for (size_t i = 0; i < NUM_MOTORS; ++i)
+    {
+        shared_inputs[CTRL_TUMBLER_OM1 + i].toBool()
+            ? tumbler_om[i].set() : tumbler_om[i].reset();
+    }
+
+    // Переключатели ВВК
+    for (size_t i = 0; i < VVK_SW_NUM; ++i)
+    {
+        shared_inputs[CTRL_VVK_PA1 + i].toBool()
+            ? vvk_sw[i].set() : vvk_sw[i].reset();
+
+        vvk_sw[i].step(t, dt);
+    }
+
+    // Тумблер числа тепловозов
+    shared_inputs[CTRL_TUMBLER_LOCO_COUNT].toBool()
+        ? tumbler_loco_count.set() : tumbler_loco_count.reset();
+
+    // Рубильник АКБ
+    shared_inputs[CTRL_ACCUM_SWITCH].toBool()
+        ? accum_switch.set() : accum_switch.reset();
+}
 
 //------------------------------------------------------------------------------
 //
@@ -21,6 +168,9 @@ void TEP70::stepControls(double t, double dt)
     // Контроллер машиниста — шаг для таймеров анимации вращения
     km[CAB1]->step(t, dt);
     km[CAB2]->step(t, dt);
+
+    // Общие сигналы (shared)
+    stepCommonControls(t, dt);
 
     // Не читаем control_inputs во время процедуры автозапуска/автоостанова
     if (autoStartTimer->isStarted())
@@ -285,149 +435,5 @@ void TEP70::stepControls(double t, double dt)
         // Тумблер освещения кабины (собственный)
         control_inputs[cab_idx][CTRL_TUMBLER_CABINE_LIGHT].toBool()
             ? tumbler_cabine_light[cab_idx].set() : tumbler_cabine_light[cab_idx].reset();
-    }
-
-    // Общие сигналы (shared)
-    auto &shared_inputs = control_inputs[CABS_NUM];
-
-    // Расцепные рычаги: фиксация в расцепленном положении либо аналоговое положение
-    if (shared_inputs[CTRL_OPER_ROD_FIX_FWD].toBool())
-        oper_rod_fwd->setExternalState(-1.0);
-    else
-        oper_rod_fwd->setExternalState(shared_inputs[CTRL_OPER_ROD_FWD].value);
-
-    if (shared_inputs[CTRL_OPER_ROD_FIX_BWD].toBool())
-        oper_rod_bwd->setExternalState(-1.0);
-    else
-        oper_rod_bwd->setExternalState(shared_inputs[CTRL_OPER_ROD_BWD].value);
-
-    bool ac_bc_fwd = shared_inputs[CTRL_ANGLECOCK_BC_FWD].toBool();
-    ac_bc_fwd ? anglecock_bc_fwd->open() : anglecock_bc_fwd->close();
-
-    bool ac_bc_bwd = shared_inputs[CTRL_ANGLECOCK_BC_BWD].toBool();
-    ac_bc_bwd ? anglecock_bc_bwd->open() : anglecock_bc_bwd->close();
-
-    // Концевые краны питательной магистрали
-    bool ac_fl_fwd = shared_inputs[CTRL_ANGLECOCK_FL_FWD].toBool();
-    ac_fl_fwd ? anglecock_fl_fwd->open() : anglecock_fl_fwd->close();
-
-    bool ac_fl_bwd = shared_inputs[CTRL_ANGLECOCK_FL_BWD].toBool();
-    ac_fl_bwd ? anglecock_fl_bwd->open() : anglecock_fl_bwd->close();
-
-    // Концевые краны тормозной магистрали
-    bool ac_bp_fwd = shared_inputs[CTRL_ANGLECOCK_BP_FWD].toBool();
-    ac_bp_fwd ? anglecock_bp_fwd->open() : anglecock_bp_fwd->close();
-
-    bool ac_bp_bwd = shared_inputs[CTRL_ANGLECOCK_BP_BWD].toBool();
-    ac_bp_bwd ? anglecock_bp_bwd->open() : anglecock_bp_bwd->close();
-
-    // Рукава магистралей: 0 - разъединён, 2 - соединён (1 - нейтраль)
-    hose_bc_fwd->setExternalState(shared_inputs[CTRL_HOSE_BC_FWD].toBool() ? 2 : 0);
-    hose_bc_bwd->setExternalState(shared_inputs[CTRL_HOSE_BC_BWD].toBool() ? 2 : 0);
-    hose_fl_fwd->setExternalState(shared_inputs[CTRL_HOSE_FL_FWD].toBool() ? 2 : 0);
-    hose_fl_bwd->setExternalState(shared_inputs[CTRL_HOSE_FL_BWD].toBool() ? 2 : 0);
-    hose_bp_fwd->setExternalState(shared_inputs[CTRL_HOSE_BP_FWD].toBool() ? 2 : 0);
-    hose_bp_bwd->setExternalState(shared_inputs[CTRL_HOSE_BP_BWD].toBool() ? 2 : 0);
-
-    // АЗВ "Компрессор" (общий)
-    bool azv_motor_comp_on = shared_inputs[CTRL_AZV_MOTOR_COMPRESSOR].toBool();
-    azv_motor_comp_on ? azv_motor_compressor.set() : azv_motor_compressor.reset();
-
-    // АЗВ ВВК (общие)
-    shared_inputs[CTRL_AZV_BUFFER_LIGHTS].toBool()
-        ? azv_buffer_lights.set() : azv_buffer_lights.reset();
-
-    shared_inputs[CTRL_AZV_CONTROL_CIRCUIT].toBool()
-        ? azv_control_circuit.set() : azv_control_circuit.reset();
-
-    shared_inputs[CTRL_AZV_DISEL_LIGHT].toBool()
-        ? azv_disel_light.set() : azv_disel_light.reset();
-
-    shared_inputs[CTRL_AZV_EPK_POWER_MINUS].toBool()
-        ? azv_epk_power_minus.set() : azv_epk_power_minus.reset();
-
-    shared_inputs[CTRL_AZV_EPK_POWER_PLUS].toBool()
-        ? azv_epk_power_plus.set() : azv_epk_power_plus.reset();
-
-    shared_inputs[CTRL_AZV_FIRE_ALARM].toBool()
-        ? azv_fire_alarm.set() : azv_fire_alarm.reset();
-
-    shared_inputs[CTRL_AZV_FUEL_PUMP_VVK].toBool()
-        ? azv_fuel_pump_vvk.set() : azv_fuel_pump_vvk.reset();
-
-    shared_inputs[CTRL_AZV_HEATER].toBool()
-        ? azv_heater.set() : azv_heater.reset();
-
-    shared_inputs[CTRL_AZV_SOCKETS_POWER].toBool()
-        ? azv_sockets_power.set() : azv_sockets_power.reset();
-
-    shared_inputs[CTRL_AZV_SOCKETS_POWER_2].toBool()
-        ? azv_gauges_power.set() : azv_gauges_power.reset();
-
-    shared_inputs[CTRL_AZV_TROLLEYS_LIGHT].toBool()
-        ? azv_trolleys_light.set() : azv_trolleys_light.reset();
-
-    shared_inputs[CTRL_AZV_VVK_LIGHT].toBool()
-        ? azv_vvk_light.set() : azv_vvk_light.reset();
-
-    shared_inputs[CTRL_AZV_WATCH_DISEL_LIGHT].toBool()
-        ? azv_watch_disel_light.set() : azv_watch_disel_light.reset();
-
-    // Органы панели ВВК
-    shared_inputs[CTRL_VVK_EDT_TUMBLER].toBool()
-        ? edt_tumbler.set() : edt_tumbler.reset();
-
-    shared_inputs[CTRL_VVK_SHUNTING_TUMBLER].toBool()
-        ? shunting_tumbler.set() : shunting_tumbler.reset();
-
-    shared_inputs[CTRL_VVK_MANUAL_FUEL_PUMP].toBool()
-        ? manual_fuel_pumping.set() : manual_fuel_pumping.reset();
-
-    shared_inputs[CTRL_VVK_RESERVED_FUEL_PUMP].toBool()
-        ? reserved_fuel_pump.set() : reserved_fuel_pump.reset();
-
-    shared_inputs[CTRL_VVK_AUTOSTOP_TUMBLER].toBool()
-        ? autostop_tumbler.set() : autostop_tumbler.reset();
-
-    shared_inputs[CTRL_VVK_ISOLATION_CHECK].toBool()
-        ? isolation_check.set() : isolation_check.reset();
-
-    found_ground_switch.setNumPositions(21);
-    found_ground_switch.setPosition(shared_inputs[CTRL_VVK_FOUND_GROUND_SWITCH].value);
-
-    shared_inputs[CTRL_VVK_GROUND_RELAY_BUTTON].toBool()
-        ? ground_relay_button.set() : ground_relay_button.reset();
-
-    shared_inputs[CTRL_VVK_KEEP_FUEL_PUMP_BUTTON].toBool()
-        ? keep_fuel_pump_button.set() : keep_fuel_pump_button.reset();
-
-    shared_inputs[CTRL_VVK_V_MINUS_BUTTON].toBool()
-        ? v_minus_button.set() : v_minus_button.reset();
-
-    shared_inputs[CTRL_VVK_V_PLUS_BUTTON].toBool()
-        ? v_plus_button.set() : v_plus_button.reset();
-
-    // Тумблеры ОМ
-    for (size_t i = 0; i < NUM_MOTORS; ++i)
-    {
-        shared_inputs[CTRL_TUMBLER_OM1 + i].toBool()
-            ? tumbler_om[i].set() : tumbler_om[i].reset();
-    }
-
-    // Переключатели ВВК
-    for (size_t i = 0; i < VVK_SW_NUM; ++i)
-    {
-        shared_inputs[CTRL_VVK_PA1 + i].toBool()
-            ? vvk_sw[i].set() : vvk_sw[i].reset();
-
-        vvk_sw[i].step(t, dt);
-    }
-
-    // Тумблер числа тепловозов
-    shared_inputs[CTRL_TUMBLER_LOCO_COUNT].toBool()
-        ? tumbler_loco_count.set() : tumbler_loco_count.reset();
-
-    // Рубильник АКБ
-    shared_inputs[CTRL_ACCUM_SWITCH].toBool()
-        ? accum_switch.set() : accum_switch.reset();       
+    }    
 }

@@ -1335,6 +1335,8 @@ private:
 
     TriggerControl shunting_mode_switcher[CABS_NUM];
 
+void stepCommonControls(double t, double dt);
+
 private slots:
 
     void slotAutostart();
