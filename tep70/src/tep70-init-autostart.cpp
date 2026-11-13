@@ -62,6 +62,7 @@ bool TEP70::initAutostartProgram(int cab_autostart_request)
 
     autostart_triggers.push_back(&azv_common_control[autostart_cab]);
     autostart_triggers.push_back(&azv_fuel_pump[autostart_cab]);
+    autostart_triggers.push_back(&tumbler_gauges_power[autostart_cab]);
     autostart_triggers.push_back(&button_disel_start[autostart_cab]);
     autostart_triggers.push_back(&azv_upr_tepl[autostart_cab]);
 
@@ -91,6 +92,8 @@ void TEP70::slotAutostart()
         {
             if (kontaktor_oil_pump->getContactState(0))
             {
+                // Отпускаем кнопку только после замыкания контактора
+                // маслопрокачивающего насоса
                 button_disel_start[autostart_cab].reset();
             }
             else
@@ -127,6 +130,9 @@ void TEP70::slotAutostart()
         tumbler_field_weak1[autostart_cab].setPosition(2);
         tumbler_field_weak2[autostart_cab].setPosition(2);
 
+        tumbler_oil_zaluzi[autostart_cab].setPosition(2);
+        tumbler_water_zaluzi[autostart_cab].setPosition(2);
+
         km[autostart_cab]->setReversHandlePos(1);
 
         if (auto_start_autopilot)
@@ -139,6 +145,7 @@ void TEP70::slotAutostart()
         initClientInputSignal(autostart_cab, CTRL_AZV_COMMON_CONTROL, 1.0f);
         initClientInputSignal(autostart_cab, CTRL_AZV_UPR_TEPL, 1.0f);
         initClientInputSignal(autostart_cab, CTRL_AZV_FUEL_PUMP, 1.0f);
+        initClientInputSignal(autostart_cab, CTRL_TUMBLER_GAUGES_POWER, 1.0f);
         initClientInputSignal(autostart_cab, CTRL_BUTTON_DISEL_START, 0.0f);
         initClientInputSignal(autostart_cab, CTRL_RBS,
                               rb[autostart_cab][RBS].getState() ? 1.0f : 0.0f);
@@ -148,10 +155,17 @@ void TEP70::slotAutostart()
                               km[autostart_cab]->getReversHandlePos());
         initClientInputSignal(autostart_cab, CTRL_KM_MAIN_POSITION,
                               km[autostart_cab]->getPositionNumber());
+
         initClientInputSignal(autostart_cab, CTRL_TUMBLER_FIELD_WEAK1,
                               tumbler_field_weak1[autostart_cab].getPosition());
         initClientInputSignal(autostart_cab, CTRL_TUMBLER_FIELD_WEAK2,
                               tumbler_field_weak2[autostart_cab].getPosition());
+
+        initClientInputSignal(autostart_cab, CTRL_TUMBLER_OIL_ZALUZI,
+                              tumbler_oil_zaluzi[autostart_cab].getPosition());
+        initClientInputSignal(autostart_cab, CTRL_TUMBLER_WATER_ZALUZI,
+                              tumbler_water_zaluzi[autostart_cab].getPosition());
+
         initClientInputSignal(autostart_cab, CTRL_LOCK_367_INSERTION,
                               brake_lock[autostart_cab]->isStateOn() ? 1.0f : 0.0f);
         initClientInputSignal(autostart_cab, CTRL_EPK_INSERTION,
