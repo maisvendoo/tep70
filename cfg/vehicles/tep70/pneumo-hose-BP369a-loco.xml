@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+	<Device>
+		<Order>6</Order>
+
+		<LinesNum>2</LinesNum>
+		<IsHoseAtLoco>1</IsHoseAtLoco>
+		<K_sound>1.5</K_sound>
+
+		<RootPosition>-0.23 10.85 0.64</RootPosition>
+		<MiddleLength>0.435</MiddleLength>
+		<HeadLength>0.157</HeadLength>
+
+		<ExistingSideAngle>0.0</ExistingSideAngle>
+		<FreeSideAngle>0.0</FreeSideAngle>
+		<FixedSideAngle>0.0</FixedSideAngle>
+		<SideGap>-0.01</SideGap>
+
+		<ExistingDownAngle>-45.0</ExistingDownAngle>
+		<FreeDownAngle>-80.0</FreeDownAngle>
+		<FixedDownAngle>-90</FixedDownAngle>
+
+		<ExistingHeadUpAngle>24.0</ExistingHeadUpAngle>
+		<FreeHeadUpAngle>12.0</FreeHeadUpAngle>
+		<FixedHeadUpAngle>24.0</FixedHeadUpAngle>
+		<ReadyToConnectHeadUpAngle>36.0</ReadyToConnectHeadUpAngle>
+
+		<SideSlope>1</SideSlope>
+		<AngleOmega>8.0</AngleOmega>
+		<FreeAngleOmega>8.0</FreeAngleOmega>
+		<FreeAngleBeta>1.0</FreeAngleBeta>
+	</Device>
+</Config>
