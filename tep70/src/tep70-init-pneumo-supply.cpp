@@ -54,7 +54,19 @@ void TEP70::initPneumoSupply(const QString &modules_dir, const QString &custom_c
     hose_fl_fwd->read_config("pneumo-hose-FL");
     forward_connectors.push_back(hose_fl_fwd);
 
+    if (hose_fl_fwd->isLinked())
+    {
+        hose_fl_fwd->connect();
+    }
+    hose_fl_fwd->fix();
+
     hose_fl_bwd = new PneumoHose();
     hose_fl_bwd->read_config("pneumo-hose-FL");
     backward_connectors.push_back(hose_fl_bwd);
+
+    if (hose_fl_bwd->isLinked())
+    {
+        hose_fl_bwd->connect();
+    }
+    hose_fl_bwd->fix();
 }

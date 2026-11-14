@@ -53,10 +53,22 @@ void TEP70::initBrakesEquipment(const QString &modules_dir, const QString &custo
     hose_bp_fwd->read_config("pneumo-hose-BP369a-loco");
     forward_connectors.push_back(hose_bp_fwd);
 
+    if (hose_bp_fwd->isLinked())
+    {
+        hose_bp_fwd->connect();
+    }
+    hose_bp_fwd->fix();
+
     hose_bp_bwd = LOAD_MODULE(PneumoHoseEPB,
         modules_dir + QDir::separator() + "hose369a");
     hose_bp_bwd->read_config("pneumo-hose-BP369a-loco");
     backward_connectors.push_back(hose_bp_bwd);
+
+    if (hose_bp_bwd->isLinked())
+    {
+        hose_bp_bwd->connect();
+    }
+    hose_bp_bwd->fix();
 
     // Привод ручного тормоза
     handbrake_actor = new HandbrakeActor;

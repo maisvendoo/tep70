@@ -52,9 +52,21 @@ void TEP70::initBrakesControl(const QString &modules_dir, const QString &custom_
     hose_bc_fwd->read_config("pneumo-hose-BC");
     forward_connectors.push_back(hose_bc_fwd);
 
+    if (hose_bc_fwd->isLinked())
+    {
+        hose_bc_fwd->connect();
+    }
+    hose_bc_fwd->fix();
+
     hose_bc_bwd = new PneumoHose();
     hose_bc_bwd->read_config("pneumo-hose-BC");
     backward_connectors.push_back(hose_bc_bwd);
+
+    if (hose_bc_bwd->isLinked())
+    {
+        hose_bc_bwd->connect();
+    }
+    hose_bc_bwd->fix();
 
     // Вентиль отпуска тормозов ВТ1 (нормально открытый)
     vt1 = new ElectroPneumaticValve;
