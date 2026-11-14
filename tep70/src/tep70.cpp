@@ -93,6 +93,7 @@ void TEP70::process(const simulator_time_t& t, const double& dt)
 void TEP70::preStep(const double& t)
 {
     preStepCouplings(t);
+    preStepHoses(t);
 }
 
 //------------------------------------------------------------------------------

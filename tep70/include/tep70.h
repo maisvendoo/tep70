@@ -886,6 +886,9 @@ private:
     /// Предварительный расчёт координат сцепных устройств
     void preStepCouplings(const double& t);
 
+    /// Предварительный расчёт положения рукавов
+    void preStepHoses(const double& t);
+
     /// Шаг моделирования всех систем локомотива в целом
     void step(const double& t, const double& dt) override;
 
