@@ -1315,7 +1315,7 @@
 		<Name>Рукав ТЦ вперёд</Name>
 		<Description>Соединение/разъединение рукава магистрали тормозных цилиндров (перед)</Description>
 		<Type>Toggle</Type>
-		<value>0</value>
+		<value>2</value>
 		<KeyName>KEY_F9</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
@@ -1326,7 +1326,7 @@
 		<Name>Рукав ТЦ назад</Name>
 		<Description>Соединение/разъединение рукава магистрали тормозных цилиндров (зад)</Description>
 		<Type>Toggle</Type>
-		<value>0</value>
+		<value>2</value>
 		<KeyName>KEY_F12</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
@@ -1347,9 +1347,9 @@
 		<ID>207</ID>
 		<Name>Концевой кран ПМ назад</Name>
 		<Description>Открытие/закрытие концевого крана питательной магистрали (зад)</Description>
-		<Type>Toggle</Type>
-		<value>0</value>
-		<KeyName>KEY_F7</KeyName>
+<Type>Toggle</Type>
+		<value>2</value>
+		<KeyName>KEY_F12</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
 	</Control>
@@ -1358,8 +1358,8 @@
 		<ID>208</ID>
 		<Name>Рукав ПМ вперёд</Name>
 		<Description>Соединение/разъединение рукава питательной магистрали (перед)</Description>
-		<Type>Toggle</Type>
-		<value>0</value>
+<Type>Toggle</Type>
+		<value>2</value>
 		<KeyName>KEY_F5</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
@@ -1370,7 +1370,7 @@
 		<Name>Рукав ПМ назад</Name>
 		<Description>Соединение/разъединение рукава питательной магистрали (зад)</Description>
 		<Type>Toggle</Type>
-		<value>0</value>
+		<value>2</value>
 		<KeyName>KEY_F8</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
@@ -1403,7 +1403,7 @@
 		<Name>Рукав ТМ вперёд</Name>
 		<Description>Соединение/разъединение рукава тормозной магистрали (перед)</Description>
 		<Type>Toggle</Type>
-		<value>0</value>
+		<value>2</value>
 		<KeyName>KEY_F1</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
@@ -1414,7 +1414,7 @@
 		<Name>Рукав ТМ назад</Name>
 		<Description>Соединение/разъединение рукава тормозной магистрали (зад)</Description>
 		<Type>Toggle</Type>
-		<value>0</value>
+		<value>2</value>
 		<KeyName>KEY_F4</KeyName>
 		<KeyModOnName>Shift</KeyModOnName>
 		<KeyModOffName>Ctrl</KeyModOffName>
