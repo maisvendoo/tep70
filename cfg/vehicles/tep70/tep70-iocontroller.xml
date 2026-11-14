@@ -1314,22 +1314,34 @@
 		<ID>204</ID>
 		<Name>Рукав ТЦ вперёд</Name>
 		<Description>Соединение/разъединение рукава магистрали тормозных цилиндров (перед)</Description>
-		<Type>Toggle</Type>
-		<value>2</value>
-		<KeyName>KEY_F9</KeyName>
-		<KeyModOnName>Shift</KeyModOnName>
-		<KeyModOffName>Ctrl</KeyModOffName>
+		<Type>Switcher</Type>
+		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
+		<value>1.0</value>
+		<SpringReturnLow>0</SpringReturnLow>
+		<SpringReturnHigh>2</SpringReturnHigh>
+		<KeyNameInc>KEY_F9</KeyNameInc>
+		<KeyModIncName>Shift</KeyModIncName>
+		<KeyNameDec>KEY_F9</KeyNameDec>
+		<KeyModDecName>Ctrl</KeyModDecName>
 	</Control>
 
 	<Control>
 		<ID>205</ID>
 		<Name>Рукав ТЦ назад</Name>
 		<Description>Соединение/разъединение рукава магистрали тормозных цилиндров (зад)</Description>
-		<Type>Toggle</Type>
-		<value>2</value>
-		<KeyName>KEY_F12</KeyName>
-		<KeyModOnName>Shift</KeyModOnName>
-		<KeyModOffName>Ctrl</KeyModOffName>
+		<Type>Switcher</Type>
+		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
+		<value>1.0</value>
+		<SpringReturnLow>0</SpringReturnLow>
+		<SpringReturnHigh>2</SpringReturnHigh>
+		<KeyNameInc>KEY_F12</KeyNameInc>
+		<KeyModIncName>Shift</KeyModIncName>
+		<KeyNameDec>KEY_F12</KeyNameDec>
+		<KeyModDecName>Ctrl</KeyModDecName>
 	</Control>
 
 	<Control>
@@ -1358,22 +1370,36 @@
 		<ID>208</ID>
 		<Name>Рукав ПМ вперёд</Name>
 		<Description>Соединение/разъединение рукава питательной магистрали (перед)</Description>
-<Type>Toggle</Type>
-		<value>2</value>
-		<KeyName>KEY_F5</KeyName>
-		<KeyModOnName>Shift</KeyModOnName>
-		<KeyModOffName>Ctrl</KeyModOffName>
+<Type>Switcher</Type>
+		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
+		<value>1.0</value>
+		<SpringReturnLow>0</SpringReturnLow>
+		<SpringReturnHigh>2</SpringReturnHigh>
+		<KeyNameInc>KEY_F5</KeyNameInc>
+		<KeyModIncName>Shift</KeyModIncName>
+		<KeyNameDec>KEY_F5</KeyNameDec>
+		<KeyModDecName>Ctrl</KeyModDecName>
+		<ObjectName>FL_fwd_Head_R1</ObjectName>
 	</Control>
 
 	<Control>
 		<ID>209</ID>
 		<Name>Рукав ПМ назад</Name>
 		<Description>Соединение/разъединение рукава питательной магистрали (зад)</Description>
-		<Type>Toggle</Type>
-		<value>2</value>
-		<KeyName>KEY_F8</KeyName>
-		<KeyModOnName>Shift</KeyModOnName>
-		<KeyModOffName>Ctrl</KeyModOffName>
+		<Type>Switcher</Type>
+		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
+		<value>1.0</value>
+		<SpringReturnLow>0</SpringReturnLow>
+		<SpringReturnHigh>2</SpringReturnHigh>
+		<KeyNameInc>KEY_F8</KeyNameInc>
+		<KeyModIncName>Shift</KeyModIncName>
+		<KeyNameDec>KEY_F8</KeyNameDec>
+		<KeyModDecName>Ctrl</KeyModDecName>
+		<ObjectName>FL_bwd_Head_R1</ObjectName>
 	</Control>
 
 	<Control>
@@ -1402,22 +1428,36 @@
 		<ID>212</ID>
 		<Name>Рукав ТМ вперёд</Name>
 		<Description>Соединение/разъединение рукава тормозной магистрали (перед)</Description>
-		<Type>Toggle</Type>
-		<value>2</value>
-		<KeyName>KEY_F1</KeyName>
-		<KeyModOnName>Shift</KeyModOnName>
-		<KeyModOffName>Ctrl</KeyModOffName>
+		<Type>Switcher</Type>
+		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
+		<value>1.0</value>
+		<SpringReturnLow>0</SpringReturnLow>
+		<SpringReturnHigh>2</SpringReturnHigh>
+		<KeyNameInc>KEY_F1</KeyNameInc>
+		<KeyModIncName>Shift</KeyModIncName>
+		<KeyNameDec>KEY_F1</KeyNameDec>
+		<KeyModDecName>Ctrl</KeyModDecName>
+		<ObjectName>BP_fwd_Head_369A</ObjectName>
 	</Control>
 
 	<Control>
 		<ID>213</ID>
 		<Name>Рукав ТМ назад</Name>
 		<Description>Соединение/разъединение рукава тормозной магистрали (зад)</Description>
-		<Type>Toggle</Type>
-		<value>2</value>
-		<KeyName>KEY_F4</KeyName>
-		<KeyModOnName>Shift</KeyModOnName>
-		<KeyModOffName>Ctrl</KeyModOffName>
+		<Type>Switcher</Type>
+		<NumPositions>3</NumPositions>
+		<MinValue>0</MinValue>
+		<MaxValue>2</MaxValue>
+		<value>1.0</value>
+		<SpringReturnLow>0</SpringReturnLow>
+		<SpringReturnHigh>2</SpringReturnHigh>
+		<KeyNameInc>KEY_F4</KeyNameInc>
+		<KeyModIncName>Shift</KeyModIncName>
+		<KeyNameDec>KEY_F4</KeyNameDec>
+		<KeyModDecName>Ctrl</KeyModDecName>
+		<ObjectName>BP_bwd_Head_369A</ObjectName>
 	</Control>
 
 	<!--
