@@ -1159,7 +1159,7 @@ private:
     };
 
     /// Веса блок-контактов при перемещении регулятора оборотов
-    double mp_weight[NUM_MP] = {2, 3.97, 7.91, -1};
+    double mp_weight[NUM_MP] = {2, 4, 8, -1};
 
     float cab_light_signal[CABS_NUM] = {0.0f, 0.0f};
 

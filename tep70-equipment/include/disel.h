@@ -184,7 +184,7 @@ private:
     double  delta_omega;
 
     /// Счетчик позиций
-    int     pos_count;
+    int     pos_count = 0;
 
     /// Имя текущего проигрываемого звука
     QString soundName;

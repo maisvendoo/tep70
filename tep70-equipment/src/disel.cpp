@@ -272,12 +272,52 @@ void Disel::load_config(CfgReader &cfg)
 //------------------------------------------------------------------------------
 void Disel::switchDiselSound(double n_ref_prev, double n_ref)
 {
-    int n0 = static_cast<int>(n_ref_prev);
+    int new_pos = pf(qRound(reg_pos));
+
+    if (new_pos == 0 && state_vtn)
+    {
+        new_pos = 1;
+    }
+
+    if (pos_count != new_pos)
+    {
+        sound_states[pos_count].play(false);
+
+        pos_count = cut(new_pos, static_cast<int>(MIN_POS), static_cast<int>(MAX_POS));
+
+        sound_states[pos_count].play(true);
+    }
+
+    /*int n0 = static_cast<int>(n_ref_prev);
     int n1 = static_cast<int>(n_ref);
+
+    if (n1 <= 350)
+    {
+        if (state_vtn)
+        {
+            if (pos_count == 0)
+            {
+                sound_states[pos_count].play(false);
+                pos_count = 1;
+                sound_states[pos_count].play(true);
+            }
+        }
+        else
+        {
+            if (pos_count == 1)
+            {
+                sound_states[pos_count].play(false);
+                pos_count = 0;
+                sound_states[pos_count].play(true);
+            }
+        }
+
+        return;
+    }
 
     if (n0 != n1)
     {
-        sound_states[pos_count].play(false);
+        sound_states[pos_count].play(false);        
 
         if (n1 > n0)
         {
@@ -291,7 +331,7 @@ void Disel::switchDiselSound(double n_ref_prev, double n_ref)
         pos_count = cut(pos_count, static_cast<int>(MIN_POS), static_cast<int>(MAX_POS));
 
         sound_states[pos_count].play(true);
-    }
+    }*/
 }
 
 //------------------------------------------------------------------------------
