@@ -48,6 +48,8 @@ bool TEP70::initAutostartProgram(int cab_autostart_request)
 
     autostart_saved_state[autostart_cab].field_weak1_pos = tumbler_field_weak1[autostart_cab].getPosition();
     autostart_saved_state[autostart_cab].field_weak2_pos = tumbler_field_weak2[autostart_cab].getPosition();
+    autostart_saved_state[autostart_cab].oil_zalizi_pos = tumbler_oil_zaluzi[autostart_cab].getPosition();
+    autostart_saved_state[autostart_cab].water_zalizi_pos = tumbler_water_zaluzi[autostart_cab].getPosition();
     autostart_saved_state[autostart_cab].km_main_shaft = km[autostart_cab]->getPositionNumber();
     autostart_saved_state[autostart_cab].km_revers = km[autostart_cab]->getReversHandlePos();
     autostart_saved_state[autostart_cab].brake_lock_on = brake_lock[autostart_cab]->isStateOn();
@@ -204,15 +206,17 @@ bool TEP70::initAutostopProgram(int cab_autostop_request)
     // Возвращаем главный вал КМ в нулевое положение.
     // Это необходимо для работы цепи прокачки масла после остановки
     // дизеля и для снятия блокировки реверсивного вала
-    km[autostart_cab]->setPosition(0);
+    km[autostart_cab]->setPosition(MS_POS_0);
 
     // Восстанавливаем состояние органов управления, сохранённое перед автостартом
     if (autostart_state_saved[autostart_cab])
     {
         tumbler_field_weak1[autostart_cab].setPosition(autostart_saved_state[autostart_cab].field_weak1_pos);
         tumbler_field_weak2[autostart_cab].setPosition(autostart_saved_state[autostart_cab].field_weak2_pos);
+        tumbler_oil_zaluzi[autostart_cab].setPosition(autostart_saved_state[autostart_cab].oil_zalizi_pos);
+        tumbler_water_zaluzi[autostart_cab].setPosition(autostart_saved_state[autostart_cab].water_zalizi_pos);
 
-        km[autostart_cab]->setReversHandlePos(0);
+        km[autostart_cab]->setReversHandlePos(RS_ZERO);
 
         brake_lock[autostart_cab]->setStateOn(autostart_saved_state[autostart_cab].brake_lock_on);
     }

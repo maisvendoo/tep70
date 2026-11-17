@@ -1225,6 +1225,8 @@ private:
     {
         std::uint16_t field_weak1_pos = 0;
         std::uint16_t field_weak2_pos = 0;
+        std::uint16_t oil_zalizi_pos = 0;
+        std::uint16_t water_zalizi_pos = 0;
         std::int8_t   km_main_shaft = 0;
         std::int8_t   km_revers = 0;
         bool          brake_lock_on = false;
