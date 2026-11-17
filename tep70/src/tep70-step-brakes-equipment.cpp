@@ -79,6 +79,6 @@ void TEP70::stepBrakesEquipment(const double& t, const double& dt)
     hose_bp_bwd->setFlowCoeff(anglecock_bp_bwd->getFlowCoeff());
     hose_bp_bwd->step(t, dt);
 
-    handbrake_actor->setShaftAngle(control_inputs[CABS_NUM][CTRL_HANDBRAKE].value);
+    handbrake_actor->setShaftAngle(vc_inputs.getValue(CABS_NUM, CTRL_HANDBRAKE));
     handbrake_actor->step(t, dt);
 }

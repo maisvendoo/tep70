@@ -223,7 +223,7 @@ void TEP70::debugPrint(const simulator_time_t& t, const double& dt)
                     .arg(fan_cold_aero->getFanOmega() * 30.0 / Physics::PI, 5, 'f', 1)
                     .arg(fan_cold->getDriveTorque(), 5, 'f', 1)
                     .arg(fan_cold->getY(0), 5, 'f', 3)
-                    .arg(control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool())
+                    .arg(vc_inputs.getBool(CABS_NUM, CTRL_VVK_BLINDS_DOOR))
                     .arg(is_DP_closed).arg(is_819_ON).arg(is_KP_on).arg(is_KVG_on).arg(is_KVV_on);
 
     DebugMsg += QString("|n:%1 об/мин|Trac:%2|РУ25:%3|РУ23:%4")

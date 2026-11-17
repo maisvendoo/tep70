@@ -17,7 +17,7 @@ void TEP70::stepLighting(const double &t, const double &dt)
         // Освещение приборов
         bool is_gauges_light = azv_panel_light[cab_idx].getState();
 
-        gauges_light_signal[cab_idx] = static_cast<float>(is_gauges_light) * control_inputs[cab_idx][CTRL_GAUGES_LIGHT].value  * power_level;
+        gauges_light_signal[cab_idx] = static_cast<float>(is_gauges_light) * vc_inputs.getValue(cab_idx, CTRL_GAUGES_LIGHT)  * power_level;
 
         // Буферные фонари левые
         bool is_buf_light_left_white = azv_buffer_lights.getState() && tumbler_bufferliht_L[cab_idx].isSwitched(2);

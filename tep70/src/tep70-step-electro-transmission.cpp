@@ -90,8 +90,8 @@ void TEP70::stepElectroTransmission(const double& t, const double& dt)
     ru3->step(t, dt);
 
     // Контроль дверей ВВК
-    is_DP_closed = (!control_inputs[CABS_NUM][CTRL_VVK_DOOR].toBool()) &&
-                   (!control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].toBool());
+    is_DP_closed = (!vc_inputs.getBool(CABS_NUM, CTRL_VVK_DOOR)) &&
+                   (!vc_inputs.getBool(CABS_NUM, CTRL_VVK_BLINDS_DOOR));
 
     // Цепь реле времени РВ2: в тяге - провод 777;
     bool is_RV2_ON = is_777_ON;
