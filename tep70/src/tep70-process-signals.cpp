@@ -190,20 +190,20 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
 
         analogSignal[CAB1_TUMBLER_HEATER_POS + cab_idx] = static_cast<float>(tumbler_heater[cab_idx].getState());
         analogSignal[CAB1_AZV_VENT_POS + cab_idx] = static_cast<float>(azv_ventilation[cab_idx].getState());
-        analogSignal[CAB1_GAUGES_LIGHT_POS + cab_idx] = control_inputs[cab_idx][CTRL_GAUGES_LIGHT].value;
-        analogSignal[CAB1_TIMETABLE_LIGHT_POS + cab_idx] = control_inputs[cab_idx][CTRL_TIMETABLE_LIGHT].value;
-        analogSignal[CAB1_WIPER_REGULATOR_POS + cab_idx] = control_inputs[cab_idx][CTRL_WIPER_REGULATOR].value;
-        analogSignal[CAB1_WIPER_REGULATOR_POM_POS + cab_idx] = control_inputs[cab_idx][CTRL_WIPER_REGULATOR_POM].value;
+        analogSignal[CAB1_GAUGES_LIGHT_POS + cab_idx] = vc_inputs.getValue(cab_idx, CTRL_GAUGES_LIGHT);
+        analogSignal[CAB1_TIMETABLE_LIGHT_POS + cab_idx] = vc_inputs.getValue(cab_idx, CTRL_TIMETABLE_LIGHT);
+        analogSignal[CAB1_WIPER_REGULATOR_POS + cab_idx] = vc_inputs.getValue(cab_idx, CTRL_WIPER_REGULATOR);
+        analogSignal[CAB1_WIPER_REGULATOR_POM_POS + cab_idx] = vc_inputs.getValue(cab_idx, CTRL_WIPER_REGULATOR_POM);
         analogSignal[CAB1_TUMBLER_CABINE_LIGHT_POS + cab_idx] = static_cast<float>(tumbler_cabine_light[cab_idx].getState());
     }
 
     // Анимации двери и шторы ВВК. Нет смысла пока делать схемный элемент,
     // напрямую транслируем положение контрола в сигнал анимации
-    analogSignal[VVK_BLINDS_DOOR_ACTION] = control_inputs[CABS_NUM][CTRL_VVK_BLINDS_DOOR].value;
-    analogSignal[VVK_DOOR_ACTION] = control_inputs[CABS_NUM][CTRL_VVK_DOOR].value;
+    analogSignal[VVK_BLINDS_DOOR_ACTION] = vc_inputs.getValue(CABS_NUM, CTRL_VVK_BLINDS_DOOR);
+    analogSignal[VVK_DOOR_ACTION] = vc_inputs.getValue(CABS_NUM, CTRL_VVK_DOOR);
 
     // Положение маховика ручного тормоза (общий)
-    analogSignal[HANDBRAKE_POS] = control_inputs[CABS_NUM][CTRL_HANDBRAKE].value;
+    analogSignal[HANDBRAKE_POS] = vc_inputs.getValue(CABS_NUM, CTRL_HANDBRAKE);
 
     // Положение АЗВ компрессора (общий, для ВВК)
     analogSignal[AZV_MOTOR_COMPRESSOR_POS] = static_cast<float>(azv_motor_compressor.getState());
@@ -250,8 +250,8 @@ void TEP70::signalsOutput(const simulator_time_t& t, const double& dt)
     // Положение рубильника АКБ
     analogSignal[ACCUM_SWITCH_POS] = static_cast<float>(accum_switch.getState());
 
-    analogSignal[CABINE1_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE1_DOOR].value;
-    analogSignal[CABINE2_DOOR_ACTION] = 2.0f * control_inputs[CABS_NUM][CTRL_CABINE2_DOOR].value;
+    analogSignal[CABINE1_DOOR_ACTION] = 2.0f * vc_inputs.getValue(CABS_NUM, CTRL_CABINE1_DOOR);
+    analogSignal[CABINE2_DOOR_ACTION] = 2.0f * vc_inputs.getValue(CABS_NUM, CTRL_CABINE2_DOOR);
 
     // Жалюзи
     analogSignal[TOP_BLINDS_ACTION] = (water_blinds_open || oil_blinds_open) ? 1.0f : 0.0f;
